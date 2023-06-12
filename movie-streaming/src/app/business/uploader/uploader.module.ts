@@ -8,6 +8,7 @@ import { HistoryListComponent } from './history-list/history-list.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UploadFormComponent } from './upload-form/upload-form.component';
+import { WidgetsModule } from 'src/app/common/widgets/widgets.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { UploadFormComponent } from './upload-form/upload-form.component';
   ],
   imports: [
     CommonModule,
-    UploaderRoutingModule
+    UploaderRoutingModule,
+    WidgetsModule
   ]
 })
 export class UploaderModule { }
