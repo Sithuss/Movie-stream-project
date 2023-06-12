@@ -15,13 +15,26 @@ export class MovieService{
       length: 120,
       category: {
         id:1, name: "war"
-      }, actor: "jakie",
+      }, actor: "u ba",
       actress: "daw hla",
       publisher: "moon",
       released:'2023.5.11',
       description:"a yan kyan",
       photo:"ww3",
       movieFile:"achit"
+    },
+    {
+      id:2, title: "ww2",
+      length: 130,
+      category: {
+        id:1, name: "war"
+      }, actor: "u mya",
+      actress: "daw warr",
+      publisher: "sun",
+      released:'2021.6.12',
+      description:"beetee good",
+      photo:"ww2",
+      movieFile:"woo"
     }
   ]
 
@@ -29,6 +42,6 @@ export class MovieService{
     return of(this.movieList);
   }
   upload(movie:Movie){
-    
+
   }
 }

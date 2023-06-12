@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DayNightService } from 'src/app/service/day-night.service';
 import { MovieService } from 'src/app/service/movie.service';
 
@@ -12,9 +12,10 @@ export class HistoryListComponent implements OnInit{
   constructor(public dayNightService: DayNightService,
     private movieServie: MovieService){}
 
+  isNight!:boolean;
+
   movieList:any[] = []
   ngOnInit(): void {
-    this.movieServie.findAll().subscribe(r => {this.movieList = r
-    console.log(r)})
+    this.movieServie.findAll().subscribe(r => {this.movieList = r})
   }
 }

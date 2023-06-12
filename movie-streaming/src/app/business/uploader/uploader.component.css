@@ -1,9 +1,9 @@
-.day-mode{
-  background-color: white;
-  color: black;
-}
 
 .night-mode{
-  background-color: black;
+  background-color: rgb(33, 37, 41);
   color: white;
+}
+
+.footer-bot{
+  margin-bottom: 0;
 }
