@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UploadFormComponent } from './upload-form/upload-form.component';
 import { NotiComponent } from './noti/noti.component';
+import { WidgetsModule } from 'src/app/common/widgets/widgets.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { NotiComponent } from './noti/noti.component';
   ],
   imports: [
     CommonModule,
-    UploaderRoutingModule
+    UploaderRoutingModule,
+    WidgetsModule
   ]
 })
 export class UploaderModule { }

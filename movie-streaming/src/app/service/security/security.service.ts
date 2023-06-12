@@ -11,4 +11,8 @@ export class SecurityService{
     return this.api.signUp(form);
   }
 
+  signIn(form:any) {
+    return this.api.signIn(form)
+  }
+
 }

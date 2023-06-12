@@ -12,35 +12,16 @@ export class SignUpComponent {
 
   signupForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,
-    private security:SecurityService,
-    private router:Router) {
-    this.signupForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required]
-    });
+  constructor(private fb:FormBuilder) {
+    this.signupForm = fb.group({
+      name:['',[Validators.required]],
+      email:['', [Validators.required, Validators.email]],
+      password:['', [Validators.required]]
+    })
   }
 
-  // get form() { return this.signupForm.controls; }
-
-  // onSubmit() {
-  //   if (this.signupForm.invalid) {
-  //     return;
-  //   }
-
-  //   console.log(this.signupForm.value);
-  // }
-
-  signUp() {
-    if(this.signupForm.valid) {
-      this.security.signUp(this.signupForm.value).subscribe(result => {
-        if(result) {
-          this.router.navigate(['/', result.password.toLocaleLowerCase() ])
-        }
-      })
-    }
+  SignUp() {
+    console.log(this.signupForm.value);
   }
 
 }
