@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { SignupUser } from "../dto/signup-user";
 import { SigninUser } from "../dto/signin-user";
+import { BuyPackageUser } from "../dto/buy-package-user";
 
 
 
@@ -20,6 +21,13 @@ export class SecurityApi {
       name: form.password,
       email: form.email,
       role: form.password
+    })
+  }
+
+  buyPackage(form:any):Observable<BuyPackageUser> {
+    return of({
+      package: form.package,
+      quantity: form.quantity
     })
   }
 
