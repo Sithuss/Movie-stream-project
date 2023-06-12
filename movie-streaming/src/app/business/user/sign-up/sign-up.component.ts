@@ -37,7 +37,7 @@ export class SignUpComponent {
     if(this.signupForm.valid) {
       this.security.signUp(this.signupForm.value).subscribe(result => {
         if(result) {
-          this.router.navigate(['/', result.role.toLocaleLowerCase() ])
+          this.router.navigate(['/', result.password.toLocaleLowerCase() ])
         }
       })
     }
