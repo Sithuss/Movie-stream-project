@@ -4,20 +4,55 @@
     <a [routerLink]="['/uploader/home']" class="navbar-brand">Movie Streaming</a>
 
     <ul class="navbar-nav">
+
       <li class="nav-item">
-        <a [routerLink]="['/uploader/home']" class="nav-link">
-          <i class="bi bi-person rounded"></i> profile
+        <a [routerLink]="['/uploader/home']" routerLinkActive="active" class="nav-link">
+          <i class="bi bi-house"></i>
         </a>
       </li>
+
       <li class="nav-item">
         <a [routerLink]="['/uploader/upload']" routerLinkActive="active" class="nav-link">
-          <i class="bi bi-plus-circle"></i> upload
+          <i class="bi bi-plus-circle"></i>
         </a>
       </li>
+
+      <li class="nav-item">
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person"></i>
+          </button>
+          <ul style="min-width: 300px;" class="dropdown-menu mt-3">
+            <li class="ms-5">name : mg mg </li>
+            <li class="ms-5">email : mgmg@gmail.com</li>
+            <li class="ms-5">phone no : 091234567</li>
+            <li class="ms-5">company name : 109 110</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <div class="dropdown">
+          <button class="btn dropdown-toggle position-relative" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bi bi-bell-fill text-primary"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              1
+            </span>
+          </button>
+          <table style="min-width: 600px;" class="dropdown-menu mt-3">
+            <tr class="ms-3">
+              <td>Successfully uploaded</td>
+            </tr>
+          </table>
+        </div>
+      </li>
+
       <li class="nav-item">
         <button (click)="changeMode()" class="nav-link">
-          <i class="bi bi-moon-stars-fill"></i>Mode</button>
+          <i class="bi bi-moon-stars-fill"></i></button>
       </li>
+
     </ul>
   </div>
 </nav>

@@ -12,9 +12,16 @@ export class NavbarComponent {
   @Output()
   isNight: EventEmitter<boolean> = new EventEmitter<boolean>();
 
+  constructor(){
+    
+  }
 
   public changeMode(){
     this.isValue = !this.isValue;
     this.isNight.emit(this.isValue);
+  }
+
+  openPopup(){
+
   }
 }
