@@ -10,7 +10,9 @@ import { MovieService } from 'src/app/service/movie.service';
 export class HistoryListComponent implements OnInit{
 
   constructor(public dayNightService: DayNightService,
-    private movieServie: MovieService){}
+    private movieServie: MovieService){
+      this.isNight = this.dayNightService.isNight().nightMode;
+    }
 
   isNight!:boolean;
 
