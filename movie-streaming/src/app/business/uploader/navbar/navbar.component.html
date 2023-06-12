@@ -1,0 +1,28 @@
+<nav [ngClass]="{'home' : true, 'night-mode': isValue}" class="navbar navbar-expand ">
+  <div class="container">
+    <a [routerLink]="['/uploader/home']" class="navbar-brand">Movie Streaming</a>
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a [routerLink]="['/uploader/home']" class="nav-link">
+          <i class="bi bi-person navbar-photo"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/uploader/upload']" routerLinkActive="active" class="nav-link">
+          <i class="bi bi-add"></i> upload
+        </a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/admin/admin-dashboard']" routerLinkActive="active" class="nav-link">
+          <i class="bi bi-add"></i> Admin Dashboard
+        </a>
+        <!-- for connect route with admin module setup-03 -->
+        <!-- for route testing -->
+      </li>
+      <li class="">
+        <button (click)="changeMode()" class="btn ">Mode</button>
+      </li>
+    </ul>
+  </div>
+</nav>
