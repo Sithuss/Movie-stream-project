@@ -5,7 +5,6 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
 import { WatchMovieComponent } from './watch-movie/watch-movie.component';
 import { BuyBackageComponent } from './buy-backage/buy-backage.component';
-import { UserHomeComponent } from './user-home/user-home.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { GiveReviewsComponent } from './give-reviews/give-reviews.component';
 import { UserAccountComponent } from 'src/app/common/pages/user-account/user-account.component';
@@ -14,18 +13,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { WidgetsModule } from 'src/app/common/widgets/widgets.module';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MovieListComponent } from './movie-list/movie-list.component';
 
 @NgModule({
   declarations: [
     UserComponent,
     WatchMovieComponent,
     BuyBackageComponent,
-    UserHomeComponent,
     MovieDetailsComponent,
     GiveReviewsComponent,
     EditAccountComponent,
     SignUpComponent,
-    SignInComponent
+    SignInComponent,
+    NavbarComponent,
+    MovieListComponent
   ],
   imports: [
     CommonModule,

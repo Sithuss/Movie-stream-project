@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Movie } from './../business/uploader/model/movie';
 
 @Injectable({
@@ -7,7 +7,8 @@ import { Movie } from './../business/uploader/model/movie';
 })
 export class MovieService{
 
-  constructor(){}
+  
+
 
   private movieList:Movie[] =[
     {
@@ -47,4 +48,23 @@ export class MovieService{
     movie.id= 3;
     this.movieList.push(movie);
   }
+
+  private movieSubject:BehaviorSubject<Movie[]>=
+    new BehaviorSubject<Movie[]>([]);
+
+  movies$:Observable<Movie[]>=this.movieSubject.asObservable();
+
+
+  searchByCategory(id: number):Observable<any[]> {
+    return of(this.movieList)
+  }
+
+  search(value: any):Observable<any[]> {
+    return of(this.movieList)
+  }
+
+  
+
+
+  
 }
