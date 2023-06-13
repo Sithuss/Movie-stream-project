@@ -17,6 +17,7 @@ export class MovieService{
         id:1, name: "war"
       }, actor: "u ba",
       actress: "daw hla",
+      director: "ma aye aye win",
       publisher: "moon",
       released:'2023.5.11',
       description:"a yan kyan",
@@ -30,6 +31,7 @@ export class MovieService{
         id:1, name: "war"
       }, actor: "u mya",
       actress: "daw warr",
+      director: "steel",
       publisher: "sun",
       released:'2021.6.12',
       description:"beetee good",
@@ -42,6 +44,7 @@ export class MovieService{
     return of(this.movieList);
   }
   upload(movie:Movie){
-
+    movie.id= 3;
+    this.movieList.push(movie);
   }
 }

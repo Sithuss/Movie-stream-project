@@ -8,6 +8,7 @@ export interface Movie {
   }
   actor:string
   actress:string
+  director: string
   publisher:string
   released:string
   description:string

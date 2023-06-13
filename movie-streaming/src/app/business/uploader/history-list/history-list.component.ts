@@ -19,6 +19,8 @@ export class HistoryListComponent implements OnInit, AfterViewChecked{
 
   movieList:BehaviorSubject<Movie[]> = new BehaviorSubject<Movie[]> ([]);
 
+  movies : Movie [] = []
+
   movieList$:Observable<Movie[]> = this.movieList.asObservable();
 
   ngOnInit(): void {
@@ -31,7 +33,10 @@ export class HistoryListComponent implements OnInit, AfterViewChecked{
 
   delete(id:number){
     return this.movieList$.pipe(
-      map( ms => ms.find(m => m.id === id))
-    )as Observable<Movie>;
+      map( ms => ms.filter(m => m.id != id) as Movie [])
+    ).subscribe( d => {
+      this.movies = d;
+      this.movieList.next(this.movies)
+    });
   }
 }

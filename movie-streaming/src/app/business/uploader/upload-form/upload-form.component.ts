@@ -1,6 +1,11 @@
+import { Movie } from './../model/movie';
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+=======
+import { MovieService } from 'src/app/service/movie.service';
+>>>>>>> kh-dev
 
 @Component({
   selector: 'app-upload-form',
@@ -8,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class UploadFormComponent {
 
+<<<<<<< HEAD
   form:FormGroup
 
   constructor(
@@ -26,4 +32,13 @@ export class UploadFormComponent {
     }
 
 
+=======
+  constructor(private mService:MovieService){
+
+  }
+
+  uploadM(m:Movie){
+    this.mService.upload(m);
+  }
+>>>>>>> kh-dev
 }

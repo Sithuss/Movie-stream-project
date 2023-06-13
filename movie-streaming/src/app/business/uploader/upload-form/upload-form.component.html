@@ -1,16 +1,26 @@
-
 <html>
+
 <head>
   <title>Movie Upload Form</title>
 </head>
-<body>
- <div class="container">
 
+<body>
+  <div class="container">
+
+<<<<<<< HEAD
+    <div class="card">
+      <div class="card-header">
+        <h3 class="text-center">Movie Upload Form</h3>
+      </div>
+      <div class="card-body">
+        <form method="POST" enctype="multipart/form-data">
+=======
   <div class="card">
     <div class="card-header">
       <h3 class="text-center">Movie Upload Form</h3>
     </div>
     <div class="card-body">
+<<<<<<< HEAD
       <form [formGroup]="form">
         <div class="row">
 
@@ -42,6 +52,15 @@
 
 
 
+=======
+      <form method="POST" enctype="multipart/form-data">
+
+        <div class="form-group mb-3">
+          <label for="title">Movie Title</label>
+          <input type="text" name="title" id="title" class="form-control" required>
+        </div>
+        
+>>>>>>> kh-dev
         <div class="form-group mb-3">
           <label for="description">Description</label>
       <textarea name="description" id="description" class="form-control" rows="4" cols="40"></textarea>
@@ -50,16 +69,31 @@
           <label for="poster">Movie Poster</label>
           <input type="file" name="poster" class="form-control" id="poster">
         </div>
+>>>>>>> ee98af6 (up)
 
-        <div class="form-group mb-3">
-          <label for="movie">Movie File</label>
-          <input type="file" name="movie" id="movie" class="form-control" accept="video/*" required>
-        </div>
+          <div class="form-group mb-3 ">
+            <label for="title">Movie Title</label>
+            <input type="text" name="title" id="title" class="form-control" required>
+          </div>
+          <div class="form-group mb-3">
+            <label for="description">Description</label><br>
+            <textarea name="description" id="description" class="form-control" rows="4" cols="40"></textarea>
+          </div>
+          <div class="form-group mb-3">
+            <label for="poster">Movie Poster</label>
+            <input type="file" name="poster" class="form-control" id="poster">
+          </div>
 
-      <input type="submit" class="btn btn-sm btn-primary" value="Upload">
-    </form>
+          <div class="form-group mb-3">
+            <label for="movie">Movie File</label>
+            <input type="file" name="movie" id="movie" class="form-control" accept="video/*" required>
+          </div>
+
+          <input type="submit" class="btn btn-sm btn-primary" value="Upload">
+        </form>
+      </div>
     </div>
   </div>
-</div>
 </body>
+
 </html>
