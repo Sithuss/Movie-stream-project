@@ -8,6 +8,7 @@ import { UploaderListComponent } from './uploader-list/uploader-list.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { NotiListComponent } from './noti-list/noti-list.component';
 import { DataFlowComponent } from './data-flow/data-flow.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { DataFlowComponent } from './data-flow/data-flow.component';
     UploaderListComponent,
     MovieListComponent,
     NotiListComponent,
-    DataFlowComponent
+    DataFlowComponent,
+    AdminDashboardComponent
   ],
   imports: [
     CommonModule,
