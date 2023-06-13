@@ -41,12 +41,10 @@ export class MovieService{
   ]
 
   findAll():Observable<Movie[]> {
-    console.log(this.movieList.length)
     return of(this.movieList);
   }
   upload(movie:Movie){
     movie.id= 3;
     this.movieList.push(movie);
-    console.log(this.movieList.length);
   }
 }
