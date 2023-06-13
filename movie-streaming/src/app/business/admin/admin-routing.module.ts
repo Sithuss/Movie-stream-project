@@ -5,6 +5,7 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { NotiListComponent } from './noti-list/noti-list.component';
 import { UploaderListComponent } from './uploader-list/uploader-list.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { DataFlowComponent } from './data-flow/data-flow.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,8 @@ const routes: Routes = [
       {path:'movie-list', component:MovieListComponent},
       {path:'noti-list', component:NotiListComponent},
       {path:'uploader-list', component:UploaderListComponent},
-      {path:'user-list', component:UserListComponent}
+      {path:'user-list', component:UserListComponent},
+      {path:'data-flow', component:DataFlowComponent}
     ]
   }
 ];
