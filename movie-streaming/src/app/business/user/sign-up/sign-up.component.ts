@@ -27,6 +27,7 @@ export class SignUpComponent {
       password:['', [Validators.required]],
       // confirmPassword:['', [passwordMatchValidator()]],
       transaction:['', [Validators.required]],
+      premimPk:0,
       role:['user']
     })
   }
