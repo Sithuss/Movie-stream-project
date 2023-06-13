@@ -11,6 +11,8 @@ import { passwordMatchValidator } from 'src/app/service/validators/password.matc
 })
 export class SignUpComponent {
 
+  admin = true;
+
   uploader=false;
 
   status:string = "uploader"
@@ -29,6 +31,7 @@ export class SignUpComponent {
 
   SignUp() {
     console.log(this.signupForm.value);
+    //TODO
     this.router.navigate(['/user/sign-in']);
   }
 
@@ -41,6 +44,12 @@ export class SignUpComponent {
       this.uploader = false;
       this.status = "uploader"
     }
+  }
+
+  adminRegister() {
+    console.log("admin registeration triggered");
+    console.log(this.signupForm.value);
+    // TODO
   }
 
 }
