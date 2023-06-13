@@ -9,7 +9,7 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="bi bi-justify-left text-bold" style="font-size: 22px;"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="index3.html" class="nav-link">Home</a>
+          <a [routerLink]="['/admin/admin-dashboard']" class="nav-link">Home</a>
         </li>
       </ul>
 
@@ -156,15 +156,15 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-light-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">
+      <!-- <a href="index3.html" class="brand-link">
         <img src="assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">AdminLTE 2</span>
-      </a>
+      </a> -->
 
       <!-- Sidebar -->
-      <div class="sidebar">
+      <div class="sidebar bg-light">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
@@ -174,19 +174,6 @@
             <a href="#" class="d-block">John Doe</a>
           </div>
         </div>
-
-        <!-- SidebarSearch Form
-        <div class="form-inline">
-          <div class="input-group" data-widget="sidebar-search">
-            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-            <div class="input-group-append">
-              <button class="btn btn-sidebar">
-                <i class="bi bi-search fa-fw"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      -->
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
@@ -204,28 +191,28 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a [routerLink]="['/admin/user-list']" class="nav-link">
-                    <i class="bi bi-circle nav-icon"></i>
+                  <a [routerLink]="['/admin/user-list']" routerLinkActive="active" class="nav-link">
+                    <i class="bi bi-people-fill nav-icon"></i>
                     <p>User List</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a [routerLink]="['/admin/uploader-list']" class="nav-link">
-                    <i class="bi bi-circle nav-icon"></i>
+                  <a [routerLink]="['/admin/uploader-list']" routerLinkActive="active" class="nav-link">
+                    <i class="bi bi-arrow-up nav-icon"></i>
                     <p>Uploader List</p>
                   </a>
                 </li>
 
                 <li class="nav-item">
-                  <a [routerLink]="['/admin/movie-list']" class="nav-link">
-                    <i class="bi bi-circle nav-icon"></i>
+                  <a [routerLink]="['/admin/movie-list']" routerLinkActive="active" class="nav-link">
+                    <i class="bi bi-film nav-icon"></i>
                     <p>Movie List</p>
                   </a>
                 </li>
               </ul>
             </li>
             <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
+              <a href="assets/dist/pages/widgets.html" disabled class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
                   Widgets
@@ -308,12 +295,6 @@
       <!-- Main content -->
       <div class="content">
         <div class="container-fluid">
-
-
-
-
-
-        <!-- hffdjfdsfidfjfjfijj -->
 
           <div class="row">
 
