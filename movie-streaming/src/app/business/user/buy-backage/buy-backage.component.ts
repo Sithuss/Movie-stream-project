@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-buy-backage',
@@ -10,21 +11,22 @@ export class BuyBackageComponent {
 
   packageForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+    private router: Router) {
     this.packageForm = this.formBuilder.group({
       package: ['', Validators.required],
-      quantity: ['1', Validators.required]
+      quantity: [1],
+      paymentMethod: [''],
+      transaction: ['', Validators.required]
     });
    }
 
 
   submitForm() {
-    if (this.packageForm.valid) {
+    
       console.log(this.packageForm.value);
+      this.router.navigate(['user/watch']);
 
-    } else {
-      console.log('Form is invalid');
-    }
   }
 
 }
