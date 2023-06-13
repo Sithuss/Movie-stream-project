@@ -26,11 +26,15 @@ export class SignUpComponent {
       password:['', [Validators.required]],
       // confirmPassword:['', [passwordMatchValidator()]],
       transaction:['', [Validators.required]],
-      role:['']
+      role:['user']
     })
   }
 
   SignUp() {
+
+    if(this.uploader) {
+      this.signupForm.get('role')?.setValue('uploader');
+    }
     console.log(this.signupForm.value);
     //TODO
     this.router.navigate(['/user/sign-in']);
@@ -49,6 +53,7 @@ export class SignUpComponent {
 
   adminRegister() {
     console.log("admin registeration triggered");
+    this.signupForm.get('role')?.setValue('admin');
     console.log(this.signupForm.value);
     // TODO
   }
