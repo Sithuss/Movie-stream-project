@@ -10,6 +10,7 @@ import { UserAccountComponent } from 'src/app/common/pages/user-account/user-acc
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { EditAccountComponent } from './edit-account/edit-account.component';
+import { MovieListComponent } from './movie-list/movie-list.component';
 
 const routes: Routes = [
   {path:'',component:UserComponent, children:[
@@ -21,7 +22,8 @@ const routes: Routes = [
     {path:'sign-in', component:SignInComponent},
     {path:'edit-acc', component:EditAccountComponent},
     {path:'account', component:UserAccountComponent},
-    {path:'', redirectTo:'/user', pathMatch:'full'}
+    {path:'movie-list', component:MovieListComponent},
+    {path:'', redirectTo:'/user/movie-list', pathMatch:'full'}
   ]}
 ];
 @NgModule({

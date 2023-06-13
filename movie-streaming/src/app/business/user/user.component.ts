@@ -10,34 +10,6 @@ import { MovieService } from 'src/app/service/movie.service';
 })
 export class UserComponent {
 
-  searchForm: FormGroup;
-  movies: any[] = [];
   
-
-
-  constructor(private movieService:MovieService, builder:FormBuilder,private router:Router){
-    this.searchForm = builder.group({
-      keyword: ''
-    })
-  }
-
-  ngOnInit(): void {
-    this.movieService.findAll().subscribe(result => {
-      this.movies = result
-    })
-
-    this.search()
-  }
-
-  search() {
-    this.movieService.search(this.searchForm.value).subscribe(result => {
-      this.movies = result
-    })
-  }
-
-
-  showDetails(id:number) {
-    this.router.navigate(['/user', 'movie-details'], {queryParams: {id: id}})
-  }
 
 }
