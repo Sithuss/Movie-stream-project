@@ -10,19 +10,22 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 
 const routes: Routes = [
   {
-    path:'', component:AdminComponent, children:[
-      {path:'movie-list', component:MovieListComponent},
-      {path:'noti-list', component:NotiListComponent},
-      {path:'uploader-list', component:UploaderListComponent},
-      {path:'user-list', component:UserListComponent},
-      {path:'data-flow', component:DataFlowComponent},
-      {path:'admin-dashboard', component:AdminDashboardComponent}
-    ]
-  }
+    path: '',
+    component: AdminComponent,
+    children: [
+      { path: 'movie-list', component: MovieListComponent },
+      { path: 'noti-list', component: NotiListComponent },
+      { path: 'uploader-list', component: UploaderListComponent },
+      { path: 'user-list', component: UserListComponent },
+      { path: 'data-flow', component: DataFlowComponent },
+      { path: 'admin-dashboard', component: AdminDashboardComponent },
+      { path: '', redirectTo: '/admin/admin-dashboard', pathMatch: 'prefix' },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}
