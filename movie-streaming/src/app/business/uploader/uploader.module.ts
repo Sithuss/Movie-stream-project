@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { UploadFormComponent } from './upload-form/upload-form.component';
 import { NotiComponent } from './noti/noti.component';
 import { WidgetsModule } from 'src/app/common/widgets/widgets.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { WidgetsModule } from 'src/app/common/widgets/widgets.module';
   imports: [
     CommonModule,
     UploaderRoutingModule,
-    WidgetsModule
+    WidgetsModule,
+    ReactiveFormsModule
   ]
 })
 export class UploaderModule { }

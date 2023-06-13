@@ -3,7 +3,7 @@ export interface Movie {
   title:string
   length:number
   category:{
-    id:number
+    id?:number
     name:string
   }
   actor:string
