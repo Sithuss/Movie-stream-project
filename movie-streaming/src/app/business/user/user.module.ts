@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { WidgetsModule } from 'src/app/common/widgets/widgets.module';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MovieListComponent } from './movie-list/movie-list.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { WidgetsModule } from 'src/app/common/widgets/widgets.module';
     GiveReviewsComponent,
     EditAccountComponent,
     SignUpComponent,
-    SignInComponent
+    SignInComponent,
+    NavbarComponent,
+    MovieListComponent
   ],
   imports: [
     CommonModule,
