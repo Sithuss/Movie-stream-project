@@ -1,5 +1,12 @@
-<div [ngClass]="{'home' : true, 'night-mode': isDay}">
-  <app-navbar (isNight)="fromNav($event)" class="mt-5"> </app-navbar>
-  <router-outlet class="mt-5"></router-outlet>
-  <app-footer class="footer-bot"></app-footer>
+<!-- <div [ngClass]="{'home' : true, 'night-mode': isDay}"> -->
+<div>
+  <div class=" mb-5">
+    <app-navbar (isNight)="fromNav($event)"> </app-navbar>
+  </div>
+  <div style=" min-height: 62vh;">
+    <router-outlet></router-outlet>
+  </div>
+  <div>
+    <app-footer></app-footer>
+  </div>
 </div>
