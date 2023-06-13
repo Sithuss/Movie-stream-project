@@ -1,4 +1,4 @@
-<div style="max-width: 1000px; margin: 0 auto; padding-bottom: 100px;">
+<div style="max-width: 1000px; margin: 0 auto; padding-bottom: 100px; color: white; background-color: black;">
   <h1 style="text-align: center;">Movie Title</h1>
   <div style="position: relative; padding-bottom: 70%; padding-top: 30px; height: 0; overflow: hidden;" class="card bg-secondary">
     <div class="card-header bg-secondary">
@@ -11,12 +11,11 @@
         <source src="" type="video/mp4">
       </video>
     </div>
-    <div class="card-body bg-secondary text-end">
-      <a href="#" class="text-white me-3"><span>To stream or download, please sign in!</span></a>
-      <a href="#" class="btn btn-outline-warning me-3" [routerLink]="['/user/buy']">Premium Packages</a>
-      <a href="#" class="btn btn-success">Download</a>
-
-    </div>
+  </div>
+  <div class="card-body text-start" style="background-color: black; padding-top: 20px; padding-bottom: 10px;">
+    <a href="#" class="text-white me-3 text-start"><span>To stream or download, please sign in!</span></a>
+    <a href="#" class="btn btn-outline-warning me-3 ms-auto text-end" [routerLink]="['/user/buy']">Premium Packages</a>
+    <a href="#" class="btn btn-success me-auto">Download</a>
   </div>
 </div>
 
