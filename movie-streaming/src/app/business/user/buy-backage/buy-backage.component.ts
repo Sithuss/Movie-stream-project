@@ -12,7 +12,8 @@ export class BuyBackageComponent {
 
   constructor(private formBuilder: FormBuilder) {
     this.packageForm = this.formBuilder.group({
-      package: ['', Validators.required]
+      package: ['', Validators.required],
+      quantity: ['1', Validators.required]
     });
    }
 

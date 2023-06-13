@@ -15,4 +15,8 @@ export class SecurityService{
     return this.api.signIn(form)
   }
 
+  buyPackage(form:any) {
+    return this.api.buyPackage(form)
+  }
+
 }
