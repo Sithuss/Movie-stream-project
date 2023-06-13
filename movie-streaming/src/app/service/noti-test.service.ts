@@ -26,4 +26,8 @@ export class NotiTestService{
   findAllNoti():Observable<NotiTest[]>{
     return of(this.notiList);
   }
+
+  addNoti(noti:NotiTest){
+    this.notiList.push(noti);
+  }
 }

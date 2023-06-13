@@ -24,14 +24,35 @@
           </button>
           <div>
             <ul *ngIf="(user | async) as user" class="noti-alg shadow dropdown-menu mt-3">
-              <li class="ms-5">name : {{user.name}} </li>
-              <li class="ms-5">email : {{user.email}}</li>
-              <li class="ms-5">phone no : {{user.phone}}</li>
-              <li class="ms-5">company name : {{user.company}}</li>
-              <li>
-                <a href="#" class="btn btn-warning d-flex justify-content-center">
-                  <i class="bi bi-pencil"></i>Edit
-                </a>
+              <li class="">
+                <div class="d-flex justify-content-center">
+                  <p>name : {{user.name}}</p>
+                </div>
+              </li>
+              <li class="">
+                <div class="d-flex justify-content-center">
+                  <p>phone : {{user.phone}}</p>
+                </div>
+              </li>
+              <li class="">
+                <div class="d-flex justify-content-center">
+                  <p>email : {{user.email}}</p>
+                </div>
+              </li>
+              <li class="">
+                <div class="d-flex justify-content-center">
+                  <p>company : {{user.company}}</p>
+                </div>
+              </li>
+              <li class="mt-3">
+                <div class="d-flex justify-content-center">
+                  <a href="#" class="btn btn-warning rounded-pill">
+                    <i class="bi bi-pencil"></i>
+                  </a>
+                  <button class="btn btn-danger rounded-pill">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                  </button>
+                </div>
               </li>
             </ul>
           </div>
@@ -52,24 +73,8 @@
             <ul class="" *ngFor="let noti of noti">
               <li class="dropdown-item">
                 <a href="#" class="nav-link">{{noti.descript}}</a>
-                <div class="dropdown-divider"></div>
               </li>
             </ul>
-
-            <!-- <a href="#" class="dropdown-item">
-              <i class="fas fa-envelope mr-2"></i> 4 new messages
-              <span class="float-right text-muted text-sm">3 mins</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-users mr-2"></i> 8 friend requests
-              <span class="float-right text-muted text-sm">12 hours</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-file mr-2"></i> 3 new reports
-              <span class="float-right text-muted text-sm">2 days</span>
-            </a> -->
           </div>
         </div>
       </li>
