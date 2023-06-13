@@ -12,6 +12,7 @@ import { EditAccountComponent } from 'src/app/business/user/edit-account/edit-ac
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { WidgetsModule } from 'src/app/common/widgets/widgets.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,6 @@ import { SignInComponent } from './sign-in/sign-in.component';
     BuyBackageComponent,
     MovieDetailsComponent,
     GiveReviewsComponent,
-    UserAccountComponent,
     EditAccountComponent,
     SignUpComponent,
     SignInComponent
@@ -29,7 +29,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
     CommonModule,
     UserRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    WidgetsModule
   ]
 })
 export class UserModule { }

@@ -1,5 +1,5 @@
 import { DayNightService } from '../../service/day-night.service';
-import { Component, Renderer2, OnInit } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-uploader',
@@ -8,7 +8,7 @@ import { Component, Renderer2, OnInit } from '@angular/core';
 })
 export class UploaderComponent {
 
-  constructor(public dayNightService: DayNightService, private render: Renderer2){
+  constructor(public dayNightService: DayNightService ){
 
   }
 

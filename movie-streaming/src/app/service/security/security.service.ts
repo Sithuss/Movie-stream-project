@@ -9,4 +9,12 @@ export class SecurityService{
 
   }
 
+  signIn(form:any) {
+    return this.api.signIn(form)
+  }
+
+  buyPackage(form:any) {
+    return this.api.buyPackage(form)
+  }
+
 }

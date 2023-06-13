@@ -1,20 +1,58 @@
+<<<<<<< HEAD
 <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="name">Name</label>
     <input type="text" id="name" formControlName="name">
     <div *ngIf="form['name'].touched && form['name'].errors">
       <div *ngIf="form['name'].errors['required']">Name is required.</div>
-    </div>
-  </div>
+=======
 
-  <div>
-    <label for="email">Email</label>
-    <input type="email" id="email" formControlName="email">
-    <div *ngIf="form['email'].touched && form['email'].errors">
-      <div *ngIf="form['email'].errors['required']">Email is required.</div>
-      <div *ngIf="form['email'].errors['email']">Email is invalid.</div>
+
+<div class="container my-5 w-50">
+  <div class="card rounded shadow">
+    <div class="card-header">
+      <h4><i class="bi bi-file-arrow-up-fill"></i> Sign up</h4>
+>>>>>>> 0884234afb15b34ed8503d5b9f23de8d824d3712
+    </div>
+    <div class="card-body">
+        <form [formGroup]="signupForm">
+          <app-form-group [valid]="signupForm.get('name')!.valid" label="UserName">
+            <input formControlName="name" type="email" class="form-control" placeholder="Enter your name">
+          </app-form-group>
+
+          <app-form-group [valid]="signupForm.get('email')!.valid" label="Email">
+            <input formControlName="email" type="email" class="form-control" placeholder="Enter your email">
+          </app-form-group>
+
+          <app-form-group [valid]="signupForm.get('password')!.valid" label="Password">
+            <input formControlName="password" type="password" class="form-control" placeholder="Password">
+          </app-form-group>
+
+          <!-- <app-form-group [valid]="signupForm.get('confirmPassword')!.valid" label="confirmPassword">
+            <input formControlName="confirmPassword" type="password" class="form-control" placeholder="confirmPassword">
+            <small class="invalid-feedback" *ngIf="signupForm.get('confirmPassword')?.errors?.['noMisMatch']">
+              <span>Passwrod and confirm password need to be the same.</span>
+            </small>
+          </app-form-group> -->
+
+          <div *ngIf="uploader">
+            <app-form-group [valid]="signupForm.get('password')!.valid" label="Transaction Number">
+              <input formControlName="transaction" type="tel" class="form-control" placeholder="Transaction Number">
+            </app-form-group>
+          </div>
+
+          <div class="d-flex" *ngIf="!admin">
+            <button type="submit" class="btn btn-sm btn-outline-primary" (click)="SignUp()">Submit</button>
+            <button (click)="changeUploader()" type="button" class="btn ms-auto btn-link">{{status}}</button>
+          </div>
+          <div *ngIf="admin">
+            <button type="submit" class="btn btn-sm btn-outline-primary" (click)="adminRegister()">Register</button>
+          </div>
+        </form>
+
     </div>
   </div>
+<<<<<<< HEAD
 
   <div>
     <label for="password">Password</label>
@@ -35,3 +73,8 @@
 
   <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
 </form>
+=======
+</div>
+
+
+>>>>>>> 0884234afb15b34ed8503d5b9f23de8d824d3712
