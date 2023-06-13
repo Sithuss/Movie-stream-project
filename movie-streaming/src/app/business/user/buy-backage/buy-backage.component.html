@@ -1,17 +1,42 @@
-
-    <div class="container my-5 w-50">
+<!--
+    <div class="container my-5 w-75">
       <div class="card">
         <div class="card header">
-          <h3><i class="bi bi-cart-fill"></i>Buy Package</h3>
+          <h4><i class="bi bi-cart-fill"></i>Buy Package</h4>
         </div>
         <div class="card-body">
           <form [formGroup]="packageForm">
-            <app-form-group [valid]="packageForm.get('package')!.valid" label="package">
-              <input formControlName="package" type="package" class="form-control" placeholder="Choose your package">
+            <app-form-group [valid]="packageForm.get('package')!.valid">
+              <label class="form-label">Available Packages
+                <input formControlName="package" type="text" class="form-control" placeholder="Choose your package">
+              </label>
+
             </app-form-group>
 
-            <app-form-group [valid]="packageForm.get('quantity')!.valid" label="quantity">
+            <app-form-group [valid]="packageForm.get('quantity')!.valid" label="Quantity">
               <input formControlName="quantity" type="number" class="form-control" placeholder="Select Quantity">
+            </app-form-group>
+
+            <app-form-group label="Payment Method">
+            <div class="form-check-inline">
+                <input type="radio" class="form-check-input" formControlName="paymentMethod"
+                  value="Paypal" name="Paypal" id="Paypal">
+                <label class="form-check-label" for="Paypal">Paypal</label>
+            </div>
+            <div class="form-check-inline">
+              <input type="radio" class="form-check-input" formControlName="paymentMethod"
+                value="Paypal" name="Paypal" id="Paypal">
+              <label class="form-check-label" for="Paypal">Paypal</label>
+            </div>
+            <div class="form-check-inline">
+              <input type="radio" class="form-check-input" formControlName="paymentMethod"
+                value="Paypal" name="Paypal" id="Paypal">
+              <label class="form-check-label" for="Paypal">Paypal</label>
+            </div>
+            </app-form-group>
+
+            <app-form-group [valid]="packageForm.get('password')!.valid" label="Transaction Number">
+              <input formControlName="transaction" type="tel" class="form-control" placeholder="Transaction Number">
             </app-form-group>
 
             <button type="submit" class="btn btn-primary" (click)="submitForm()">Buy</button>
@@ -19,9 +44,63 @@
           </form>
         </div>
       </div>
+    </div>  -->
+
+<div class="container w-50 my-5">
+  <div class="card">
+    <div class="card-header">
+      <h4> <i class="bi bi-cart-fill"></i> Buy Package</h4>
     </div>
+    <div class="card-body">
+      <div class="form-group mt-3">
+        <label for="package" class="form-label">Select a Package</label>
+          <select class="form-control" name="package" id="package" formControlName="package">
+            <option value="">Unlimited</option>
+            <option value="package1">Package 1</option>
+            <option value="package2">Package 2</option>
+            <option value="package3">Package 3</option>
+            <option value="package4">Package 4</option>
+          </select>
+
+          <br>
+
+          <label for="quantity">Quantity:</label>
+          <input type="number" class="form-control" id="quantity"
+          name="quantity" min="1" formControlName="quantity" value="0">
+      </div>
+
+      <div class="form-group mt-3">
+        <label>Payment Method: </label>
+        <div class="row ml-2">
+          <div class="form-check-inline spaced-radio ml-2">
+            <input type="radio" class="form-check-input" formControlName="paymentMethod"
+             value="Paypal" name="paymentMethod">
+            <label class="form-check-label mr-2">Paypal</label>
+          </div>
+
+          <div class="form-check-inline spaced-radio">
+            <input type="radio" class="form-check-input" formControlName="paymentMethod"
+             value="Paypal" name="paymentMethod">
+            <label class="form-check-label mr-2">Credit Card</label>
+          </div>
+
+          <div class="form-check-inline spaced-radio">
+            <input type="radio" class="form-check-input" formControlName="paymentMethod"
+             value="Paypal" name="paymentMethod">
+            <label class="form-check-label mr-2">Visa</label>
+          </div>
+        </div>
+
+        </div>
 
 
+
+      <div class="mt-auto text-right">
+        <button type="submit" class="form-group btn btn-info mt-3">Buy</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
