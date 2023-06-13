@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/service/user.service';
 import { passwordMatchValidator } from 'src/app/service/validators/password.match';
 
 
@@ -19,7 +20,7 @@ export class SignUpComponent {
 
   signupForm: FormGroup;
 
-  constructor(private fb:FormBuilder, private router:Router) {
+  constructor(private fb:FormBuilder, private router:Router, private userService:UserService) {
     this.signupForm = fb.group({
       name:['',[Validators.required]],
       email:['', [Validators.required, Validators.email]],
@@ -35,7 +36,8 @@ export class SignUpComponent {
     if(this.uploader) {
       this.signupForm.get('role')?.setValue('uploader');
     }
-    console.log(this.signupForm.value);
+    this.userService.createUser(this.signupForm.value);
+    // console.log(this.signupForm.value);
     //TODO
     this.router.navigate(['/user/sign-in']);
   }
