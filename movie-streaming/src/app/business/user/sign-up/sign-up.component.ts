@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-<<<<<<< HEAD
-=======
 import { Router } from '@angular/router';
 
->>>>>>> 9cfdcaf (validator deleted)
+
 
 @Component({
   selector: 'app-sign-up',
@@ -13,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent {
 
-  admin = false;
+  admin = true;
 
   uploader=false;
 
@@ -21,30 +19,31 @@ export class SignUpComponent {
 
   signupForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
-    this.signupForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required]
-    });
+  constructor(private fb:FormBuilder, private router:Router) {
+    this.signupForm = fb.group({
+      name:['',[Validators.required]],
+      email:['', [Validators.required, Validators.email]],
+      password:['', [Validators.required]],
+      // confirmPassword:['', [passwordMatchValidator()]],
+      transaction:['', [Validators.required]]
+    })
   }
 
-<<<<<<< HEAD
-  get form() { return this.signupForm.controls; }
-=======
   SignUp() {
+    console.log(this.signupForm.value);
     //TODO
     this.router.navigate(['/user/sign-in']);
   }
->>>>>>> 9cfdcaf (validator deleted)
 
-  onSubmit() {
-    if (this.signupForm.invalid) {
-      return;
+  changeUploader() {
+    if(this.uploader === false) {
+      this.uploader = true;
+      this.status = "user";
+    } else {
+      this.signupForm.reset();
+      this.uploader = false;
+      this.status = "uploader"
     }
-
-    console.log(this.signupForm.value);
   }
 
   adminRegister() {
