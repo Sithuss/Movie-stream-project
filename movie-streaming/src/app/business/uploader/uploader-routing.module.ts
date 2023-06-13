@@ -4,7 +4,6 @@ import { UploaderComponent } from './uploader.component';
 import { HomeComponent } from './home/home.component';
 import { UploadFormComponent } from './upload-form/upload-form.component';
 import { NotiComponent } from './noti/noti.component';
-import { FormGroupComponent } from 'src/app/common/widgets/form-group/form-group.component';
 
 const routes: Routes = [
   {path: '', component: UploaderComponent, children: [
