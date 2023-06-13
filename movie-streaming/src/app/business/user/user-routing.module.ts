@@ -6,25 +6,21 @@ import { WatchMovieComponent } from './watch-movie/watch-movie.component';
 import { BuyBackageComponent } from './buy-backage/buy-backage.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { GiveReviewsComponent } from './give-reviews/give-reviews.component';
-import { UserHomeComponent } from './user-home/user-home.component';
 import { UserAccountComponent } from 'src/app/common/pages/user-account/user-account.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { EditAccountComponent } from './edit-account/edit-account.component';
 
 const routes: Routes = [
-  {path:'',component:UserComponent, children:[
+    {path: '', component: UserComponent},
     {path:'movie-details', component:MovieDetailsComponent},
     {path:'give-reviews', component:GiveReviewsComponent},
-    {path:'user-home',component:UserHomeComponent},
     {path:'watch', component:WatchMovieComponent},
     {path:'buy', component:BuyBackageComponent},
     {path:'sign-up', component:SignUpComponent},
     {path:'sign-in', component:SignInComponent},
     {path:'edit-acc', component:EditAccountComponent},
-    {path:'account', component:UserAccountComponent},
-    {path:'', redirectTo:'/user', pathMatch:'full'}
-  ]}
+    {path:'account', component:UserAccountComponent}
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

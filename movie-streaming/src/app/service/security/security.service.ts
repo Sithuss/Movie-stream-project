@@ -5,10 +5,8 @@ import { SecurityApi } from "../apis/security.api.service";
 @Injectable({providedIn: 'root'})
 export class SecurityService{
 
-  constructor(private api:SecurityApi) {}
+  constructor(private api:SecurityApi) {
 
-  signUp(form:any) {
-    return this.api.signUp(form);
   }
 
 }

@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { Movie } from './../business/uploader/model/movie';
+import { BehaviorSubject, Observable, map, of } from 'rxjs';
+import { Movie } from '../business/uploader/model/movie';
 
 @Injectable({
   providedIn: 'any'
 })
 export class MovieService{
 
-  constructor(){}
+
 
   private movieList:Movie[] =[
     {
@@ -38,10 +38,36 @@ export class MovieService{
     }
   ]
 
+  private movieSubject:BehaviorSubject<Movie[]>=
+    new BehaviorSubject<Movie[]>([]);
+
+  movies$:Observable<Movie[]>=this.movieSubject.asObservable();
+
+  findMovieById(id:number):Observable<Movie>{
+    return this.movies$.pipe(
+      map(movies => movies.find(b => b.id === id))
+
+    )as Observable<Movie>;
+  }
+
+
+  searchByCategory(id: number):Observable<any[]> {
+    return of(this.movieList)
+  }
+
+  search(value: any):Observable<any[]> {
+    return of(this.movieList)
+  }
+
   findAll():Observable<any[]> {
+
     return of(this.movieList);
   }
+
   upload(movie:Movie){
 
   }
+
+  
+
 }

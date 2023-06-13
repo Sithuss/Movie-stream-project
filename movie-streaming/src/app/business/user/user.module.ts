@@ -5,7 +5,6 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
 import { WatchMovieComponent } from './watch-movie/watch-movie.component';
 import { BuyBackageComponent } from './buy-backage/buy-backage.component';
-import { UserHomeComponent } from './user-home/user-home.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { GiveReviewsComponent } from './give-reviews/give-reviews.component';
 import { UserAccountComponent } from 'src/app/common/pages/user-account/user-account.component';
@@ -19,7 +18,6 @@ import { SignInComponent } from './sign-in/sign-in.component';
     UserComponent,
     WatchMovieComponent,
     BuyBackageComponent,
-    UserHomeComponent,
     MovieDetailsComponent,
     GiveReviewsComponent,
     UserAccountComponent,
