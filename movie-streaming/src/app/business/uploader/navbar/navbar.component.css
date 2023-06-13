@@ -1,10 +1,9 @@
 .navbar-photo {
   border-radius: 50%;
   object-fit: cover;
-  background-color: antiquewhite;
 }
 .noti-alg {
-  min-width: 300px; left:  1100px;
+  min-width: 300px; left:  1100px; right: 50px;
 }
 
 .noti-bg{

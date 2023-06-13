@@ -27,7 +27,17 @@ export class NotiTestService{
     return of(this.notiList);
   }
 
+  notiC:number=0;
   addNoti(noti:NotiTest){
     this.notiList.push(noti);
+    this.handleNoti();
+  }
+
+  handleNoti() {
+     return this.notiC++;
+  }
+
+  resetNotiC(){
+    this.notiC = 0;
   }
 }
