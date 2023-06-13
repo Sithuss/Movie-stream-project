@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class MovieDetailsComponent {
 
+  // movie : any
+
+  // ngOnInit(): void {
+  //   const id=this.route.snapshot.paramMap.get('id') as string;
+
+  //   this.book$= this.bookService.findBookById(parseInt(id));
+  // }
+
+
 }
