@@ -7,50 +7,57 @@
 
       <li class="nav-item">
         <a [routerLink]="['/uploader/home']" routerLinkActive="active" class="nav-link">
-          <i class="bi bi-house"></i>
+          <i class="bi bi-house fs-5"></i>
         </a>
       </li>
 
       <li class="nav-item">
         <a [routerLink]="['/uploader/upload']" routerLinkActive="active" class="nav-link">
-          <i class="bi bi-plus-circle"></i>
+          <i class="bi bi-plus-circle fs-5"></i>
         </a>
       </li>
 
       <li class="nav-item">
-        <div class="dropdown">
-          <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-person"></i>
+        <div class="notification-dropdown">
+          <button class="btn nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person fs-5"></i>
           </button>
-          <ul style="min-width: 300px;" class="dropdown-menu mt-3">
-            <li class="ms-5">name : mg mg </li>
-            <li class="ms-5">email : mgmg@gmail.com</li>
-            <li class="ms-5">phone no : 091234567</li>
-            <li class="ms-5">company name : 109 110</li>
-          </ul>
+          <div>
+            <ul *ngIf="(user | async) as user" class="noti-alg shadow dropdown-menu mt-3">
+              <li class="ms-5">name : {{user.name}} </li>
+              <li class="ms-5">email : {{user.email}}</li>
+              <li class="ms-5">phone no : {{user.phone}}</li>
+              <li class="ms-5">company name : {{user.company}}</li>
+              <li>
+                <a href="#" class="btn btn-warning d-flex justify-content-center">
+                  <i class="bi bi-pencil"></i>Edit
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </li>
 
-      <li class="nav-item">
-        <div class="dropdown">
+      <!-- <li class="nav-item">
+        <div class="notification-dropdown ">
           <button class="btn dropdown-toggle position-relative" type="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            <i class="bi bi-bell-fill text-primary"></i>
+            aria-expanded="true">
+            <i class="bi bi-bell-fill text-primary fs-5"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-              1
+              {{noti.length}}
             </span>
           </button>
-          <table style="min-width: 600px;" class="dropdown-menu mt-3">
-            <tr class="ms-3">
-              <td>Successfully uploaded</td>
+          <table class="noti-alg dropdown-menu shadow mt-3">
+            <tr *ngFor="let noti of noti">
+              <td class="align-item-center">{{noti.descript}}</td>
             </tr>
           </table>
         </div>
-      </li>
+      </li> -->
 
       <li class="nav-item">
         <button (click)="changeMode()" class="nav-link">
-          <i class="bi bi-moon-stars-fill"></i></button>
+          <i class="bi bi-moon-stars-fill fs-5"></i></button>
       </li>
 
     </ul>
