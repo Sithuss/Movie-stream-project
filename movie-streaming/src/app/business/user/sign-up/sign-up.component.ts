@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+<<<<<<< HEAD
+=======
+import { Router } from '@angular/router';
+
+>>>>>>> 9cfdcaf (validator deleted)
 
 @Component({
   selector: 'app-sign-up',
@@ -8,7 +13,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SignUpComponent {
 
-  admin = true;
+  admin = false;
 
   uploader=false;
 
@@ -25,7 +30,14 @@ export class SignUpComponent {
     });
   }
 
+<<<<<<< HEAD
   get form() { return this.signupForm.controls; }
+=======
+  SignUp() {
+    //TODO
+    this.router.navigate(['/user/sign-in']);
+  }
+>>>>>>> 9cfdcaf (validator deleted)
 
   onSubmit() {
     if (this.signupForm.invalid) {
