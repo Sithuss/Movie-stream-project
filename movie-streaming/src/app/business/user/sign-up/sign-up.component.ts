@@ -11,7 +11,7 @@ import { passwordMatchValidator } from 'src/app/service/validators/password.matc
 })
 export class SignUpComponent {
 
-  admin = true;
+  admin = false;
 
   uploader=false;
 
@@ -25,7 +25,8 @@ export class SignUpComponent {
       email:['', [Validators.required, Validators.email]],
       password:['', [Validators.required]],
       // confirmPassword:['', [passwordMatchValidator()]],
-      transaction:['', [Validators.required]]
+      transaction:['', [Validators.required]],
+      role:['']
     })
   }
 
