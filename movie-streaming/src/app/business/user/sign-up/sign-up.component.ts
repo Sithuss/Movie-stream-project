@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/service/user.service';
 import { passwordMatchValidator } from 'src/app/service/validators/password.match';
 
 
@@ -19,19 +20,25 @@ export class SignUpComponent {
 
   signupForm: FormGroup;
 
-  constructor(private fb:FormBuilder, private router:Router) {
+  constructor(private fb:FormBuilder, private router:Router, private userService:UserService) {
     this.signupForm = fb.group({
       name:['',[Validators.required]],
       email:['', [Validators.required, Validators.email]],
       password:['', [Validators.required]],
       // confirmPassword:['', [passwordMatchValidator()]],
       transaction:['', [Validators.required]],
-      role:['']
+      premimPk:0,
+      role:['user']
     })
   }
 
   SignUp() {
-    console.log(this.signupForm.value);
+
+    if(this.uploader) {
+      this.signupForm.get('role')?.setValue('uploader');
+    }
+    this.userService.createUser(this.signupForm.value);
+    // console.log(this.signupForm.value);
     //TODO
     this.router.navigate(['/user/sign-in']);
   }
@@ -49,6 +56,7 @@ export class SignUpComponent {
 
   adminRegister() {
     console.log("admin registeration triggered");
+    this.signupForm.get('role')?.setValue('admin');
     console.log(this.signupForm.value);
     // TODO
   }
