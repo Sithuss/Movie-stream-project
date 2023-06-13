@@ -1,28 +1,11 @@
-<html>
+<div class="card">
+  <div class="card-header">
+    <h3 class="text-center">Movie Upload Form</h3>
+  </div>
+  <div class="card-body">
 
-<head>
-  <title>Movie Upload Form</title>
-</head>
-
-<body>
-  <div class="container">
-
-<<<<<<< HEAD
-    <div class="card">
-      <div class="card-header">
-        <h3 class="text-center">Movie Upload Form</h3>
-      </div>
-      <div class="card-body">
-        <form method="POST" enctype="multipart/form-data">
-=======
-  <div class="card">
-    <div class="card-header">
-      <h3 class="text-center">Movie Upload Form</h3>
-    </div>
-    <div class="card-body">
-<<<<<<< HEAD
-      <form [formGroup]="form">
-        <div class="row">
+    <form [formGroup]="form">
+      <div class="row">
 
         <app-form-group class="col" [valid]="form.get('title')!.valid" label="Movie Title">
           <input formControlName="title" type="text" class="form-control" placeholder="Enter movie title">
@@ -33,67 +16,24 @@
         <app-form-group class="col" [valid]="form.get('title')!.valid" label="Movie Category">
           <input formControlName="category" type="text" class="form-control" placeholder="Enter movie Category">
         </app-form-group>
-        </div>
+      </div>
 
-        <div class="row">
+      <div class="row">
 
         <app-form-group class="col" [valid]="form.get('actor')!.valid" label="Actor">
-          <input formControlName="actor" type="text" name="actor"  class="form-control" placeholder="Enter Actor Name">
-          </app-form-group>
+          <input formControlName="actor" type="text" name="actor" class="form-control" placeholder="Enter Actor Name">
+        </app-form-group>
 
-          <app-form-group class="col" [valid]="form.get('actress')!.valid" label="Actress Name">
-            <input formControlName="actress" type="text" name="acterss"  class="form-control" placeholder="Enter Actress Name">
-            </app-form-group>
-            <app-form-group class="col" [valid]="form.get('director')!.valid" label="Director Name">
-              <input formControlName="director" type="text" name="director"  class="form-control" placeholder="Enter Director Name">
-              </app-form-group>
-        </div>
-
-
-
-
-=======
-      <form method="POST" enctype="multipart/form-data">
-
-        <div class="form-group mb-3">
-          <label for="title">Movie Title</label>
-          <input type="text" name="title" id="title" class="form-control" required>
-        </div>
-        
->>>>>>> kh-dev
-        <div class="form-group mb-3">
-          <label for="description">Description</label>
-      <textarea name="description" id="description" class="form-control" rows="4" cols="40"></textarea>
-        </div>
-        <div class="form-group mb-3">
-          <label for="poster">Movie Poster</label>
-          <input type="file" name="poster" class="form-control" id="poster">
-        </div>
->>>>>>> ee98af6 (up)
-
-          <div class="form-group mb-3 ">
-            <label for="title">Movie Title</label>
-            <input type="text" name="title" id="title" class="form-control" required>
-          </div>
-          <div class="form-group mb-3">
-            <label for="description">Description</label><br>
-            <textarea name="description" id="description" class="form-control" rows="4" cols="40"></textarea>
-          </div>
-          <div class="form-group mb-3">
-            <label for="poster">Movie Poster</label>
-            <input type="file" name="poster" class="form-control" id="poster">
-          </div>
-
-          <div class="form-group mb-3">
-            <label for="movie">Movie File</label>
-            <input type="file" name="movie" id="movie" class="form-control" accept="video/*" required>
-          </div>
-
-          <input type="submit" class="btn btn-sm btn-primary" value="Upload">
-        </form>
+        <app-form-group class="col" [valid]="form.get('actress')!.valid" label="Actress Name">
+          <input formControlName="actress" type="text" name="acterss" class="form-control"
+            placeholder="Enter Actress Name">
+        </app-form-group>
+        <app-form-group class="col" [valid]="form.get('director')!.valid" label="Director Name">
+          <input formControlName="director" type="text" name="director" class="form-control"
+            placeholder="Enter Actress Name">
+        </app-form-group>
       </div>
-    </div>
-  </div>
-</body>
 
-</html>
+    </form>
+  </div>
+</div>
