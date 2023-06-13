@@ -31,7 +31,7 @@ export class NavbarComponent {
     this.isNight.emit(this.isValue);
   }
 
-  openPopup(){
-
+  logout(){
+    
   }
 }

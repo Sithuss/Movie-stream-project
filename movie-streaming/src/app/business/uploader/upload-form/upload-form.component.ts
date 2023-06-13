@@ -3,17 +3,21 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MovieService } from 'src/app/service/movie.service';
+import { NotiTestService } from 'src/app/service/noti-test.service';
 
 @Component({
   selector: 'app-upload-form',
-  templateUrl: './upload-form.component.html'
+  templateUrl: './upload-form.component.html',
 })
 export class UploadFormComponent {
+  form: FormGroup;
 
-
-  form:FormGroup
-
-  constructor(private mService:MovieService, builder:FormBuilder, private router:Router){
+  constructor(
+    private mService: MovieService,
+    builder: FormBuilder,
+    private router: Router,
+    private notiService: NotiTestService
+  ) {
     this.form = builder.group({
       title: ['', [Validators.required]],
       length: ['', [Validators.required]],
@@ -25,13 +29,13 @@ export class UploadFormComponent {
       released: ['', [Validators.required]],
       discription: ['', [Validators.required]],
       photo: ['', [Validators.required]],
-      movieFile: ['', [Validators.required]]
-    })
+      movieFile: ['', [Validators.required]],
+    });
   }
 
-
-  uploadM(m:Movie){
+  uploadM(m: Movie) {
     this.mService.upload(m);
-    this.router.navigate(['/uploader', 'home'])
+    this.router.navigate(['/uploader', 'home']);
+    this.notiService.addNoti({ descript: 'successfully uploaded' });
   }
 }

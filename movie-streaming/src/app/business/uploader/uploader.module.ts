@@ -8,9 +8,9 @@ import { HistoryListComponent } from './history-list/history-list.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UploadFormComponent } from './upload-form/upload-form.component';
-import { NotiComponent } from './noti/noti.component';
 import { WidgetsModule } from 'src/app/common/widgets/widgets.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditComponent } from './edit/edit.component';
 
 
 @NgModule({
@@ -21,13 +21,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     NavbarComponent,
     UploadFormComponent,
-    NotiComponent
+    EditComponent
   ],
   imports: [
     CommonModule,
     UploaderRoutingModule,
     WidgetsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class UploaderModule { }
