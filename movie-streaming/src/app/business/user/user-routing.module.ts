@@ -23,7 +23,7 @@ const routes: Routes = [
     {path:'edit-acc', component:EditAccountComponent},
     {path:'account', component:UserAccountComponent},
     {path:'movie-list', component:MovieListComponent},
-    {path:'', redirectTo:'/user/movie-list', pathMatch:'full'}
+    {path:'', redirectTo:'/user/movie-list', pathMatch:'prefix'}
   ]}
 ];
 @NgModule({
