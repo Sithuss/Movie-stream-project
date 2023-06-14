@@ -1,56 +1,67 @@
 <div class="container">
-  <div class="card">
-    <div class="card-header">
-      <h3 class="text-center">Movie upload form</h3>
-    </div>
-    <div class="card-body">
-      <form [formGroup]="form">
-
-        <div class="row">
-
-          <app-form-group class="col" [valid]="form.get('title')!.valid" label="Title">
-            <input formControlName="title" type="text" class="form-control" placeholder="Enter movie title">
-          </app-form-group>
-
-          <app-form-group class="col" [valid]="form.get('length')!.valid" label="Length">
-            <input formControlName="length" type="number" class="form-control" placeholder="Enter movie length">
-          </app-form-group>
-
-          <app-form-group class="col" [valid]="form.get('category')!.valid" label="Category">
-            <input formControlName="category" type="text" class="form-control" placeholder="Enter movie category">
-          </app-form-group>
-
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="text-center">Movie upload form</h3>
         </div>
+        <div class="card-body">
+          <form [formGroup]="form">
 
-        <div class="row">
+            <!-- <div class="row"> -->
 
-          <app-form-group class="col" [valid]="form.get('actor')!.valid" label="Actor">
-            <input formControlName="actor" type="text" class="form-control" placeholder="Enter movie actor">
-          </app-form-group>
+            <div *ngIf="!isNext">
+              <app-form-group class="col" [valid]="form.get('title')!.valid" label="Title">
+                <input formControlName="title" type="text" class="form-control" placeholder="Enter movie title">
+              </app-form-group>
 
-          <app-form-group class="col" [valid]="form.get('actress')!.valid" label="Actress">
-            <input formControlName="actress" type="text" class="form-control" placeholder="Enter movie actress">
-          </app-form-group>
+              <app-form-group class="col" [valid]="form.get('length')!.valid" label="Length">
+                <input formControlName="length" type="number" class="form-control" placeholder="Enter movie length">
+              </app-form-group>
 
-          <app-form-group class="col" [valid]="form.get('director')!.valid" label="Director">
-            <input formControlName="director" type="text" class="form-control" placeholder="Enter movie director">
-          </app-form-group>
+              <app-form-group class="col" [valid]="form.get('category')!.valid" label="Category">
+                <input formControlName="category" type="text" class="form-control" placeholder="Enter movie category">
+              </app-form-group>
+            </div>
 
-        </div>
+            <div *ngIf="isNext">
 
-        <div class="row">
+              <app-form-group class="col" [valid]="form.get('actor')!.valid" label="Actor">
+                <input formControlName="actor" type="text" class="form-control" placeholder="Enter movie actor">
+              </app-form-group>
 
-          <app-form-group class="col" [valid]="form.get('publisher')!.valid" label="Publisher">
-            <input formControlName="publisher" type="text" class="form-control" placeholder="Enter movie publisher">
-          </app-form-group>
+              <app-form-group class="col" [valid]="form.get('actress')!.valid" label="Actress">
+                <input formControlName="actress" type="text" class="form-control" placeholder="Enter movie actress">
+              </app-form-group>
 
-          <app-form-group class="col" [valid]="form.get('released')!.valid" label="Released">
-            <input formControlName="released" type="text" class="form-control" placeholder="Enter movie released date">
-          </app-form-group>
+              <app-form-group class="col" [valid]="form.get('director')!.valid" label="Director">
+                <input formControlName="director" type="text" class="form-control" placeholder="Enter movie director">
+              </app-form-group>
 
-          <app-form-group class="col" [valid]="form.get('photo')!.valid" label="Photo">
-            <input formControlName="photo" type="text" class="form-control" placeholder="Enter poster photo">
-          </app-form-group>
+            </div>
+
+            <button [disabled]="!(form.get('title')?.valid || form.get('length')?.valid || form.get('category')?.valid)"
+              type="button" (click)="next()" class="btn btn-outline-success">
+              <i class="bi bi-arrow-90deg-right"></i> Next
+            </button>
+
+
+
+            <!-- <div class="row">
+
+              <app-form-group class="col" [valid]="form.get('publisher')!.valid" label="Publisher">
+                <input formControlName="publisher" type="text" class="form-control" placeholder="Enter movie publisher">
+              </app-form-group>
+
+              <app-form-group class="col" [valid]="form.get('released')!.valid" label="Released">
+                <input formControlName="released" type="text" class="form-control"
+                  placeholder="Enter movie released date">
+              </app-form-group>
+
+              <app-form-group class="col" [valid]="form.get('photo')!.valid" label="Photo">
+                <input formControlName="photo" type="text" class="form-control" placeholder="Enter poster photo">
+              </app-form-group>
 
         </div>
 
@@ -61,13 +72,16 @@
 
         <app-form-group [valid]="form.get('movieFile')!.valid" label="Movie File">
           <input formControlName="movieFile" type="text" class="form-control" placeholder="Enter movie file">
-        </app-form-group>
+        </app-form-group> -->
 
-        <button [class.disabled]="!form.valid" type="button" (click)="uploadM(form.value)"
-          class="btn btn-outline-success">
-          <i class="bi bi-send"></i> Upload
-        </button>
-      </form>
+            <button *ngIf="isNext" [class.disabled]="!form.valid" type="button" (click)="uploadM(form.value)"
+              class="btn btn-outline-success">
+              <i class="bi bi-send"></i> Upload
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
+    <div class="col-3"></div>
   </div>
 </div>
