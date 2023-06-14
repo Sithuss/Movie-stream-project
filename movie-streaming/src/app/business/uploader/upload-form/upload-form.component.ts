@@ -38,4 +38,10 @@ export class UploadFormComponent {
     this.router.navigate(['/uploader', 'home']);
     this.notiService.addNoti({ descript: 'successfully uploaded' });
   }
+
+  isNext!: boolean;
+
+  next() {
+    this.isNext != this.isNext;
+  }
 }

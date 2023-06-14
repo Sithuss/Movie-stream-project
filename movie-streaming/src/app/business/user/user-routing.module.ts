@@ -14,9 +14,9 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 
 const routes: Routes = [
   {path:'',component:UserComponent, children:[
-    {path:'movie-details', component:MovieDetailsComponent},
+    {path:'movie-details/:id', component:MovieDetailsComponent},
     {path:'give-reviews', component:GiveReviewsComponent},
-    {path:'watch', component:WatchMovieComponent},
+    {path:'watch/:id', component:WatchMovieComponent},
     {path:'buy', component:BuyBackageComponent},
     {path:'sign-up', component:SignUpComponent},
     {path:'sign-in', component:SignInComponent},

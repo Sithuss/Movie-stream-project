@@ -9,8 +9,6 @@ export class UserService {
 
   validatedUser:any;
 
-
-
   constructor() { }
 
   createUser(user:any) {
@@ -18,12 +16,11 @@ export class UserService {
     console.log(this.users);
   }
 
-
   validUser(acc:any) {
     let checkAcc = this.users.find(user => user.email === acc.email);
 
     if (checkAcc.password === acc.password) {
-      this.validUser = checkAcc;
+      this.validatedUser = checkAcc;
       console.log("sign up completed.");
     }
     else {
