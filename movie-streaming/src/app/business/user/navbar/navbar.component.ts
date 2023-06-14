@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MovieService } from 'src/app/service/movie.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -36,6 +37,7 @@ export class NavbarComponent implements OnInit{
   constructor(
     builder:FormBuilder,
     private router:Router,
+    public userService:UserService,
     private movieService:MovieService) {
     this.searchForm = builder.group({
       keyword: ''
