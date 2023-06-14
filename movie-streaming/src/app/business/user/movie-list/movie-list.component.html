@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col" *ngFor="let movie of movies">
       <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top img-thumbnail" alt="...">
+        <img src="https://source.unsplash.com/600x400/?ww2" class="card-img-top img-thumbnail" alt="...">
         <div class="card-body">
           <a class="col-md-4 justify-content-center"
             [routerLink]="['/user/movie-details', movie.id]">{{movie.title}}</a>
@@ -13,7 +13,7 @@
 </div>
 
 <nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
+  <ul class="pagination mt-5 justify-content-center">
     <li class="page-item">
       <a class="page-link" href="#" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
