@@ -1,44 +1,43 @@
 
 
-  
+
 <div class="row justify-content-center">
     <div class="col-4">
-  
+
       <div class="card">
       <div *ngIf="(movie |async) as movie">
         <div class="card-header">
           <h3>{{movie.title}}</h3>
         </div>
-  
+
         <div class="card-body">
-        
+
           <label class="form-label">Director</label>
           <input [value]="movie.director" type="text" class="form-control mb-2" readonly>
-  
+
           <label class="form-label">Release Date</label>
           <input [value]="movie.released" type="text" class="form-control mb-2" readonly>
-  
+
           <label class="form-label">Category</label>
-          <input [value]="movie.category.name" type="text" class="form-control mb-3" readonly>
-  
+          <input [value]="movie.category" type="text" class="form-control mb-3" readonly>
+
           <label class="form-label">Actor</label>
           <input [value]="movie.actor" type="text" class="form-control mb-3" readonly>
-  
+
           <label class="form-label">Actress</label>
           <input [value]="movie.actress" type="text" class="form-control mb-3" readonly>
-  
+
           <label class="form-label">Publisher</label>
           <input [value]="movie.publisher" type="text" class="form-control mb-3" readonly>
-  
+
           <label class="form-label">Description</label>
           <input [value]="movie.description" type="text" class="form-control mb-3" readonly>
-  
+
           <a routerLink="/user/watch" routerLinkActive="router-link-active" class="btn btn-outline-danger">Stream Movie</a>
           <a routerLink="/user/give-reviews" routerLinkActive="router-link-active" class="btn btn-outline-danger">Feedback</a>
-  
+
         </div>
       </div>
-  
+
     </div>
   </div>
-  
