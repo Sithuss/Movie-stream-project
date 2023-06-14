@@ -9,6 +9,8 @@ export class UserService {
 
   validatedUser:any;
 
+
+
   constructor() { }
 
   createUser(user:any) {
