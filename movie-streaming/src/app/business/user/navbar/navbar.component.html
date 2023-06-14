@@ -1,22 +1,18 @@
-
 <nav class="navbar navbar-expand shadow">
   <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/"><i class="bi bi-house-door-fill"></i>&nbsp;Group Name</a>
+      <a class="navbar-brand ms-4" routerLink="/"><i class="bi bi-house-door-fill"></i>&nbsp;Group Name</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropdown button
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-person-circle"></i>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" [routerLink]="['/user/account']" routerLinkActive="active">User Account</a></li>
-                </ul>
-            </li>
-        </ul>
-      </div>
+
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" [routerLink]="['/user/account']">Account</a></li>
+      </ul>
+    </div>
       <form class="d-flex" role="search">
         <input class="form-control" type="search" placeholder="Search anything here...." aria-label="Search">
         <button class="btn btn-outline-success" (click)="search()" type="submit"><i class="bi bi-search"></i></button>
@@ -38,10 +34,11 @@
     
 </nav>
 
-
-<div class="content-wrapper">
-  <router-outlet></router-outlet>
-</div>
-
-
-
+<!-- <ul class="navbar-nav ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/sign-up']" routerLinkActive="active">Sign Up</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/sign-in']" routerLinkActive="active">Sign In</a>
+  </li>
+</ul> -->
