@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './history-list.component.html',
   styleUrls: ['./history-list.component.css'],
 })
-export class HistoryListComponent implements OnInit, AfterViewChecked {
+export class HistoryListComponent implements OnInit {
   constructor(
     public dayNightService: DayNightService,
     private movieServie: MovieService
@@ -30,9 +30,9 @@ export class HistoryListComponent implements OnInit, AfterViewChecked {
     });
   }
 
-  ngAfterViewChecked(): void {
-    this.isNight = !this.dayNightService.isNight().nightMode;
-  }
+  // ngAfterViewChecked(): void {
+  //   this.isNight = !this.dayNightService.isNight().nightMode;
+  // }
 
   delete(id: number) {
     return this.movieList$
