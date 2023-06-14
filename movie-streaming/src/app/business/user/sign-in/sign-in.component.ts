@@ -13,9 +13,7 @@ export class SignInComponent {
 
   form:FormGroup
 
-  constructor(
-    builder:FormBuilder,
-    private userService:UserService,
+  constructor(private builder:FormBuilder,private userService:UserService,
     private router:Router) {
     this.form = builder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -23,21 +21,22 @@ export class SignInComponent {
     })
   }
 
-  register() {
-    if(this.form.valid) {
-      this.userService.validUser(this.form.value);
-      console.log(this.form.value);
-      if (this.userService.validatedUser.role === "user") {
-        this.router.navigate(['/user']);
-      }
-      if (this.userService.validatedUser.role === "uploader") {
-        this.router.navigate(['/uploader']);
-      }
-      if (this.userService.validatedUser.role === "admin") {
-        this.router.navigate(['/admin']);
-      }
+  signIn() {
+   if(this.form.valid){
+    this.userService.validUser(this.form.value);
+    if(this.userService.validatedUser.role === "user"){
+      this.router.navigate(['/']);
+    }
+    if(this.userService.validatedUser.role === "uploader"){
+      this.router.navigate(['/uploader']);
+    }
+
+    if(this.userService.validatedUser.role === "admin"){
+      this.router.navigate(['/admin']);
     }
   }
+   
+}
 
 
 }

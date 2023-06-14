@@ -10,8 +10,9 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./user-account.component.css']
 })
 export class UserAccountComponent implements OnInit {
+  user:any
 
-  name:any
+
 
   constructor(private userService:UserService, private router:Router) {}
   ngOnInit(): void {
@@ -22,6 +23,7 @@ export class UserAccountComponent implements OnInit {
   public editAccount():void {
     this.router.navigate(['user/edit-acc'])
   }
+
 
  
   

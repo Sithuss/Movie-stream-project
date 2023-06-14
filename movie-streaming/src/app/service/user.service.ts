@@ -9,15 +9,12 @@ export class UserService {
 
   validatedUser:any;
 
-
-
   constructor() { }
 
   createUser(user:any) {
     this.users.push(user);
     console.log(this.users);
   }
-
 
   validUser(acc:any) {
     let checkAcc = this.users.find(user => user.email === acc.email);
