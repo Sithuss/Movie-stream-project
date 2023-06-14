@@ -18,16 +18,16 @@
       </li>
 
       <li class="nav-item ms-3">
-        <div class="notification-dropdown">
+        <div class="notification-dropdown dropstart">
           <button class="btn nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-person fs-5"></i>
           </button>
           <div>
-            <div class=" noti-alg shadow dropdown-menu mt-3">
+            <div class="shadow dropdown-menu mt-5">
               <div class="card-header">
                 <h5 class="text-center">Profile</h5>
               </div>
-              <div class="">
+              <div style=" min-width: 300px;">
                 <ul *ngIf="(user | async) as user" class="list-group list-group-flush">
                   <li class="circle d-flex justify-content-center align-items-center ">
                     <img src="assets\photo\man-pp.png" alt="Profile picture"
@@ -63,15 +63,15 @@
       </li>
 
       <li class="nav-item ms-3">
-        <div class="notification-dropdown">
+        <div class="notification-dropdown dropstart">
           <button class="btn dropdown-toggle position-relative" (click)="resetNoti()" type="button"
             data-bs-toggle="dropdown" aria-expanded="true">
-            <i class="bi bi-bell-fill fs-5"></i>
+            <i class="bi bi-bell fs-5"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
               {{notiCount}}
             </span>
           </button>
-          <div class="noti-alg shadow dropdown-menu mt-3">
+          <div style="min-width: 300px;" class="shadow dropdown-menu mt-5">
             <ul class="list-group list-group-flush">
               <li class="list-group-item" *ngFor="let notiItem of noti">
                 <a href="#" class="nav-link">{{notiItem.descript}}</a>
@@ -83,7 +83,7 @@
 
       <li class="nav-item ms-3 me-3">
         <button (click)="changeMode()" class="nav-link">
-          <i class="bi bi-moon-stars-fill fs-5"></i></button>
+          <i class="bi bi-moon-stars fs-5"></i></button>
       </li>
 
     </ul>
