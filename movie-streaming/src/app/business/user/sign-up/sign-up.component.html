@@ -7,6 +7,7 @@
     </div>
     <div class="card-body">
         <form [formGroup]="signupForm">
+
           <app-form-group [valid]="signupForm.get('name')!.valid" label="UserName">
             <input formControlName="name" type="email" class="form-control" placeholder="Enter your name">
           </app-form-group>
@@ -20,10 +21,15 @@
           </app-form-group>
 
           <div *ngIf="uploader">
-            <app-form-group [valid]="signupForm.get('password')!.valid" label="Transaction Number">
+
+            <app-form-group [valid]="signupForm.get('compName')!.valid" label="Company Name">
+              <input formControlName="compName" type="text" class="form-control" placeholder="Company Name">
+            </app-form-group>
+
+            <app-form-group [valid]="signupForm.get('transaction')!.valid" label="Transaction Number">
               <input formControlName="transaction" type="tel" class="form-control" placeholder="Transaction Number">
             </app-form-group>
-            <input type="hidden" [formControlName]="'role'" value="uploader">
+
           </div>
 
           <div class="d-flex" *ngIf="!admin">
