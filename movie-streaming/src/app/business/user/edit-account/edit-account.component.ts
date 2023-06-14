@@ -32,8 +32,8 @@ export class EditAccountComponent {
     }
   }
 
-  public userAccount():void{
-    this.router.navigate(['user/account'])
+  public home():void{
+    this.router.navigate(['user/movie-list'])
   }
 
   // constructor(private formBuilder:FormBuilder){
