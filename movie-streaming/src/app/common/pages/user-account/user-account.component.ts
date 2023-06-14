@@ -16,7 +16,8 @@ export class UserAccountComponent implements OnInit {
 
   constructor(private userService:UserService, private router:Router) {}
   ngOnInit(): void {
-    this.user = this.userService.validatedUser
+    console.log(this.userService.validatedUser?.name);
+    console.log(this.userService.validatedUser);
   }
 
   public editAccount():void {
