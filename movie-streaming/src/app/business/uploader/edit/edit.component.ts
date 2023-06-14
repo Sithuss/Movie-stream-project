@@ -32,7 +32,7 @@ export class EditComponent implements OnInit {
     this.movie$.subscribe((mv) => {
       (mv.title = m.title),
         (mv.length = m.length),
-        (mv.category.name = m.category?.name),
+        (mv.category = m.category),
         (mv.actor = m.actor),
         (mv.actress = m.actress),
         (mv.director = m.director),

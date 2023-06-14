@@ -11,10 +11,7 @@ export class MovieService {
       id: 1,
       title: 'ww3',
       length: 120,
-      category: {
-        id: 1,
-        name: 'war',
-      },
+      category: ['war', 'action'],
       actor: 'u ba',
       actress: 'daw hla',
       director: 'ma aye aye win',
@@ -28,10 +25,7 @@ export class MovieService {
       id: 2,
       title: 'ww2',
       length: 130,
-      category: {
-        id: 1,
-        name: 'war',
-      },
+      category: ['war', 'action'],
       actor: 'u mya',
       actress: 'daw warr',
       director: 'steel',

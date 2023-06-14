@@ -31,8 +31,8 @@
             <div class="col">
               <label for="category" class="form-label">Category</label>
               <input id="category" type="text" category required
-                [class.is-invalid]="category.invalid && category.touched" #category=ngModel
-                [(ngModel)]="movie.category.name" ngModel name="category" class="form-control" />
+                [class.is-invalid]="category.invalid && category.touched" #category=ngModel [(ngModel)]="movie.category"
+                ngModel name="category" class="form-control" />
               <div *ngIf="category.errors?.['required']" class="invalid-feedback">
                 <span>Category cannot not be empty</span>
               </div>
