@@ -31,12 +31,15 @@
 
     <div class="col-sm-4 my-5">
       <div class="container">
-        <div class="card rounded shadow">
+        <div *ngIf="(movie$ | async) as movie" class="card rounded shadow">
           <div class="card-header">
-            <h4>Movie Title</h4>
+            <h4>{{movie.title}}</h4>
           </div>
           <div class="card-body">
-            <p>Genre(Category):
+            <ul *ngFor="let c of movie.category">
+              <li>{{c}}</li>
+            </ul>
+            <!-- <p>Genre(Category):
               <a href="#" class="btn btn-danger btn-sm">Horror</a>
               <a href="#" class="btn btn-danger ms-2 btn-sm">Mystery</a>
               <a href="#" class="btn btn-danger ms-2 my-2 btn-sm">Action</a>
@@ -55,7 +58,7 @@
             <hr>
             <p>Description:
               <font size="3">Movie Detail</font>
-            </p>
+            </p> -->
           </div>
         </div>
       </div>
