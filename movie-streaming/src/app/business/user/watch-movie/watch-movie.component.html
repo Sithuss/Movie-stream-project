@@ -35,14 +35,18 @@
           <div class="card-header">
             <h4>{{movie.title}}</h4>
           </div>
-          <div class="card-body d-flex">
+          <div class="card-body">
+            <div class="d-flex">
             <p>Category: </p>
             <ul *ngFor="let c of movie.category">
               <li class="btn btn-danger btn-sm">{{c}}</li>
+              <!-- <ng-container *ngIf="!isLast">
+                <ng-container *ngFor="let space of getSpacing()">&nbsp;</ng-container>
+              </ng-container> -->
             </ul>
           </div>
           <hr>
-          <div class="card-body d-flex">
+          <div class="d-flex">
             <p>Cast: </p>
             <ul>
               <li class="btn btn-warning btn-sm ms-2">{{movie.actor}}</li>
@@ -50,7 +54,7 @@
             </ul>
           </div>
           <hr>
-          <div class="card-body d-flex">
+          <div class="d-flex">
             <p>Director: </p>
             <ul>
               <li class="btn btn-warning btn-sm ms-2">{{movie.director}}</li>
@@ -58,8 +62,9 @@
 
           </div>
           <hr>
-          <div class="card-body d-flex">
+          <div class="d-flex">
             <p>Description: {{movie.description}}</p>
+          </div>
           </div>
         </div>
       </div>
