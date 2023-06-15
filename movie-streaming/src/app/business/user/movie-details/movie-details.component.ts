@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from 'src/app/service/movie.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { Movie } from '../../uploader/model/movie';
 
@@ -14,7 +14,7 @@ export class MovieDetailsComponent implements OnInit{
   movie:Observable<Movie>;
 
   id!:number;
-  constructor(public movieService:MovieService,private route:ActivatedRoute){
+  constructor(public movieService:MovieService,private route:ActivatedRoute, private router:Router){
 
     const id = this.route.snapshot.paramMap.get('id') as string;
     this.movie = this.movieService.findAll().pipe(map(ml => ml.find(m => m.id === parseInt(id)))) as Observable<Movie>;    
@@ -22,13 +22,17 @@ export class MovieDetailsComponent implements OnInit{
   ngOnInit(): void {
   }
 
-  // public streamMovie():void{
-  //   this.router.navigate(['user/watch'])
-  // }
+  public streamMovie():void{
+    this.router.navigate(['user/watch', 'id'])
+  }
 
-  // public goReviews(){
-  //   this.router.navigate(['user/give-reviews'])
-  // }
+  public goReviews(){
+    this.router.navigate(['user/give-reviews'])
+  }
+
+  public goHome(){
+    this.router.navigate(['/user/movie-list'])
+  }
 
 
 }
