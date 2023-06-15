@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserAccountService } from 'src/app/service/apis/useraccount.service';
 import { UserService } from 'src/app/service/user.service';
 import { passwordMatchValidator } from 'src/app/service/validators/password.match';
 
@@ -12,7 +13,7 @@ import { passwordMatchValidator } from 'src/app/service/validators/password.matc
 })
 export class SignUpComponent {
 
-  admin = false;
+  admin = true;
 
   uploader=false;
 
@@ -20,7 +21,13 @@ export class SignUpComponent {
 
   signupForm: FormGroup;
 
-  constructor(private fb:FormBuilder, private router:Router, private userService:UserService) {
+  errorMessage!:string;
+
+
+  constructor(private fb:FormBuilder, private router:Router,
+    private userRegister: UserAccountService,
+    private userService:UserService) {
+
     this.signupForm = fb.group({
       name:['',[Validators.required]],
       email:['', [Validators.required, Validators.email]],
@@ -33,16 +40,16 @@ export class SignUpComponent {
     })
   }
 
-  SignUp() {
+  // SignUp() {
 
-    if(this.uploader) {
-      this.signupForm.get('role')?.setValue('uploader');
-    }
-    this.userService.createUser(this.signupForm.value);
-    // console.log(this.signupForm.value);
-    //TODO
-    this.router.navigate(['/user/sign-in']);
-  }
+  //   if(this.uploader) {
+  //     this.signupForm.get('role')?.setValue('uploader');
+  //   }
+  //   this.userService.createUser(this.signupForm.value);
+  //   // console.log(this.signupForm.value);
+  //   //TODO
+  //   this.router.navigate(['/user/sign-in']);
+  // }
 
   changeUploader() {
     if(this.uploader === false) {
@@ -55,11 +62,32 @@ export class SignUpComponent {
     }
   }
 
-  adminRegister() {
-    console.log("admin registeration triggered");
-    this.signupForm.get('role')?.setValue('admin');
+  // adminRegister() {
+  //   console.log("admin registeration triggered");
+  //   this.signupForm.get('role')?.setValue('admin');
+  //   console.log(this.signupForm.value);
+  //   // TODO
+  // }
+
+  register() {
     console.log(this.signupForm.value);
-    // TODO
+
+    if(this.uploader) {
+      this.signupForm.get('role')?.setValue('uploader');
+    }
+
+    if(this.admin) {
+      this.signupForm.get('role')?.setValue('admin');
+    }
+
+    this.userRegister.register(this.signupForm.value).subscribe(
+      {
+        next : (data) => console.log(data),
+        error: (err) => this.errorMessage = 'Username already existed',
+        complete:() => this.router.navigateByUrl("/user/sign-in")
+      }
+    );
+    this.router.navigate(['/user/sign-in']);
   }
 
 }

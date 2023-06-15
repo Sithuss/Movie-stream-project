@@ -15,6 +15,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { WidgetsModule } from 'src/app/common/widgets/widgets.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MovieListComponent } from './movie-list/movie-list.component';
     UserRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    WidgetsModule
+    WidgetsModule,
+    HttpClientModule
   ]
 })
 export class UserModule { }
