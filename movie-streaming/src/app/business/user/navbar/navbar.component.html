@@ -1,35 +1,39 @@
-
 <nav class="navbar navbar-expand shadow">
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-info-square-fill"></i>
+    </button>
+
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" [routerLink]="['/user/account']">Account</a></li>
+    </ul>
+  </div>
   <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/"><i class="bi bi-house-door-fill"></i>&nbsp;Group Name</a>
+      <a class="navbar-brand ms-4" routerLink="/"><i class="bi bi-house-door-fill"></i>&nbsp;Group Name</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Dropdown button
-      </button>
-      
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" [routerLink]="['/user/account']">Account</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
+    
       <form class="d-flex" role="search">
         <input class="form-control" type="search" placeholder="Search anything here...." aria-label="Search">
-        <button class="btn btn-outline-success" (click)="search()" type="submit"><i class="bi bi-search"></i></button>
+        <button class="btn btn-outline-success ms-1" (click)="search()" type="submit"><i class="bi bi-search"></i></button>
       </form>
     </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item dropdown">
+          <li class="nav-item dropstart">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="bi bi-person-circle"></i>
               </a>
+              
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" [routerLink]="['/user/sign-up']" routerLinkActive="active">Sign Up</a></li>
-                <li><a class="dropdown-item" [routerLink]="['/user/sign-in']" routerLinkActive="active">Sign In</a></li>
+                <div *ngIf="userService.validatedUser">
+                  <li><a class="dropdown-item" [routerLink]="['/user/sign-in']" routerLinkActive="active">Sign out</a></li>
+                </div>
+                <div *ngIf="!userService.validatedUser">
+                  <li><a class="dropdown-item" [routerLink]="['/user/sign-up']" routerLinkActive="active">Sign Up</a></li>
+                  <li><a class="dropdown-item" [routerLink]="['/user/sign-in']" routerLinkActive="active">Sign In</a></li>
+                </div>
               </ul>
             </li>
       </ul>
@@ -45,7 +49,3 @@
     <a class="nav-link" [routerLink]="['/sign-in']" routerLinkActive="active">Sign In</a>
   </li>
 </ul> -->
-
-
-
-
