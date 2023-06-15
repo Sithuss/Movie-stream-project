@@ -18,4 +18,5 @@ export class MovieListComponent implements OnInit {
     this.movieService.findAll().subscribe(m => {this.movieList = m});
   }
 
+
 }
