@@ -33,7 +33,7 @@
           <label class="form-label">Description</label>
           <input [value]="movie.description" type="text" class="form-control mb-3" readonly>
 
-          <a routerLink="/user/watch" routerLinkActive="router-link-active" class="btn btn-outline-danger">Stream Movie</a>
+          <a [routerLink]="['/user/watch',movie.id]" routerLinkActive="router-link-active" class="btn btn-outline-danger">Stream Movie</a>
           <a routerLink="/user/give-reviews" routerLinkActive="router-link-active" class="btn btn-outline-danger">Feedback</a>
 
         </div>
