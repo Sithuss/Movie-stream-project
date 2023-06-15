@@ -11,6 +11,8 @@ import { NotiTestService } from 'src/app/service/noti-test.service';
 })
 export class UploadFormComponent {
   form: FormGroup;
+  inputGroups: any[] = [];
+  currentIndex = 0;
 
   constructor(
     private mService: MovieService,
@@ -31,6 +33,11 @@ export class UploadFormComponent {
       photo: ['', [Validators.required]],
       movieFile: ['', [Validators.required]],
     });
+    // this.inputGroups = [
+    //   ['title', 'length', 'category', 'actor'],
+    //   ['actress', 'director', 'publisher', 'released'],
+    //   ['discription', 'photo', 'movieFile'],
+    // ];
   }
 
   uploadM(m: Movie) {
@@ -39,9 +46,15 @@ export class UploadFormComponent {
     this.notiService.addNoti({ descript: 'successfully uploaded' });
   }
 
-  isNext!: boolean;
-
   next() {
-    this.isNext != this.isNext;
+    if (this.currentIndex < this.inputGroups.length - 1) {
+      this.currentIndex++;
+    }
+  }
+
+  previous() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    }
   }
 }

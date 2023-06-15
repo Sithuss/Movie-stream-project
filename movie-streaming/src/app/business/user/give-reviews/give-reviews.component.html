@@ -1,1 +1,27 @@
-<p>give-reviews works!</p>
+<!-- <form [formGroup]="reviewForm" class="container-md my-5">
+      <textarea class="form-control" rows="5" ng-model="message" placeholder="Share your opinion-----"></textarea>
+        <div class="col-12">
+          <input type="submit" class="btn btn-block btn-success ms-auto" (click)="addReview()" value="Submit">
+        </div>
+</form> -->
+
+<div>
+  <form [formGroup]="reviewForm" class="container-md my-5">
+    <app-form-group [valid]="reviewForm.get('review')!.valid" label="Description">
+      <textarea class="form-control" rows="5" ng-model="message" placeholder="Share your opinion-----"></textarea>
+      <div class="col-12">
+        <input type="submit" class="btn btn-block btn-success ms-auto" (click)="addReview()" value="Submit">
+      </div>
+    </app-form-group>
+  </form>
+
+</div>
+<div>
+  <div class="row">
+    <div class="col">
+      <ul *ngFor="let item of (reviewList$ | async)">
+        <li>{{item.review}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
