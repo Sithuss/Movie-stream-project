@@ -1,7 +1,38 @@
+<div class="container">
+<div *ngIf="(movie | async) as movie">
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <img src="https://source.unsplash.com/600x400/?ww2" class="card-img-top img-thumbnail" alt="...">
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h4>{{movie.title}}</h4>
+          <div class="card-body">
+            <div class="card-title">Directed by :&nbsp; {{movie.director}}</div>
+            <div class="card-title">Actor :&nbsp; {{movie.actor}}</div>
+            <div class="card-title">Actress :&nbsp; {{movie.actress}}</div>
+            <div class="card-text">Genre :&nbsp;{{movie.category}}</div>
+            <div class="card-text">Published by - {{movie.publisher}}</div>
+            <div class="card-text">Published in - {{movie.released}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
-<div class="row justify-content-center">
+<div class="my-4">
+  <button class="btn btn-primary ms-3" (click)="streamMovie()">Watch Now</button>
+  <button class="btn btn-success ms-3" (click)="goReviews()">Feedback</button>
+  <button class="btn btn-info ms-3" (click)="goHome()">Back To Home</button>
+</div>
+</div>
+
+
+<!-- <div class="row justify-content-center">
     <div class="col-4">
 
       <div class="card">
@@ -40,4 +71,4 @@
       </div>
 
     </div>
-  </div>
+  </div> -->
