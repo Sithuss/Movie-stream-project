@@ -9,35 +9,34 @@ import { Movie } from '../../uploader/model/movie';
 @Component({
   selector: 'app-give-reviews',
   templateUrl: './give-reviews.component.html',
-  styleUrls: ['./give-reviews.component.css']
+  styleUrls: ['./give-reviews.component.css'],
 })
-export class GiveReviewsComponent implements OnInit{
-
+export class GiveReviewsComponent implements OnInit {
   reviewForm: FormGroup;
 
-  otherReview!:Observable<Review>;
+  otherReview!: Observable<Review>;
 
-  reviewList: BehaviorSubject<Review []> = new BehaviorSubject<Review []>([]);
+  reviewList: BehaviorSubject<Review[]> = new BehaviorSubject<Review[]>([]);
   reviewList$: Observable<Review[]> = this.reviewList.asObservable();
 
-  constructor(private fb:FormBuilder,private router:Router, private service:ReviewPageService) {
-    this.reviewForm= fb.group( {
-      id:3,
-      review : ""
-    }
-
-    )
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private service: ReviewPageService
+  ) {
+    this.reviewForm = fb.group({
+      id: 3,
+      review: '',
+    });
   }
   ngOnInit(): void {
-    this.service.findAllReviews().subscribe(m => { this.reviewList.next(m)});
+    this.service.findAllReviews().subscribe((m) => {
+      this.reviewList.next(m);
+    });
   }
 
   addReview() {
-
     this.service.createReview(this.reviewForm.value);
-    // console.log(this.signupForm.value);
-    //TODO
     this.router.navigate(['/user/give-reviews']);
   }
-
 }
