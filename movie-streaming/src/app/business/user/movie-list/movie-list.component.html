@@ -1,21 +1,44 @@
 <div class="container mt-5">
   <div class="row justify-content-end mb-5">
-    <div class="col w-25">
-      <form class="input-group w-25 ms-auto shadow-sm" role="search">
+
+    <div class="col-3">
+      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" style="background-color: rgb(35, 30, 53);" aria-controls="offcanvasWithBothOptions">categories</button>
+    </div>
+    <div class="col">
+
+      <form class="input-group ms-auto shadow-sm" style="width: 7cm;" role="search">
         <input class="form-control" type="search" placeholder="Search anything here...." aria-label="Search">
         <button class="btn btn-outline-success" (click)="search()" type="submit"><i class="bi bi-search"></i></button>
       </form>
     </div>
   </div>
 
+
+
+  <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title fst-italic" id="offcanvasWithBothOptionsLabel">Category List</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div *ngFor="let cat of categories">
+        <div class="row">
+          <div class="col-md-3">
+            <p>{{cat.name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-md-3" *ngFor="let movie of movies">
-      <div class="card mt-5">
-        <img src="https://source.unsplash.com/600x400/?ww2" class="card-img-top" alt="...">
-        <div class="card-body">
-          <div class="container">
-            <p class="card-text align-self-center" style="height: 3rem;">{{movie.title}}</p>
-          </div>
+      <div class="card rounded shadow mt-5">
+        <img src={{movie.photo}} class="card-img-top" alt="...">
+        <div class="card-body rounded" style="background-color: rgb(35, 30, 53);">
+          <a href="" [routerLink]="['/user/movie-details',movie.id]" class="text-light card-title align-middle nav-link">
+            <p class="card-title fst-italic fw-medium text-center" style="height: 3rem;"><i class="bi bi-film"></i> {{movie.title}}</p>
+          </a>
         </div>
       </div>
     </div>
