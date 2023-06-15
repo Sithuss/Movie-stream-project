@@ -6,6 +6,8 @@ import { Movie } from './../business/uploader/model/movie';
   providedIn: 'any',
 })
 export class MovieService {
+
+
   private movieList: Movie[] = [
     {
       id: 1,
@@ -19,7 +21,7 @@ export class MovieService {
       released: '2011',
       description: 'Harry,Ron, and Hermione search for Voldemort remaining Horcruxes in their effort to destory the Dark Lord as the final battle rages on at Hogwarts',
 
-      photo: ' http://source.unsplash.com/366x200/?harryPotter',
+      photo: 'http://source.unsplash.com/366x200/?harryPotter',
       movieFile: 'Fantasy',
     },
     {
@@ -33,7 +35,7 @@ export class MovieService {
       publisher: 'sun',
       released: '2021.6.12',
       description: 'he soft, diffused light from the sky when the sun is below the horizon, either from daybreak to sunrise or, more commonly, from sunset to nightfall.',
-      photo: ' http://source.unsplash.com/366x200/?vampire',
+      photo: 'http://source.unsplash.com/366x200/?vampire',
       movieFile: 'woo',
     },
     {
@@ -47,7 +49,7 @@ export class MovieService {
       publisher: 'sun',
       released: '2022-10-05',
       description: 'Wednesday Addams, a high-school student, finds her brother Pugsley tied up in a locker',
-      photo: ' http://source.unsplash.com/366x200/?wine',
+      photo: 'http://source.unsplash.com/366x200/?wednesday',
       movieFile: 'woo',
     },
     {
@@ -61,7 +63,7 @@ export class MovieService {
       publisher: 'sun',
       released: '2021.6.12',
       description: 'A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists',
-      photo: ' http://source.unsplash.com/366x200/?ghost',
+      photo: 'http://source.unsplash.com/366x200/?annabelle',
       movieFile: 'woo',
 
     },
@@ -76,7 +78,7 @@ export class MovieService {
       publisher: 'sun',
       released: '2023.07.12',
       description: 'Falling in love with her brother-friend',
-      photo: ' http://source.unsplash.com/366x200/?cat',
+      photo: 'http://source.unsplash.com/366x200/?cat',
       movieFile: 'woo',
 
 
@@ -92,7 +94,7 @@ export class MovieService {
       publisher: 'sun',
       released: '2022.6.12',
       description: 'Our Beloved Summer is a story about romance, regret and repressed emotions',
-      photo: ' http://source.unsplash.com/366x200/?summer',
+      photo: 'http://source.unsplash.com/366x200/?summer',
       movieFile: 'woo',
 
     }
