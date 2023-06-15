@@ -8,7 +8,7 @@ import { WidgetsModule } from './common/widgets/widgets.module';
 @NgModule({
   declarations: [
     AppComponent
-      ],
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
