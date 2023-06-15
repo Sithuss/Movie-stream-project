@@ -1,0 +1,132 @@
+<div class="container mt-5">
+
+  <div class="card">
+
+    <div class="card-header">
+      <h3 class="text-center">Movie Edit Form</h3>
+    </div>
+    <div class="card-body">
+      <form #editForm=ngForm (ngSubmit)="edit(editForm.value)">
+        <div *ngIf="(movie$ | async) as movie">
+          <div class="row">
+
+            <div class="col">
+              <label for="title" class="form-label">Title</label>
+              <input id="title" type="text" title required [class.is-invalid]="title.invalid && title.touched"
+                #title=ngModel [(ngModel)]="movie.title" ngModel name="title" class="form-control" />
+              <div *ngIf="title.errors?.['required']" class="invalid-feedback">
+                <span>Title cannot not be empty</span>
+              </div>
+            </div>
+
+            <div class="col">
+              <label for="length" class="form-label">Length</label>
+              <input id="length" type="number" length required [class.is-invalid]="length.invalid && length.touched"
+                #length=ngModel [(ngModel)]="movie.length" ngModel name="length" class="form-control" />
+              <div *ngIf="length.errors?.['required']" class="invalid-feedback">
+                <span>Length cannot not be empty</span>
+              </div>
+            </div>
+
+            <div class="col">
+              <label for="category" class="form-label">Category</label>
+              <input id="category" type="text" category required
+                [class.is-invalid]="category.invalid && category.touched" #category=ngModel [(ngModel)]="movie.category"
+                ngModel name="category" class="form-control" />
+              <div *ngIf="category.errors?.['required']" class="invalid-feedback">
+                <span>Category cannot not be empty</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col">
+              <label for="actor" class="form-label">Actor</label>
+              <input id="actor" type="text" actor required [class.is-invalid]="actor.invalid && actor.touched"
+                #actor=ngModel [(ngModel)]="movie.actor" ngModel name="actor" class="form-control" />
+              <div *ngIf="actor.errors?.['required']" class="invalid-feedback">
+                <span>Actor cannot not be empty</span>
+              </div>
+            </div>
+
+            <div class="col">
+              <label for="actress" class="form-label">Actress</label>
+              <input id="actress" type="text" actress required [class.is-invalid]="actress.invalid && actress.touched"
+                #actress=ngModel [(ngModel)]="movie.actress" ngModel name="actress" class="form-control" />
+              <div *ngIf="actress.errors?.['required']" class="invalid-feedback">
+                <span>Actress cannot not be empty</span>
+              </div>
+            </div>
+
+            <div class="col">
+              <label for="director" class="form-label">Director</label>
+              <input id="director" type="text" director required
+                [class.is-invalid]="director.invalid && director.touched" #director=ngModel [(ngModel)]="movie.director"
+                ngModel name="director" class="form-control" />
+              <div *ngIf="director.errors?.['required']" class="invalid-feedback">
+                <span>Director cannot not be empty</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col">
+              <label for="publisher" class="form-label">Publisher</label>
+              <input id="publisher" type="text" publisher required
+                [class.is-invalid]="publisher.invalid && publisher.touched" #publisher=ngModel
+                [(ngModel)]="movie.publisher" ngModel name="publisher" class="form-control" />
+              <div *ngIf="publisher.errors?.['required']" class="invalid-feedback">
+                <span>Publisher cannot not be empty</span>
+              </div>
+            </div>
+
+            <div class="col">
+              <label for="released" class="form-label">Released Date</label>
+              <input id="released" type="text" released required
+                [class.is-invalid]="released.invalid && released.touched" #released=ngModel [(ngModel)]="movie.released"
+                ngModel name="released" class="form-control" />
+              <div *ngIf="released.errors?.['required']" class="invalid-feedback">
+                <span>Released date cannot not be empty</span>
+              </div>
+            </div>
+
+            <div class="col">
+              <label for="photo" class="form-label">Photo</label>
+              <input id="photo" type="text" photo required [class.is-invalid]="photo.invalid && photo.touched"
+                #photo=ngModel [(ngModel)]="movie.photo" ngModel name="photo" class="form-control" />
+              <div *ngIf="photo.errors?.['required']" class="invalid-feedback">
+                <span>Photo cannot not be empty</span>
+              </div>
+            </div>
+
+          </div>
+
+          <label for="description" class="form-label">Description</label>
+          <textarea id="description" type="text" description required
+            [class.is-invalid]="description.invalid && description.touched" #description=ngModel
+            [(ngModel)]="movie.description" ngModel name="description" class="form-control"></textarea>
+          <div *ngIf="description.errors?.['required']" class="invalid-feedback">
+            <span>Description cannot not be empty</span>
+          </div>
+
+          <label for="file" class="form-label">Movie File</label>
+          <input id="file" type="text" file required [class.is-invalid]="file.invalid && file.touched" #file=ngModel
+            [(ngModel)]="movie.movieFile" ngModel name="file" class="form-control" />
+          <div *ngIf="file.errors?.['required']" class="invalid-feedback">
+            <span>Movie file cannot not be empty</span>
+          </div>
+
+          <div class="d-flex justify-content-center mt-5">
+            <button [disabled]="editForm.invalid" class="btn btn-primary w-100"
+              (click)="edit(editForm.value)">save</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

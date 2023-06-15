@@ -1,0 +1,108 @@
+
+<div class="">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="container text-center w-100 align my-5">
+        <div class="card rounded shadow">
+          <div class="card-header bg-secondary">
+            <div class="card-title text-light text-start">Movie</div>
+          </div>
+          <div class="card-body">
+            <video class="object-fit-contain" loop muted controls class="w-100" >
+              <source src="" type="video/mp4">
+            </video>
+          </div>
+
+
+          <div class="">
+            <div class="card-body bg-secondary text-end">
+              <a href="#" class="btn btn-outline-warning me-3" [routerLink]="['/user/buy']">Premium Packages</a>
+              <a href="" class="btn btn-success me-2">Download</a>
+            </div>
+
+            <!-- <div class="card-body bg-secondary text-align">
+              <a href="#" class="text-white me-3"><span>To stream or download, please sign in!</span></a>
+            </div> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4 my-5">
+      <div class="container">
+        <div *ngIf="(movie$ | async) as movie" class="card rounded shadow">
+          <div class="card-header">
+            <h4>{{movie.title}}</h4>
+          </div>
+          <div class="card-body">
+            <div class="d-flex">
+            <p>Category: </p>
+            <ul *ngFor="let c of movie.category">
+              <li class="btn btn-danger btn-sm">{{c}}</li>
+              <!-- <ng-container *ngIf="!isLast">
+                <ng-container *ngFor="let space of getSpacing()">&nbsp;</ng-container>
+              </ng-container> -->
+            </ul>
+          </div>
+          <hr>
+          <div class="d-flex">
+            <p>Cast: </p>
+            <ul>
+              <li class="btn btn-warning btn-sm ms-2">{{movie.actor}}</li>
+              <li class="btn btn-warning btn-sm ms-2">{{movie.actress}}</li>
+            </ul>
+          </div>
+          <hr>
+          <div class="d-flex">
+            <p>Director: </p>
+            <ul>
+              <li class="btn btn-warning btn-sm ms-2">{{movie.director}}</li>
+            </ul>
+
+          </div>
+          <hr>
+          <div class="d-flex">
+            <p>Description: {{movie.description}}</p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- <p>Genre(Category):
+              <a href="#" class="btn btn-danger btn-sm">Horror</a>
+              <a href="#" class="btn btn-danger ms-2 btn-sm">Mystery</a>
+              <a href="#" class="btn btn-danger ms-2 my-2 btn-sm">Action</a>
+              <a href="#" class="btn btn-danger ms-2 my-2 btn-sm">Romance</a>
+            </p>
+            <hr>
+            <p>Cast:
+              <a href="#" class="btn btn-warning btn-sm">Actor/Actress</a>
+            </p>
+            <hr>
+            <p>Director:
+              <a href="#" class="btn btn-warning btn-sm">Director</a>
+            </p>
+            <hr>
+            <p>Released Date: 11.4.21</p>
+            <hr>
+            <p>Description:
+              <font size="3">Movie Detail</font>
+            </p> -->
+
+
+
+
+
+
+<!-- <video controls>
+  <source src="https://drive.google.com/uc?id=1O68UmV1d1Cg1arQzwOEum7H8rgL8WE9o/preview" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+https://drive.google.com/file/d/1O68UmV1d1Cg1arQzwOEum7H8rgL8WE9o/preview
+
+https://drive.google.com/uc?id=1O68UmV1d1Cg1arQzwOEum7H8rgL8WE9o -->

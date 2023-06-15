@@ -1,0 +1,16 @@
+.navbar-photo {
+  border-radius: 50%;
+  object-fit: cover;
+}
+.noti-alg {
+  min-width: 300px; left:  1100px; right: 50px;
+}
+
+.noti-bg{
+  background-color: rgb(33, 37, 41);
+  color: white;
+}
+
+.profile-alg{
+  min-width: 300px;left:  1100px;
+}

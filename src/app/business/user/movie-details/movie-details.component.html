@@ -1,0 +1,85 @@
+<div class="container">
+<div *ngIf="(movie | async) as movie">
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <img src="https://source.unsplash.com/600x400/?ww2" class="card-img-top img-thumbnail" alt="...">
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h4>{{movie.title}}</h4>
+          <div class="card-body">
+            <div class="card-title">Directed by :&nbsp; {{movie.director}}</div>
+            <div class="card-title">Actor :&nbsp; {{movie.actor}}</div>
+            <div class="card-title">Actress :&nbsp; {{movie.actress}}</div>
+            <div class="card-text">Genre :&nbsp;{{movie.category}}</div>
+            <div class="card-text">Published by - {{movie.publisher}}</div>
+            <div class="card-text">Published in - {{movie.released}}</div>
+            <div class="card-text">{{movie.description}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="my-4">
+  <button class="btn btn-primary ms-3" (click)="streamMovie()">Watch Now</button>
+  <button class="btn btn-success ms-3" (click)="goReviews()">Feedback</button>
+  <button class="btn btn-info ms-3" (click)="goHome()">Back To Home</button>
+</div>
+</div>
+
+<div class="row row-cols-3 g-3 mt-3">
+  <div class="col" *ngFor="let movie of descriptionList">
+    <!-- <app-description [description]="movie" (showDetailsListener)="showDetails($event)" ></app-description> -->
+    <!-- <router-outlet></router-outlet> -->
+    <app-description></app-description>
+  </div>
+</div>
+
+<app-description></app-description>
+
+
+<!-- <div class="row justify-content-center">
+    <div class="col-4">
+
+      <div class="card">
+      <div *ngIf="(movie |async) as movie">
+        <div class="card-header">
+          <h3>{{movie.title}}</h3>
+        </div>
+
+        <div class="card-body">
+
+          <label class="form-label">Director</label>
+          <input [value]="movie.director" type="text" class="form-control mb-2" readonly>
+
+          <label class="form-label">Release Date</label>
+          <input [value]="movie.released" type="text" class="form-control mb-2" readonly>
+
+          <label class="form-label">Category</label>
+          <input [value]="movie.category" type="text" class="form-control mb-3" readonly>
+
+          <label class="form-label">Actor</label>
+          <input [value]="movie.actor" type="text" class="form-control mb-3" readonly>
+
+          <label class="form-label">Actress</label>
+          <input [value]="movie.actress" type="text" class="form-control mb-3" readonly>
+
+          <label class="form-label">Publisher</label>
+          <input [value]="movie.publisher" type="text" class="form-control mb-3" readonly>
+
+          <label class="form-label">Description</label>
+          <input [value]="movie.description" type="text" class="form-control mb-3" readonly>
+
+          <a [routerLink]="['/user/watch',movie.id]" routerLinkActive="router-link-active" class="btn btn-outline-danger">Stream Movie</a>
+          <a routerLink="/user/give-reviews" routerLinkActive="router-link-active" class="btn btn-outline-danger">Feedback</a>
+
+        </div>
+      </div>
+
+    </div>
+  </div> -->

@@ -1,0 +1,19 @@
+<div class="container my-5 w-50">
+  <div class="card rounded shadow">
+    <div class="card-header">
+      <h3> Sign In</h3>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="form">
+          <app-form-group [valid]="form.get('email')!.valid" label="email">
+            <input formControlName="email" type="email" class="form-control" placeholder="Enter your email">
+          </app-form-group>
+          <app-form-group [valid]="form.get('password')!.valid" label="password">
+            <input formControlName="password" type="password" class="form-control" placeholder="Enter Password">
+          </app-form-group>
+      
+      <button  type="button" (click)="signIn()" class="btn btn-outline-success">Sign In</button>
+    </form>
+
+  </div>
+</div>

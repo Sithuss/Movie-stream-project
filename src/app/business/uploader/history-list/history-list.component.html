@@ -1,0 +1,68 @@
+<div class="container mt-5">
+  <div class="row">
+    <!-- <table [ngClass]="{'table-dark':isNight, 'table-striped':!isNight}" class="table"> -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Actor</th>
+          <th>Actress</th>
+          <th>Publisher</th>
+          <th>Released Date</th>
+          <th>Length</th>
+          <th class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor=" let movie of (movieList$ | async)">
+          <td>{{movie.id}}</td>
+          <td>{{movie.title}}</td>
+          <td>
+            <table>
+              <tr *ngFor="let c of movie.category">
+                <td>{{c}}</td>
+              </tr>
+            </table>
+          </td>
+          <td>{{movie.actor}}</td>
+          <td>{{movie.actress}}</td>
+          <td>{{movie.publisher}}</td>
+          <td>{{movie.released}}</td>
+          <td>{{movie.length}} min</td>
+          <td class="text-center">
+            <button data-bs-toggle="modal" data-bs-target="#delete" class="btn btn-outline-danger rounded-pill me-2">
+              <i class="bi bi-trash"></i>
+            </button>
+            <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="delete1" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content bg-dark text-danger">
+                  <div class="modal-header">
+                    <h3 class="modal-title " id="delete1">Warning</h3>
+                    <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="Close">
+                      <i class="bi bi-x-circle-fill"></i>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <h4>Please confirm to delete</h4>
+                  </div>
+                  <div class="modal-footer">
+                    <button (click)="delete(movie.id)" class="btn btn-danger" data-bs-dismiss="modal">Confirm</button>
+                    <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a [routerLink]="['/uploader/edit', movie.id]" class="btn btn-outline-warning rounded-pill me-2">
+              <i class="bi bi-pencil"></i>
+            </a>
+            <a href="#" class="btn btn-outline-success rounded-pill">
+              <i class="bi bi-eye"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
