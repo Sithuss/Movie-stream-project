@@ -35,11 +35,39 @@
           <div class="card-header">
             <h4>{{movie.title}}</h4>
           </div>
-          <div class="card-body">
+          <div class="card-body d-flex">
+            <p>Category: </p>
             <ul *ngFor="let c of movie.category">
-              <li>{{c}}</li>
+              <li class="btn btn-danger btn-sm">{{c}}</li>
             </ul>
-            <!-- <p>Genre(Category):
+          </div>
+          <hr>
+          <div class="card-body d-flex">
+            <p>Cast: </p>
+            <ul>
+              <li class="btn btn-warning btn-sm ms-2">{{movie.actor}}</li>
+              <li class="btn btn-warning btn-sm ms-2">{{movie.actress}}</li>
+            </ul>
+          </div>
+          <hr>
+          <div class="card-body d-flex">
+            <p>Director: </p>
+            <ul>
+              <li class="btn btn-warning btn-sm ms-2">{{movie.director}}</li>
+            </ul>
+
+          </div>
+          <hr>
+          <div class="card-body d-flex">
+            <p>Description: {{movie.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- <p>Genre(Category):
               <a href="#" class="btn btn-danger btn-sm">Horror</a>
               <a href="#" class="btn btn-danger ms-2 btn-sm">Mystery</a>
               <a href="#" class="btn btn-danger ms-2 my-2 btn-sm">Action</a>
@@ -59,14 +87,6 @@
             <p>Description:
               <font size="3">Movie Detail</font>
             </p> -->
-          </div>
-        </div>
-      </div>
-
-    </div>
-    </div>
-
-  </div>
 
 
 
