@@ -32,16 +32,13 @@ export class NavbarComponent implements OnInit{
 
   categories:any[] = []
   movieList:any[] = []
-  searchForm:FormGroup
 
   constructor(
     builder:FormBuilder,
     private router:Router,
     public userService:UserService,
     private movieService:MovieService) {
-    this.searchForm = builder.group({
-      keyword: ''
-    })
+
 
   }
 
@@ -53,12 +50,6 @@ export class NavbarComponent implements OnInit{
     // this.search()
   }
 
-  search() {
-    this.movieService.search(this.searchForm.value).subscribe(result => {
-      this.movieList = result
-    })
-  }
-
   searchByCategory(id:number) {
     this.movieService.searchByCategory(id).subscribe(result => {
       this.movieList = result
@@ -67,8 +58,8 @@ export class NavbarComponent implements OnInit{
 
 
 
-  
-  
+
+
 
 
 

@@ -28,4 +28,12 @@ export class WatchMovieComponent implements OnInit {
   }
 
 
+
+
+
+  // getSpacing():number[] {
+  //   return Array(0).fill(0);
+  // }
+
+
 }

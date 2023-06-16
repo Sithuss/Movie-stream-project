@@ -1,5 +1,49 @@
 <div class="container mt-5">
+  <div class="row justify-content-end mb-5">
+
+    <div class="col-3">
+      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" style="background-color: rgb(35, 30, 53);" aria-controls="offcanvasWithBothOptions">categories</button>
+    </div>
+    <div class="col">
+
+      <form class="input-group ms-auto shadow-sm" style="width: 7cm;" role="search">
+        <input class="form-control" type="search" placeholder="Search anything here...." aria-label="Search">
+        <button class="btn btn-outline-success" (click)="search()" type="submit"><i class="bi bi-search"></i></button>
+      </form>
+    </div>
+  </div>
+
+
+
+  <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title fst-italic" id="offcanvasWithBothOptionsLabel">Category List</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div >
+        <ul *ngFor="let cat of categories" class="list-group">
+          <button class="nav-link text-start" (click)="mvListWithCat(cat.name)"><li class="list-group-item list-group-item-action">{{cat.name}}</li></button>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
+    <div class="col-md-3" *ngFor="let movie of movies">
+      <div class="card rounded shadow mt-5">
+        <img src={{movie.photo}} class="card-img-top" alt="...">
+        <div class="card-body rounded" style="background-color: rgb(35, 30, 53);">
+          <a href="" [routerLink]="['/user/movie-details',movie.id]" class="text-light card-title align-middle nav-link">
+            <p class="card-title fst-italic fw-medium text-center" style="height: 3rem;"><i class="bi bi-film"></i> {{movie.title}}</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <div class="row">
     <div class="col" *ngFor="let movie of movies">
       <div class="card" style="width: 18rem;">
         <img src="https://source.unsplash.com/600x400/?ww2" class="card-img-top img-thumbnail" alt="...">
@@ -9,23 +53,6 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
 
-<nav aria-label="Page navigation example">
-  <ul class="pagination mt-5 justify-content-center">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
