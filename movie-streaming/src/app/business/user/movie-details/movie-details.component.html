@@ -57,16 +57,16 @@
         <img src="https://source.unsplash.com/600x400/?ww2"
         class="card-img-top img-thumbnail mb-4" alt="...">
 
-          <button class="btn btn-sm btn-primary rounded-pill ms-3" (click)="streamMovie()">Watch Now</button>
-          <button class="btn btn-sm btn-success rounded-pill ms-3" (click)="goReviews()">Feedback</button>
-          <button class="btn btn-sm btn-info rounded-pill ms-3" (click)="goHome()">Back To Home</button>
+          <button class="btn btn-sm btn-outline-secondary rounded-pill ms-3" (click)="streamMovie()">Watch Now</button>
+          <button class="btn btn-sm btn-outline-success rounded-pill ms-3" (click)="goReviews()">Feedback</button>
+          <button class="btn btn-sm btn-outline-info rounded-pill ms-3" (click)="goHome()">Back To Home</button>
       </div>
 
 
       <div class="col-md-7">
         <div class="card shadow rounded">
           <div class="card-header">
-            <h4 class="text-center">{{movie.title}}</h4>
+            <h4 class="text-center" style="font-weight: bold; ">{{movie.title}}</h4>
           </div>
           <div class="card-body border">
 
@@ -117,9 +117,6 @@
                 <video controls="controls" class="video-stream w-100" x-webkit-airplay="allow" data-youtube-id="N9oxmRT2YWw"  src="http://www.youtube.com/watch?v=OmxT8a9RWbE"></video>
               </div>
             </div>
-
-
-
           </div>
         </div>
       </div>
