@@ -1,33 +1,32 @@
 import { Observable, of } from 'rxjs';
 import { Category } from './dto/movie-category';
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn:'any'
+  providedIn: 'any',
 })
+export class CategoryService {
+  constructor() {}
 
-export class CategoryService{
-  constructor(){}
+  private categoryList: Category[] = [
+    { name: 'war' },
+    { name: 'action' },
+    { name: 'romance' },
+    { name: 'comedy' },
+    { name: 'horror' },
+    { name: 'triller' },
+    { name: 'sci-fi' },
+    { name: 'animation' },
+    { name: 'adventure' },
+    { name: 'biography' },
+    { name: 'historical' },
+    { name: 'bollywood' },
+    { name: 'hollywood' },
+    { name: 'sport' },
+    { name: 'suspense' },
+  ];
 
-  private categoryList:Category[] = [
-    { name:"war"},
-    { name:"action"},
-    { name:"romance"},
-    { name:"comedy"},
-    { name:"horror"},
-    { name:"triller"},
-    { name:"sci-fi"},
-    { name:"animation"},
-    { name:"adventure"},
-    { name:"biography"},
-    { name:"historical"},
-    { name:"bollywood"},
-    { name:"hollywood"},
-    { name:"sport"},
-    { name:"suspense"}
-  ]
-
-  findAllCate():Observable<Category[]> {
+  findAllCate(): Observable<Category[]> {
     return of(this.categoryList);
   }
 }

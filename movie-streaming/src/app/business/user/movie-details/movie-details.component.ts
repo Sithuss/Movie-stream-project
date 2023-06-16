@@ -13,17 +13,17 @@ export class MovieDetailsComponent implements OnInit{
 
   movie:Observable<Movie>;
 
-  id!:number;
   constructor(public movieService:MovieService,private route:ActivatedRoute, private router:Router){
 
     const id = this.route.snapshot.paramMap.get('id') as string;
-    this.movie = this.movieService.findAll().pipe(map(ml => ml.find(m => m.id === parseInt(id)))) as Observable<Movie>;    
+    this.movie = this.movieService.findAll().pipe(map(ml => ml.find(m => m.id === parseInt(id)))) as Observable<Movie>;
   }
   ngOnInit(): void {
   }
 
-  public streamMovie():void{
-    this.router.navigate(['user/watch', 'id'])
+  public streamMovie(id:any):void{
+    console.log(id);
+    this.router.navigate(['user/watch',id])
   }
 
   public goReviews(){
