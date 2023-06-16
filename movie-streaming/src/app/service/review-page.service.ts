@@ -7,8 +7,6 @@ import { Observable, of } from 'rxjs';
 })
 export class ReviewPageService {
 
-
-
   constructor(){}
 
   private formList:Review[] = [
@@ -17,6 +15,7 @@ export class ReviewPageService {
   ]
 
   findAllReviews():Observable<Review[]> {
+    console.log(this.formList)
     return of(this.formList);
   }
 
