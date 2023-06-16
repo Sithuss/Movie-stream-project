@@ -37,6 +37,10 @@ export class SignInComponent {
   }
    
 }
+login(){
+  console.log(this.form.value);
+  
+}
 
 
 }
