@@ -76,8 +76,8 @@ export class MovieService {
       actress: 'Zhao Lusi',
       director: 'libra',
       publisher: 'sun',
-      released: '2023.07.12',
-      description: 'Falling in love with her brother-friend',
+      released: 'comming soon',
+      description: "Falling in love with her brother's friend",
       photo: 'http://source.unsplash.com/366x200/?cat',
       movieFile: 'woo',
 
