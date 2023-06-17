@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SecurityService } from 'src/app/service/security/security.service';
+
 
 @Component({
   selector: 'app-edit-account',
@@ -10,15 +10,15 @@ import { SecurityService } from 'src/app/service/security/security.service';
 })
 export class EditAccountComponent {
 
-  constructor(private builder: FormBuilder,private security:SecurityService, private router:Router){
- 
+  constructor(private builder: FormBuilder, private router:Router){
+
 
   }
   editform=this.builder.group({
     id:this.builder.control('',Validators.compose([Validators.required,Validators.minLength(5)])),
     name:this.builder.control('',Validators.required),
     email:this.builder.control('',Validators.compose([Validators.required,Validators.email])),
-    password:this.builder.control('',Validators.compose([Validators.required,Validators.pattern('')])),    
+    password:this.builder.control('',Validators.compose([Validators.required,Validators.pattern('')])),
     role:this.builder.control(''),
     isactive:this.builder.control(false)
 

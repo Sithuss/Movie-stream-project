@@ -26,6 +26,12 @@
               <input formControlName="compName" type="text" class="form-control" placeholder="Company Name">
             </app-form-group>
 
+            <app-form-group [valid]="signupForm.get('paymentMethod')!.valid" label="Payment option">
+              <select class="form-select form-select-sm" formControlName="paymentMethod" aria-label="Default select example">
+                <option [value]="p.name" *ngFor="let p of payments$">{{p.name}}</option>
+              </select>
+            </app-form-group>
+
             <app-form-group [valid]="signupForm.get('transaction')!.valid" label="Transaction Number">
               <input formControlName="transaction" type="tel" class="form-control" placeholder="Transaction Number">
             </app-form-group>
