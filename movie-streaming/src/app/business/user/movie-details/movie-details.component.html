@@ -52,8 +52,8 @@
   <div *ngIf="(movie | async) as movie">
     <div class="row">
 
-      <div class="col-md-5">
-        <img src="https://source.unsplash.com/600x400/?ww2" class="card-img-top img-thumbnail mb-4" alt="...">
+      <div class="col-md-5 col-sm-12 me-5">
+        <img [src]="movie.photo" class="card-img-top img-thumbnail mb-4" alt="...">
 
         <button class="btn btn-sm btn-primary rounded-pill ms-3" (click)="streamMovie(movie.id)">Watch Now</button>
         <button class="btn btn-sm btn-success rounded-pill ms-3" (click)="goReviews()">Feedback</button>
@@ -61,8 +61,8 @@
       </div>
 
 
-      <div class="col-md-7">
-        <div class="card shadow rounded">
+      <div class="col-md-6 col-sm-12 ms-5">
+        <div class="card  shadow rounded">
           <div class="card-header">
             <h4 class="text-center">{{movie.title}}</h4>
           </div>
@@ -116,10 +116,15 @@
                 aria-labelledby="nav-profile-tab" tabindex="0">
                 {{movie.description}}
               </div>
-              <div class="tab-pane fade mt-2" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"
+              <div class="tab-pane fade  mt-2" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"
                 tabindex="0">
-                <video controls="controls" class="video-stream w-100" x-webkit-airplay="allow"
-                  data-youtube-id="N9oxmRT2YWw" src="http://www.youtube.com/watch?v=OmxT8a9RWbE"></video>
+
+                <div class="ratio ratio-16x9">
+                  <iframe class="" src="https://www.youtube.com/embed/t_n_Jc7SeFU" title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                </div>
               </div>
             </div>
 

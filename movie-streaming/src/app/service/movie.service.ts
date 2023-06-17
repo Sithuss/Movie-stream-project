@@ -6,8 +6,6 @@ import { Movie } from './../business/uploader/model/movie';
   providedIn: 'any',
 })
 export class MovieService {
-
-
   private movieList: Movie[] = [
     {
       id: 1,
@@ -19,7 +17,8 @@ export class MovieService {
       director: 'Chris Columbus, Alfonso Cuarón, Mike Newell, and David Yates',
       publisher: 'moon',
       released: '2011',
-      description: 'Harry,Ron, and Hermione search for Voldemort remaining Horcruxes in their effort to destory the Dark Lord as the final battle rages on at Hogwarts',
+      description:
+        'Harry,Ron, and Hermione search for Voldemort remaining Horcruxes in their effort to destory the Dark Lord as the final battle rages on at Hogwarts',
 
       photo: 'http://source.unsplash.com/366x200/?harryPotter',
       movieFile: 'Fantasy',
@@ -34,7 +33,8 @@ export class MovieService {
       director: 'Catherine Hardwicke',
       publisher: 'sun',
       released: '2021.6.12',
-      description: 'he soft, diffused light from the sky when the sun is below the horizon, either from daybreak to sunrise or, more commonly, from sunset to nightfall.',
+      description:
+        'he soft, diffused light from the sky when the sun is below the horizon, either from daybreak to sunrise or, more commonly, from sunset to nightfall.',
       photo: 'http://source.unsplash.com/366x200/?vampire',
       movieFile: 'woo',
     },
@@ -48,7 +48,8 @@ export class MovieService {
       director: 'Tim Burton ',
       publisher: 'sun',
       released: '2022-10-05',
-      description: 'Wednesday Addams, a high-school student, finds her brother Pugsley tied up in a locker',
+      description:
+        'Wednesday Addams, a high-school student, finds her brother Pugsley tied up in a locker',
       photo: 'http://source.unsplash.com/366x200/?wednesday',
       movieFile: 'woo',
     },
@@ -62,10 +63,10 @@ export class MovieService {
       director: 'King',
       publisher: 'sun',
       released: '2021.6.12',
-      description: 'A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists',
+      description:
+        'A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists',
       photo: 'http://source.unsplash.com/366x200/?annabelle',
       movieFile: 'woo',
-
     },
     {
       id: 5,
@@ -80,8 +81,6 @@ export class MovieService {
       description: "Falling in love with her brother's friend",
       photo: 'http://source.unsplash.com/366x200/?cat',
       movieFile: 'woo',
-
-
     },
     {
       id: 6,
@@ -93,18 +92,18 @@ export class MovieService {
       director: 'Kim',
       publisher: 'sun',
       released: '2022.6.12',
-      description: 'Our Beloved Summer is a story about romance, regret and repressed emotions',
+      description:
+        'Our Beloved Summer is a story about romance, regret and repressed emotions',
       photo: 'http://source.unsplash.com/366x200/?summer',
       movieFile: 'woo',
-
-    }
+    },
   ];
 
   findAll(): Observable<Movie[]> {
     return of(this.movieList);
   }
   upload(movie: Movie) {
-    movie.id = 3;
+    movie.id = 7;
     this.movieList.push(movie);
   }
 
