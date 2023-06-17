@@ -15,7 +15,7 @@ import { Movie } from '../../uploader/model/movie';
 export class GiveReviewsComponent implements OnInit {
   reviewForm: FormGroup;
 
-  otherReview!: Observable<Review>;
+  otherReview!: any;
 
   reviewList: BehaviorSubject<Review[]> = new BehaviorSubject<Review[]>([]);
   reviewList$: Observable<Review[]> = this.reviewList.asObservable();
