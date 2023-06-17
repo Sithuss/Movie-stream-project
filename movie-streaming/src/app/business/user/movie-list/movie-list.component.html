@@ -6,8 +6,8 @@
     </div>
     <div class="col">
 
-      <form class="input-group ms-auto shadow-sm" style="width: 7cm;" role="search">
-        <input class="form-control" type="search" placeholder="Search anything here...." aria-label="Search">
+      <form [formGroup]="searchWord" class="input-group ms-auto shadow-sm" style="width: 7cm;" role="search">
+        <input class="form-control" formControlName="keyword" type="search" placeholder="Search anything here...." aria-label="Search">
         <button class="btn btn-outline-success" (click)="search()" type="submit"><i class="bi bi-search"></i></button>
       </form>
     </div>
