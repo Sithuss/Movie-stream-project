@@ -17,6 +17,7 @@ export class WatchMovieComponent implements OnInit {
   ) {}
   movie$!: Observable<Movie>;
   mId!: number;
+  spacing = 'my-2 mx-2';
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id') as string;

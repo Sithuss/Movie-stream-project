@@ -33,28 +33,11 @@ export class UploadFormComponent {
       photo: ['', [Validators.required]],
       movieFile: ['', [Validators.required]],
     });
-    // this.inputGroups = [
-    //   ['title', 'length', 'category', 'actor'],
-    //   ['actress', 'director', 'publisher', 'released'],
-    //   ['discription', 'photo', 'movieFile'],
-    // ];
   }
 
   uploadM(m: Movie) {
     this.mService.upload(m);
     this.router.navigate(['/uploader', 'home']);
     this.notiService.addNoti({ descript: 'successfully uploaded' });
-  }
-
-  next() {
-    if (this.currentIndex < this.inputGroups.length - 1) {
-      this.currentIndex++;
-    }
-  }
-
-  previous() {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-    }
   }
 }

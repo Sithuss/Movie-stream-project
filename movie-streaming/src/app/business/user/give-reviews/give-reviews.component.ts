@@ -6,6 +6,7 @@ import { Review } from 'src/app/service/dto/review';
 import { ReviewPageService } from 'src/app/service/apis/review-page.service';
 import { Movie } from '../../uploader/model/movie';
 
+
 @Component({
   selector: 'app-give-reviews',
   templateUrl: './give-reviews.component.html',
@@ -29,6 +30,7 @@ export class GiveReviewsComponent implements OnInit {
       review: '',
     });
   }
+
   ngOnInit(): void {
     this.service.findAllReviews().subscribe((m) => {
       this.reviewList.next(m);
@@ -37,6 +39,6 @@ export class GiveReviewsComponent implements OnInit {
 
   addReview() {
     this.service.createReview(this.reviewForm.value);
-    this.router.navigate(['/user/give-reviews']);
+     this.router.navigate(['/user/give-reviews']);
   }
 }

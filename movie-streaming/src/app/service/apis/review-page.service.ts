@@ -18,6 +18,7 @@ export class ReviewPageService {
   ]
 
   findAllReviews():Observable<Review[]> {
+    console.log(this.formList)
     return of(this.formList);
   }
 

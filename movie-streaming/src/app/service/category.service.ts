@@ -1,13 +1,12 @@
 import { Observable, of } from 'rxjs';
 import { Category } from './dto/movie-category';
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn:'any'
+  providedIn: 'any',
 })
-
-export class CategoryService{
-  constructor(){}
+export class CategoryService {
+  constructor() {}
 
   private categoryList:Category[] = [
     { name:"war"},
