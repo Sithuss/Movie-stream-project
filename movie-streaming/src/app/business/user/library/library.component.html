@@ -100,12 +100,13 @@
                 <div class="mb-2">{{movie.director}} </div>
                 <div class="mb-2">{{movie.released}} </div>
               </div>
-              <div>
-                <button class="card-footer"></button>
-              </div>
             </div>
           </div>
-
+          <div class="card-footer">
+            <button class="btn btn-sm btn-outline-secondary rounded-pill ms-3" (click)="streamMovie(movie.id)">Watch Now</button>
+            <button class="btn btn-outline-danger rounded-pill ms-3" (click)="removeFromLibrary(movie.id)">Delete</button>
+            <button class="btn btn-outline-success rounded-pill ms-3" (click)="goHome()">Another Movies</button>
+          </div>
           </div>
         </div>
       </div>

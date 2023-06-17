@@ -25,5 +25,10 @@ export class LibraryComponent {
   public goHome(){
     this.router.navigate(['/user/movie-list'])
   }
+
+  public streamMovie(id:any):void{
+    console.log(id);
+    this.router.navigate(['user/watch',id])
+  }
   
 }

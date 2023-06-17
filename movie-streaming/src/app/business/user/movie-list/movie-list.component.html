@@ -8,7 +8,7 @@
 
       <form [formGroup]="searchWord" class="input-group ms-auto shadow-sm" style="width: 7cm;" role="search">
         <input class="form-control" formControlName="keyword" type="search" placeholder="Search anything here...." aria-label="Search">
-        <button class="btn btn-outline-success" (click)="search()" type="submit"><i class="bi bi-search"></i></button>
+        <button class="btn btn-outline-success" id="search" (click)="search()" type="submit"><i class="bi bi-search"></i></button>
       </form>
     </div>
   </div>
@@ -56,3 +56,20 @@
   </div> -->
 </div>
 
+<nav aria-label="">
+    <ul class="pagination mt-5 justify-content-center">
+      <li class="page-item page">
+        <a class="page-link active" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link active" aria-current="page" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link active" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
