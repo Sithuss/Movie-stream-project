@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, map, of } from 'rxjs';
 import { CategoryService } from 'src/app/service/category.service';
@@ -21,7 +21,13 @@ export class MovieListComponent implements OnInit {
 
   mvByCate:any[] = [];
 
-  constructor(private movieService:MovieService, private categoryService:CategoryService, private router:Router){
+  searchWord:FormGroup;
+
+  constructor(private movieService:MovieService, private categoryService:CategoryService,
+     private router:Router,private fb:FormBuilder){
+    this.searchWord = this.fb.group({
+      keyword:['', Validators.required]
+    })
   }
 
   ngOnInit(): void {
@@ -33,7 +39,10 @@ export class MovieListComponent implements OnInit {
 
 
   search() {
-
+    this.movies = [];
+    console.log(this.searchWord.value)
+    this.movieService.search(this.searchWord.value)
+    .subscribe(movie => this.movies = movie);
   }
 
   mvListWithCat(name:any) {

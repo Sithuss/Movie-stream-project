@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { UserAccountService } from 'src/app/service/apis/useraccount.service';
+import { Payment } from 'src/app/service/dto/payment';
+import { PaymentService } from 'src/app/service/payment.service';
 import { UserService } from 'src/app/service/user.service';
 import { passwordMatchValidator } from 'src/app/service/validators/password.match';
 
@@ -17,6 +20,8 @@ export class SignUpComponent {
 
   uploader=false;
 
+  payments$:Payment[] = []
+
   status:string = "uploader"
 
   signupForm: FormGroup;
@@ -26,7 +31,7 @@ export class SignUpComponent {
 
   constructor(private fb:FormBuilder, private router:Router,
     private userRegister: UserAccountService,
-    private userService:UserService) {
+    private userService:UserService, public paymentService:PaymentService) {
 
     this.signupForm = fb.group({
       name:['',[Validators.required]],
@@ -34,10 +39,15 @@ export class SignUpComponent {
       password:['', [Validators.required]],
       // confirmPassword:['', [passwordMatchValidator()]],
       compName:['', Validators.required],
+      paymentMethod:['', Validators.required],
       transaction:['', [Validators.required]],
       premiumPk:0,
       role:['user']
     })
+
+    paymentService.getAll().subscribe(
+      p => this.payments$ = p
+    )
   }
 
   SignUp() {
