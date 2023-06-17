@@ -15,7 +15,7 @@ export class CategoryService{
     { name:"romance"},
     { name:"comedy"},
     { name:"horror"},
-    { name:"triller"},
+    { name:"thriller"},
     { name:"sci-fi"},
     { name:"animation"},
     { name:"adventure"},
