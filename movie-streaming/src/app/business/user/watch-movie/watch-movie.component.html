@@ -30,113 +30,53 @@
     </div>
 
     <div class="col-sm-4 my-5">
-      <div class="container">
-        <div *ngIf="(movie$ | async) as movie" class="card rounded shadow">
-          <div class="card-header">
-            <h4>{{movie.title}}</h4>
-          </div>
-          <div class="card-body border">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="mb-2 actor-list">Actor</div>
-                  <div class="mb-2 actress-list">Actress</div>
-                  <div class="mb-2 category-list">Category</div>
-                  <div class="mb-2 publisher-list">Publisher</div>
-                  <div class="mb-2 director-list">Director</div>
-                  <div class="mb-2 releasedDate-list">ReleasedDate</div>
-                </div>
-                <div class="col-1">
-                  <div class="h5 fw-bold mb-2 actor-list">-</div>
-                  <div class="h5 fw-bold mb-2 actress-list">-</div>
-                  <div class="h5 fw-bold mb-2 category-list">-</div>
-                  <div class="h5 fw-bold mb-2 publisher-list">-</div>
-                  <div class="h5 fw-bold mb-2 director-list">-</div>
-                  <div class="h5 fw-bold mb-2 releasedDate-list">-</div>
-                </div>
-                <div class="col-md">
-                  <div class="mb-2 actor-list">{{movie.actor}} </div>
-                  <div class="mb-2 actress-list">{{movie.actress}} </div>
-                  <div class="mb-2 category-list">{{movie.category}} </div>
-                  <div class="mb-2 publisher-list">{{movie.publisher}} </div>
-                  <div class="mb-2 director-list">{{movie.director}} </div>
-                  <div class="mb-2 releasedDate-list">{{movie.released}} </div>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- <div class="col-md-4">
-                  <div class="mb-2">Actor</div>
-                  <div class="mb-2">Actress</div>
-                  <div class="mb-2">Category</div>
-                  <div class="mb-2">Publisher</div>
-                  <div class="mb-5">Director</div>
-                  <div class="mb-2">ReleasedDate</div>
-                </div>
-                <div class="col-1">
-                  <div class="h5 fw-bold mb-2">-</div>
-                  <div class="h5 fw-bold mb-2">-</div>
-                  <div class="h5 fw-bold mb-2">-</div>
-                  <div class="h5 fw-bold mb-2">-</div>
-                  <div class="h5 fw-bold mb-5">-</div>
-                  <div class="h5 fw-bold mb-2">-</div>
-                </div>
-                <div class="col-md">
-                  <div class="mb-2">{{movie.actor}} </div>
-                  <div class="mb-2">{{movie.actress}} </div>
-                  <div class="mb-2">{{movie.category}} </div>
-                  <div class="mb-2">{{movie.publisher}} </div>
-                  <div class="mb-2">{{movie.director}} </div>
-                  <div class="mb-2">{{movie.released}} </div>
-                </div> -->
-
-            <!-- <div class="d-flex" style="margin-bottom: 10px;">
-              <p>Category:</p>
-              <div class="category-list" style=" margin-left: 10px">
-                <ul>
-                  <li *ngFor="let c of movie.category" class="btn btn-danger btn-sm">{{ c }}</li>
-                </ul>
-              </div>
-            </div>
-            <hr>
-            <p>Cast:</p>
-            <div class="d-flex" style="margin-bottom: 10px; padding: 10px; margin-right: 10px">
-
-              <div class="cast-list">
-                <ul>
-                  <li class="btn btn-warning btn-sm ms-2">{{ movie.actor }}</li>
-                  <li class="btn btn-warning btn-sm ms-2">{{ movie.actress }}</li>
-                </ul>
-              </div>
-            </div>
-            <hr>
-            <p>Director:</p>
-            <div class="d-flex" style="margin-bottom: 10px; padding: 30px">
-
-              <div class="director-list">
-                <ul>
-                  <li *ngFor="let d of movie.director" style="margin-right: 10px;" class="btn btn-warning btn-sm">{{ d }}</li>
-                </ul>
-              </div>
-            </div>
-            <hr>
-            <div class="d-flex">
-              <p>Description: {{ movie.description }}</p>
-            </div> -->
-
-
-
-
-
-
-
-          </div>
+      <div *ngIf="(movie$ | async) as movie" class="card rounded shadow">
+        <div class="card-header">
+          <h4>{{movie.title}}</h4>
+        </div>
+        <div class="card-body border">
+          <table class="table">
+            <tr>
+              <td class="column-header">Actor</td>
+              <td class="column-header">-</td>
+              <td class="column-content">{{movie.actor}}</td>
+            </tr>
+            <br>
+            <tr>
+              <td class="column-header">Actress</td>
+              <td class="column-header">-</td>
+              <td class="column-content">{{movie.actress}}</td>
+            </tr>
+            <br>
+            <tr>
+              <td class="column-header">Category</td>
+              <td class="column-header">-</td>
+              <td class="column-content">{{movie.category}}</td>
+            </tr>
+            <br>
+            <tr>
+              <td class="column-header">Publisher</td>
+              <td class="column-header">-</td>
+              <td class="column-content">{{movie.publisher}}</td>
+            </tr>
+            <br>
+            <tr>
+              <td class="column-header">Director</td>
+              <td class="column-header">-</td>
+              <td class="column-content">{{movie.director}}</td>
+            </tr>
+            <br>
+            <tr>
+              <td class="column-header">Released Date</td>
+              <td class="column-header">-</td>
+              <td class="column-content">{{movie.released}}</td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
-    </div>
   </div>
+</div>
 
   <!-- <p>Genre(Category):
               <a href="#" class="btn btn-danger btn-sm">Horror</a>
