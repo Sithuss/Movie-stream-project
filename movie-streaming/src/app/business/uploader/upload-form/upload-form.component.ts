@@ -2,7 +2,7 @@ import { Movie } from './../model/movie';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MovieService } from 'src/app/service/movie.service';
+import { MovieService } from 'src/app/service/apis/movie.service';
 import { NotiTestService } from 'src/app/service/noti-test.service';
 
 @Component({
@@ -33,28 +33,11 @@ export class UploadFormComponent {
       photo: ['', [Validators.required]],
       movieFile: ['', [Validators.required]],
     });
-    // this.inputGroups = [
-    //   ['title', 'length', 'category', 'actor'],
-    //   ['actress', 'director', 'publisher', 'released'],
-    //   ['discription', 'photo', 'movieFile'],
-    // ];
   }
 
   uploadM(m: Movie) {
     this.mService.upload(m);
     this.router.navigate(['/uploader', 'home']);
     this.notiService.addNoti({ descript: 'successfully uploaded' });
-  }
-
-  next() {
-    if (this.currentIndex < this.inputGroups.length - 1) {
-      this.currentIndex++;
-    }
-  }
-
-  previous() {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-    }
   }
 }

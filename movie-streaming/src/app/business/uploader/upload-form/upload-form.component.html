@@ -9,20 +9,17 @@
           <form [formGroup]="form">
 
             <div class="row">
+              <app-form-group class="col" [valid]="form.get('title')!.valid" label="Title">
+                <input formControlName="title" type="text" class="form-control" placeholder="Enter movie title">
+              </app-form-group>
 
-              <div *ngFor="let input of inputGroups[currentIndex]">
-                <app-form-group class="col" [valid]="form.get('title')!.valid" label="Title">
-                  <input formControlName="title" type="text" class="form-control" placeholder="Enter movie title">
-                </app-form-group>
+              <app-form-group class="col" [valid]="form.get('length')!.valid" label="Length">
+                <input formControlName="length" type="number" class="form-control" placeholder="Enter movie length">
+              </app-form-group>
 
-                <app-form-group class="col" [valid]="form.get('length')!.valid" label="Length">
-                  <input formControlName="length" type="number" class="form-control" placeholder="Enter movie length">
-                </app-form-group>
-
-                <app-form-group class="col" [valid]="form.get('category')!.valid" label="Category">
-                  <input formControlName="category" type="text" class="form-control" placeholder="Enter movie category">
-                </app-form-group>
-              </div>
+              <app-form-group class="col" [valid]="form.get('category')!.valid" label="Category">
+                <input formControlName="category" type="text" class="form-control" placeholder="Enter movie category">
+              </app-form-group>
             </div>
 
             <div class="row">
@@ -67,7 +64,7 @@
               <input formControlName="movieFile" type="text" class="form-control" placeholder="Enter movie file">
             </app-form-group>
 
-            <button *ngIf="" [class.disabled]="!form.valid" type="button" (click)="uploadM(form.value)"
+            <button [class.disabled]="!form.valid" type="button" (click)="uploadM(form.value)"
               class="btn btn-outline-success">
               <i class="bi bi-send"></i> Upload
             </button>

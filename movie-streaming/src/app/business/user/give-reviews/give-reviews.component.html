@@ -5,29 +5,30 @@
         </div>
 </form> -->
 
-<div class="container col-md-8 mt-3">
-<div class="row">
-<div class="col">
-  <form [formGroup]="reviewForm" class="container-md my-5">
-    <app-form-group [valid]="reviewForm.get('review')!.valid" label="Description">
-      <textarea formControlName="review" class="form-control" rows="5" ng-model="message" placeholder="Share your opinion-----"></textarea>
-      <div class="col-12">
-        <input type="submit" class="btn btn-block btn-success ms-auto" (click)="addReview()" value="Submit">
-      </div>
-    </app-form-group>
-  </form>
 
-</div>
-<div>
-  <div class="col-md-6 mt-5">
-   <div class="card">
-     <div class="card-body">
-      <ul *ngFor="let item of (reviewList$ | async)">
-        <li>{{item.review}}</li>
-      </ul>
-     </div>
-   </div>
+<div class="container col-md-8 mt-3">
+  <div class="row">
+    <div class="col">
+        <form [formGroup]="reviewForm" class="container-md my-5">
+          <app-form-group [valid]="reviewForm.get('review')!.valid" label="Description">
+            <textarea formControlName="review" class="form-control mb-2" rows="4"
+            ng-model="message" placeholder="Share your opinion..."></textarea>
+            <div class="col-12">
+              <input type="submit" class="btn btn-sm btn-success ms-auto"
+              (click)="addReview()" value="Submit">
+            </div>
+          </app-form-group>
+        </form>
+    </div>
   </div>
-</div>
-</div>
+
+  <div class="col-md-6 mt-5">
+    <div class="card">
+      <div class="card-body">
+        <ul *ngFor="let item of (reviewList$ | async)">
+          <li>{{item.review}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

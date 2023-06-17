@@ -41,7 +41,6 @@
       </div>
     </div>
   </div>
-</div>
 
 
 
@@ -54,31 +53,34 @@
     <div class="row">
 
       <div class="col-md-5">
-        <img src="https://source.unsplash.com/600x400/?ww2"
-        class="card-img-top img-thumbnail mb-4" alt="...">
+        <img src="https://source.unsplash.com/600x400/?ww2" class="card-img-top img-thumbnail mb-4" alt="...">
 
-          <button class="btn btn-sm btn-primary rounded-pill ms-3" (click)="streamMovie(movie.id)">Watch Now</button>
-          <button class="btn btn-sm btn-success rounded-pill ms-3" (click)="goReviews()">Feedback</button>
-          <button class="btn btn-sm btn-info rounded-pill ms-3" (click)="goHome()">Back To Home</button>
+          <button class="btn btn-sm btn-outline-secondary rounded-pill ms-3" (click)="streamMovie(movie.id)">Watch Now</button>
+          <button class="btn btn-sm btn-outline-success rounded-pill ms-3" (click)="goReviews()">Feedback</button>
+          <button class="btn btn-sm btn-outline-info rounded-pill ms-3" (click)="goHome()">Back To Home</button>
       </div>
 
 
       <div class="col-md-7">
         <div class="card shadow rounded">
           <div class="card-header">
-            <h4 class="text-center" style="font-weight: bold;">{{movie.title}}</h4>
+            <h4 class="text-center" style="font-weight: bold; ">{{movie.title}}</h4>
           </div>
           <div class="card-body border">
 
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Details</button>
-                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Description</button>
-                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Trailer</button>
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+                  type="button" role="tab" aria-controls="nav-home" aria-selected="true">Details</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                  type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Description</button>
+                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+                  type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Trailer</button>
               </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
-              <div class="tab-pane mt-2 fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+              <div class="tab-pane mt-2 fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"
+                tabindex="0">
 
                 <div class="container">
                   <div class="row">
@@ -110,16 +112,16 @@
                 </div>
 
               </div>
-              <div class="tab-pane fade mt-2" style="min-height: 12rem" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+              <div class="tab-pane fade mt-2" style="min-height: 12rem" id="nav-profile" role="tabpanel"
+                aria-labelledby="nav-profile-tab" tabindex="0">
                 {{movie.description}}
               </div>
-              <div class="tab-pane fade mt-2" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
-                <video controls="controls" class="video-stream w-100" x-webkit-airplay="allow" data-youtube-id="N9oxmRT2YWw"  src="http://www.youtube.com/watch?v=OmxT8a9RWbE"></video>
+              <div class="tab-pane fade mt-2" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"
+                tabindex="0">
+                <video controls="controls" class="video-stream w-100" x-webkit-airplay="allow"
+                  data-youtube-id="N9oxmRT2YWw" src="http://www.youtube.com/watch?v=OmxT8a9RWbE"></video>
               </div>
             </div>
-
-
-
           </div>
         </div>
       </div>
@@ -128,6 +130,3 @@
 
 
 </div>
-
-
-
