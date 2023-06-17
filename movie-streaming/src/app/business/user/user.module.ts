@@ -16,6 +16,7 @@ import { WidgetsModule } from 'src/app/common/widgets/widgets.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { LibraryComponent } from './library/library.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     EditAccountComponent,
     SignUpComponent,
     SignInComponent,
+    LibraryComponent,
     NavbarComponent,
     MovieListComponent
   ],
