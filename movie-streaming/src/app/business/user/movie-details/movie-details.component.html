@@ -55,16 +55,16 @@
       <div class="col-md-5 col-sm-12 me-5">
         <img [src]="movie.photo" class="card-img-top img-thumbnail mb-4" alt="...">
 
-        <button class="btn btn-sm btn-primary rounded-pill ms-3" (click)="streamMovie(movie.id)">Watch Now</button>
-        <button class="btn btn-sm btn-success rounded-pill ms-3" (click)="goReviews()">Feedback</button>
-        <button class="btn btn-sm btn-info rounded-pill ms-3" (click)="goHome()">Back To Home</button>
+          <button class="btn btn-sm btn-outline-secondary rounded-pill ms-3" (click)="streamMovie(movie.id)">Watch Now</button>
+          <button class="btn btn-sm btn-outline-success rounded-pill ms-3" (click)="goReviews()">Feedback</button>
+          <button class="btn btn-sm btn-outline-info rounded-pill ms-3" (click)="goHome()">Back To Home</button>
       </div>
 
 
       <div class="col-md-6 col-sm-12 ms-5">
         <div class="card  shadow rounded">
           <div class="card-header">
-            <h4 class="text-center">{{movie.title}}</h4>
+            <h4 class="text-center" style="font-weight: bold; ">{{movie.title}}</h4>
           </div>
           <div class="card-body border">
 
@@ -127,9 +127,6 @@
                 </div>
               </div>
             </div>
-
-
-
           </div>
         </div>
       </div>

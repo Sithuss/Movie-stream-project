@@ -1,38 +1,46 @@
 <div class="container mt-5">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Category</th>
-        <th>Publisher</th>
-        <th>Released Date</th>
-        <th class="text-center">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let movie of movieList">
-        <td>{{movie.id}}</td>
-        <td>{{movie.title}}</td>
-        <!-- <td>{{movie.category.name}}</td> -->
-        <td >
-          <div *ngFor="let c of movie.category" class="d-inline">
-            <p class="d-inline" *ngIf="movie.category.length > 1">{{c}}, </p>
-          </div>
-        </td>
-        <td>{{movie.publisher}}</td>
-        <td>{{movie.released}}</td>
-        <td class="text-center">
-          <a href="#" class="btn btn-sm btn-danger me-1">
-            <i class="bi bi-trash"></i>
-            Delete
-          </a>
-          <a href="#" class="btn btn-sm btn-success">
-            <i class="bi bi-eye"></i>
-            Views
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="card">
+    <div class="card-header">
+      <h3 class="cart-title text-center">Movie List</h3>
+    </div>
+    <div class="card-body">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Publisher</th>
+            <th>Released Date</th>
+            <th class="text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let movie of movieList">
+            <td>{{movie.id}}</td>
+            <td>{{movie.title}}</td>
+            <!-- <td>{{movie.category.name}}</td> -->
+            <td >
+              <div *ngFor="let c of movie.category" class="d-inline">
+                <p class="d-inline" *ngIf="movie.category.length > 1">{{c}}, </p>
+              </div>
+            </td>
+            <td>{{movie.publisher}}</td>
+            <td>{{movie.released}}</td>
+            <td class="text-center">
+              <a href="#" class="btn btn-sm btn-danger me-1">
+                <i class="bi bi-trash"></i>
+                Delete
+              </a>
+              <a href="#" class="btn btn-sm btn-success">
+                <i class="bi bi-eye"></i>
+                Views
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

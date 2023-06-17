@@ -2,7 +2,7 @@ import { Movie } from './../model/movie';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MovieService } from 'src/app/service/movie.service';
+import { MovieService } from 'src/app/service/apis/movie.service';
 import { NotiTestService } from 'src/app/service/noti-test.service';
 
 @Component({

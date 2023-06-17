@@ -1,1 +1,33 @@
-<h3>Admin Dashboard</h3>
+<div class="container mt-2">
+  <div class="row">
+    <a class="btn btn-primary col-sm- col-md-4 p-4 shadow-sm" [routerLink]="['/admin/user-list']">
+      <i class="bi bi-people" style="font-size: 50px;"></i>
+      <div class="row">
+        <span>
+          All User
+        </span>
+        <small style="font-size: 18px;">{{userCount}}</small>
+      </div>
+    </a>
+
+    <a class="btn btn-warning col-sm col-md-4 p-4 shadow-sm" [routerLink]="['/admin/movie-list']">
+      <i class="bi bi-film" style="font-size: 50px;"></i>
+      <div class="row">
+        <span>
+          Movie
+        </span>
+        <small style="font-size: 18px;">{{movieCount}}</small>
+      </div>
+    </a>
+
+    <a class="btn btn-success col-sm col-md-4 p-4 shadow-sm" [routerLink]="['/admin/movie-list']">
+      <i class="bi bi-film" style="font-size: 50px;"></i>
+      <div class="row">
+        <span>
+          Other
+        </span>
+        <small style="font-size: 18px;">{{userCount}}</small>
+      </div>
+    </a>
+  </div>
+</div>

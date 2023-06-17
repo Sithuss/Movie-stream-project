@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Observable, map, of } from 'rxjs';
 import { CategoryService } from 'src/app/service/category.service';
 import { Category } from 'src/app/service/dto/movie-category';
-import { MovieService } from 'src/app/service/movie.service';
+import { MovieService } from 'src/app/service/apis/movie.service';
 
 
 @Component({

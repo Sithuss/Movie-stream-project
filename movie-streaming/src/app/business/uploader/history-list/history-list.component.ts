@@ -1,6 +1,6 @@
 import { AfterViewChecked, Component, Input, OnInit } from '@angular/core';
 import { DayNightService } from 'src/app/service/day-night.service';
-import { MovieService } from 'src/app/service/movie.service';
+import { MovieService } from 'src/app/service/apis/movie.service';
 import { Movie } from '../model/movie';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { Router } from '@angular/router';
