@@ -4,8 +4,6 @@ import { SignupUser } from "../dto/signup-user";
 import { SigninUser } from "../dto/signin-user";
 import { BuyPackageUser } from "../dto/buy-package-user";
 
-
-
 @Injectable({providedIn: 'any'})
 export class SecurityApi {
 

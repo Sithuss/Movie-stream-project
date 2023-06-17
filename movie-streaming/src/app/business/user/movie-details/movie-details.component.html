@@ -1,74 +1,132 @@
-<div class="container">
+<!-- <div class="container">
 <div *ngIf="(movie | async) as movie">
   <div class="row mt-5">
-    <div class="col-md-6">
+    <div class="col-md-5">
       <img src="https://source.unsplash.com/600x400/?ww2" class="card-img-top img-thumbnail" alt="...">
+      <div class="my-4">
+        <button class="btn btn-primary ms-3" (click)="streamMovie()">Watch Now</button>
+        <button class="btn btn-success ms-3" (click)="goReviews()">Feedback</button>
+        <button class="btn btn-info ms-3" (click)="goHome()">Back To Home</button>
+      </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-7">
       <div class="card">
         <div class="card-header">
           <h4>{{movie.title}}</h4>
           <div class="card-body">
-            <div class="card-title">Directed by :&nbsp; {{movie.director}}</div>
-            <div class="card-title">Actor :&nbsp; {{movie.actor}}</div>
-            <div class="card-title">Actress :&nbsp; {{movie.actress}}</div>
-            <div class="card-text">Genre :&nbsp;{{movie.category}}</div>
-            <div class="card-text">Published by - {{movie.publisher}}</div>
-            <div class="card-text">Published in - {{movie.released}}</div>
+
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
+                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>
+                <button class="nav-link" id="nav-disabled-tab" data-bs-toggle="tab" data-bs-target="#nav-disabled" type="button" role="tab" aria-controls="nav-disabled" aria-selected="false" disabled>Disabled</button>
+              </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active mt-3" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                <div class="card-title">Directed by :&nbsp; {{movie.director}}</div>
+                  <div class="card-title">Actor :&nbsp; {{movie.actor}}</div>
+                  <div class="card-title">Actress :&nbsp; {{movie.actress}}</div>
+                  <div class="card-text">Genre :&nbsp;{{movie.category}}</div>
+                  <div class="card-text">Published by - {{movie.publisher}}</div>
+                  <div class="card-text">Published in - {{movie.released}}</div>
+              </div>
+              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">...</div>
+              <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">...</div>
+              <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">...</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
 
 
-<div class="my-4">
-  <button class="btn btn-primary ms-3" (click)="streamMovie()">Watch Now</button>
-  <button class="btn btn-success ms-3" (click)="goReviews()">Feedback</button>
-  <button class="btn btn-info ms-3" (click)="goHome()">Back To Home</button>
-</div>
-</div>
 
+</div> -->
 
-<!-- <div class="row justify-content-center">
-    <div class="col-4">
+<div class="container mt-5">
 
-      <div class="card">
-      <div *ngIf="(movie |async) as movie">
-        <div class="card-header">
-          <h3>{{movie.title}}</h3>
-        </div>
+  <div *ngIf="(movie | async) as movie">
+    <div class="row">
 
-        <div class="card-body">
+      <div class="col-md-5">
+        <img src="https://source.unsplash.com/600x400/?ww2" class="card-img-top img-thumbnail mb-4" alt="...">
 
-          <label class="form-label">Director</label>
-          <input [value]="movie.director" type="text" class="form-control mb-2" readonly>
-
-          <label class="form-label">Release Date</label>
-          <input [value]="movie.released" type="text" class="form-control mb-2" readonly>
-
-          <label class="form-label">Category</label>
-          <input [value]="movie.category" type="text" class="form-control mb-3" readonly>
-
-          <label class="form-label">Actor</label>
-          <input [value]="movie.actor" type="text" class="form-control mb-3" readonly>
-
-          <label class="form-label">Actress</label>
-          <input [value]="movie.actress" type="text" class="form-control mb-3" readonly>
-
-          <label class="form-label">Publisher</label>
-          <input [value]="movie.publisher" type="text" class="form-control mb-3" readonly>
-
-          <label class="form-label">Description</label>
-          <input [value]="movie.description" type="text" class="form-control mb-3" readonly>
-
-          <a [routerLink]="['/user/watch',movie.id]" routerLinkActive="router-link-active" class="btn btn-outline-danger">Stream Movie</a>
-          <a routerLink="/user/give-reviews" routerLinkActive="router-link-active" class="btn btn-outline-danger">Feedback</a>
-
-        </div>
+          <button class="btn btn-sm btn-outline-secondary rounded-pill ms-3" (click)="streamMovie(movie.id)">Watch Now</button>
+          <button class="btn btn-sm btn-outline-success rounded-pill ms-3" (click)="goReviews()">Feedback</button>
+          <button class="btn btn-sm btn-outline-info rounded-pill ms-3" (click)="goHome()">Back To Home</button>
       </div>
 
+
+      <div class="col-md-7">
+        <div class="card shadow rounded">
+          <div class="card-header">
+            <h4 class="text-center" style="font-weight: bold; ">{{movie.title}}</h4>
+          </div>
+          <div class="card-body border">
+
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+                  type="button" role="tab" aria-controls="nav-home" aria-selected="true">Details</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                  type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Description</button>
+                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+                  type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Trailer</button>
+              </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane mt-2 fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"
+                tabindex="0">
+
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="mb-2">Actor</div>
+                      <div class="mb-2">Actress</div>
+                      <div class="mb-2">Category</div>
+                      <div class="mb-2">Publisher</div>
+                      <div class="mb-2">Director</div>
+                      <div class="mb-2">ReleasedDate</div>
+                    </div>
+                    <div class="col-1">
+                      <div class="h5 fw-bold mb-2">-</div>
+                      <div class="h5 fw-bold mb-2">-</div>
+                      <div class="h5 fw-bold mb-2">-</div>
+                      <div class="h5 fw-bold mb-2">-</div>
+                      <div class="h5 fw-bold mb-2">-</div>
+                      <div class="h5 fw-bold mb-2">-</div>
+                    </div>
+                    <div class="col-md">
+                      <div class="mb-2">{{movie.actor}} </div>
+                      <div class="mb-2">{{movie.actress}} </div>
+                      <div class="mb-2">{{movie.category}} </div>
+                      <div class="mb-2">{{movie.publisher}} </div>
+                      <div class="mb-2">{{movie.director}} </div>
+                      <div class="mb-2">{{movie.released}} </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="tab-pane fade mt-2" style="min-height: 12rem" id="nav-profile" role="tabpanel"
+                aria-labelledby="nav-profile-tab" tabindex="0">
+                {{movie.description}}
+              </div>
+              <div class="tab-pane fade mt-2" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"
+                tabindex="0">
+                <video controls="controls" class="video-stream w-100" x-webkit-airplay="allow"
+                  data-youtube-id="N9oxmRT2YWw" src="http://www.youtube.com/watch?v=OmxT8a9RWbE"></video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div> -->
+  </div>
+
+
+</div>

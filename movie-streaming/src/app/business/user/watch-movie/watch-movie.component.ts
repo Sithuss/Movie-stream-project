@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
-import { MovieService } from 'src/app/service/movie.service';
+import { MovieService } from 'src/app/service/apis/movie.service';
 import { Movie } from '../../uploader/model/movie';
 
 @Component({
@@ -17,6 +17,7 @@ export class WatchMovieComponent implements OnInit {
   ) {}
   movie$!: Observable<Movie>;
   mId!: number;
+  spacing = 'my-2 mx-2';
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id') as string;
@@ -26,6 +27,10 @@ export class WatchMovieComponent implements OnInit {
         map(ml => ml.find(m => m.id === parseInt(id)))
       ) as Observable<Movie>;
   }
+
+
+
+
 
 
 
