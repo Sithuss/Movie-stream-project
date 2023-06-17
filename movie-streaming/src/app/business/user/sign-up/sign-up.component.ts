@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { UserAccountService } from 'src/app/service/apis/useraccount.service';
+import { SecurityService } from 'src/app/service/apis/security.service';
 import { Payment } from 'src/app/service/dto/payment';
 import { PaymentService } from 'src/app/service/payment.service';
 import { UserService } from 'src/app/service/user.service';
@@ -30,7 +30,7 @@ export class SignUpComponent {
 
 
   constructor(private fb:FormBuilder, private router:Router,
-    private userRegister: UserAccountService,
+    private userRegister: SecurityService,
     private userService:UserService, public paymentService:PaymentService) {
 
     this.signupForm = fb.group({
