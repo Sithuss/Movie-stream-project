@@ -66,4 +66,8 @@ export class MovieService {
   search(value: any): Observable<any[]> {
     return of(this.movieList);
   }
+
+  getMovieCount(): number{
+    return this.movieList.length;
+  }
 }

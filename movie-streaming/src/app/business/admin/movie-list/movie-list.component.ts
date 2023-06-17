@@ -8,6 +8,8 @@ import { MovieService } from 'src/app/service/movie.service';
 })
 export class MovieListComponent implements OnInit {
 
+
+
   constructor(private movieService:MovieService){
     //
   }
@@ -17,6 +19,8 @@ export class MovieListComponent implements OnInit {
   ngOnInit(): void {
     this.movieService.findAll().subscribe(m => {this.movieList = m});
   }
+
+
 
 
 }
