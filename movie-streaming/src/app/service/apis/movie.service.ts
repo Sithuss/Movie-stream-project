@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map, of } from 'rxjs';
-import { Movie } from './../business/uploader/model/movie';
+import { Movie } from '../../business/uploader/model/movie';
+import { environment } from 'src/app/environments/environment';
+
+const PUBLIC_DOMAIN = `${environment.baseUrl}/public/movie`
+const UPLOADER_DOMAIN = `${environment.baseUrl}/uploader/movie`
+const ADMIN_DOMAIN = `${environment.baseUrl}/admin/movie`
+const USER_DOMAIN = `${environment.baseUrl}/user/movie`
 
 @Injectable({
   providedIn: 'any',
@@ -103,23 +109,12 @@ export class MovieService {
   findAll(): Observable<Movie[]> {
     return of(this.movieList);
   }
+
   upload(movie: Movie) {
     movie.id = 3;
     this.movieList.push(movie);
   }
 
-  findById(id: number): Observable<Movie> {
-    this.movies$.subscribe((m) => console.log(m));
-    return this.movies$.pipe(
-      map((ms) => ms.find((m) => m.id === id))
-    ) as Observable<Movie>;
-  }
-
-  private movieSubject: BehaviorSubject<Movie[]> = new BehaviorSubject<Movie[]>(
-    []
-  );
-
-  movies$: Observable<Movie[]> = this.movieSubject.asObservable();
 
   searchByCategory(id: number): Observable<any[]> {
     return of(this.movieList);

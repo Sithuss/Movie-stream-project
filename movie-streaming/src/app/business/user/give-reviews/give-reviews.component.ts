@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Review } from 'src/app/service/dto/review';
-import { ReviewPageService } from 'src/app/service/review-page.service';
+import { ReviewPageService } from 'src/app/service/apis/review-page.service';
 import { Movie } from '../../uploader/model/movie';
 
 

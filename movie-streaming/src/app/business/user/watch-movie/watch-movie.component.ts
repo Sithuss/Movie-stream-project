@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
-import { MovieService } from 'src/app/service/movie.service';
+import { MovieService } from 'src/app/service/apis/movie.service';
 import { Movie } from '../../uploader/model/movie';
 
 @Component({

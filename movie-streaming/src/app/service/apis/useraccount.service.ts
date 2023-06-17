@@ -1,6 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
+
+const DOMAIN = `${environment.baseUrl}/public/security`
 
 @Injectable({providedIn: 'any'})
 
