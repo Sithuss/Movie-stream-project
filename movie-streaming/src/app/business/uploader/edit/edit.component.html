@@ -45,20 +45,20 @@
             <div class="col">
               <label for="actor" class="form-label">Actor</label>
               <input id="actor" type="text" actor required [class.is-invalid]="actor.invalid && actor.touched"
-                #actor=ngModel [(ngModel)]="movie.actor" ngModel name="actor" class="form-control" />
+                #actor=ngModel [(ngModel)]="movie.casts" ngModel name="actor" class="form-control" />
               <div *ngIf="actor.errors?.['required']" class="invalid-feedback">
                 <span>Actor cannot not be empty</span>
               </div>
             </div>
 
-            <div class="col">
+            <!-- <div class="col">
               <label for="actress" class="form-label">Actress</label>
               <input id="actress" type="text" actress required [class.is-invalid]="actress.invalid && actress.touched"
                 #actress=ngModel [(ngModel)]="movie.actress" ngModel name="actress" class="form-control" />
               <div *ngIf="actress.errors?.['required']" class="invalid-feedback">
                 <span>Actress cannot not be empty</span>
               </div>
-            </div>
+            </div> -->
 
             <div class="col">
               <label for="director" class="form-label">Director</label>
