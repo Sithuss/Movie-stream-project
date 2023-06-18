@@ -37,10 +37,8 @@ export class SignInComponent {
   }
    
 }
-login(){
-  console.log(this.form.value);
-  
+public signup():void {
+  this.router.navigate(['user/sign-up'])
 }
-
 
 }

@@ -24,13 +24,6 @@ export class EditAccountComponent {
 
   });
 
-  proceeededit(){
-    if(this.editform.valid){
-
-    }else{
-
-    }
-  }
 
   public home():void{
     this.router.navigate(['user/movie-list'])
