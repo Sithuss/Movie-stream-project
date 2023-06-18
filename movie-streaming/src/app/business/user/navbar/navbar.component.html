@@ -13,22 +13,21 @@
     <a href="#" routerLinkActive="active" class="nav-link me-auto"><i class="bi bi-house-door-fill fs-4"></i></a>
 
     <ul class="navbar-nav">
-      <div *ngIf="userService.validatedUser">
-        <li class="nav-item">
-          <a [routerLink]="['/user/account']" routerLinkActive="active" class="nav-link">
-            <i class="bi bi-gear fs-4"></i>
-          </a>
-        </li>
-      </div>
-      <!-- <div *ngIf="!userService.validatedUser">
-        <li><a class="dropdown-item" [routerLink]="['/user/sign-up']" routerLinkActive="active">Sign Up</a></li>
-        <li><a class="dropdown-item" [routerLink]="['/user/sign-in']" routerLinkActive="active">Sign In</a></li>
-      </div> -->
-      <!-- <li class="nav-item">
+      <li class="nav-item">
         <a [routerLink]="['/user/account']" routerLinkActive="active" class="nav-link">
           <i class="bi bi-gear fs-4"></i>
         </a>
-      </li> -->
+
+        <!-- <ul class="dropdown-menu">
+          <div *ngIf="userService.validatedUser">
+            <li><a class="dropdown-item" [routerLink]="['/user/account']" routerLinkActive="active"></a></li>
+          </div>
+          <div *ngIf="!userService.validatedUser">
+            <li><a class="dropdown-item" [routerLink]="['/user/sign-up']" routerLinkActive="active">Sign Up</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/user/sign-in']" routerLinkActive="active">Sign In</a></li>
+          </div>
+        </ul> -->
+      </li>
       <!-- <div *ngIf="userService.validatedUser">
       <li class="nav-item">
         <a [routerLink]="['/user/account']" routerLinkActive="active" class="nav-link">
@@ -80,9 +79,11 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <div *ngIf="userService.validatedUser">
-                  <button type="button" class="btn btn-outline-primary"><a [routerLink]="['/user/buy']" >Go to buy</a></button>
+                  <button type="button" class="btn btn-primary"><a [routerLink]="['/user/buy']">Go to buy</a></button>
                 </div>
                 <div *ngIf="!userService.validatedUser">
+                  <button type="button" class="btn btn-outline-primary me-2"><a [routerLink]="['/user/sign-up']"
+                      routerLinkActive="active">Sign Up</a></button>
                   <button type="button" class="btn btn-outline-primary"><a [routerLink]="['/user/sign-in']"
                       routerLinkActive="active">Sign In</a></button>
                 </div>
@@ -93,26 +94,23 @@
       </div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <div *ngIf="!userService.validatedUser">
-            <li><a class="nav-item" [routerLink]="['/user/sign-in']" routerLinkActive="active">
-              <i class="bi bi-person-circle fs-4"></i>
-            </a></li>
-          </div>
-          <div *ngIf="userService.validatedUser">
-            <li><a class="nav-item" [routerLink]="['/user/sign-in']" routerLinkActive="active">Sign out</a>
-            </li>
-          </div>
-          <!-- <li class="nav-item dropstart me-3">
+          <li class="nav-item dropstart me-3">
             <a [routerLink]="['/user/sign-in']" routerLinkActive="active" class="nav-link dropdown-toggle" href="#"
               role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-person-circle fs-4"></i>
             </a>
 
             <ul class="dropdown-menu">
-              
-              
+              <div *ngIf="userService.validatedUser">
+                <li><a class="dropdown-item" [routerLink]="['/user/sign-in']" routerLinkActive="active">Sign out</a>
+                </li>
+              </div>
+              <div *ngIf="!userService.validatedUser">
+                <li><a class="dropdown-item" [routerLink]="['/user/sign-up']" routerLinkActive="active">Sign Up</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/user/sign-in']" routerLinkActive="active">Sign In</a></li>
+              </div>
             </ul>
-          </li> -->
+          </li>
         </ul>
       </div>
     </ul>
