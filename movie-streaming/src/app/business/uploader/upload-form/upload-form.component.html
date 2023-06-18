@@ -33,6 +33,12 @@
                 <input formControlName="director" type="text" class="form-control" placeholder="Enter movie director">
               </app-form-group>
 
+              <app-form-group class="col" [valid]="form.get('trailer')!.valid" label="Movie Trailer Link">
+                <input formControlName="trailer" type="text" class="form-control" placeholder="Movies Trailer">
+              </app-form-group>
+
+
+
             </div>
 
             <div class="row">
@@ -57,8 +63,9 @@
                 placeholder="Enter movie description"></textarea>
             </app-form-group>
 
+
             <app-form-group [valid]="form.get('movieFile')!.valid" label="Movie File">
-              <input formControlName="movieFile" type="text" class="form-control" placeholder="Enter movie file">
+              <input formControlName="movieFile" type="file" class="form-control" placeholder="Enter movie file">
             </app-form-group>
 
             <button [class.disabled]="!form.valid" type="button" (click)="uploadM(form.value)"

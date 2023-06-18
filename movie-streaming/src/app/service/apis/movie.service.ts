@@ -26,6 +26,7 @@ export class MovieService {
         'Harry,Ron, and Hermione search for Voldemort remaining Horcruxes in their effort to destory the Dark Lord as the final battle rages on at Hogwarts',
 
       photo: 'http://source.unsplash.com/366x200/?harryPotter',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'Fantasy',
     },
     {
@@ -40,6 +41,7 @@ export class MovieService {
       description:
         'he soft, diffused light from the sky when the sun is below the horizon, either from daybreak to sunrise or, more commonly, from sunset to nightfall.',
       photo: 'http://source.unsplash.com/366x200/?vampire',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
     },
     {
@@ -54,6 +56,7 @@ export class MovieService {
       description:
         'Wednesday Addams, a high-school student, finds her brother Pugsley tied up in a locker',
       photo: 'http://source.unsplash.com/366x200/?wednesday',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
     },
     {
@@ -68,6 +71,7 @@ export class MovieService {
       description:
         'A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists',
       photo: 'http://source.unsplash.com/366x200/?annabelle',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
     },
     {
@@ -81,6 +85,7 @@ export class MovieService {
       released: 'comming soon',
       description: "Falling in love with her brother's friend",
       photo: 'http://source.unsplash.com/366x200/?cat',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
     },
     {
@@ -95,6 +100,7 @@ export class MovieService {
       description:
         'Our Beloved Summer is a story about romance, regret and repressed emotions',
       photo: 'http://source.unsplash.com/366x200/?summer',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
     },
   ];

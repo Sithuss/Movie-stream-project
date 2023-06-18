@@ -24,13 +24,13 @@ export class UploadFormComponent {
       title: ['', [Validators.required]],
       length: ['', [Validators.required]],
       category: ['', [Validators.required]],
-      actor: ['', [Validators.required]],
-      actress: ['', [Validators.required]],
+      casts: ['', [Validators.required]],
       director: ['', [Validators.required]],
       publisher: ['', [Validators.required]],
       released: ['', [Validators.required]],
       discription: ['', [Validators.required]],
       photo: ['', [Validators.required]],
+      trailer: ['',[Validators.required]],
       movieFile: ['', [Validators.required]],
     });
   }

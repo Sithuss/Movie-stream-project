@@ -21,6 +21,7 @@ export class MovieService {
         'Harry,Ron, and Hermione search for Voldemort remaining Horcruxes in their effort to destory the Dark Lord as the final battle rages on at Hogwarts',
 
       photo: ' http://source.unsplash.com/366x200/?harryPotter',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'Fantasy',
     },
     {
@@ -35,6 +36,7 @@ export class MovieService {
       released: '2021.6.12',
       description: 'beetee good',
       photo: ' http://source.unsplash.com/366x200/?vampire',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
     },
   ];
@@ -72,3 +74,4 @@ export class MovieService {
     return this.movieList.length;
   }
 }
+// <iframe width="560" height="315" src="https://www.youtube.com/embed/0N-VcJEn2hY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
