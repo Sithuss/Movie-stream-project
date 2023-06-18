@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Review } from './dto/review';
+import { Review } from '../dto/review';
 import { Observable, of } from 'rxjs';
+import {environment} from "../../environments/environment";
+
+const USER_DOMAIN = `${environment.baseUrl}/user/review`
 
 @Injectable({
   providedIn: 'any',
 })
 export class ReviewPageService {
-
-
 
   constructor(){}
 
@@ -17,6 +18,7 @@ export class ReviewPageService {
   ]
 
   findAllReviews():Observable<Review[]> {
+    console.log(this.formList)
     return of(this.formList);
   }
 

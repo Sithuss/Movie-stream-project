@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SecurityService } from 'src/app/service/security/security.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -35,7 +34,7 @@ export class SignInComponent {
       this.router.navigate(['/admin']);
     }
   }
-   
+
 }
 public signup():void {
   this.router.navigate(['user/sign-up'])
