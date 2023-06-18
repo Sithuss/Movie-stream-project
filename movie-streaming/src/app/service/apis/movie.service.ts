@@ -105,6 +105,7 @@ export class MovieService {
     },
   ];
 
+
   findAll(): Observable<Movie[]> {
     return of(this.movieList);
   }
