@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map, of } from 'rxjs';
 import { Movie } from '../../business/uploader/model/movie';
 import { environment } from 'src/app/environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 const PUBLIC_DOMAIN = `${environment.baseUrl}/public/movie`;
 const UPLOADER_DOMAIN = `${environment.baseUrl}/uploader/movie`;
@@ -12,6 +13,9 @@ const USER_DOMAIN = `${environment.baseUrl}/user/movie`;
   providedIn: 'any',
 })
 export class MovieService {
+
+  constructor(private http:HttpClient) {}
+
   private movieList: Movie[] = [
     {
       id: 1,
@@ -108,6 +112,7 @@ export class MovieService {
 
   findAll(): Observable<Movie[]> {
     return of(this.movieList);
+    // return this.http.get(`${PUBLIC_DOMAIN}/listAll`) as Observable<Movie[]>;
   }
 
   upload(movie: Movie) {
@@ -115,11 +120,28 @@ export class MovieService {
     this.movieList.push(movie);
   }
 
+  // upload(movie: Movie):Observable<any> {
+  //   return this.http.post(`${UPLOADER_DOMAIN}/upload`, movie);
+  // }
+
   searchByCategory(id: number): Observable<any[]> {
     return of(this.movieList);
   }
 
+  // searchByCategory(category:any):Observable<Movie[]> {
+  //   return this.http.get<Movie[]>(`${PUBLIC_DOMAIN}/searchByCategory`, {params:category});
+  // }
+
+  // search(keyword:any):Observable<Movie[]> {
+  //   return this.http.get<Movie[]>(`${PUBLIC_DOMAIN}/search`, {params:keyword});
+  // }
+
   search(value: any): Observable<any[]> {
     return of(this.movieList);
   }
+
+
+
+
+
 }
