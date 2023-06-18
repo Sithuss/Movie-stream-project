@@ -4,7 +4,7 @@
             <h3> <i class="bi bi-pencil-square"></i> Edit Account </h3>
         </div>
         <div class="card-body">
-            <form [formGroup]="editform">
+            <form [formGroup]="editForm">
             <app-form-group label="name">
                 <input formControlName="name" type="name" class="form-control" placeholder="Enter your name">
             </app-form-group>
@@ -17,9 +17,23 @@
                 <input formControlName="password" type="password" class="form-control" placeholder="Enter password">
             </app-form-group>
         </form>
+        <div *ngIf="uploader">
+
+            <app-form-group [valid]="editForm.get('paymentMethod')!.valid" label="Payment method">
+              <select class="form-select form-select-sm" formControlName="paymentMethod" aria-label="Default select example">
+                <option [value]="p.name" *ngFor="let p of payments$">{{p.name}}</option>
+              </select>
+            </app-form-group>
+
+            <app-form-group [valid]="editForm.get('transaction')!.valid" label="Transaction Number">
+              <input formControlName="transaction" type="tel" class="form-control" placeholder="Transaction Number">
+            </app-form-group>
+
+          </div>
 
         <div row="mb-2">
             <button class="btn btn-success" (click)="home()">Save</button>
+            <a (click)="editUploader()"  class="outline-primary offset-7">{{status}}</a>
 
         </div>
 
