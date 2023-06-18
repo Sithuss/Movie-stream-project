@@ -11,10 +11,12 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { EditAccountComponent } from './edit-account/edit-account.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
+import { LibraryComponent } from './library/library.component';
 
 const routes: Routes = [
   {path:'',component:UserComponent, children:[
     {path:'movie-details/:id', component:MovieDetailsComponent},
+    {path:'library',component:LibraryComponent},
     {path:'give-reviews', component:GiveReviewsComponent},
     {path:'watch/:id', component:WatchMovieComponent},
     {path:'buy', component:BuyBackageComponent},
