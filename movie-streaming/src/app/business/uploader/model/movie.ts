@@ -10,4 +10,5 @@ export interface Movie {
   description: string;
   photo: string;
   movieFile: any;
+  premium: true;
 }

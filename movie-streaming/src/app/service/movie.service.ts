@@ -22,6 +22,7 @@ export class MovieService {
 
       photo: ' http://source.unsplash.com/366x200/?harryPotter',
       movieFile: 'Fantasy',
+      premium: true
     },
     {
       id: 2,
@@ -36,6 +37,7 @@ export class MovieService {
       description: 'beetee good',
       photo: ' http://source.unsplash.com/366x200/?vampire',
       movieFile: 'woo',
+      premium: true
     },
     {
       id: 3,
@@ -49,6 +51,7 @@ export class MovieService {
       description: 'Wednesday Addams, a high-school student, finds her brother Pugsley tied up in a locker',
       photo: 'http://source.unsplash.com/366x200/?wednesday',
       movieFile: 'woo',
+      premium: true
     },
     {
       id: 4,
@@ -62,7 +65,7 @@ export class MovieService {
       description: 'A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists',
       photo: 'http://source.unsplash.com/366x200/?annabelle',
       movieFile: 'woo',
-
+      premium: true
     },
     {
       id: 5,
@@ -76,7 +79,7 @@ export class MovieService {
       description: "Falling in love with her brother's friend",
       photo: 'http://source.unsplash.com/366x200/?cat',
       movieFile: 'woo',
-
+      premium: true
 
     },
     {
@@ -91,7 +94,7 @@ export class MovieService {
       description: 'Our Beloved Summer is a story about romance, regret and repressed emotions',
       photo: 'http://source.unsplash.com/366x200/?summer',
       movieFile: 'woo',
-
+      premium: true
     },
   ];
 
