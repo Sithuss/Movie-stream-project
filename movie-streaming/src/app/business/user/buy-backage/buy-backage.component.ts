@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { BuyPackageService } from 'src/app/service/apis/buypackage.service';
 import { UserService } from 'src/app/service/user.service';
 import { Location } from '@angular/common';
+import { PaymentService } from 'src/app/service/payment.service';
+import { Payment } from 'src/app/service/dto/payment';
 
 @Component({
   selector: 'app-buy-backage',
@@ -17,15 +19,21 @@ export class BuyBackageComponent {
 
   packageForm: FormGroup;
 
+  payment$: Payment[] = []
+
   constructor(private formBuilder: FormBuilder,
     private router: Router, private userService:UserService,
-    private pkCount:BuyPackageService, private location:Location) {
+    private pkCount:BuyPackageService, private location:Location,
+    public paymentService:PaymentService) {
     this.packageForm = this.formBuilder.group({
       package: ['', Validators.required],
       quantity: [1],
       paymentMethod: [''],
       transaction: ['', Validators.required]
     });
+    paymentService.getAll().subscribe(
+      p => this.payment$ = p
+    )
    }
 
    buypackage() {
@@ -40,11 +48,7 @@ export class BuyBackageComponent {
       }
     )
 
-    // if(this.packageForm.valid) {
-    //   let pkQuantity = this.packageForm.get('quantity')?.value;
-    //   this.userService.validatedUser.quantity = pkQuantity;
-    //   console.log("Package Quantity: ", pkQuantity);
-    // }
+
    }
 
    goBack() {
