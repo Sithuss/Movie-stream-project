@@ -34,7 +34,7 @@ export class MovieService {
       publisher: 'sun',
       released: '2021.6.12',
       description: 'beetee good',
-      photo: ' http://source.unsplash.com/366x200/?vampire',
+      photo: 'http://source.unsplash.com/366x200/?vampire',
       movieFile: 'woo',
     },
   ];
