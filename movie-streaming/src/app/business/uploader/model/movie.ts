@@ -11,4 +11,5 @@ export interface Movie {
   photo: string;
   trailer: string;
   movieFile: any;
+  premium: true;
 }

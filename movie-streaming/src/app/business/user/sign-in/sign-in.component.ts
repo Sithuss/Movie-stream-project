@@ -36,6 +36,8 @@ export class SignInComponent {
   }
 
 }
-
+public signup():void {
+  this.router.navigate(['user/sign-up'])
+}
 
 }

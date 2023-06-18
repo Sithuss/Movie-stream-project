@@ -28,6 +28,7 @@ export class MovieService {
       photo: 'http://source.unsplash.com/366x200/?harryPotter',
       trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'Fantasy',
+      premium: true
     },
     {
       id: 2,
@@ -43,6 +44,7 @@ export class MovieService {
       photo: 'http://source.unsplash.com/366x200/?vampire',
       trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
+      premium: true
     },
     {
       id: 3,
@@ -58,6 +60,7 @@ export class MovieService {
       photo: 'http://source.unsplash.com/366x200/?wednesday',
       trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
+      premium: true
     },
     {
       id: 4,
@@ -73,6 +76,7 @@ export class MovieService {
       photo: 'http://source.unsplash.com/366x200/?annabelle',
       trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
+      premium: true
     },
     {
       id: 5,
@@ -87,6 +91,7 @@ export class MovieService {
       photo: 'http://source.unsplash.com/366x200/?cat',
       trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
+      premium: true
     },
     {
       id: 6,
@@ -102,6 +107,7 @@ export class MovieService {
       photo: 'http://source.unsplash.com/366x200/?summer',
       trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
+      premium: true
     },
   ];
 
