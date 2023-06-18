@@ -13,8 +13,7 @@ const USER_DOMAIN = `${environment.baseUrl}/user/movie`;
   providedIn: 'any',
 })
 export class MovieService {
-
-  constructor(private http:HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   private movieList: Movie[] = [
     {
@@ -22,7 +21,7 @@ export class MovieService {
       title: 'Harry Potter and the Deathly Hallows',
       length: 120,
       category: ['war', 'action'],
-      casts: ['Edward Cullen','Bella Swan'],
+      casts: ['Daniel Radcliffe', 'Emma Watson'],
       director: 'Chris Columbus, Alfonso Cuarón, Mike Newell, and David Yates',
       publisher: 'moon',
       released: '2011',
@@ -31,14 +30,14 @@ export class MovieService {
 
       photo: 'http://source.unsplash.com/366x200/?harryPotter',
       movieFile: 'Fantasy',
-      premium: true
+      premium: true,
     },
     {
       id: 2,
       title: 'Twilight',
       length: 130,
       category: ['horror', 'action'],
-      casts: ['Edward Cullen','Bella Swan'],
+      casts: ['Edward Cullen', 'Bella Swan'],
       director: 'Catherine Hardwicke',
       publisher: 'sun',
       released: '2021.6.12',
@@ -46,14 +45,14 @@ export class MovieService {
         'he soft, diffused light from the sky when the sun is below the horizon, either from daybreak to sunrise or, more commonly, from sunset to nightfall.',
       photo: 'http://source.unsplash.com/366x200/?vampire',
       movieFile: 'woo',
-      premium: true
+      premium: true,
     },
     {
       id: 3,
       title: 'Wedensday',
       length: 130,
       category: ['horror'],
-      casts: ['Edward Cullen','Bella Swan'],
+      casts: ['Edward Cullen', 'Bella Swan'],
       director: 'Tim Burton ',
       publisher: 'sun',
       released: '2022-10-05',
@@ -61,14 +60,14 @@ export class MovieService {
         'Wednesday Addams, a high-school student, finds her brother Pugsley tied up in a locker',
       photo: 'http://source.unsplash.com/366x200/?wednesday',
       movieFile: 'woo',
-      premium: true
+      premium: true,
     },
     {
       id: 4,
       title: 'Annabelle',
       length: 130,
       category: ['horror'],
-      casts: ['Edward Cullen','Bella Swan'],
+      casts: ['Edward Cullen', 'Bella Swan'],
       director: 'King',
       publisher: 'sun',
       released: '2021.6.12',
@@ -76,28 +75,28 @@ export class MovieService {
         'A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists',
       photo: 'http://source.unsplash.com/366x200/?annabelle',
       movieFile: 'woo',
-      premium: true
+      premium: true,
     },
     {
       id: 5,
       title: 'Hidden Love',
       length: 130,
       category: ['romance'],
-      casts: ['Edward Cullen','Bella Swan'],
+      casts: ['Choi Woo Sik', 'Kim Da Mi'],
       director: 'libra',
       publisher: 'sun',
       released: 'comming soon',
       description: "Falling in love with her brother's friend",
       photo: 'http://source.unsplash.com/366x200/?cat',
       movieFile: 'woo',
-      premium: true
+      premium: true,
     },
     {
       id: 6,
       title: 'Our Beloved Summer',
       length: 130,
       category: ['romance'],
-      casts: ['Edward Cullen','Bella Swan'],
+      casts: ['Chen Zhe Yuan', 'Zhao Lusi'],
       director: 'Kim',
       publisher: 'sun',
       released: '2022.6.12',
@@ -105,10 +104,9 @@ export class MovieService {
         'Our Beloved Summer is a story about romance, regret and repressed emotions',
       photo: 'http://source.unsplash.com/366x200/?summer',
       movieFile: 'woo',
-      premium: true
+      premium: true,
     },
   ];
-
 
   findAll(): Observable<Movie[]> {
     return of(this.movieList);
@@ -116,7 +114,6 @@ export class MovieService {
   }
 
   upload(movie: Movie) {
-    movie.id = 3;
     this.movieList.push(movie);
   }
 
@@ -139,9 +136,4 @@ export class MovieService {
   search(value: any): Observable<any[]> {
     return of(this.movieList);
   }
-
-
-
-
-
 }
