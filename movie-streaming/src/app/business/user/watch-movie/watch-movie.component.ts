@@ -28,6 +28,8 @@ export class WatchMovieComponent implements OnInit {
       ) as Observable<Movie>;
   }
 
+  
+
 
 
 

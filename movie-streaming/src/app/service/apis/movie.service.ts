@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map, of } from 'rxjs';
 import { Movie } from '../../business/uploader/model/movie';
 import { environment } from 'src/app/environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 const PUBLIC_DOMAIN = `${environment.baseUrl}/public/movie`;
 const UPLOADER_DOMAIN = `${environment.baseUrl}/uploader/movie`;
@@ -12,6 +13,8 @@ const USER_DOMAIN = `${environment.baseUrl}/user/movie`;
   providedIn: 'any',
 })
 export class MovieService {
+  constructor(private http: HttpClient) {}
+
   private movieList: Movie[] = [
     {
       id: 1,
@@ -27,6 +30,7 @@ export class MovieService {
 
       photo: 'http://source.unsplash.com/366x200/?harryPotter',
       movieFile: 'Fantasy',
+      premium: true,
     },
     {
       id: 2,
@@ -41,6 +45,7 @@ export class MovieService {
         'he soft, diffused light from the sky when the sun is below the horizon, either from daybreak to sunrise or, more commonly, from sunset to nightfall.',
       photo: 'http://source.unsplash.com/366x200/?vampire',
       movieFile: 'woo',
+      premium: true,
     },
     {
       id: 3,
@@ -55,6 +60,7 @@ export class MovieService {
         'Wednesday Addams, a high-school student, finds her brother Pugsley tied up in a locker',
       photo: 'http://source.unsplash.com/366x200/?wednesday',
       movieFile: 'woo',
+      premium: true,
     },
     {
       id: 4,
@@ -69,6 +75,7 @@ export class MovieService {
         'A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists',
       photo: 'http://source.unsplash.com/366x200/?annabelle',
       movieFile: 'woo',
+      premium: true,
     },
     {
       id: 5,
@@ -82,6 +89,7 @@ export class MovieService {
       description: "Falling in love with her brother's friend",
       photo: 'http://source.unsplash.com/366x200/?cat',
       movieFile: 'woo',
+      premium: true,
     },
     {
       id: 6,
@@ -96,21 +104,34 @@ export class MovieService {
         'Our Beloved Summer is a story about romance, regret and repressed emotions',
       photo: 'http://source.unsplash.com/366x200/?summer',
       movieFile: 'woo',
+      premium: true,
     },
   ];
 
   findAll(): Observable<Movie[]> {
     return of(this.movieList);
+    // return this.http.get(`${PUBLIC_DOMAIN}/listAll`) as Observable<Movie[]>;
   }
 
   upload(movie: Movie) {
-    movie.id = 3;
     this.movieList.push(movie);
   }
+
+  // upload(movie: Movie):Observable<any> {
+  //   return this.http.post(`${UPLOADER_DOMAIN}/upload`, movie);
+  // }
 
   searchByCategory(id: number): Observable<any[]> {
     return of(this.movieList);
   }
+
+  // searchByCategory(category:any):Observable<Movie[]> {
+  //   return this.http.get<Movie[]>(`${PUBLIC_DOMAIN}/searchByCategory`, {params:category});
+  // }
+
+  // search(keyword:any):Observable<Movie[]> {
+  //   return this.http.get<Movie[]>(`${PUBLIC_DOMAIN}/search`, {params:keyword});
+  // }
 
   search(value: any): Observable<any[]> {
     return of(this.movieList);
