@@ -12,7 +12,7 @@ export class MovieService {
       title: 'Harry Potter and the Deathly Hallows – Part 2',
       length: 120,
       category: ['war', 'action'],
-      casts: ['Daniel Radcliffe','Emma Watson'],
+      casts: ['Daniel Radcliffe', 'Emma Watson'],
 
       director: 'Chris Columbus, Alfonso Cuarón, Mike Newell, and David Yates',
       publisher: 'moon',
@@ -28,7 +28,7 @@ export class MovieService {
       title: 'Twinlight',
       length: 130,
       category: ['war', 'action'],
-      casts: ['Edward Cullen','Bella Swan'],
+      casts: ['Edward Cullen', 'Bella Swan'],
 
       director: 'Catherine Hardwicke',
       publisher: 'sun',
@@ -42,12 +42,12 @@ export class MovieService {
       title: 'Wedensday',
       length: 130,
       category: ['horror'],
-      actor: 'Tyler Galpin',
-      actress: 'Wednesday Addams',
+      casts: ['Tyler Galpin', 'Wednesday Addams'],
       director: 'Tim Burton ',
       publisher: 'sun',
       released: '2022-10-05',
-      description: 'Wednesday Addams, a high-school student, finds her brother Pugsley tied up in a locker',
+      description:
+        'Wednesday Addams, a high-school student, finds her brother Pugsley tied up in a locker',
       photo: 'http://source.unsplash.com/366x200/?wednesday',
       movieFile: 'woo',
     },
@@ -56,46 +56,41 @@ export class MovieService {
       title: 'Annabelle',
       length: 130,
       category: ['horror'],
-      actor: 'Edward Cullen',
-      actress: 'Bella Swan',
+      casts: ['Edward Cullen', 'Bella Swan'],
       director: 'King',
       publisher: 'sun',
       released: '2021.6.12',
-      description: 'A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists',
+      description:
+        'A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists',
       photo: 'http://source.unsplash.com/366x200/?annabelle',
       movieFile: 'woo',
-
     },
     {
       id: 5,
       title: 'Hidden Love',
       length: 130,
       category: ['romance'],
-      actor: 'Chen Zhe Yuan',
-      actress: 'Zhao Lusi',
+      casts: ['Chen Zhe Yuan', 'Zhao Lusi'],
       director: 'libra',
       publisher: 'sun',
       released: 'comming soon',
       description: "Falling in love with her brother's friend",
       photo: 'http://source.unsplash.com/366x200/?cat',
       movieFile: 'woo',
-
-
     },
     {
       id: 6,
       title: 'Our Beloved Summer',
       length: 130,
       category: ['romance'],
-      actor: 'Choi Woo Sik',
-      actress: 'Kim Da Mi',
+      casts: ['Choi Woo Sik', 'Kim Da Mi'],
       director: 'Kim',
       publisher: 'sun',
       released: '2022.6.12',
-      description: 'Our Beloved Summer is a story about romance, regret and repressed emotions',
+      description:
+        'Our Beloved Summer is a story about romance, regret and repressed emotions',
       photo: 'http://source.unsplash.com/366x200/?summer',
       movieFile: 'woo',
-
     },
   ];
 
@@ -128,7 +123,7 @@ export class MovieService {
     return of(this.movieList);
   }
 
-  getMovieCount(): number{
+  getMovieCount(): number {
     return this.movieList.length;
   }
 }
