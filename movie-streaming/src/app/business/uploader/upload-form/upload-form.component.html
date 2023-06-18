@@ -24,13 +24,10 @@
 
             <div class="row">
 
-              <app-form-group class="col" [valid]="form.get('actor')!.valid" label="Actor">
-                <input formControlName="actor" type="text" class="form-control" placeholder="Enter movie actor">
+              <app-form-group class="col" [valid]="form.get('casts')!.valid" label="Casts">
+                <input formControlName="actor" type="text" class="form-control" placeholder="Enter movie Casts">
               </app-form-group>
 
-              <app-form-group class="col" [valid]="form.get('actress')!.valid" label="Actress">
-                <input formControlName="actress" type="text" class="form-control" placeholder="Enter movie actress">
-              </app-form-group>
 
               <app-form-group class="col" [valid]="form.get('director')!.valid" label="Director">
                 <input formControlName="director" type="text" class="form-control" placeholder="Enter movie director">
