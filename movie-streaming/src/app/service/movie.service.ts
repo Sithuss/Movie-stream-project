@@ -17,7 +17,8 @@ export class MovieService {
       director: 'Chris Columbus, Alfonso Cuarón, Mike Newell, and David Yates',
       publisher: 'moon',
       released: '2011',
-      description: 'Harry,Ron, and Hermione search for Voldemort remaining Horcruxes in their effort to destory the Dark Lord as the final battle rages on at Hogwarts',
+      description:
+        'Harry,Ron, and Hermione search for Voldemort remaining Horcruxes in their effort to destory the Dark Lord as the final battle rages on at Hogwarts',
 
       photo: ' http://source.unsplash.com/366x200/?harryPotter',
       movieFile: 'Fantasy',
@@ -42,7 +43,7 @@ export class MovieService {
     return of(this.movieList);
   }
   upload(movie: Movie) {
-    movie.id = 3;
+    movie.id = 7;
     this.movieList.push(movie);
   }
 
