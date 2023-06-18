@@ -55,9 +55,10 @@
       <div class="col-md-5">
         <img src="https://source.unsplash.com/600x400/?ww2" class="card-img-top img-thumbnail mb-4" alt="...">
 
-          <button class="btn btn-sm btn-outline-secondary rounded-pill ms-3" (click)="streamMovie(movie.id)">Watch Now</button>
-          <button class="btn btn-sm btn-outline-success rounded-pill ms-3" (click)="goReviews()">Feedback</button>
-          <button class="btn btn-sm btn-outline-info rounded-pill ms-3" (click)="goHome()">Back To Home</button>
+        <button class="btn btn-sm btn-outline-secondary rounded-pill ms-3" (click)="streamMovie(movie.id)">Watch
+          Now</button>
+        <button class="btn btn-sm btn-outline-success rounded-pill ms-3" (click)="goReviews()">Feedback</button>
+        <button class="btn btn-sm btn-outline-info rounded-pill ms-3" (click)="goHome()">Back To Home</button>
       </div>
 
 
@@ -85,8 +86,7 @@
                 <div class="container">
                   <div class="row">
                     <div class="col-md-4">
-                      <div class="mb-2">Actor</div>
-                      <div class="mb-2">Actress</div>
+                      <div class="mb-2">Casts</div>
                       <div class="mb-2">Category</div>
                       <div class="mb-2">Publisher</div>
                       <div class="mb-2">Director</div>
@@ -98,11 +98,9 @@
                       <div class="h5 fw-bold mb-2">-</div>
                       <div class="h5 fw-bold mb-2">-</div>
                       <div class="h5 fw-bold mb-2">-</div>
-                      <div class="h5 fw-bold mb-2">-</div>
                     </div>
                     <div class="col-md">
-                      <div class="mb-2">{{movie.actor}} </div>
-                      <div class="mb-2">{{movie.actress}} </div>
+                      <div class="mb-2">{{movie.casts}} </div>
                       <div class="mb-2">{{movie.category}} </div>
                       <div class="mb-2">{{movie.publisher}} </div>
                       <div class="mb-2">{{movie.director}} </div>
@@ -119,7 +117,7 @@
               <div class="tab-pane fade mt-2" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"
                 tabindex="0">
                 <video controls="controls" class="video-stream w-100" x-webkit-airplay="allow"
-                  data-youtube-id="N9oxmRT2YWw" src="http://www.youtube.com/watch?v=OmxT8a9RWbE"></video>
+                  data-youtube-id="N9oxmRT2YWw" src="http://www.youtube.com/embed/OmxT8a9RWbE"></video>
               </div>
             </div>
           </div>

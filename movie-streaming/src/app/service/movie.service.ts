@@ -12,8 +12,8 @@ export class MovieService {
       title: 'Harry Potter and the Deathly Hallows – Part 2',
       length: 120,
       category: ['war', 'action'],
-      actor: 'Daniel Radcliffe',
-      actress: 'Emma Watson ',
+      casts: ['Daniel Radcliffe','Emma Watson'],
+
       director: 'Chris Columbus, Alfonso Cuarón, Mike Newell, and David Yates',
       publisher: 'moon',
       released: '2011',
@@ -27,8 +27,8 @@ export class MovieService {
       title: 'Twinlight',
       length: 130,
       category: ['war', 'action'],
-      actor: 'Edward Cullen',
-      actress: 'Bella Swan',
+      casts: ['Edward Cullen','Bella Swan'],
+
       director: 'Catherine Hardwicke',
       publisher: 'sun',
       released: '2021.6.12',
