@@ -18,7 +18,7 @@ export class MovieService {
       title: 'Harry Potter and the Deathly Hallows',
       length: 120,
       category: ['war', 'action'],
-      casts: ['Edward Cullen','Bella Swan'],
+      casts: ['Daniel Radcliffe', 'Emma Watson'],
       director: 'Chris Columbus, Alfonso Cuarón, Mike Newell, and David Yates',
       publisher: 'moon',
       released: '2011',
@@ -33,7 +33,7 @@ export class MovieService {
       title: 'Twilight',
       length: 130,
       category: ['horror', 'action'],
-      casts: ['Edward Cullen','Bella Swan'],
+      casts: ['Edward Cullen', 'Bella Swan'],
       director: 'Catherine Hardwicke',
       publisher: 'sun',
       released: '2021.6.12',
@@ -47,7 +47,7 @@ export class MovieService {
       title: 'Wedensday',
       length: 130,
       category: ['horror'],
-      casts: ['Edward Cullen','Bella Swan'],
+      casts: ['Edward Cullen', 'Bella Swan'],
       director: 'Tim Burton ',
       publisher: 'sun',
       released: '2022-10-05',
@@ -61,7 +61,7 @@ export class MovieService {
       title: 'Annabelle',
       length: 130,
       category: ['horror'],
-      casts: ['Edward Cullen','Bella Swan'],
+      casts: ['Edward Cullen', 'Bella Swan'],
       director: 'King',
       publisher: 'sun',
       released: '2021.6.12',
@@ -75,7 +75,7 @@ export class MovieService {
       title: 'Hidden Love',
       length: 130,
       category: ['romance'],
-      casts: ['Edward Cullen','Bella Swan'],
+      casts: ['Choi Woo Sik', 'Kim Da Mi'],
       director: 'libra',
       publisher: 'sun',
       released: 'comming soon',
@@ -88,7 +88,7 @@ export class MovieService {
       title: 'Our Beloved Summer',
       length: 130,
       category: ['romance'],
-      casts: ['Edward Cullen','Bella Swan'],
+      casts: ['Chen Zhe Yuan', 'Zhao Lusi'],
       director: 'Kim',
       publisher: 'sun',
       released: '2022.6.12',
@@ -98,7 +98,6 @@ export class MovieService {
       movieFile: 'woo',
     },
   ];
-
 
   findAll(): Observable<Movie[]> {
     return of(this.movieList);
