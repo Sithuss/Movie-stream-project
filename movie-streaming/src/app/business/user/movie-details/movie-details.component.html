@@ -46,7 +46,9 @@
 
 
 </div> -->
-<div class="bg-dark" *ngIf="(movie | async) as movie">
+
+<div>
+<div class="bg-white" *ngIf="(movie | async) as movie">
   <div class="" style="position: relative; width: 100%;">
     <a href="#" style="width:100%;height: 500px;text-decoration:none; opacity: 0.8;">
       <img class="img" [src]="movie.photo" alt="" style="width: 100%;height: 500px; box-shadow: 2px 2px 2px #888888;">
@@ -58,32 +60,12 @@
       <img style="height: 200px; width: 150px;" [src]="movie.photo" alt="">
     </span>
   </div>
-
-
-
-  <div class="bg-dark">
-    <div class="container bg-dark mt-5">
-
-      <div class="row ">
-
-        <div class="col-md-5">
-          <!-- <img [src]="movie.photo" class="card-img-top img-thumbnail mb-4" alt="..."> -->
-
-          <button class="btn btn-sm btn-outline-secondary rounded-pill ms-3" (click)="streamMovie(movie.id)">Watch
-            Now</button>
-          <button class="btn btn-sm btn-outline-success rounded-pill ms-3" (click)="goReviews()">Feedback</button>
-          <button class="btn btn-sm btn-outline-info rounded-pill ms-3" (click)="goHome()">Back To Home</button>
-        </div>
-
-        <div class="col-md-1"></div>
-        <!-- <div class="col-md-6"> -->
-        <!-- <div> -->
-        <div class="  card bg-dark shadow rounded mt-5">
+    <div class="container">
+        <div class="card bg-white shadow rounded mt-4">
           <div class="card-header">
             <h4 class="text-center text-secondary" style="font-weight: bold; ">{{movie.title}}</h4>
           </div>
           <div class="card-body border">
-
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <button class="text-secondary nav-link active" id="nav-home-tab" data-bs-toggle="tab"
@@ -103,7 +85,7 @@
 
                 <div class="container">
                   <div class="row">
-                    <table class="table mt-2 text-secondary bg-dark">
+                    <table class="table mt-2">
                       <tr>
                         <td class="column-header">Casts</td>
                         <td class="column-header">-</td>
@@ -134,19 +116,23 @@
                         <td class="column-content">{{movie.released}}</td>
                       </tr>
                     </table>
+                    <div class="my-4">
+                      <button class="btn btn-outline-primary" (click)="streamMovie(movie.id)">Watch Now</button>
+                      <button class="btn btn-outline-warning ms-3" (click)="goReviews()">Review</button>
+                      <button class="btn btn-outline-success ms-3" (click)="goHome()">Back To Home</button>
+                    </div>
                   </div>
                 </div>
-
               </div>
-              <div class="tab-pane fade mt-2 text-white" style="min-height: 12rem" id="nav-profile" role="tabpanel"
+              <div class="tab-pane fade mt-2" style="min-height: 12rem" id="nav-profile" role="tabpanel"
                 aria-labelledby="nav-profile-tab" tabindex="0">
                 {{movie.description}}
               </div>
               <div class="tab-pane fade  mt-2" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"
                 tabindex="0">
 
-                <div class="ratio ratio-16x9">
-                  <iframe class="" src="https://www.youtube.com/embed/t_n_Jc7SeFU" title="YouTube video player"
+                <div class="ratio ratio-4x3">
+                  <iframe class="img" src="https://www.youtube.com/embed/t_n_Jc7SeFU" title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
@@ -157,7 +143,6 @@
           </div>
         </div>
       </div>
-    </div>
 
-  </div>
+  <!-- </div> -->
 </div>
