@@ -3,7 +3,7 @@ import { Observable, of } from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 
-const DOMAIN = `${environment.baseUrl}/public/security`
+const PUBLIC_DOMAIN = `${environment.baseUrl}/public/security`
 
 @Injectable({providedIn: 'any'})
 
@@ -14,15 +14,15 @@ export class SecurityService {
   constructor(private http:HttpClient) {}
 
   register(user:any):Observable<any> {
-    return this.http.post("http://localhost:8080/public/security/register", JSON.stringify(user), {
+    return this.http.post(`${PUBLIC_DOMAIN}/register`, JSON.stringify(user), {
       headers: {
         'Content-type':'application/json;charset=UTF-8'
       }
     });
   }
 
-  signIn(user:any) {
-    return this.http.post("http://localhost:8080/public/security/signin", user);
+  signIn(user:any):Observable<any> {
+    return this.http.post<any>(`${PUBLIC_DOMAIN}/signIn`, user);
   }
 
 }

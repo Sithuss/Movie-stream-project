@@ -15,7 +15,7 @@ export class UserTestService {
     {name: 'Ag Ag',email: 'agag@gmail.com', password: 'uploader', role: 'uploader'},
     {name: 'Phyu Phyu', email: 'phyuphyu@gmail.com', password: 'user', role: 'user'},
     {name: 'Ag Khin',email: 'agkhin@gmail.com', password: 'uploader', role: 'uploader'},
-    {name: 'Phyu Win', email: 'phyuwin@gmail.com', password: 'crush', role: 'admin'}
+    {name: 'Khin Wint War', email: 'khinwintwar@gmail.com', password: 'admin', role: 'admin'}
   ];
 
   private userSubject: BehaviorSubject<User[]> = new BehaviorSubject<User[]>(this.users);
