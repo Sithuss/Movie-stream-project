@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map, of } from 'rxjs';
 import { Movie } from '../../business/uploader/model/movie';
 import { environment } from 'src/app/environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 const PUBLIC_DOMAIN = `${environment.baseUrl}/public/movie`;
 const UPLOADER_DOMAIN = `${environment.baseUrl}/uploader/movie`;
@@ -12,13 +13,15 @@ const USER_DOMAIN = `${environment.baseUrl}/user/movie`;
   providedIn: 'any',
 })
 export class MovieService {
+  constructor(private http: HttpClient) {}
+
   private movieList: Movie[] = [
     {
       id: 1,
       title: 'Harry Potter and the Deathly Hallows',
       length: 120,
       category: ['war', 'action'],
-      casts: ['Edward Cullen','Bella Swan'],
+      casts: ['Daniel Radcliffe', 'Emma Watson'],
       director: 'Chris Columbus, Alfonso Cuarón, Mike Newell, and David Yates',
       publisher: 'moon',
       released: '2011',
@@ -28,14 +31,14 @@ export class MovieService {
       photo: 'http://source.unsplash.com/366x200/?harryPotter',
       trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'Fantasy',
-      premium: true
+      premium: true,
     },
     {
       id: 2,
       title: 'Twilight',
       length: 130,
       category: ['horror', 'action'],
-      casts: ['Edward Cullen','Bella Swan'],
+      casts: ['Edward Cullen', 'Bella Swan'],
       director: 'Catherine Hardwicke',
       publisher: 'sun',
       released: '2021.6.12',
@@ -44,14 +47,14 @@ export class MovieService {
       photo: 'http://source.unsplash.com/366x200/?vampire',
       trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
-      premium: true
+      premium: true,
     },
     {
       id: 3,
       title: 'Wedensday',
       length: 130,
       category: ['horror'],
-      casts: ['Edward Cullen','Bella Swan'],
+      casts: ['Edward Cullen', 'Bella Swan'],
       director: 'Tim Burton ',
       publisher: 'sun',
       released: '2022-10-05',
@@ -60,14 +63,14 @@ export class MovieService {
       photo: 'http://source.unsplash.com/366x200/?wednesday',
       trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
-      premium: true
+      premium: true,
     },
     {
       id: 4,
       title: 'Annabelle',
       length: 130,
       category: ['horror'],
-      casts: ['Edward Cullen','Bella Swan'],
+      casts: ['Edward Cullen', 'Bella Swan'],
       director: 'King',
       publisher: 'sun',
       released: '2021.6.12',
@@ -76,14 +79,14 @@ export class MovieService {
       photo: 'http://source.unsplash.com/366x200/?annabelle',
       trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
-      premium: true
+      premium: true,
     },
     {
       id: 5,
       title: 'Hidden Love',
       length: 130,
       category: ['romance'],
-      casts: ['Edward Cullen','Bella Swan'],
+      casts: ['Choi Woo Sik', 'Kim Da Mi'],
       director: 'libra',
       publisher: 'sun',
       released: 'comming soon',
@@ -91,14 +94,14 @@ export class MovieService {
       photo: 'http://source.unsplash.com/366x200/?cat',
       trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
-      premium: true
+      premium: true,
     },
     {
       id: 6,
       title: 'Our Beloved Summer',
       length: 130,
       category: ['romance'],
-      casts: ['Edward Cullen','Bella Swan'],
+      casts: ['Chen Zhe Yuan', 'Zhao Lusi'],
       director: 'Kim',
       publisher: 'sun',
       released: '2022.6.12',
@@ -107,23 +110,34 @@ export class MovieService {
       photo: 'http://source.unsplash.com/366x200/?summer',
       trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
-      premium: true
+      premium: true,
     },
   ];
 
-
   findAll(): Observable<Movie[]> {
     return of(this.movieList);
+    // return this.http.get(`${PUBLIC_DOMAIN}/listAll`) as Observable<Movie[]>;
   }
 
   upload(movie: Movie) {
-    movie.id = 3;
     this.movieList.push(movie);
   }
+
+  // upload(movie: Movie):Observable<any> {
+  //   return this.http.post(`${UPLOADER_DOMAIN}/upload`, movie);
+  // }
 
   searchByCategory(id: number): Observable<any[]> {
     return of(this.movieList);
   }
+
+  // searchByCategory(category:any):Observable<Movie[]> {
+  //   return this.http.get<Movie[]>(`${PUBLIC_DOMAIN}/searchByCategory`, {params:category});
+  // }
+
+  // search(keyword:any):Observable<Movie[]> {
+  //   return this.http.get<Movie[]>(`${PUBLIC_DOMAIN}/search`, {params:keyword});
+  // }
 
   search(value: any): Observable<any[]> {
     return of(this.movieList);
