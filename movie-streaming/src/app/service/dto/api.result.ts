@@ -1,7 +1,9 @@
 
+type NewType = String
+
 export interface ApiResult {
   status: ApiStatus
-  result:String[] | any[] | any
+  result:NewType[] | any[] | any
 }
 
 
