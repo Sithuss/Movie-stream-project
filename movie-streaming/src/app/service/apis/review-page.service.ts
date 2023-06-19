@@ -2,15 +2,16 @@ import { Injectable } from '@angular/core';
 import { Review } from '../dto/review';
 import { Observable, of } from 'rxjs';
 import {environment} from "../../environments/environment";
+import { HttpClient } from '@angular/common/http';
 
-const USER_DOMAIN = `${environment.baseUrl}/user/review`
+const USER_DOMAIN = `${environment.baseUrl}/user/movie`
 
 @Injectable({
   providedIn: 'any',
 })
 export class ReviewPageService {
 
-  constructor(){}
+  constructor(private http:HttpClient){}
 
   private formList:Review[] = [
     {id: 1, review:"This site is not bad.I hope more latest movies."},
@@ -25,4 +26,12 @@ export class ReviewPageService {
   createReview(reviewForm:Review){
     this.formList.push(reviewForm);
   }
+
+  movieReview(review: any, id: number) {
+    this.http.post(`${USER_DOMAIN}/review?id=${id}`, review)
+  }
+
+
+
+
 }
