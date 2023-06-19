@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Review } from 'src/app/service/dto/review';
 import { ReviewPageService } from 'src/app/service/apis/review-page.service';
 import { Movie } from '../../uploader/model/movie';
+import { UserService } from 'src/app/service/user.service';
 
 
 @Component({
@@ -23,7 +24,8 @@ export class GiveReviewsComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private service: ReviewPageService
+    private service: ReviewPageService,
+    public userService: UserService
   ) {
     this.reviewForm = fb.group({
       id: 3,
