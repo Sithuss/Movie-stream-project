@@ -85,27 +85,37 @@
 
                 <div class="container">
                   <div class="row">
-                    <div class="col-md-4">
-                      <div class="mb-2">Casts</div>
-                      <div class="mb-2">Category</div>
-                      <div class="mb-2">Publisher</div>
-                      <div class="mb-2">Director</div>
-                      <div class="mb-2">ReleasedDate</div>
-                    </div>
-                    <div class="col-1">
-                      <div class="h5 fw-bold mb-2">-</div>
-                      <div class="h5 fw-bold mb-2">-</div>
-                      <div class="h5 fw-bold mb-2">-</div>
-                      <div class="h5 fw-bold mb-2">-</div>
-                      <div class="h5 fw-bold mb-2">-</div>
-                    </div>
-                    <div class="col-md">
-                      <div class="mb-2">{{movie.casts}} </div>
-                      <div class="mb-2">{{movie.category}} </div>
-                      <div class="mb-2">{{movie.publisher}} </div>
-                      <div class="mb-2">{{movie.director}} </div>
-                      <div class="mb-2">{{movie.released}} </div>
-                    </div>
+                    <table class="table mt-2">
+                      <tr>
+                        <td class="column-header">Casts</td>
+                        <td class="column-header">-</td>
+                        <td class="column-content">{{movie.casts}}</td>
+                      </tr>
+                      <br>
+                      <tr>
+                        <td class="column-header">Category</td>
+                        <td class="column-header">-</td>
+                        <td class="column-content">{{movie.category}}</td>
+                      </tr>
+                      <br>
+                      <tr>
+                        <td class="column-header">Publisher</td>
+                        <td class="column-header">-</td>
+                        <td class="column-content">{{movie.publisher}}</td>
+                      </tr>
+                      <br>
+                      <tr>
+                        <td class="column-header">Director</td>
+                        <td class="column-header">-</td>
+                        <td class="column-content">{{movie.director}}</td>
+                      </tr>
+                      <br>
+                      <tr>
+                        <td class="column-header">Released Date</td>
+                        <td class="column-header">-</td>
+                        <td class="column-content">{{movie.released}}</td>
+                      </tr>
+                    </table>
                   </div>
                 </div>
 
