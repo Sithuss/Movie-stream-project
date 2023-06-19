@@ -5,12 +5,8 @@
         <h1 class="navbar-brand mt-2 ms-4">&nbsp;Hello Future</h1>
       </div>
     </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <a href="#" routerLinkActive="active" class="nav-link me-auto"><i class="bi bi-house-door-fill fs-4"></i></a>
+
 
     <ul class="navbar-nav">
       <div *ngIf="userService.validatedUser">
@@ -21,7 +17,7 @@
           </a>
         </li>
       </div>
-      
+
       <div *ngIf="userService.validatedUser">
         <li class="nav-item">
           <a [routerLink]="['/user/library']" routerLinkActive="active" class="nav-link mt-2">

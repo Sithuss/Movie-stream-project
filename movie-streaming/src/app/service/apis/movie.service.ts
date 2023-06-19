@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable, map, of } from 'rxjs';
 import { Movie } from '../../business/uploader/model/movie';
 import { environment } from 'src/app/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { ApiStatus } from '../dto/api.result';
 
 const PUBLIC_DOMAIN = `${environment.baseUrl}/public/movie`;
 const UPLOADER_DOMAIN = `${environment.baseUrl}/uploader/movie`;
@@ -124,16 +125,17 @@ export class MovieService {
   }
 
   // upload(movie: Movie):Observable<any> {
+      // localhost:8080/uploader/movie/upload {submit movie}
   //   return this.http.post(`${UPLOADER_DOMAIN}/upload`, movie);
   // }
 
-  searchByCategory(id: number): Observable<any[]> {
-    return of(this.movieList);
-  }
-
-  // searchByCategory(category:any):Observable<Movie[]> {
-  //   return this.http.get<Movie[]>(`${PUBLIC_DOMAIN}/searchByCategory`, {params:category});
+  // searchByCategory(id: number): Observable<any[]> {
+  //   return of(this.movieList);
   // }
+
+  searchByCategory(category:any):Observable<Movie[]> {
+    return this.http.get<Movie[]>(`${PUBLIC_DOMAIN}/searchByCategory`, {params:category});
+  }
 
   // search(keyword:any):Observable<Movie[]> {
   //   return this.http.get<Movie[]>(`${PUBLIC_DOMAIN}/search`, {params:keyword});
@@ -142,4 +144,23 @@ export class MovieService {
   search(value: any): Observable<any[]> {
     return of(this.movieList);
   }
+
+  uploaderDeleteMovie(id:number):Observable<ApiStatus> {
+    return this.http.delete<any>(`${UPLOADER_DOMAIN}/delete?id=${id}`);
+  }
+
+  adminDeleteMovie(id:number):Observable<ApiStatus> {
+    return this.http.delete<any>(`{ADMIN_DOMAIN}/delete?id=${id}`);
+  }
+
+  uploaderEditMovie(movie:any):Observable<any> {
+    return this.http.post<any>(`${UPLOADER_DOMAIN}/edit`, movie);
+  }
+
+  bookMark(id: number):Observable<any> {
+    return this.http.get<any>(`${USER_DOMAIN}/bookMark?id=${id}`);
+  }
+
+
+
 }
