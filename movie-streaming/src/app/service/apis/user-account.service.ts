@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
+import { HttpClient } from '@angular/common/http';
 
 const USER_DOMAIN = `${environment.baseUrl}/user/account`
 const ADMIN_DOMAIN = `${environment.baseUrl}/uploader/account`
@@ -11,10 +12,18 @@ const UPLOADER_DOMAIN = `${environment.baseUrl}/admin/account`
 })
 export class UserAccountService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
-  edit() {
-
+  userEditAccount(form:any) {
+    this.http.post(`${USER_DOMAIN}/edit`, form);
   }
-  
+
+  uploaderEditAccount(form:any) {
+    this.http.post(`${UPLOADER_DOMAIN}/edit`, form);
+  }
+
+  adminEditAccount(form:any) {
+    this.http.post(`${ADMIN_DOMAIN}/edit`, form);
+  }
+
 }
