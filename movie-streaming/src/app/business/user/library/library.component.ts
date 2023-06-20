@@ -13,17 +13,15 @@ export class LibraryComponent {
 
   movies:any
   library!: Observable<Movie>;
+  route: any;
 
   constructor(public libraryService:LibraryService,private router:Router) {
+    const id = this.route.snapshot.paramMap.get('id') as string;
    this.libraryService.findMovieInLibrary().subscribe(result => this.movies = result)
   }
 
   removeFromLibrary(id: any):void{
     this.libraryService.remove(parseInt(id));
-  }
-
-  public goHome(){
-    this.router.navigate(['/user/movie-list'])
   }
 
   public streamMovie(id:any):void{
