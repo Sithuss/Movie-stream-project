@@ -11,7 +11,7 @@
 
 
       <div class="col">
-        <form [formGroup]="searchWord" class="input-group ms-auto shadow-sm" style="width: 7cm;" role="search">
+        <form [formGroup]="searchWord" class="input-group ms-auto me-auto shadow-sm" style="width: 7cm;" role="search">
           <input class="form-control" formControlName="keyword" type="search" placeholder="Search anything here...." aria-label="Search">
           <button class="btn btn-outline-success" id="search" (click)="search()" type="submit"><i class="bi bi-search"></i></button>
         </form>
@@ -37,7 +37,7 @@
         <div>
         <div *ngIf="userService.validatedUser">
           <a class="nav-link mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <i class="bi bi-archive-fill fs-3"></i>
+            <i class="bi bi-gem fs-3"></i>         
           </a>
         </div>
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -77,7 +77,7 @@
             <li class="nav-item dropstart me-3">
               <a href="#" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                <i class="bi bi-person-square fs-3"></i>
+                <i class="bi bi-person-circle fs-3"></i>
               </a>
 
               <ul class="dropdown-menu">
