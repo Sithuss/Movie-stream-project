@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MovieService } from 'src/app/service/apis/movie.service';
+import { UserMovieService } from 'src/app/service/apis/user.movie.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit{
   // movies:any[] = []
   // searchForm: any;
 
-  // constructor(private movieService:MovieService){
+  // constructor(private movieService:UserMovieService){
 
   // }
 
@@ -40,7 +40,7 @@ export class NavbarComponent implements OnInit{
   constructor(
     private router:Router,
     public userService:UserService,
-    private movieService:MovieService,
+    private movieService:UserMovieService,
     private fb:FormBuilder) {
 
       this.searchWord = this.fb.group({

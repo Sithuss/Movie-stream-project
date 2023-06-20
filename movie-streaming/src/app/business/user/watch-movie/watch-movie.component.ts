@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
-import { MovieService } from 'src/app/service/apis/movie.service';
+import { UserMovieService } from 'src/app/service/apis/user.movie.service';
 import { LibraryService } from 'src/app/service/library.service';
 import { UserService } from 'src/app/service/user.service';
 import { Movie } from '../../uploader/model/movie';
@@ -13,7 +13,7 @@ import { Movie } from '../../uploader/model/movie';
 })
 export class WatchMovieComponent implements OnInit {
   constructor(
-    private mService: MovieService,
+    private mService: UserMovieService,
     private router: Router,
     private route: ActivatedRoute,
     private libraryService: LibraryService,
