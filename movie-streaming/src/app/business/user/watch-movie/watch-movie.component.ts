@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { MovieService } from 'src/app/service/apis/movie.service';
 import { LibraryService } from 'src/app/service/library.service';
+import { UserService } from 'src/app/service/user.service';
 import { Movie } from '../../uploader/model/movie';
 
 @Component({
@@ -15,7 +16,8 @@ export class WatchMovieComponent implements OnInit {
     private mService: MovieService,
     private router: Router,
     private route: ActivatedRoute,
-    private libraryService: LibraryService
+    private libraryService: LibraryService,
+    public userService: UserService
   ) {}
   movie$!: Observable<Movie>;
   mId!: number;
