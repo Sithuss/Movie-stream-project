@@ -9,6 +9,7 @@ export interface Movie {
   released: string;
   description: string;
   photo: string;
+  trailer: string;
   movieFile: any;
   premium: true;
 }

@@ -30,6 +30,7 @@ export class MovieService {
         'Harry,Ron, and Hermione search for Voldemort remaining Horcruxes in their effort to destory the Dark Lord as the final battle rages on at Hogwarts',
 
       photo: 'http://source.unsplash.com/366x200/?harryPotter',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'Fantasy',
       premium: true,
     },
@@ -45,6 +46,7 @@ export class MovieService {
       description:
         'he soft, diffused light from the sky when the sun is below the horizon, either from daybreak to sunrise or, more commonly, from sunset to nightfall.',
       photo: 'http://source.unsplash.com/366x200/?vampire',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
       premium: true,
     },
@@ -60,6 +62,7 @@ export class MovieService {
       description:
         'Wednesday Addams, a high-school student, finds her brother Pugsley tied up in a locker',
       photo: 'http://source.unsplash.com/366x200/?wednesday',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
       premium: true,
     },
@@ -75,6 +78,7 @@ export class MovieService {
       description:
         'A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists',
       photo: 'http://source.unsplash.com/366x200/?annabelle',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
       premium: true,
     },
@@ -89,6 +93,7 @@ export class MovieService {
       released: 'comming soon',
       description: "Falling in love with her brother's friend",
       photo: 'http://source.unsplash.com/366x200/?cat',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
       premium: true,
     },
@@ -104,6 +109,7 @@ export class MovieService {
       description:
         'Our Beloved Summer is a story about romance, regret and repressed emotions',
       photo: 'http://source.unsplash.com/366x200/?summer',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
       premium: true,
     },
@@ -135,6 +141,11 @@ export class MovieService {
   //   return this.http.get<Movie[]>(`${PUBLIC_DOMAIN}/search`, {params:keyword});
   // }
 
+
+  uploadHistory(id: number):Observable<Movie[]> {
+    return this.http.get<Movie[]>(`${UPLOADER_DOMAIN}/uploadHistory?id=${id}`);
+  }
+
   search(value: any): Observable<any[]> {
     return of(this.movieList);
   }
@@ -151,10 +162,12 @@ export class MovieService {
     return this.http.post<any>(`${UPLOADER_DOMAIN}/edit`, movie);
   }
 
-  bookMark(id: number):Observable<any> {
-    return this.http.get<any>(`${USER_DOMAIN}/bookMark?id=${id}`);
+  bookMark(id: number, book:any):Observable<any> {
+    return this.http.put<any>(`${USER_DOMAIN}/bookMark?uid=${id}`, book);
   }
 
-
+  bookMarkList(id: number): Observable<any[]> {
+    return this.http.get<any[]>(`${USER_DOMAIN}/bookMarkList?id=${id}`);
+  }
 
 }
