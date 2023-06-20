@@ -1,10 +1,10 @@
 <div class="container-fluid mt-2 ms-2">
   <div class="row">
 
-    <div class="col-3 mt-3">
+    <div class="col-2 mt-3">
       <div class="card ms-2 me-auto">
         <div class="card-header text-center">
-          <h2>Category List</h2>
+          <h2>Genres</h2>
         </div>
         <div class="card-body">
           <ul *ngFor="let cat of categories" class="list-group">
@@ -19,9 +19,9 @@
     <div class="col">
       <div class="row">
         <div class="col-3 mt-3" *ngFor="let movie of movies">
-          <div class="shadow" style="height: 400px; width: 350;" >
+          <div class="shadow" style="height: 300px; width: 350;" >
             <div class="card-body">
-              <img style="width: 250px; height: 350px;" src={{movie.photo}} class="card-img-top img-thumbnail" alt="..." >
+              <img style="width: 250px; height: 250px;" src={{movie.photo}} class="card-img-top img-thumbnail" alt="..." >
             </div>
             <div class="card-body" style="background-color: rgb(199, 201, 219); height: 54px;">
               <a href="" [routerLink]="['/user/movie-details',movie.id]" class=" text-secondary align-middle nav-link">
@@ -34,7 +34,7 @@
       </div>
     </div>
   </div>
-</div>    
+</div>
 
 
 
