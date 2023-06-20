@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:'',component:UserComponent, children:[
     {path:'movie-details/:id', component:MovieDetailsComponent},
     {path:'library',component:LibraryComponent},
-    {path:'give-reviews', component:GiveReviewsComponent},
+    {path:'give-reviews/:id', component:GiveReviewsComponent},
     {path:'watch/:id', component:WatchMovieComponent},
     {path:'buy', component:BuyBackageComponent},
     {path:'sign-up', component:SignUpComponent},
