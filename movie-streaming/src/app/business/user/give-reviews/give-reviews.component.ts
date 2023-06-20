@@ -42,8 +42,8 @@ export class GiveReviewsComponent implements OnInit {
     });
   }
 
-  addReview(id:any) {
-    this.service.createReview(this.reviewForm.value);
-     this.router.navigate(['/user/give-reviews',id]);
+  addReview(r : Review) {
+    this.service.createReview(r);
+     this.router.navigate(['/user/give-reviews','movie.id']);
   }
 }
