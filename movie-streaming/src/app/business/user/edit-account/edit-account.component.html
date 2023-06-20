@@ -20,7 +20,7 @@
         <div *ngIf="uploader">
 
             <app-form-group [valid]="editForm.get('paymentMethod')!.valid" label="Payment method">
-              <select class="form-select form-select-sm" formControlName="paymentMethod">
+              <select class="form-select" formControlName="paymentMethod">
                 <option [value]="p.name" *ngFor="let p of payments$">{{p.name}}</option>
               </select>
             </app-form-group>
