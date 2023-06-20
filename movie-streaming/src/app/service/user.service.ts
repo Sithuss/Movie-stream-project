@@ -24,7 +24,7 @@ export class UserService {
       console.log("sign up completed.");
     }
     else {
-      console.log('error');
+      console.log('error');4200
     }
   }
 }
