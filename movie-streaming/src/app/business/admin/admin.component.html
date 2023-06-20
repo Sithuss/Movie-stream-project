@@ -49,6 +49,11 @@
           </a>
         </li>
 
+         <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="modal" data-bs-target="#adminModal">
+            <i class="bi bi-person-plus fs-4"></i>
+          </a>
+        </li>
 
         <li class="nav-item dropstart me-3" data-bs-toggle="tooltip" data-bs-html="true" title="Messages" data-bs-placement="bottom">
           <a class="nav-link dropdown-toggle dropdown-toggle-split" id="navbarDropdown" data-bs-toggle="dropdown" role="button" aria-expanded="false" href="#">
@@ -87,23 +92,30 @@
     </div>
   </nav>
 
+  <div class="modal fade" id="adminModal" tabindex="-1" aria-labelledby="adminModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="adminModalLabel">Add Admin</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="adminName" class="form-label">Admin Name</label>
+            <input type="text" class="form-control" id="adminName">
+          </div>
+          <div class="mb-3">
+            <label for="adminName" class="form-label">Password</label>
+            <input type="text" class="form-control" id="adminName">
+          </div>
 
-
-
-  <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title fst-italic text-center" id="offcanvasWithBothOptionsLabel">Admin 1</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div >
-        <ul class="list-group">
-          <button class="nav-link text-start"><li class="list-group-item list-group-item-action">Hello</li></button>
-        </ul>
+          <button type="submit" class="btn btn-primary" [routerLink]="['/user/sign-up']" routerLinkActive="router-link-active" ]>Add Admin</button>
+        </form>
       </div>
     </div>
   </div>
-
+</div>
 
   <router-outlet></router-outlet>
 

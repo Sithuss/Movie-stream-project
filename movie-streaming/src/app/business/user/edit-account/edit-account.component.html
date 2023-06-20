@@ -5,22 +5,22 @@
         </div>
         <div class="card-body">
             <form [formGroup]="editForm">
-            <app-form-group label="name">
+            <app-form-group [valid]="editForm.get('name')!.valid" label="Name">
                 <input formControlName="name" type="name" class="form-control" placeholder="Enter your name">
             </app-form-group>
 
-            <app-form-group label="email">
+            <app-form-group [valid]="editForm.get('email')!.valid" label="Email">
                 <input formControlName="email" type="email" class="form-control" placeholder="Enter your email">
             </app-form-group>
 
-            <app-form-group label="password">
+            <app-form-group [valid]="editForm.get('password')!.valid" label="Password">
                 <input formControlName="password" type="password" class="form-control" placeholder="Enter password">
             </app-form-group>
         </form>
         <div *ngIf="uploader">
 
             <app-form-group [valid]="editForm.get('paymentMethod')!.valid" label="Payment method">
-              <select class="form-select form-select-sm" formControlName="paymentMethod" aria-label="Default select example">
+              <select class="form-select" formControlName="paymentMethod">
                 <option [value]="p.name" *ngFor="let p of payments$">{{p.name}}</option>
               </select>
             </app-form-group>
@@ -33,7 +33,7 @@
 
         <div row="mb-2">
             <button class="btn btn-success" (click)="home()">Save</button>
-            <a (click)="editUploader()"  class="outline-primary offset-7">{{status}}</a>
+            <a (click)="editUploader()"  class="outline-primary offset-9">{{status}}</a>
 
         </div>
 

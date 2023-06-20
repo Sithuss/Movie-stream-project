@@ -1,8 +1,75 @@
-<div>
+<div class="container-fluid mt-2 ms-2">
+  <div class="row">
+
+    <div class="col-2 mt-3">
+      <div class="card ms-2 me-auto">
+        <div class="card-header text-center">
+          <h2>Genres</h2>
+        </div>
+        <div class="card-body">
+          <ul *ngFor="let cat of categories" class="list-group">
+            <button class="nav-link text-start" (click)="mvListWithCat(cat.name)">
+              <li class="list-group-item list-group-item-action">{{cat.name}}</li>
+            </button>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="row">
+        <div class="col-3 mt-3" *ngFor="let movie of movies">
+          <div class="shadow" style="height: 300px;" >
+            <div class="card-body">
+              <a href="" [routerLink]="['/user/movie-details',movie.id]">
+                <img style=" height: 250px;" src={{movie.photo}} class="card-img-top img-thumbnail" alt="..." >
+              </a>
+            </div>
+            <div class="card-body" style="background-color: rgb(199, 201, 219); height: 54px;">
+              <a href="" [routerLink]="['/user/movie-details',movie.id]" class=" text-secondary align-middle nav-link">
+                <p class="card-title fw-semibold text-center text-truncate"><i class="bi bi-film"></i> {{movie.title}}</p>
+                <p class="card-title fw-semibold text-center">~{{movie.released}}~</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div>
   <div class="container mt-5">
     <div class="row justify-content-end mb-5">
 
-      <!-- <div class="col-3">
+      <div class="col-3">
         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasWithBothOptions" style="background-color: rgb(35, 30, 53);"
           aria-controls="offcanvasWithBothOptions">categories</button>
@@ -15,7 +82,7 @@
           <button class="btn btn-outline-success" id="search" (click)="search()" type="submit"><i
               class="bi bi-search"></i></button>
         </form>
-      </div> -->
+      </div>
     </div>
 
 
@@ -53,7 +120,7 @@
     </div>
 
 
-    <!-- <div class="row">
+    <div class="row">
       <div class="col" *ngFor="let movie of movies">
         <div class="card" style="width: 18rem;">
           <img src="https://source.unsplash.com/600x400/?ww2" class="card-img-top img-thumbnail" alt="...">
@@ -63,7 +130,7 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 
   <nav aria-label="">
@@ -84,4 +151,4 @@
     </ul>
   </nav>
 
-</div>
+</div> -->

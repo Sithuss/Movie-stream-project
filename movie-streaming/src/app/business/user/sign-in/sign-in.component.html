@@ -11,9 +11,9 @@
           <app-form-group [valid]="form.get('password')!.valid" label="password">
             <input formControlName="password" type="password" class="form-control" placeholder="Enter Password">
           </app-form-group>
-      
+
       <button  type="button" (click)="signIn()" class="btn btn-outline-success">Sign In</button>
-      <a  (click)="signup()" class="outline-primary offset-5 text-3">Does not user account ? please sign up!</a>
+      <a  (click)="signup()" class="outline-primary offset-4 text-truncate">Does not user account ? please sign up!</a>
     </form>
 
   </div>
