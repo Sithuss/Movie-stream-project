@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MovieService } from 'src/app/service/apis/movie.service';
 import { UserService } from 'src/app/service/user.service';
@@ -10,6 +10,10 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit{
+
+  movies:any[] = [];
+  searchWord:FormGroup;
+
 
   // movies:any[] = []
   // searchForm: any;
@@ -34,10 +38,14 @@ export class NavbarComponent implements OnInit{
   movieList:any[] = []
 
   constructor(
-    builder:FormBuilder,
     private router:Router,
     public userService:UserService,
-    private movieService:MovieService) {
+    private movieService:MovieService,
+    private fb:FormBuilder) {
+
+      this.searchWord = this.fb.group({
+        keyword:['', Validators.required]
+      })
 
 
   }
@@ -50,11 +58,20 @@ export class NavbarComponent implements OnInit{
     // this.search()
   }
 
+  search() {
+    this.movies = [];
+    console.log(this.searchWord.value)
+    this.movieService.search(this.searchWord.value)
+    .subscribe(movie => this.movies = movie);
+  }
+
+
   searchByCategory(id:number) {
     this.movieService.searchByCategory(id).subscribe(result => {
       this.movieList = result
     })
   }
+
 
 
 
