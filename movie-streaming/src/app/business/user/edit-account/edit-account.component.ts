@@ -34,7 +34,7 @@ export class EditAccountComponent {
         paymentMethod:['', [Validators.required]],
         transaction:['', [Validators.required]]
   
-      })
+      });
       paymentService.getAll().subscribe(
         p => this.payments$ = p
       )

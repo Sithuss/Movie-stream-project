@@ -1,6 +1,21 @@
 
 <p>library works</p>
 
+<div class="container-fluid" *ngIf="(libraryService.library | async) as movies">
+  <div class="row" *ngFor="let movie of movies">
+    <div class="col-3">
+      <img src="{{movie.photo}}" class="card-img-top img-thumbnail" alt="...">
+    </div>
+    <div class="col-9">
+      <h4>{{movie.title}}</h4>
+      <div>
+        <button class="btn btn-sm btn-outline-secondary rounded-pill ms-3" (click)="streamMovie(movie.id)">Watch Now</button>
+            <button class="btn btn-outline-danger rounded-pill ms-3" (click)="removeFromLibrary(movie.id)">Remove</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- <div class="container mt-5">
 
   <div *ngIf="(library | async) as movie">
@@ -58,7 +73,7 @@
 
 
 
-<div class="container mt-5">
+<!-- <div class="container mt-5">
 
   <div *ngIf="(library | async) as movie">
     <div class="row">
@@ -109,7 +124,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- <table class="table table-striped">
       <thead>
