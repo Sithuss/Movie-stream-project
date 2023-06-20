@@ -1,6 +1,6 @@
 import { AfterViewChecked, Component, Input, OnInit } from '@angular/core';
 import { DayNightService } from 'src/app/service/day-night.service';
-import { MovieService } from 'src/app/service/apis/movie.service';
+import { UserMovieService } from 'src/app/service/apis/user.movie.service';
 import { Movie } from '../model/movie';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class HistoryListComponent implements OnInit {
   constructor(
     public dayNightService: DayNightService,
-    private movieServie: MovieService
+    private movieServie: UserMovieService
   ) {}
 
   isNight!: boolean;
