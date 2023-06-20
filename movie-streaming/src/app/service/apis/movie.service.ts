@@ -141,6 +141,7 @@ export class MovieService {
   //   return this.http.get<Movie[]>(`${PUBLIC_DOMAIN}/search`, {params:keyword});
   // }
 
+
   uploadHistory(id: number):Observable<Movie[]> {
     return this.http.get<Movie[]>(`${UPLOADER_DOMAIN}/uploadHistory?id=${id}`);
   }
@@ -161,10 +162,12 @@ export class MovieService {
     return this.http.post<any>(`${UPLOADER_DOMAIN}/edit`, movie);
   }
 
-  bookMark(id: number):Observable<any> {
-    return this.http.get<any>(`${USER_DOMAIN}/bookMark?id=${id}`);
+  bookMark(id: number, book:any):Observable<any> {
+    return this.http.put<any>(`${USER_DOMAIN}/bookMark?uid=${id}`, book);
   }
 
-
+  bookMarkList(id: number): Observable<any[]> {
+    return this.http.get<any[]>(`${USER_DOMAIN}/bookMarkList?id=${id}`);
+  }
 
 }
