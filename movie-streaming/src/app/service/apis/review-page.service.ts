@@ -19,12 +19,10 @@ export class ReviewPageService {
   ]
 
   findAllReviews():Observable<Review[]> {
-    console.log(this.formList)
     return of(this.formList);
   }
 
   createReview(reviewForm:Review){
-    console.log("nani 2");
     this.formList.push(reviewForm);
   }
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MovieService } from 'src/app/service/apis/movie.service';
+import { UserMovieService } from 'src/app/service/apis/user.movie.service';
 
 @Component({
   selector: 'app-user',
