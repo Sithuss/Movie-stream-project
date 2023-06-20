@@ -41,7 +41,6 @@ export class SignUpComponent {
       compName:['', Validators.required],
       paymentMethod:['', Validators.required],
       transaction:['', [Validators.required]],
-      premiumPk:0,
       role:['user']
     })
 
