@@ -14,11 +14,11 @@
           </div>
 
 
-          <div class="">
+          <div class="" *ngIf="(movie$ | async) as movie">
             <div class="card-body bg-secondary text-end">
               <a href="#" class="btn btn-outline-warning me-3" [routerLink]="['/user/buy']">Premium Packages</a>
               <a href="" class="btn btn-success me-2">Download</a>
-              <a href="#" class="btn btn-info me-2" (click)="saveMovie()">Save</a>
+              <a href="#" class="btn btn-info me-2" (click)="saveToL(movie.id)">Save</a>
             </div>
 
             <!-- <div class="card-body bg-secondary text-align">
