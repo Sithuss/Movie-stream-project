@@ -170,4 +170,16 @@ export class MovieService {
     return this.http.get<any[]>(`${USER_DOMAIN}/bookMarkList?id=${id}`);
   }
 
+  reviewMovie(id: number, review:any, movie:Movie): Observable<any> {
+    return this.http.put<any>(`${USER_DOMAIN}/review-movie`, movie);
+  }
+
+  watchReview(mv_id: number):Observable<any[]> {
+    return this.http.get<any[]>(`${USER_DOMAIN}/reviewForMovie?id=${mv_id}`)
+  }
+
+  watchedHistory(uid:number):Observable<any[]> {
+    return this.http.get<any[]>(`${USER_DOMAIN}/watchedHistory/?uid=${uid}`)
+  }
+
 }
