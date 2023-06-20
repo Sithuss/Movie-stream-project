@@ -19,9 +19,11 @@
     <div class="col">
       <div class="row">
         <div class="col-3 mt-3" *ngFor="let movie of movies">
-          <div class="shadow" style="height: 300px; width: 350;" >
+          <div class="shadow" style="height: 300px;" >
             <div class="card-body">
-              <img style="width: 250px; height: 250px;" src={{movie.photo}} class="card-img-top img-thumbnail" alt="..." >
+              <a href="" [routerLink]="['/user/movie-details',movie.id]">
+                <img style=" height: 250px;" src={{movie.photo}} class="card-img-top img-thumbnail" alt="..." >
+              </a>
             </div>
             <div class="card-body" style="background-color: rgb(199, 201, 219); height: 54px;">
               <a href="" [routerLink]="['/user/movie-details',movie.id]" class=" text-secondary align-middle nav-link">
