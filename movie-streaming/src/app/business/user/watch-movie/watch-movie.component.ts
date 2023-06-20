@@ -41,6 +41,11 @@ export class WatchMovieComponent implements OnInit {
     });
   }
 
+  saveToL(id:number){
+    this.libraryService.addToSave(id);
+    this.router.navigate(['/user/library']);
+  }
+
 
 
 
