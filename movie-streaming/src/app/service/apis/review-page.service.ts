@@ -24,6 +24,7 @@ export class ReviewPageService {
   }
 
   createReview(reviewForm:Review){
+    console.log("nani 2");
     this.formList.push(reviewForm);
   }
 

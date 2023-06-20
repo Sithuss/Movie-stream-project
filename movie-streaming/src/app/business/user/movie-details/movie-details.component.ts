@@ -26,7 +26,7 @@ export class MovieDetailsComponent implements OnInit{
     this.router.navigate(['user/watch',id])
   }
 
-  public goReviews(id:any):void{
+  public goReviews(id:number):void{
     this.router.navigate(['user/give-reviews',id])
   }
 
