@@ -66,7 +66,7 @@
 
           <label for="quantity">Quantity:</label>
           <input type="number" class="form-control" id="quantity"
-          name="quantity" min="1" formControlName="quantity" value="0">
+          name="quantity" min="1" formControlName="quantity" value="number">
       </div>
 
       <div class="form-group mt-3">
@@ -74,6 +74,12 @@
         <select name="payment" id="payment" class="form-select" formControlName="payment">
           <option value="p.name" *ngFor="let p of payment$">{{p.name}}</option>
         </select>
+      </div>
+
+      <div class="form-group mt-3">
+        <label for="phoneNo" class="form-label">Transaction Number:</label>
+        <input type="text" class="form-control" id="transaction"
+        name="transaction" formControlName="transaction" placeholder="Enter transaction number">
       </div>
 
       <!-- <div class="form-group mt-3">
