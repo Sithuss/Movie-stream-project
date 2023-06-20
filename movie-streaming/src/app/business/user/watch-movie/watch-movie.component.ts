@@ -34,6 +34,7 @@ export class WatchMovieComponent implements OnInit {
   saveMovie() {
     this.movie$.subscribe(movie => {
       this.libraryService.addToLibrary(movie);
+      this.router.navigate(['/user/library','movie.id'])
       console.log('Movie saved in Library: ' , movie);
     });
   }
