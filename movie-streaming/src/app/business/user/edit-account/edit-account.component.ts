@@ -13,7 +13,6 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class EditAccountComponent {
 
-  editForm:FormGroup
 
   uploader=false;
 
@@ -21,24 +20,26 @@ export class EditAccountComponent {
 
   status:string = "uploader"
 
+  editForm:FormGroup;
+
 
  constructor(private formBuilder:FormBuilder,private router:Router,
   public paymentService:PaymentService,private userService:UserService){
 
        this.editForm= formBuilder.group ({
   
-         name: ['', Validators.required],
+         name: ['', [Validators.required]],
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(6)]],
-        paymentMethod:['', Validators.required],
-        transaction:['', [Validators.required]],
+        paymentMethod:['', [Validators.required]],
+        transaction:['', [Validators.required]]
   
-      })
+      });
       paymentService.getAll().subscribe(
         p => this.payments$ = p
       )
     }
-    public home():void{
+    home(){
       if(this.uploader) {
         this.editForm.get('role')?.setValue('uploader');
       }

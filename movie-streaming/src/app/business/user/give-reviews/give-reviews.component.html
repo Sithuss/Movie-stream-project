@@ -8,14 +8,14 @@
 
 <div class="container col-md-8 mt-3">
   <div class="row">
-    <div class="col">
+    <div class="col" *ngIf="userService.validatedUser">
         <form [formGroup]="reviewForm" class="container-md my-5">
-          <app-form-group [valid]="reviewForm.get('review')!.valid" label="Description">
+          <app-form-group [valid]="reviewForm.get('review')!.valid" label="">
             <textarea formControlName="review" class="form-control mb-2" rows="4"
             ng-model="message" placeholder="Share your opinion..."></textarea>
             <div class="col-12">
               <input type="submit" class="btn btn-sm btn-success ms-auto"
-              (click)="addReview()" value="Submit">
+              (click)="addReview(movie.id)" value="Submit">
             </div>
           </app-form-group>
         </form>

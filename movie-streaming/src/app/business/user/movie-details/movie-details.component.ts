@@ -33,8 +33,8 @@ export class MovieDetailsComponent implements OnInit{
     this.router.navigate(['user/watch',id])
   }
 
-  public goReviews(){
-    this.router.navigate(['user/give-reviews'])
+  public goReviews(id:any):void{
+    this.router.navigate(['user/give-reviews',id])
   }
 
   public goHome(){

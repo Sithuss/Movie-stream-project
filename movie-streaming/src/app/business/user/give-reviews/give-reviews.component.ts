@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Review } from 'src/app/service/dto/review';
 import { ReviewPageService } from 'src/app/service/apis/review-page.service';
 import { Movie } from '../../uploader/model/movie';
+import { UserService } from 'src/app/service/user.service';
 
 
 @Component({
@@ -17,13 +18,17 @@ export class GiveReviewsComponent implements OnInit {
 
   otherReview!: any;
 
+  movie: any;
+
+
   reviewList: BehaviorSubject<Review[]> = new BehaviorSubject<Review[]>([]);
   reviewList$: Observable<Review[]> = this.reviewList.asObservable();
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private service: ReviewPageService
+    private service: ReviewPageService,
+    public userService: UserService
   ) {
     this.reviewForm = fb.group({
       id: 3,
@@ -37,8 +42,8 @@ export class GiveReviewsComponent implements OnInit {
     });
   }
 
-  addReview() {
+  addReview(id:any) {
     this.service.createReview(this.reviewForm.value);
-     this.router.navigate(['/user/give-reviews']);
+     this.router.navigate(['/user/give-reviews',id]);
   }
 }
