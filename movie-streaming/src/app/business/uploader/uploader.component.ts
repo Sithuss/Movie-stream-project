@@ -23,8 +23,8 @@ export class UploaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.userService.validatedUser.role != 'uploader') {
-      this.router.navigate(['/user', 'movie-list']);
-    }
+    // if (this.userService.validatedUser.role != 'uploader') {
+    //   this.router.navigate(['/user', 'movie-list']);
+    // }
   }
 }

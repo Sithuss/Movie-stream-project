@@ -9,8 +9,7 @@ import { DataFlowComponent } from './data-flow/data-flow.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
-  {
-    path: '',
+  {path: '',
     component: AdminComponent,
     children: [
       { path: 'movie-list', component: MovieListComponent },
@@ -19,7 +18,7 @@ const routes: Routes = [
       { path: 'user-list', component: UserListComponent },
       { path: 'data-flow', component: DataFlowComponent },
       { path: 'admin-dashboard', component: AdminDashboardComponent },
-      { path: '', redirectTo: '/admin/admin-dashboard', pathMatch: 'prefix' },
+      { path: '', redirectTo: '/admin/admin-dashboard', pathMatch: 'prefix'},
     ],
   },
 ];

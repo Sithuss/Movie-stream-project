@@ -34,14 +34,16 @@
             <i class="bi bi-trash"></i>
             Delete
           </a>
-          <a href="#" class="btn btn-sm me-2 btn-primary">
-            <i class="bi bi-pencil"></i>
-            Edit
-          </a>
-          <a href="#" class="btn btn-sm btn-success">
+          <a href="#" class="btn btn-sm me-2 btn-success">
             <i class="bi bi-eye"></i>
             View
           </a>
+
+            <a *ngIf="user.role === 'uploader' " href="#" class="btn btn-sm me-2 btn-primary" data-bs-toggle="modal" data-bs-target="#payment">
+              <i class="bi bi-credit-card"></i>
+              Pay
+            </a>
+          
         </td>
       </tr>
 
@@ -51,4 +53,64 @@
   </div>
 </div>
 
+</div>
+
+
+<div class="modal fade" id="payment" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="border-bottom: none;">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="border: 1px solid gray;background-color: gray;color: aliceblue;border-radius: 50%;"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-10">
+
+        <form action="#">
+          <h4 class="text-center mb-5" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Payment Method</h4>
+          <div class="input-group mb-3">
+            <span class="input-group-text" style="border-right: none;background-color: #ffffff">
+              <i class="bi bi-envelope-at"></i>
+            </span>
+            <input type="email" class="form-control" placeholder="Email" style="border-left: none;">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" style="border-right: none;background-color: #ffffff">
+              <i class="bi bi-telephone-fill"></i>
+            </span>
+            <input type="text" class="form-control" placeholder="Phone" style="border-left: none;">
+          </div>
+
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-text" style="border-right: none;background-color: #ffffff">
+                <i class="bi bi-credit-card"></i>
+              </span>
+              <input type="text" class="form-control" placeholder="Card Number" style="border-left: none;">
+            </div>
+            <div class="row mt-2">
+
+              <div class="input-group col">
+                <span class="input-group-text" style="border-right: none;background-color: #ffffff">
+                  <i class="bi bi-calendar"></i>
+                </span>
+                <input type="date" class="form-control" placeholder="Date" style="border-left: none;">
+              </div>
+              <div class="input-group col">
+                <span class="input-group-text" style="border-right: none;background-color: #ffffff">
+                  <i class="bi bi-lock"></i>
+                </span>
+                <input type="text" class="form-control" placeholder="CVC" style="border-left: none;">
+              </div>
+
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary form-control mt-3 mb-5">Payment</button>
+        </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>

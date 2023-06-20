@@ -21,6 +21,7 @@ export class MovieService {
         'Harry,Ron, and Hermione search for Voldemort remaining Horcruxes in their effort to destory the Dark Lord as the final battle rages on at Hogwarts',
 
       photo: ' http://source.unsplash.com/366x200/?harryPotter',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'Fantasy',
       premium: true
     },
@@ -36,6 +37,7 @@ export class MovieService {
       released: '2021.6.12',
       description: 'beetee good',
       photo: 'http://source.unsplash.com/366x200/?vampire',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
       premium: true
     },
@@ -51,6 +53,7 @@ export class MovieService {
       description:
         'Wednesday Addams, a high-school student, finds her brother Pugsley tied up in a locker',
       photo: 'http://source.unsplash.com/366x200/?wednesday',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
       premium: true
     },
@@ -67,6 +70,7 @@ export class MovieService {
         'A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists',
       photo: 'http://source.unsplash.com/366x200/?annabelle',
       movieFile: 'woo',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       premium: true
     },
     {
@@ -81,6 +85,7 @@ export class MovieService {
       description: "Falling in love with her brother's friend",
       photo: 'http://source.unsplash.com/366x200/?cat',
       movieFile: 'woo',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       premium: true
 
     },
@@ -97,6 +102,7 @@ export class MovieService {
         'Our Beloved Summer is a story about romance, regret and repressed emotions',
       photo: 'http://source.unsplash.com/366x200/?summer',
       movieFile: 'woo',
+      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
       premium: true
     },
   ];
@@ -134,3 +140,4 @@ export class MovieService {
     return this.movieList.length;
   }
 }
+// <iframe width="560" height="315" src="https://www.youtube.com/embed/0N-VcJEn2hY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

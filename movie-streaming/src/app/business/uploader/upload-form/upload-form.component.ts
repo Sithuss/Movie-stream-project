@@ -30,8 +30,8 @@ export class UploadFormComponent {
       released: ['', [Validators.required]],
       discription: ['', [Validators.required]],
       photo: ['', [Validators.required]],
-      movieFile: ['', [Validators.required]],
       trailer: ['', [Validators.required]],
+      movieFile: ['', [Validators.required]],
     });
   }
 
