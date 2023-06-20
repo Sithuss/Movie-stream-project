@@ -135,6 +135,10 @@ export class MovieService {
   //   return this.http.get<Movie[]>(`${PUBLIC_DOMAIN}/search`, {params:keyword});
   // }
 
+  uploadHistory(id: number):Observable<Movie[]> {
+    return this.http.get<Movie[]>(`${UPLOADER_DOMAIN}/uploadHistory?id=${id}`);
+  }
+
   search(value: any): Observable<any[]> {
     return of(this.movieList);
   }
