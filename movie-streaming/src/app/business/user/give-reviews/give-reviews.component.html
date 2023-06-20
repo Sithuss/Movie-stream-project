@@ -15,7 +15,7 @@
             ng-model="message" placeholder="Share your opinion..."></textarea>
             <div class="col-12">
               <input type="submit" class="btn btn-sm btn-success ms-auto"
-              (click)="addReview()" value="Submit">
+              (click)="addReview(movie.id)" value="Submit">
             </div>
           </app-form-group>
         </form>

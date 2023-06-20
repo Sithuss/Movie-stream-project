@@ -18,6 +18,9 @@ export class GiveReviewsComponent implements OnInit {
 
   otherReview!: any;
 
+  movie: any;
+
+
   reviewList: BehaviorSubject<Review[]> = new BehaviorSubject<Review[]>([]);
   reviewList$: Observable<Review[]> = this.reviewList.asObservable();
 
@@ -39,8 +42,8 @@ export class GiveReviewsComponent implements OnInit {
     });
   }
 
-  addReview() {
+  addReview(id:any) {
     this.service.createReview(this.reviewForm.value);
-     this.router.navigate(['/user/give-reviews']);
+     this.router.navigate(['/user/give-reviews',id]);
   }
 }
