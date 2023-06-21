@@ -7,10 +7,12 @@
           <th>Id</th>
           <th>Title</th>
           <th>Category</th>
-          <th>Casts</th>
-          <th>Publisher</th>
+          <!-- <th>Casts</th> -->
+          <!-- <th>Publisher</th> -->
           <th>Released Date</th>
           <th>Length</th>
+          <th>Count</th>
+          <th>Amount</th>
           <th class="text-center">Action</th>
         </tr>
       </thead>
@@ -18,17 +20,20 @@
         <tr *ngFor=" let movie of (movieList$ | async)">
           <td>{{movie.id}}</td>
           <td>{{movie.title}}</td>
-          <td>
-            <table>
+          <td>{{movie.category}} </td>
+
+          <!-- <table>
               <tr *ngFor="let c of movie.category">
                 <td>{{c}}</td>
               </tr>
-            </table>
-          </td>
-          <td>{{movie.casts}}</td>
-          <td>{{movie.publisher}}</td>
+            </table> -->
+          <!-- <td>{{movie.casts}}</td> -->
+          <!-- <td>{{movie.publisher}}</td> -->
           <td>{{movie.released}}</td>
           <td>{{movie.length}} min</td>
+          <td>(p) {{movie.pCount}}</td>
+          <td>0</td>
+
           <td class="text-center">
             <button data-bs-toggle="modal" data-bs-target="#delete" class="btn btn-outline-danger rounded-pill me-2">
               <i class="bi bi-trash"></i>

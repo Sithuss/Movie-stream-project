@@ -30,12 +30,13 @@ export class UploadFormComponent {
       released: ['', [Validators.required]],
       discription: ['', [Validators.required]],
       photo: ['', [Validators.required]],
-      trailer: ['',[Validators.required]],
+      trailer: ['', [Validators.required]],
       movieFile: ['', [Validators.required]],
     });
   }
 
   uploadM(m: Movie) {
+    m.publisher = 'moon';
     this.mService.upload(m);
     this.router.navigate(['/uploader', 'home']);
     this.notiService.addNoti({ descript: 'successfully uploaded' });
