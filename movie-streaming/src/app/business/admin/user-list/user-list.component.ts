@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { UserTestService } from 'src/app/service/user-test.service';
 import { UserRole } from '../model/user-role';
 import { User } from '../model/user';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-user-list',
@@ -29,6 +29,12 @@ export class UserListComponent implements OnInit {
 
   showByRole(name: string) : void{
     this.users$ = this.us.findByRoleName(name);
+  }
+
+  findById(id: number):Observable<User> {
+    return this.users$.pipe(
+      map(user => user.find(u => u.id === id))
+    )as Observable<User>;
   }
 
 
