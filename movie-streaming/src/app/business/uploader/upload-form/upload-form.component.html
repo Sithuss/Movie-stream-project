@@ -25,7 +25,7 @@
             <div class="row">
 
               <app-form-group class="col" [valid]="form.get('casts')!.valid" label="Casts">
-                <input formControlName="actor" type="text" class="form-control" placeholder="Enter movie Casts">
+                <input formControlName="casts" type="text" class="form-control" placeholder="Enter movie Casts">
               </app-form-group>
 
 
@@ -55,6 +55,10 @@
                 <input formControlName="photo" type="file" class="form-control" placeholder="Enter poster photo">
               </app-form-group>
 
+              <app-form-group class="col" [valid]="form.get('movieFile')!.valid" label="Movie File">
+                <input formControlName="movieFile" type="text" class="form-control" placeholder="Enter movie file">
+              </app-form-group>
+
             </div>
 
             <app-form-group [valid]="form.get('discription')!.valid" label="Description">
@@ -63,9 +67,9 @@
             </app-form-group>
 
 
-            <app-form-group [valid]="form.get('movieFile')!.valid" label="Movie File">
+            <!-- <app-form-group [valid]="form.get('movieFile')!.valid" label="Movie File">
               <input formControlName="movieFile" type="file" class="form-control" placeholder="Enter movie file">
-            </app-form-group>
+            </app-form-group> -->
 
             <button [class.disabled]="!form.valid" type="button" (click)="uploadM(form.value)"
               class="btn btn-outline-success">

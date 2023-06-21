@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 import { Review } from 'src/app/service/dto/review';
 import { ReviewPageService } from 'src/app/service/apis/review-page.service';
 import { Movie } from '../../uploader/model/movie';
 import { UserService } from 'src/app/service/user.service';
+import { UserMovieService } from 'src/app/service/apis/user.movie.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -18,22 +20,32 @@ export class GiveReviewsComponent implements OnInit {
 
   otherReview!: any;
 
-  movie: any;
+  user: any;
+
+  movie:any;
 
 
   reviewList: BehaviorSubject<Review[]> = new BehaviorSubject<Review[]>([]);
   reviewList$: Observable<Review[]> = this.reviewList.asObservable();
 
   constructor(
+    public movieService:UserMovieService,
+    private route:ActivatedRoute,
     private fb: FormBuilder,
     private router: Router,
     private service: ReviewPageService,
-    public userService: UserService
+    public userService: UserService,
+    private filter:DomSanitizer
   ) {
     this.reviewForm = fb.group({
       id: 3,
       review: '',
     });
+
+    const id = this.route.snapshot.paramMap.get('id') as string;
+    this.movieService.findById(+id).subscribe(result => this.movie = result)
+    // this.filter.bypassSecurityTrustResourceUrl(this.movie);
+
   }
 
   ngOnInit(): void {
