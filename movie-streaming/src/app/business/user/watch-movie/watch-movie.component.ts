@@ -31,6 +31,10 @@ export class WatchMovieComponent implements OnInit {
       .pipe(
         map(ml => ml.find(m => m.id === parseInt(id)))
       ) as Observable<Movie>;
+
+      if(!this.userService.validatedUser) {
+        this.router.navigate(['/user/sign-up']);
+      }
   }
 
   saveMovie() {
