@@ -20,7 +20,6 @@ export class GiveReviewsComponent implements OnInit {
 
   movie: any;
 
-
   reviewList: BehaviorSubject<Review[]> = new BehaviorSubject<Review[]>([]);
   reviewList$: Observable<Review[]> = this.reviewList.asObservable();
 
