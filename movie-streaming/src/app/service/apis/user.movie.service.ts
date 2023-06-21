@@ -29,9 +29,11 @@ export class UserMovieService {
         'Harry,Ron, and Hermione search for Voldemort remaining Horcruxes in their effort to destory the Dark Lord as the final battle rages on at Hogwarts',
 
       photo: 'http://source.unsplash.com/366x200/?harryPotter',
-      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
+      trailer: 'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'Fantasy',
       premium: true,
+      pCount: 0,
+      script: 'u mya'
     },
     {
       id: 2,
@@ -45,9 +47,11 @@ export class UserMovieService {
       description:
         'he soft, diffused light from the sky when the sun is below the horizon, either from daybreak to sunrise or, more commonly, from sunset to nightfall.',
       photo: 'http://source.unsplash.com/366x200/?vampire',
-      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
+      trailer: 'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
       premium: true,
+      pCount: 0,
+      script: 'u mya'
     },
     {
       id: 3,
@@ -61,9 +65,11 @@ export class UserMovieService {
       description:
         'Wednesday Addams, a high-school student, finds her brother Pugsley tied up in a locker',
       photo: 'http://source.unsplash.com/366x200/?wednesday',
-      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
+      trailer: 'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
       premium: true,
+      pCount: 0,
+      script: 'u mya'
     },
     {
       id: 4,
@@ -77,9 +83,11 @@ export class UserMovieService {
       description:
         'A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists',
       photo: 'http://source.unsplash.com/366x200/?annabelle',
-      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
+      trailer: 'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
       premium: true,
+      pCount: 0,
+      script: 'u mya'
     },
     {
       id: 5,
@@ -92,9 +100,11 @@ export class UserMovieService {
       released: 'comming soon',
       description: "Falling in love with her brother's friend",
       photo: 'http://source.unsplash.com/366x200/?cat',
-      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
+      trailer: 'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
       premium: true,
+      pCount: 0,
+      script: 'u mya'
     },
     {
       id: 6,
@@ -108,9 +118,11 @@ export class UserMovieService {
       description:
         'Our Beloved Summer is a story about romance, regret and repressed emotions',
       photo: 'http://source.unsplash.com/366x200/?summer',
-      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
+      trailer: 'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
       premium: true,
+      pCount: 0,
+      script: 'u mya'
     },
   ];
 
@@ -127,20 +139,21 @@ export class UserMovieService {
   //   return of(this.movieList);
   // }
 
-  searchByCategory(category:any):Observable<Movie[]> {
-    return this.http.get<Movie[]>(`${PUBLIC_DOMAIN}/searchByCategory`, {params:category});
+  searchByCategory(category: any): Observable<Movie[]> {
+    return this.http.get<Movie[]>(`${PUBLIC_DOMAIN}/searchByCategory`, {
+      params: category,
+    });
   }
 
   // search(keyword:any):Observable<Movie[]> {
   //   return this.http.get<Movie[]>(`${PUBLIC_DOMAIN}/search`, {params:keyword});
   // }
 
-
   search(value: any): Observable<any[]> {
     return of(this.movieList);
   }
 
-  bookMark(id: number, movie:any):Observable<any> {
+  bookMark(id: number, movie: any): Observable<any> {
     return this.http.put<any>(`${USER_DOMAIN}/bookMark?uid=${id}`, movie);
   }
 
@@ -148,16 +161,18 @@ export class UserMovieService {
     return this.http.get<any[]>(`${USER_DOMAIN}/bookMarkList?id=${id}`);
   }
 
-  reviewMovie(uid:number, review:any, mv_id: number): Observable<any> {
-    return this.http.post<any>(`${USER_DOMAIN}/review-movie?uid=${uid}&mv_id=${mv_id}`, review);
+  reviewMovie(uid: number, review: any, mv_id: number): Observable<any> {
+    return this.http.post<any>(
+      `${USER_DOMAIN}/review-movie?uid=${uid}&mv_id=${mv_id}`,
+      review
+    );
   }
 
-  watchReview(mv_id: number):Observable<any[]> {
-    return this.http.get<any[]>(`${USER_DOMAIN}/reviewForMovie?id=${mv_id}`)
+  watchReview(mv_id: number): Observable<any[]> {
+    return this.http.get<any[]>(`${USER_DOMAIN}/reviewForMovie?id=${mv_id}`);
   }
 
-  watchedHistory(uid:number):Observable<any[]> {
-    return this.http.get<any[]>(`${USER_DOMAIN}/watchedHistory/?uid=$`)
+  watchedHistory(uid: number): Observable<any[]> {
+    return this.http.get<any[]>(`${USER_DOMAIN}/watchedHistory/?uid=$`);
   }
-
 }

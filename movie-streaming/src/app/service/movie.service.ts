@@ -21,9 +21,11 @@ export class MovieService {
         'Harry,Ron, and Hermione search for Voldemort remaining Horcruxes in their effort to destory the Dark Lord as the final battle rages on at Hogwarts',
 
       photo: ' http://source.unsplash.com/366x200/?harryPotter',
-      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
+      trailer: 'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'Fantasy',
-      premium: true
+      premium: true,
+      pCount: 0,
+      script: 'u mya',
     },
     {
       id: 2,
@@ -37,9 +39,11 @@ export class MovieService {
       released: '2021.6.12',
       description: 'beetee good',
       photo: 'http://source.unsplash.com/366x200/?vampire',
-      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
+      trailer: 'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
-      premium: true
+      premium: true,
+      pCount: 0,
+      script: 'u mya',
     },
     {
       id: 3,
@@ -53,9 +57,11 @@ export class MovieService {
       description:
         'Wednesday Addams, a high-school student, finds her brother Pugsley tied up in a locker',
       photo: 'http://source.unsplash.com/366x200/?wednesday',
-      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
+      trailer: 'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
-      premium: true
+      premium: true,
+      pCount: 0,
+      script: 'u mya',
     },
     {
       id: 4,
@@ -70,8 +76,10 @@ export class MovieService {
         'A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists',
       photo: 'http://source.unsplash.com/366x200/?annabelle',
       movieFile: 'woo',
-      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
-      premium: true
+      trailer: 'https://www.youtube.com/embed/0N-VcJEn2hY',
+      premium: true,
+      pCount: 0,
+      script: 'u mya',
     },
     {
       id: 5,
@@ -85,9 +93,10 @@ export class MovieService {
       description: "Falling in love with her brother's friend",
       photo: 'http://source.unsplash.com/366x200/?cat',
       movieFile: 'woo',
-      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
-      premium: true
-
+      trailer: 'https://www.youtube.com/embed/0N-VcJEn2hY',
+      premium: true,
+      pCount: 0,
+      script: 'u mya',
     },
     {
       id: 6,
@@ -102,8 +111,10 @@ export class MovieService {
         'Our Beloved Summer is a story about romance, regret and repressed emotions',
       photo: 'http://source.unsplash.com/366x200/?summer',
       movieFile: 'woo',
-      trailer :'https://www.youtube.com/embed/0N-VcJEn2hY',
-      premium: true
+      trailer: 'https://www.youtube.com/embed/0N-VcJEn2hY',
+      premium: true,
+      pCount: 0,
+      script: 'u mya',
     },
   ];
 
