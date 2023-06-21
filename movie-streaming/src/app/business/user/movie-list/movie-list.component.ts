@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Observable, map, of } from 'rxjs';
 import { CategoryService } from 'src/app/service/category.service';
 import { Category } from 'src/app/service/dto/movie-category';
-import { MovieService } from 'src/app/service/apis/movie.service';
+import { UserMovieService } from 'src/app/service/apis/user.movie.service';
 
 
 @Component({
@@ -23,8 +23,8 @@ export class MovieListComponent implements OnInit {
 
   searchWord:FormGroup;
 
-  constructor(private movieService:MovieService, private categoryService:CategoryService,
-     private router:Router,private fb:FormBuilder){
+  constructor(private movieService:UserMovieService, private categoryService:CategoryService,
+              private router:Router, private fb:FormBuilder){
     this.searchWord = this.fb.group({
       keyword:['', Validators.required]
     })

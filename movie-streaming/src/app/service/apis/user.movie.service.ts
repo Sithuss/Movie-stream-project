@@ -6,14 +6,13 @@ import { HttpClient } from '@angular/common/http';
 import { ApiStatus } from '../dto/api.result';
 
 const PUBLIC_DOMAIN = `${environment.baseUrl}/public/movie`;
-const UPLOADER_DOMAIN = `${environment.baseUrl}/uploader/movie`;
 const ADMIN_DOMAIN = `${environment.baseUrl}/admin/movie`;
 const USER_DOMAIN = `${environment.baseUrl}/user/movie`;
 
 @Injectable({
   providedIn: 'any',
 })
-export class MovieService {
+export class UserMovieService {
   constructor(private http: HttpClient) {}
 
   private movieList: Movie[] = [
@@ -124,11 +123,6 @@ export class MovieService {
     this.movieList.push(movie);
   }
 
-  // upload(movie: Movie):Observable<any> {
-      // localhost:8080/uploader/movie/upload {submit movie}
-  //   return this.http.post(`${UPLOADER_DOMAIN}/upload`, movie);
-  // }
-
   // searchByCategory(id: number): Observable<any[]> {
   //   return of(this.movieList);
   // }
@@ -142,36 +136,20 @@ export class MovieService {
   // }
 
 
-  uploadHistory(id: number):Observable<Movie[]> {
-    return this.http.get<Movie[]>(`${UPLOADER_DOMAIN}/uploadHistory?id=${id}`);
-  }
-
   search(value: any): Observable<any[]> {
     return of(this.movieList);
   }
 
-  uploaderDeleteMovie(id:number):Observable<ApiStatus> {
-    return this.http.delete<any>(`${UPLOADER_DOMAIN}/delete?id=${id}`);
-  }
-
-  adminDeleteMovie(id:number):Observable<ApiStatus> {
-    return this.http.delete<any>(`{ADMIN_DOMAIN}/delete?id=${id}`);
-  }
-
-  uploaderEditMovie(movie:any):Observable<any> {
-    return this.http.post<any>(`${UPLOADER_DOMAIN}/edit`, movie);
-  }
-
-  bookMark(id: number, book:any):Observable<any> {
-    return this.http.put<any>(`${USER_DOMAIN}/bookMark?uid=${id}`, book);
+  bookMark(id: number, movie:any):Observable<any> {
+    return this.http.put<any>(`${USER_DOMAIN}/bookMark?uid=${id}`, movie);
   }
 
   bookMarkList(id: number): Observable<any[]> {
     return this.http.get<any[]>(`${USER_DOMAIN}/bookMarkList?id=${id}`);
   }
 
-  reviewMovie(id: number, review:any, movie:Movie): Observable<any> {
-    return this.http.put<any>(`${USER_DOMAIN}/review-movie`, movie);
+  reviewMovie(uid:number, review:any, mv_id: number): Observable<any> {
+    return this.http.post<any>(`${USER_DOMAIN}/review-movie?uid=${uid}&mv_id=${mv_id}`, review);
   }
 
   watchReview(mv_id: number):Observable<any[]> {
@@ -179,7 +157,7 @@ export class MovieService {
   }
 
   watchedHistory(uid:number):Observable<any[]> {
-    return this.http.get<any[]>(`${USER_DOMAIN}/watchedHistory/?uid=${uid}`)
+    return this.http.get<any[]>(`${USER_DOMAIN}/watchedHistory/?uid=$`)
   }
 
 }

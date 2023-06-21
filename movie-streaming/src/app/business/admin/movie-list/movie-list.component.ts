@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from 'src/app/service/apis/movie.service';
+import { UserMovieService } from 'src/app/service/apis/user.movie.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -10,7 +10,7 @@ export class MovieListComponent implements OnInit {
 
 
 
-  constructor(private movieService:MovieService){
+  constructor(private movieService:UserMovieService){
     //
   }
 
