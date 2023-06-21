@@ -49,6 +49,8 @@
           </a>
         </li> -->
 
+        <button class="btn btn-sm btn-success me-3" data-bs-toggle="modal" data-bs-target="#add-category">Add Category</button>
+
          <li class="nav-item" data-bs-toggle="tooltip" data-bs-html="true" title="Add Uploader" data-bs-placement="bottom" style="cursor: pointer;">
           <a class="nav-link" data-bs-toggle="modal" data-bs-target="#adminModal">
             <i class="bi bi-person-fill-add" style="font-size: 23px; color: blue;"></i>
@@ -81,18 +83,19 @@
             <li><a class="dropdown-item" href="#">NewReport <span class="badge bg-danger">22</span></a></li>
           </ul>
         </li>
-
+<!--
         <li class="nav-item mt-2 me-2" data-bs-toggle="tooltip" data-bs-html="true" title="Settings" data-bs-placement="bottom">
           <a [routerLink]="['/admin/admin-dashboard']" class="nav-lik">
             <i class="bi bi-gear" style="font-size: 22px;"></i>
           </a>
-
-        </li>
+        </li> -->
       </ul>
     </div>
   </nav>
 
-  <div class="modal fade" id="adminModal" tabindex="-1" aria-labelledby="adminModalLabel" aria-hidden="true">
+        <!-- Add Admin modal -->
+
+<div class="modal fade" id="adminModal" tabindex="-1" aria-labelledby="adminModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" style="border-bottom: none;">
@@ -121,7 +124,38 @@
       </div>
     </div>
   </div>
-</div></div>
+</div>
+</div>
+
+
+      <!-- Modal for Add Category  -->
+
+      <div class="modal fade" id="add-category" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header" style="border-bottom: none;">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="border: 1px solid gray;background-color: gray;color: aliceblue;border-radius: 50%;"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-10">
+                  <form action="#">
+                    <h4 class="text-center mb-3" style="padding-bottom: 2px;border-bottom: 1px solid gray;">Add Category</h4>
+                    <div class="mb-3">
+                      <label for="category" class="form-label">Category</label>
+                      <input type="text" class="form-control" placeholder="Add Category...">
+                    </div>
+                    <button type="submit" class="btn btn-sm btn-success form-control mb-5">Add Category</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
 
   <router-outlet></router-outlet>
 
