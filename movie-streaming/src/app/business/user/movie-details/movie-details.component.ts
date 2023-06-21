@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from 'src/app/service/apis/movie.service';
+import { UserMovieService } from 'src/app/service/apis/user.movie.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { Movie } from '../../uploader/model/movie';
@@ -14,8 +14,8 @@ export class MovieDetailsComponent implements OnInit{
 
   movie:Observable<Movie>;
 
-  constructor(public movieService:MovieService,private route:ActivatedRoute, private router:Router,
-    private filter:DomSanitizer){
+  constructor(public movieService:UserMovieService, private route:ActivatedRoute, private router:Router,
+              private filter:DomSanitizer){
 
     const id = this.route.snapshot.paramMap.get('id') as string;
     this.movie = this.movieService.findAll().pipe(map(ml => ml.find(m => m.id === parseInt(id)))) as Observable<Movie>;

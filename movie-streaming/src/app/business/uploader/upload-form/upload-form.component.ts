@@ -2,7 +2,7 @@ import { Movie } from './../model/movie';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MovieService } from 'src/app/service/apis/movie.service';
+import { UserMovieService } from 'src/app/service/apis/user.movie.service';
 import { NotiTestService } from 'src/app/service/noti-test.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class UploadFormComponent {
   currentIndex = 0;
 
   constructor(
-    private mService: MovieService,
+    private mService: UserMovieService,
     builder: FormBuilder,
     private router: Router,
     private notiService: NotiTestService
@@ -30,12 +30,13 @@ export class UploadFormComponent {
       released: ['', [Validators.required]],
       discription: ['', [Validators.required]],
       photo: ['', [Validators.required]],
-      trailer: ['',[Validators.required]],
+      trailer: ['', [Validators.required]],
       movieFile: ['', [Validators.required]],
     });
   }
 
   uploadM(m: Movie) {
+    m.publisher = 'moon';
     this.mService.upload(m);
     this.router.navigate(['/uploader', 'home']);
     this.notiService.addNoti({ descript: 'successfully uploaded' });

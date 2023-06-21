@@ -14,6 +14,7 @@ import { Movie } from "../business/uploader/model/movie";
     new BehaviorSubject<Movie[]>([]);
 
   library:Observable<Movie[]> = this.librarySubject.asObservable();
+  saveM: any[] = [];
   movies:Movie[]=[];
   movie!:Movie;
 
@@ -40,7 +41,11 @@ import { Movie } from "../business/uploader/model/movie";
       this.movies.push(movie);
       this.librarySubject.next(this.movies);
     }
-    console.log(this.movies)
+  }
+
+  addToSave(id:number){
+    this.saveM.push(id);
+    console.log(this.saveM.length)
   }
 
   isExisted(movie:Movie): Observable<Movie> {
@@ -49,7 +54,7 @@ import { Movie } from "../business/uploader/model/movie";
         map(movies => movies.find(b => b.id === movie.id)as Movie
     ));
   }
-  
+
   }
 
 

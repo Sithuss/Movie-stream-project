@@ -12,4 +12,6 @@ export interface Movie {
   trailer: string;
   movieFile: any;
   premium: true;
+  pCount:number;
+  script: string;
 }

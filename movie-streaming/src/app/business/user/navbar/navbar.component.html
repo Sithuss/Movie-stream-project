@@ -1,3 +1,4 @@
+
 <!-- <div class="fixed-top "> -->
   <nav class="navbar navbar-expand shadow">
     <div class="container-fluid">
@@ -33,13 +34,15 @@
             </a>
           </li>
         </div>
+
         <div *ngIf="userService.validatedUser">
           <li class="nav-item">
             <a [routerLink]="['/user/buy']" routerLinkActive="active" class="nav-link mt-1">
-          <i class="bi bi-gem fs-3"></i>         
-          </a>
+              <i class="bi bi-gem fs-3"></i>         
+            </a>
+          </li>
         </div>
-          
+        
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item dropstart me-3">
@@ -47,7 +50,6 @@
                 aria-expanded="false">
                 <i class="bi bi-person-circle fs-3"></i>
               </a>
-
               <ul class="dropdown-menu">
                 <div *ngIf="userService.validatedUser">
                   <li><a class="dropdown-item" [routerLink]="['/user/sign-in']" routerLinkActive="active">Sign out</a>
@@ -65,3 +67,128 @@
     </div>
   </nav>
 <!-- </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <nav class="navbar navbar-expand shadow">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <h1 class="navbar-brand mt-2 ms-4">&nbsp;Hello Future</h1>
+      </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="col">
+      <form [formGroup]="searchWord" class="input-group ms-auto shadow-sm" style="width: 7cm;" role="search">
+        <input class="form-control" formControlName="keyword" type="search" placeholder="Search anything here...."
+          aria-label="Search">
+        <button class="btn btn-outline-success" id="search" (click)="search()" type="submit"><i
+            class="bi bi-search"></i></button>
+      </form>
+    </div>
+
+    <ul class="navbar-nav">
+      <div *ngIf="userService.validatedUser">
+        <li class="nav-item">
+          <a [routerLink]="['/user/account']" routerLinkActive="active" class="nav-link mt-1">
+            <i class="bi bi-house-gear-fill fs-3"></i>
+          </a>
+        </li>
+      </div>
+
+      <div *ngIf="userService.validatedUser">
+        <li class="nav-item">
+          <a [routerLink]="['/user/library']" routerLinkActive="active" class="nav-link mt-2">
+            <i class="bi bi-bookmarks-fill fs-4"></i>
+          </a>
+        </li>
+      </div>
+
+      <div class="col">
+        <form [formGroup]="searchWord" class="input-group ms-auto me-auto shadow-sm" style="width: 7cm;" role="search">
+          <input class="form-control" formControlName="keyword" type="search" placeholder="Search anything here...." aria-label="Search">
+          <button class="btn btn-outline-success" id="search" (click)="search()" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+      </div>  
+
+      <ul class="navbar-nav">
+        
+        <div *ngIf="userService.validatedUser">
+          <li class="nav-item">
+            <a [routerLink]="['/user/account']" routerLinkActive="active" class="nav-link mt-1">
+              <i class="bi bi-house-gear-fill fs-3"></i>
+            </a>
+          </li>
+        </div>
+
+        <div *ngIf="userService.validatedUser">
+          <li class="nav-item">
+            <a [routerLink]="['/user/library']" routerLinkActive="active" class="nav-link mt-2">
+              <i class="bi bi-bookmarks-fill fs-4"></i>
+            </a>
+          </li>
+        </div>
+        
+        <div *ngIf="userService.validatedUser">
+          <li class="nav-item">
+            <a [routerLink]="['/user/buy']" routerLinkActive="active" class="nav-link mt-1">
+              <i class="bi bi-gem fs-3"></i>         
+            </a>
+          </li>
+        </div>
+          
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropstart me-3">
+            <a href="#" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="bi bi-person-circle fs-3"></i>
+            </a>            
+
+            <ul class="dropdown-menu">
+              <div *ngIf="userService.validatedUser">
+                <li><a class="dropdown-item" [routerLink]="['/user/sign-in']" routerLinkActive="active">Sign out</a>
+                </li>
+              </div>
+              <div *ngIf="!userService.validatedUser">
+                <li><a class="dropdown-item" [routerLink]="['/user/sign-in']" routerLinkActive="active">Sign In</a>
+                </li>
+              </div>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </ul>
+  </div>
+</nav>
+
+ -->
