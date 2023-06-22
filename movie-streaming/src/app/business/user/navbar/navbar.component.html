@@ -8,11 +8,8 @@
         </div>
       </div>
 
-
-
-
       <div class="col">
-        <form [formGroup]="searchWord" class="input-group ms-auto me-auto shadow-sm" style="width: 7cm;" role="search">
+        <form [formGroup]="searchWord" class="input-group ms-auto shadow-sm" style="width: 7cm;" role="search">
           <input class="form-control" formControlName="keyword" type="search" placeholder="Search anything here...." aria-label="Search">
           <button class="btn btn-outline-success" id="search" (click)="search()" type="submit"><i class="bi bi-search"></i></button>
         </form>
