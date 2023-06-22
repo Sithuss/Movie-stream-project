@@ -8,6 +8,7 @@ import { Movie } from '../../uploader/model/movie';
 import { UserService } from 'src/app/service/user.service';
 import { UserMovieService } from 'src/app/service/apis/user.movie.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { UserTestService } from '../../../service/user-test.service';
 
 
 @Component({
@@ -35,6 +36,7 @@ export class GiveReviewsComponent implements OnInit {
     private router: Router,
     private service: ReviewPageService,
     public userService: UserService,
+    public userTestService: UserTestService,
     private filter:DomSanitizer
   ) {
     this.reviewForm = fb.group({
@@ -45,6 +47,7 @@ export class GiveReviewsComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id') as string;
     this.movieService.findById(+id).subscribe(result => this.movie = result)
     // this.filter.bypassSecurityTrustResourceUrl(this.movie);
+    this.userTestService.findUserById(+id).subscribe(result => this.user = result)
 
   }
 

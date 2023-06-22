@@ -41,5 +41,12 @@ export class UserTestService {
     return this.users.length;
   }
 
+  findUserById(id: number): Observable<User> {
+    this.users$.subscribe((m) => console.log(m));
+    return this.users$.pipe(
+      map((ms) => ms.find((m) => m.id === id))
+    ) as Observable<User>;
+  }
+
 
 }
