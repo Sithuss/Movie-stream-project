@@ -131,6 +131,10 @@ export class UserMovieService {
     // return this.http.get(`${PUBLIC_DOMAIN}/listAll`) as Observable<Movie[]>;
   }
 
+  findById(id: number) {
+    return of(this.movieList.filter(m => m.id == id)[0])
+  }
+
   upload(movie: Movie) {
     this.movieList.push(movie);
   }

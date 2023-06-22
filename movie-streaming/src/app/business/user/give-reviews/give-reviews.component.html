@@ -22,7 +22,27 @@
     </div>
   </div>
 
-  <div class="col-md-6 mt-5">
+  <div class="mb-3 card p-3" *ngFor="let item of (reviewList$ | async)" >
+
+    <div class="card mb-3 p-2">
+      <div class="row">
+        <div class="col-3">user.name</div>
+        <div class="col-1"><i class="bi bi-play-fill"></i></div>
+        <div class="col">{{movie.title}}</div>
+      </div>
+    </div>
+
+    <!-- <div class="card p-2"> -->
+      <div class="row">
+        <p class="col ms-4">{{item.review}}</p>
+      </div>
+    <!-- </div> -->
+  </div>
+
+
+</div>
+
+  <!-- <div class="col-md-6 mt-5">
     <div class="card">
       <div class="card-body">
         <ul *ngFor="let item of (reviewList$ | async)">
@@ -31,4 +51,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
