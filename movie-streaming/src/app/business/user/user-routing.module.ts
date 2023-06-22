@@ -12,6 +12,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { EditAccountComponent } from './edit-account/edit-account.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { LibraryComponent } from './library/library.component';
+import { UserHistoryComponent } from 'src/app/common/pages/user-history/user-history.component';
 
 const routes: Routes = [
   {path:'',component:UserComponent, children:[
@@ -25,6 +26,7 @@ const routes: Routes = [
     {path:'edit-acc', component:EditAccountComponent},
     {path:'account', component:UserAccountComponent},
     {path:'movie-list', component:MovieListComponent},
+    {path:'history', component:UserHistoryComponent},
     {path:'', redirectTo:'/user/movie-list', pathMatch:'prefix'}
   ]}
 ];
