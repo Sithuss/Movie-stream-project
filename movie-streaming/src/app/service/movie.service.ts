@@ -16,7 +16,7 @@ export class MovieService {
 
       director: 'Chris Columbus, Alfonso Cuarón, Mike Newell, and David Yates',
       publisher: 'moon',
-      released: '2011',
+      released: new Date('2002-07-6'),
       description:
         'Harry,Ron, and Hermione search for Voldemort remaining Horcruxes in their effort to destory the Dark Lord as the final battle rages on at Hogwarts',
 
@@ -36,7 +36,7 @@ export class MovieService {
 
       director: 'Catherine Hardwicke',
       publisher: 'sun',
-      released: '2021.6.12',
+      released: new Date('2002-07-6'),
       description: 'beetee good',
       photo: 'http://source.unsplash.com/366x200/?vampire',
       trailer: 'https://www.youtube.com/embed/0N-VcJEn2hY',
@@ -53,7 +53,7 @@ export class MovieService {
       casts: ['Tyler Galpin', 'Wednesday Addams'],
       director: 'Tim Burton ',
       publisher: 'sun',
-      released: '2022-10-05',
+      released: new Date('2002-07-6'),
       description:
         'Wednesday Addams, a high-school student, finds her brother Pugsley tied up in a locker',
       photo: 'http://source.unsplash.com/366x200/?wednesday',
@@ -71,7 +71,7 @@ export class MovieService {
       casts: ['Edward Cullen', 'Bella Swan'],
       director: 'King',
       publisher: 'sun',
-      released: '2021.6.12',
+      released: new Date('2002-07-6'),
       description:
         'A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists',
       photo: 'http://source.unsplash.com/366x200/?annabelle',
@@ -89,7 +89,7 @@ export class MovieService {
       casts: ['Chen Zhe Yuan', 'Zhao Lusi'],
       director: 'libra',
       publisher: 'sun',
-      released: 'comming soon',
+      released: new Date('2002-07-6'),
       description: "Falling in love with her brother's friend",
       photo: 'http://source.unsplash.com/366x200/?cat',
       movieFile: 'woo',
@@ -106,7 +106,7 @@ export class MovieService {
       casts: ['Choi Woo Sik', 'Kim Da Mi'],
       director: 'Kim',
       publisher: 'sun',
-      released: '2022.6.12',
+      released: new Date('2002-07-6'),
       description:
         'Our Beloved Summer is a story about romance, regret and repressed emotions',
       photo: 'http://source.unsplash.com/366x200/?summer',
