@@ -43,11 +43,11 @@
           <div class="row">
 
             <div class="col">
-              <label for="actor" class="form-label">Actor</label>
-              <input id="actor" type="text" actor required [class.is-invalid]="actor.invalid && actor.touched"
-                #actor=ngModel [(ngModel)]="movie.casts" ngModel name="actor" class="form-control" />
-              <div *ngIf="actor.errors?.['required']" class="invalid-feedback">
-                <span>Actor cannot not be empty</span>
+              <label for="casts" class="form-label">Casts</label>
+              <input id="casts" type="text" casts required [class.is-invalid]="casts.invalid && casts.touched"
+                #casts=ngModel [(ngModel)]="movie.casts" ngModel name="casts" class="form-control" />
+              <div *ngIf="casts.errors?.['required']" class="invalid-feedback">
+                <span>casts cannot not be empty</span>
               </div>
             </div>
 
@@ -70,20 +70,6 @@
               </div>
             </div>
 
-          </div>
-
-          <div class="row">
-
-            <div class="col">
-              <label for="publisher" class="form-label">Publisher</label>
-              <input id="publisher" type="text" publisher required
-                [class.is-invalid]="publisher.invalid && publisher.touched" #publisher=ngModel
-                [(ngModel)]="movie.publisher" ngModel name="publisher" class="form-control" />
-              <div *ngIf="publisher.errors?.['required']" class="invalid-feedback">
-                <span>Publisher cannot not be empty</span>
-              </div>
-            </div>
-
             <div class="col">
               <label for="released" class="form-label">Released Date</label>
               <input id="released" type="text" released required
@@ -91,6 +77,29 @@
                 ngModel name="released" class="form-control" />
               <div *ngIf="released.errors?.['required']" class="invalid-feedback">
                 <span>Released date cannot not be empty</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <!-- <div class="col">
+              <label for="publisher" class="form-label">Publisher</label>
+              <input id="publisher" type="text" publisher required
+                [class.is-invalid]="publisher.invalid && publisher.touched" #publisher=ngModel
+                [(ngModel)]="movie.publisher" ngModel name="publisher" class="form-control" />
+              <div *ngIf="publisher.errors?.['required']" class="invalid-feedback">
+                <span>Publisher cannot not be empty</span>
+              </div>
+            </div> -->
+
+            <div class="col">
+              <label for="trailer" class="form-label">Trailer link</label>
+              <input id="trailer" type="text" trailer required [class.is-invalid]="trailer.invalid && trailer.touched"
+                #trailer=ngModel [(ngModel)]="movie.trailer" ngModel name="trailer" class="form-control" />
+              <div *ngIf="trailer.errors?.['required']" class="invalid-feedback">
+                <span>Trailer cannot not be empty</span>
               </div>
             </div>
 
@@ -103,6 +112,16 @@
               </div>
             </div>
 
+            <div class="col">
+              <label for="file" class="form-label">Movie File</label>
+              <input id="file" type="text" file required [class.is-invalid]="file.invalid && file.touched" #file=ngModel
+                [(ngModel)]="movie.movieFile" ngModel name="file" class="form-control" />
+              <div *ngIf="file.errors?.['required']" class="invalid-feedback">
+                <span>Movie file cannot not be empty</span>
+              </div>
+
+            </div>
+
           </div>
 
           <label for="description" class="form-label">Description</label>
@@ -113,12 +132,6 @@
             <span>Description cannot not be empty</span>
           </div>
 
-          <label for="file" class="form-label">Movie File</label>
-          <input id="file" type="text" file required [class.is-invalid]="file.invalid && file.touched" #file=ngModel
-            [(ngModel)]="movie.movieFile" ngModel name="file" class="form-control" />
-          <div *ngIf="file.errors?.['required']" class="invalid-feedback">
-            <span>Movie file cannot not be empty</span>
-          </div>
 
           <div class="d-flex justify-content-center mt-5">
             <button [disabled]="editForm.invalid" class="btn btn-primary w-100"

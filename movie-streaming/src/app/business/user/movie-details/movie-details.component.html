@@ -1,96 +1,97 @@
 <div class="container">
-<div *ngIf="(movie | async) as movie">
-  <div class="row mt-5">
-    <div class="col-md-5">
-      <img src="https://source.unsplash.com/600x400/?ww2" class="card-img-top img-thumbnail" alt="...">
-      <div class="my-4">
-        <button class="btn btn-outline-primary" (click)="streamMovie(movie.id)">Watch Now</button>
-        <button class="btn btn-outline-warning ms-3" (click)="goReviews(movie.id)">Review</button>
-        <button class="btn btn-outline-success ms-3" (click)="goHome()">Back To Home</button>
-      </div>
-    </div>
-    <div class="col-md-7">
-      <div class="card bg-white shadow rounded">
-        <div class="card-header">
-          <h4 class="text-center text-secondary" style="font-weight: bold; ">{{movie.title}}</h4>
+  <div *ngIf="(movie | async) as movie">
+    <div class="row mt-5">
+      <div class="col-md-5">
+        <img src="https://source.unsplash.com/600x400/?ww2" class="card-img-top img-thumbnail" alt="...">
+        <div class="my-4">
+          <button class="btn btn-outline-primary" (click)="streamMovie(movie.id)">Watch Now</button>
+          <button class="btn btn-outline-warning ms-3" (click)="goReviews(movie.id)">Review</button>
+          <button class="btn btn-outline-success ms-3" (click)="goHome()">Back To Home</button>
         </div>
-        <div class="card-body border">
-          <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-              <button class="text-secondary nav-link active" id="nav-home-tab" data-bs-toggle="tab"
-                data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
-                aria-selected="true">Details</button>
-              <button class="text-secondary nav-link " id="nav-profile-tab" data-bs-toggle="tab"
-                data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
-                aria-selected="false">Description</button>
-              <button class="text-secondary nav-link " id="nav-contact-tab" data-bs-toggle="tab"
-                data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
-                aria-selected="false">Trailer</button>
-            </div>
-          </nav>
-          <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane mt-2 fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"
-              tabindex="0">
+      </div>
+      <div class="col-md-7">
+        <div class="card bg-white shadow rounded">
+          <div class="card-header">
+            <h4 class="text-center text-secondary" style="font-weight: bold; ">{{movie.title}}</h4>
+          </div>
+          <div class="card-body border">
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="text-secondary nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                  data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                  aria-selected="true">Details</button>
+                <button class="text-secondary nav-link " id="nav-profile-tab" data-bs-toggle="tab"
+                  data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
+                  aria-selected="false">Description</button>
+                <button class="text-secondary nav-link " id="nav-contact-tab" data-bs-toggle="tab"
+                  data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
+                  aria-selected="false">Trailer</button>
+              </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane mt-2 fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"
+                tabindex="0">
 
-              <div class="container">
-                <div class="row">
-                  <table class="table mt-2">
-                    <tr>
-                      <td class="column-header">Casts</td>
-                      <td class="column-header">-</td>
-                      <td class="column-content">{{movie.casts}}</td>
-                    </tr>
-                    <br>
-                    <tr>
-                      <td class="column-header">Category</td>
-                      <td class="column-header">-</td>
-                      <td class="column-content">{{movie.category}}</td>
-                    </tr>
-                    <br>
-                    <tr>
-                      <td class="column-header">Publisher</td>
-                      <td class="column-header">-</td>
-                      <td class="column-content">{{movie.publisher}}</td>
-                    </tr>
-                    <br>
-                    <tr>
-                      <td class="column-header">Director</td>
-                      <td class="column-header">-</td>
-                      <td class="column-content">{{movie.director}}</td>
-                    </tr>
-                    <br>
-                    <tr>
-                      <td class="column-header">Released Date</td>
-                      <td class="column-header">-</td>
-                      <td class="column-content">{{movie.released}}</td>
-                    </tr>
-                  </table>
+                <div class="container">
+                  <div class="row">
+                    <table class="table mt-2">
+                      <tr>
+                        <td class="column-header">Casts</td>
+                        <td class="column-header">-</td>
+                        <td class="column-content">{{movie.casts}}</td>
+                      </tr>
+                      <br>
+                      <tr>
+                        <td class="column-header">Category</td>
+                        <td class="column-header">-</td>
+                        <td class="column-content">{{movie.category}}</td>
+                      </tr>
+                      <br>
+                      <tr>
+                        <td class="column-header">Publisher</td>
+                        <td class="column-header">-</td>
+                        <td class="column-content">{{movie.publisher}}</td>
+                      </tr>
+                      <br>
+                      <tr>
+                        <td class="column-header">Director</td>
+                        <td class="column-header">-</td>
+                        <td class="column-content">{{movie.director}}</td>
+                      </tr>
+                      <br>
+                      <tr>
+                        <td class="column-header">Released Date</td>
+                        <td class="column-header">-</td>
+                        <td class="column-content">{{movie.released}}</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade mt-2" style="min-height: 12rem" id="nav-profile" role="tabpanel"
+                aria-labelledby="nav-profile-tab" tabindex="0">
+                {{movie.description}}
+              </div>
+              <div class="tab-pane fade  mt-2" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"
+                tabindex="0">
+
+                <div class="ratio ratio-16x9 ">
+                  <iframe class="img" src="https://www.youtube.com/embed/t_n_Jc7SeFU" title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                  </iframe>
                 </div>
               </div>
             </div>
-            <div class="tab-pane fade mt-2" style="min-height: 12rem" id="nav-profile" role="tabpanel"
-              aria-labelledby="nav-profile-tab" tabindex="0">
-              {{movie.description}}
-            </div>
-            <div class="tab-pane fade  mt-2" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"
-              tabindex="0">
-
-              <div class="ratio ratio-4x3">
-                <iframe class="img" src="https://www.youtube.com/embed/t_n_Jc7SeFU" title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen>
-                </iframe>
-              </div>
-            </div>
           </div>
+
         </div>
 
-    </div>
-  </div>
+      </div>
 
 
-<!-- <div>
+      <!-- <div>
 <div class="bg-white" *ngIf="(movie | async) as movie">
   <div class="" style="position: relative; width: 100%;">
     <a href="#" style="width:100%;height: 500px;text-decoration:none; opacity: 0.8;">
@@ -108,5 +109,5 @@
         </div>
       </div> -->
 
-  <!-- </div> -->
-<!-- </div> -->
+      <!-- </div> -->
+      <!-- </div> -->

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
-import { MovieService } from 'src/app/service/apis/movie.service';
+import { UserMovieService } from 'src/app/service/apis/user.movie.service';
 import { LibraryService } from 'src/app/service/library.service';
+import { UserService } from 'src/app/service/user.service';
 import { Movie } from '../../uploader/model/movie';
 
 @Component({
@@ -12,10 +13,11 @@ import { Movie } from '../../uploader/model/movie';
 })
 export class WatchMovieComponent implements OnInit {
   constructor(
-    private mService: MovieService,
+    private mService: UserMovieService,
     private router: Router,
     private route: ActivatedRoute,
-    private libraryService: LibraryService
+    private libraryService: LibraryService,
+    public userService: UserService
   ) {}
   movie$!: Observable<Movie>;
   mId!: number;
@@ -29,6 +31,10 @@ export class WatchMovieComponent implements OnInit {
       .pipe(
         map(ml => ml.find(m => m.id === parseInt(id)))
       ) as Observable<Movie>;
+
+      if(!this.userService.validatedUser) {
+        this.router.navigate(['/user/sign-up']);
+      }
   }
 
   saveMovie() {
@@ -37,6 +43,11 @@ export class WatchMovieComponent implements OnInit {
       this.router.navigate(['/user/library','movie.id'])
       console.log('Movie saved in Library: ' , movie);
     });
+  }
+
+  saveToL(id:number){
+    this.libraryService.addToSave(id);
+    this.router.navigate(['/user/library']);
   }
 
 

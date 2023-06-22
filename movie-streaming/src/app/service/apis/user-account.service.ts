@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 const USER_DOMAIN = `${environment.baseUrl}/user/account`
 const ADMIN_DOMAIN = `${environment.baseUrl}/uploader/account`
@@ -25,5 +26,7 @@ export class UserAccountService {
   adminEditAccount(form:any) {
     this.http.post(`${ADMIN_DOMAIN}/edit`, form);
   }
+
+
 
 }

@@ -13,7 +13,6 @@ export class UserService {
 
   createUser(user:any) {
     this.users.push(user);
-    console.log(this.users);
   }
 
   validUser(acc:any) {
@@ -21,10 +20,9 @@ export class UserService {
 
     if (checkAcc.password === acc.password) {
       this.validatedUser = checkAcc;
-      console.log("sign up completed.");
     }
     else {
-      console.log('error');
+      console.log('error');4200
     }
   }
 }
