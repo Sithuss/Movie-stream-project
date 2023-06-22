@@ -39,8 +39,8 @@ export class UserAccountComponent implements OnInit {
     }
 }
 
-// history(){ 
-//   this.router.navigate(['user/history'])
+history(){ 
+  this.router.navigate(['user/history'])
 
-// }
+}
 }
