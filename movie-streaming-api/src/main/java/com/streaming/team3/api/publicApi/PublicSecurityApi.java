@@ -34,21 +34,21 @@ public class PublicSecurityApi {
     }
 
     @PostMapping("/security/register/user")
-    public ApiResult<LoginUserVO> userSignUp(@RequestBody @Validated UserSignUpForm form, BindingResult result) {
+    public ApiResult<String> userSignUp(@RequestBody @Validated UserSignUpForm form, BindingResult result) {
         securityService.create(form);
-        return null;
+        return ApiResult.success("new user account registred");
     }
     
     @PostMapping("/security/register/uploader")
-    public ApiResult<LoginUserVO> uploaderSignUp(@RequestBody @Validated UploaderSignUpForm form, BindingResult result) {
-        
-        return null;
+    public ApiResult<String> uploaderSignUp(@RequestBody @Validated UploaderSignUpForm form, BindingResult result) {
+    	securityService.create(form);
+        return ApiResult.success("new uploader account registred");
     }
     
     @PostMapping("/security/addAdmin")
-    public ApiResult<LoginUserVO> addAmin(@RequestBody @Validated AddAdminForm form, BindingResult result) {
-        
-        return null;
+    public ApiResult<String> addAmin(@RequestBody @Validated AddAdminForm form, BindingResult result) {
+    	securityService.create(form);
+        return ApiResult.success("new admin account registred");
     }
 
     /**

@@ -29,7 +29,7 @@ public class Account {
 
     private String password;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(value = EnumType.STRING)
     private Role role;
 
 	public Account(String name, String email, String password, Role role) {
