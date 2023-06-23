@@ -6,7 +6,7 @@ export interface Movie {
   casts: string[];
   director: string;
   publisher: string;
-  released: string;
+  released: Date;
   description: string;
   photo: string;
   trailer: string;

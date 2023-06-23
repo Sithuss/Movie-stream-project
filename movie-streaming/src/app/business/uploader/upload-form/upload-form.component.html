@@ -34,7 +34,7 @@
               </app-form-group>
 
               <app-form-group class="col" [valid]="form.get('released')!.valid" label="Released">
-                <input formControlName="released" type="text" class="form-control"
+                <input formControlName="released" type="date" class="form-control"
                   placeholder="Enter movie released date">
               </app-form-group>
 
@@ -61,10 +61,23 @@
 
             </div>
 
-            <app-form-group [valid]="form.get('discription')!.valid" label="Description">
-              <textarea formControlName="discription" type="text" class="form-control"
-                placeholder="Enter movie description"></textarea>
-            </app-form-group>
+            <div class="row">
+
+              <div class="col-3">
+                <app-form-group [valid]="form.get('script')!.valid" label="Script Writer">
+                  <input formControlName="script" type="text" class="form-control"
+                    placeholder="Enter movie script writer">
+                </app-form-group>
+              </div>
+
+              <div class="col-9">
+                <app-form-group [valid]="form.get('discription')!.valid" label="Description">
+                  <textarea formControlName="discription" type="text" class="form-control"
+                    placeholder="Enter movie description"></textarea>
+                </app-form-group>
+              </div>
+
+            </div>
 
 
             <!-- <app-form-group [valid]="form.get('movieFile')!.valid" label="Movie File">

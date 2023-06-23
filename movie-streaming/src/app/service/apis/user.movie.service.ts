@@ -24,7 +24,7 @@ export class UserMovieService {
       casts: ['Daniel Radcliffe', 'Emma Watson'],
       director: 'Chris Columbus, Alfonso Cuarón, Mike Newell, and David Yates',
       publisher: 'moon',
-      released: '2011',
+      released: new Date('2002-07-6'),
       description:
         'Harry,Ron, and Hermione search for Voldemort remaining Horcruxes in their effort to destory the Dark Lord as the final battle rages on at Hogwarts',
 
@@ -33,7 +33,7 @@ export class UserMovieService {
       movieFile: 'Fantasy',
       premium: true,
       pCount: 0,
-      script: 'u mya'
+      script: 'u mya',
     },
     {
       id: 2,
@@ -43,7 +43,7 @@ export class UserMovieService {
       casts: ['Edward Cullen', 'Bella Swan'],
       director: 'Catherine Hardwicke',
       publisher: 'sun',
-      released: '2021.6.12',
+      released: new Date('2002-07-6'),
       description:
         'he soft, diffused light from the sky when the sun is below the horizon, either from daybreak to sunrise or, more commonly, from sunset to nightfall.',
       photo: 'http://source.unsplash.com/366x200/?vampire',
@@ -51,7 +51,7 @@ export class UserMovieService {
       movieFile: 'woo',
       premium: true,
       pCount: 0,
-      script: 'u mya'
+      script: 'u mya',
     },
     {
       id: 3,
@@ -61,7 +61,7 @@ export class UserMovieService {
       casts: ['Edward Cullen', 'Bella Swan'],
       director: 'Tim Burton ',
       publisher: 'sun',
-      released: '2022-10-05',
+      released: new Date('2002-07-6'),
       description:
         'Wednesday Addams, a high-school student, finds her brother Pugsley tied up in a locker',
       photo: 'http://source.unsplash.com/366x200/?wednesday',
@@ -69,7 +69,7 @@ export class UserMovieService {
       movieFile: 'woo',
       premium: true,
       pCount: 0,
-      script: 'u mya'
+      script: 'u mya',
     },
     {
       id: 4,
@@ -79,7 +79,7 @@ export class UserMovieService {
       casts: ['Edward Cullen', 'Bella Swan'],
       director: 'King',
       publisher: 'sun',
-      released: '2021.6.12',
+      released: new Date('2002-07-6'),
       description:
         'A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists',
       photo: 'http://source.unsplash.com/366x200/?annabelle',
@@ -87,7 +87,7 @@ export class UserMovieService {
       movieFile: 'woo',
       premium: true,
       pCount: 0,
-      script: 'u mya'
+      script: 'u mya',
     },
     {
       id: 5,
@@ -97,14 +97,14 @@ export class UserMovieService {
       casts: ['Choi Woo Sik', 'Kim Da Mi'],
       director: 'libra',
       publisher: 'sun',
-      released: 'comming soon',
+      released: new Date('2002-07-6'),
       description: "Falling in love with her brother's friend",
       photo: 'http://source.unsplash.com/366x200/?cat',
       trailer: 'https://www.youtube.com/embed/0N-VcJEn2hY',
       movieFile: 'woo',
       premium: true,
       pCount: 0,
-      script: 'u mya'
+      script: 'u mya',
     },
     {
       id: 6,
@@ -114,7 +114,7 @@ export class UserMovieService {
       casts: ['Chen Zhe Yuan', 'Zhao Lusi'],
       director: 'Kim',
       publisher: 'sun',
-      released: '2022.6.12',
+      released: new Date('2002-07-6'),
       description:
         'Our Beloved Summer is a story about romance, regret and repressed emotions',
       photo: 'http://source.unsplash.com/366x200/?summer',
@@ -122,7 +122,7 @@ export class UserMovieService {
       movieFile: 'woo',
       premium: true,
       pCount: 0,
-      script: 'u mya'
+      script: 'u mya',
     },
   ];
 

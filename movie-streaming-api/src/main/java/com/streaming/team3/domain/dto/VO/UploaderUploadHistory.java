@@ -7,20 +7,11 @@ import lombok.Data;
 @Data
 public class UploaderUploadHistory {
 
-    /**
-     * Default constructor
-     */
     public UploaderUploadHistory() {
     }
 
-    /**
-     * 
-     */
     private int uid;
 
-    /**
-     * 
-     */
     private Movie movie[];
 
 }

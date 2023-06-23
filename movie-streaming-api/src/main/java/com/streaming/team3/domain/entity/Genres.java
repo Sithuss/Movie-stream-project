@@ -30,7 +30,5 @@ public class Genres {
 		super();
 		this.name = name;
 	}
-    
-    
 
 }
