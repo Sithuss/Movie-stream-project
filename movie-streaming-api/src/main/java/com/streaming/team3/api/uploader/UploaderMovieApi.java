@@ -1,23 +1,18 @@
 package com.streaming.team3.api.uploader;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.streaming.team3.domain.dto.ApiResult;
 import com.streaming.team3.domain.dto.form.MovieForm;
 import com.streaming.team3.domain.service.MovieService;
 
-/**
- * 
- */
+@RestController
+@RequestMapping("/public")
 public class UploaderMovieApi {
 
-    /**
-     * Default constructor
-     */
-    public UploaderMovieApi() {
-    }
-
-    /**
-     * 
-     */
+	@Autowired
     private MovieService movieService;
 
     /**

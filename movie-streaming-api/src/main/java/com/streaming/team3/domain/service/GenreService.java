@@ -2,12 +2,12 @@ package com.streaming.team3.domain.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.streaming.team3.domain.dto.VO.GenreVO;
 import com.streaming.team3.domain.repo.GenresRepo;
 
-/**
- * 
- */
+@Service
 public class GenreService {
 
     /**
@@ -19,7 +19,7 @@ public class GenreService {
     /**
      * 
      */
-    public GenresRepo repo;
+    private GenresRepo repo;
 
     /**
      * @return

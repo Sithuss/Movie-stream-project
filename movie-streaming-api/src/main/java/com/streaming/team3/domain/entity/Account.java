@@ -8,17 +8,13 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import lombok.Data;
 
-/**
- * 
- */
+
 @Data
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Account {
 
-    /**
-     * Default constructor
-     */
+ 
     public Account() {
     }
 
@@ -26,24 +22,21 @@ public class Account {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    /**
-     * 
-     */
     private String name;
 
-    /**
-     * 
-     */
     private String email;
 
-    /**
-     * 
-     */
     private String password;
 
-    /**
-     * 
-     */
     private Role role;
 
+	public Account(String name, String email, String password, Role role) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.role = role;
+	}
+
+    
 }

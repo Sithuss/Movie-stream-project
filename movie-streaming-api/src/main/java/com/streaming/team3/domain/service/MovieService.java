@@ -3,6 +3,8 @@ package com.streaming.team3.domain.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.streaming.team3.domain.dto.BuyPackageDto;
 import com.streaming.team3.domain.dto.GiveReviewDto;
 import com.streaming.team3.domain.dto.MovieReviewDto;
@@ -14,40 +16,26 @@ import com.streaming.team3.domain.repo.GenresRepo;
 import com.streaming.team3.domain.repo.MovieRepo;
 import com.streaming.team3.domain.repo.MovieReviewRepo;
 
-/**
- * 
- */
+@Service
 public class MovieService {
 
-    /**
-     * Default constructor
-     */
+
     public MovieService() {
     }
 
-    /**
-     * 
-     */
-    public MovieRepo movieReop;
 
-    /**
-     * 
-     */
-    public GenresRepo genreRepo;
+    private MovieRepo movieReop;
 
-    /**
-     * 
-     */
-    public MovieReviewRepo reviewRepo;
 
-    /**
-     * 
-     */
-    public AccountRepo accRepo;
+    private GenresRepo genreRepo;
 
-    /**
-     * @return
-     */
+   
+    private MovieReviewRepo reviewRepo;
+
+   
+    private AccountRepo accRepo;
+
+   
     public Optional<List<MovieDto>> findAllMovies() {
         // TODO implement here
         return null;

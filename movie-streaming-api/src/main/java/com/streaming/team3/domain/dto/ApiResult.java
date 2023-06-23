@@ -12,6 +12,12 @@ public class ApiResult<T> {
     private ApiStatus status;
 
     public T result;
+
+	public enum ApiStatus {
+		Success,
+		Business,
+		Auth
+	}
     
 	public static<T> ApiResult<T> success(T data) {
 		return new ApiResult<T>(ApiStatus.Success, data);
