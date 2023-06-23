@@ -9,7 +9,7 @@
         <form [formGroup]="signupForm">
 
           <app-form-group [valid]="signupForm.get('name')!.valid" label="UserName">
-            <input formControlName="name" type="email" class="form-control" placeholder="Enter your name">
+            <input formControlName="name" type="text" class="form-control" placeholder="Enter your name">
           </app-form-group>
 
           <app-form-group [valid]="signupForm.get('email')!.valid" label="Email">
@@ -39,11 +39,13 @@
           </div>
 
           <div class="d-flex" *ngIf="!admin">
-            <button (click)="changeUploader()" type="button" class="btn ms-auto btn-link">{{status}}</button>
+            <button type="submit" class="btn btn-sm btn-outline-primary ms-auto" (click)="register()">Register</button>
+            <button (click)="changeUploader()" type="button" class="btn btn-outline-info ms-2 text-dark btn-link">{{status}} form</button>
           </div>
 
-          <button type="submit" class="btn btn-sm btn-outline-primary" (click)="register()">Register</button>
-
+          <div *ngIf="admin">
+            <button type="submit" class="btn btn-sm btn-outline-primary" (click)="register()">Register</button>
+          </div>
         </form>
 
     </div>

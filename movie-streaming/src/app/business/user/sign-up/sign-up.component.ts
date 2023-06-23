@@ -78,7 +78,7 @@ export class SignUpComponent {
     if(this.admin) {
       this.signupForm.get('role')?.setValue('admin');
 
-      this.userRegister.registerUser(this.signupForm.value).subscribe(
+      this.userRegister.addAdmin(this.signupForm.value).subscribe(
         {
           next : (data) => console.log(data),
           error: (err) => this.errorMessage = 'Username already existed',
@@ -88,7 +88,7 @@ export class SignUpComponent {
     }
 
     else {
-      this.userRegister.addAdmin(this.signupForm.value).subscribe(
+      this.userRegister.registerUser(this.signupForm.value).subscribe(
         {
           next : (data) => console.log(data),
           error: (err) => this.errorMessage = 'Username already existed',
