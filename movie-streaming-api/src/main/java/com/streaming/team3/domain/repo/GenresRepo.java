@@ -4,9 +4,6 @@ import org.springframework.data.jpa.repository.support.JpaRepositoryImplementati
 
 import com.streaming.team3.domain.entity.Genres;
 
-/**
- * 
- */
 public interface GenresRepo extends JpaRepositoryImplementation<Genres, Integer> {
 
 }

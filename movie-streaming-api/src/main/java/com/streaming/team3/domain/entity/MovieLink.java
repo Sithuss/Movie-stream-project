@@ -10,19 +10,21 @@ import lombok.Data;
 @Entity
 public class MovieLink {
 
-    /**
-     * Default constructor
-     */
-    public MovieLink() {
-    }
+    
 
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    /**
-     * 
-     */
     private String link;
 
+    public MovieLink() {
+    }
+
+	public MovieLink(String link) {
+		super();
+		this.link = link;
+	}
+    
+    
 }

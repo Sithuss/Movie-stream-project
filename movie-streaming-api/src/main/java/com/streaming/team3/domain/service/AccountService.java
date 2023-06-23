@@ -3,6 +3,8 @@ package com.streaming.team3.domain.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.streaming.team3.domain.dto.VO.LoginUserVO;
 import com.streaming.team3.domain.dto.VO.UploaderAccountVO;
 import com.streaming.team3.domain.dto.VO.UserAccountVO;
@@ -11,9 +13,7 @@ import com.streaming.team3.domain.dto.form.UserEditForm;
 import com.streaming.team3.domain.repo.AccountRepo;
 import com.streaming.team3.domain.repo.UserRepo;
 
-/**
- * 
- */
+@Service
 public class AccountService {
 
     /**
@@ -25,12 +25,12 @@ public class AccountService {
     /**
      * 
      */
-    public AccountRepo accRepo;
+    private AccountRepo accRepo;
 
     /**
      * 
      */
-    public UserRepo userRepo;
+    private UserRepo userRepo;
 
     /**
      * @param user 

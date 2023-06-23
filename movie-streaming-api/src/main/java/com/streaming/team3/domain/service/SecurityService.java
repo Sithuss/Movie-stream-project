@@ -2,6 +2,8 @@ package com.streaming.team3.domain.service;
 
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.streaming.team3.domain.dto.SignInDto;
 import com.streaming.team3.domain.dto.VO.AccountVO;
 import com.streaming.team3.domain.dto.VO.LoginUserVO;
@@ -14,9 +16,7 @@ import com.streaming.team3.domain.repo.AccountRepo;
 import com.streaming.team3.domain.repo.UploaderRepo;
 import com.streaming.team3.domain.repo.UserRepo;
 
-/**
- * 
- */
+@Service
 public class SecurityService {
 
     /**

@@ -7,15 +7,6 @@ import lombok.Data;
 @Data
 public class AdminMovieListVO {
 
-    /**
-     * Default constructor
-     */
-    public AdminMovieListVO() {
-    }
-
-    /**
-     * 
-     */
     public Movie movies[];
 
 }
