@@ -5,9 +5,9 @@ import java.time.LocalDate;
 import lombok.Data;
 
 @Data
-public class MovieDto {
+public class MovieVo {
 
-    public MovieDto() {
+    public MovieVo() {
     }
     private int id;
 

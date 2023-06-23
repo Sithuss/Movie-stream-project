@@ -4,6 +4,10 @@ import org.springframework.data.jpa.repository.support.JpaRepositoryImplementati
 
 import com.streaming.team3.domain.entity.Uploader;
 
+import java.util.Optional;
+
 public interface UploaderRepo extends JpaRepositoryImplementation<Uploader, Integer> {
 
+
+    public Optional<Uploader> findUploaderByEmail(String email);
 }

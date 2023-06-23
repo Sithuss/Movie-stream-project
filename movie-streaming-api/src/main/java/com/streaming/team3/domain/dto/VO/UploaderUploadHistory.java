@@ -14,4 +14,7 @@ public class UploaderUploadHistory {
 
     private Movie movie[];
 
+//    public static UploaderUploadHistory form(Movie m){
+//        var upMovie = new UploaderUploadHistory();
+//    }
 }

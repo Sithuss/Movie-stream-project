@@ -19,6 +19,6 @@ public class UserWatchedHistoryVO {
     /**
      * 
      */
-    private MovieDto movie[];
+    private MovieVo movie[];
 
 }
