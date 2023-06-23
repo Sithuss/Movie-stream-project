@@ -4,6 +4,7 @@ import com.streaming.team3.domain.entity.Role;
 import com.streaming.team3.domain.entity.User;
 
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -13,14 +14,15 @@ public class UserSignUpForm {
     public UserSignUpForm() {
     }
 
-    @NotNull
+    @NotBlank(message = "Please enter your name")
     private String name;
-    @Email
+    @Email(message = "Invalid Email format")
     private String email;
-    @NotNull
+    @NotBlank(message = "Please enter password")
     private String password;
+    
     private int premiumPk;
-    @NotNull
+  
     private String role;
     
     public User entity() {
