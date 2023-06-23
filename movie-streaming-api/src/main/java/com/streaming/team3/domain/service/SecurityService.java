@@ -2,6 +2,7 @@ package com.streaming.team3.domain.service;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.streaming.team3.domain.dto.SignInDto;
@@ -26,19 +27,13 @@ public class SecurityService {
     public SecurityService() {
     }
 
-    /**
-     * 
-     */
+    @Autowired
     public AccountRepo repo;
 
-    /**
-     * 
-     */
+    @Autowired
     public UserRepo userRepo;
 
-    /**
-     * 
-     */
+    @Autowired
     public UploaderRepo uploaderRepo;
 
     /**
@@ -46,7 +41,9 @@ public class SecurityService {
      * @return
      */
     public Account create(UserSignUpForm userSignUpForm) {
-        return null;
+    	var entity = userSignUpForm.entity();
+    	entity.setPassword(null);
+        return repo.save(entity);
     }
 
     /**
