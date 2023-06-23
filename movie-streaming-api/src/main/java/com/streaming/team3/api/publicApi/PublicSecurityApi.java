@@ -12,6 +12,8 @@ import com.streaming.team3.domain.dto.ApiResult;
 import com.streaming.team3.domain.dto.SignInDto;
 import com.streaming.team3.domain.dto.UploaderSignUpDto;
 import com.streaming.team3.domain.dto.VO.LoginUserVO;
+import com.streaming.team3.domain.dto.form.AddAdminForm;
+import com.streaming.team3.domain.dto.form.UploaderSignUpForm;
 import com.streaming.team3.domain.dto.form.UserSignUpForm;
 import com.streaming.team3.domain.service.SecurityService;
 
@@ -31,8 +33,20 @@ public class PublicSecurityApi {
         return null;
     }
 
-    @PostMapping("/security/register")
+    @PostMapping("/security/register/user")
     public ApiResult<LoginUserVO> userSignUp(@RequestBody @Validated UserSignUpForm form, BindingResult result) {
+        securityService.create(form);
+        return null;
+    }
+    
+    @PostMapping("/security/register/uploader")
+    public ApiResult<LoginUserVO> uploaderSignUp(@RequestBody @Validated UploaderSignUpForm form, BindingResult result) {
+        
+        return null;
+    }
+    
+    @PostMapping("/security/addAdmin")
+    public ApiResult<LoginUserVO> addAmin(@RequestBody @Validated AddAdminForm form, BindingResult result) {
         
         return null;
     }

@@ -12,6 +12,7 @@ import com.streaming.team3.domain.dto.VO.UserAccountVO;
 import com.streaming.team3.domain.dto.form.AddAdminForm;
 import com.streaming.team3.domain.dto.form.UploaderSignUpForm;
 import com.streaming.team3.domain.dto.form.UserSignUpForm;
+import com.streaming.team3.domain.entity.Account;
 import com.streaming.team3.domain.repo.AccountRepo;
 import com.streaming.team3.domain.repo.UploaderRepo;
 import com.streaming.team3.domain.repo.UserRepo;
@@ -44,8 +45,7 @@ public class SecurityService {
      * @param UserSignUpForm 
      * @return
      */
-    public Optional<UserAccountVO> registerUser(UserSignUpForm userSignUpForm) {
-        // TODO implement here
+    public Account create(UserSignUpForm userSignUpForm) {
         return null;
     }
 
@@ -53,7 +53,7 @@ public class SecurityService {
      * @param uploader 
      * @return
      */
-    public Optional<UploaderAccountVO> registerUploader(UploaderSignUpForm uploader) {
+    public Optional<UploaderAccountVO> create(UploaderSignUpForm uploader) {
         // TODO implement here
         return null;
     }
@@ -62,7 +62,7 @@ public class SecurityService {
      * @param admin 
      * @return
      */
-    public Optional<AccountVO> addAdmin(AddAdminForm admin) {
+    public Optional<AccountVO> create(AddAdminForm admin) {
         // TODO implement here
         return null;
     }
