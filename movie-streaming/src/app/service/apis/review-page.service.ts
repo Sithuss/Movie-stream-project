@@ -26,11 +26,9 @@ export class ReviewPageService {
     this.formList.push(reviewForm);
   }
 
-  movieReview(review: any, id: number) {
-    this.http.post(`${USER_DOMAIN}/review?id=${id}`, review)
+  movieReview(review: any, uid: number, mv_id: number) {
+    this.http.post(`${USER_DOMAIN}/review?uid=${uid}&mv_id=${mv_id}`, review)
   }
-
-
 
 
 }
