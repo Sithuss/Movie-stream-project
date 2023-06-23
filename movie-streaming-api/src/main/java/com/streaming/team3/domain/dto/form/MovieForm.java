@@ -1,11 +1,12 @@
 package com.streaming.team3.domain.dto.form;
 
-import java.time.LocalDate;
-
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 
-
+@Data
+@AllArgsConstructor
 public class MovieForm {
 
     public MovieForm() {
@@ -27,15 +28,21 @@ public class MovieForm {
     private MultipartFile poster;
 
     @NotBlank(message = "Please enter movie released date")
-    private LocalDate releaseDate;
+    private String releaseDate;
 
     @NotBlank(message = "Please enter movie trailer link")
-    private String TrailerLink;
+    private String trailerLink;
 
     @NotBlank(message = "Please enter movie description")
-    private String Description;
+    private String description;
 
     @NotBlank(message = "Please enter movie director")
-    private String Director;
+    private String director;
+
+    @NotBlank(message = "Please enter movie script writer")
+    private String scriptWriter;
+
+    @NotBlank(message = "Please enter movie link")
+    private String movieLink;
 
 }
