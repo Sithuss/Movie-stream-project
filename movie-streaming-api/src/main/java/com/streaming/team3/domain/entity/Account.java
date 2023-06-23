@@ -16,7 +16,6 @@ import lombok.Data;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Account {
 
- 
     public Account() {
     }
 

@@ -61,11 +61,9 @@ public class Movie {
 
 	@OneToOne
 	private MovieLink link;
-	
 
 	public Movie() {
 	}
-
 
 	public Movie(String title, String description, String releaseDate, String trailerLink, LocalDate uploadedDate,
 			long premiumVC, String movieLength, byte[] poster) {

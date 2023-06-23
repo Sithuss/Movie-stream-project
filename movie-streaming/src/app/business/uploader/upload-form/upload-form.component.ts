@@ -26,11 +26,11 @@ export class UploadFormComponent {
       category: ['', [Validators.required]],
       casts: ['', [Validators.required]],
       director: ['', [Validators.required]],
-      publisher: ['', [Validators.required]],
-      released: ['', [Validators.required]],
+      released: [Date, [Validators.required]],
       discription: ['', [Validators.required]],
       photo: ['', [Validators.required]],
       trailer: ['', [Validators.required]],
+      script: ['', [Validators.required]],
       movieFile: ['', [Validators.required]],
     });
   }
