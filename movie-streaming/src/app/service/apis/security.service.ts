@@ -13,8 +13,24 @@ export class SecurityService {
 
   constructor(private http:HttpClient) {}
 
-  register(user:any):Observable<any> {
-    return this.http.post(`${PUBLIC_DOMAIN}/register`, JSON.stringify(user), {
+  registerUser(user:any):Observable<any> {
+    return this.http.post(`${PUBLIC_DOMAIN}/register/user`, JSON.stringify(user), {
+      headers: {
+        'Content-type':'application/json;charset=UTF-8'
+      }
+    });
+  }
+
+  registerUploader(user: any): Observable<any> {
+    return this.http.post(`${PUBLIC_DOMAIN}/register/uploader`, JSON.stringify(user), {
+      headers: {
+        'Content-type':'application/json;charset=UTF-8'
+      }
+    });
+  }
+
+  addAdmin (user: any): Observable<any> {
+    return this.http.post(`${PUBLIC_DOMAIN}/addAdmin`, JSON.stringify(user), {
       headers: {
         'Content-type':'application/json;charset=UTF-8'
       }

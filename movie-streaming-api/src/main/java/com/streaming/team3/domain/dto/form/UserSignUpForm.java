@@ -1,5 +1,7 @@
 package com.streaming.team3.domain.dto.form;
 
+import com.streaming.team3.domain.entity.User;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -19,5 +21,10 @@ public class UserSignUpForm {
     private int premiumPk;
     @NotNull
     private String role;
+    
+    public User entity() {
+    	var entity = new User();
+    	return entity;
+    }
 
 }

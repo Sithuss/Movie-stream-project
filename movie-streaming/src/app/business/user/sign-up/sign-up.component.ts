@@ -49,17 +49,6 @@ export class SignUpComponent {
     )
   }
 
-  // SignUp() {
-
-  //   if(this.uploader) {
-  //     this.signupForm.get('role')?.setValue('uploader');
-  //   }
-  //   this.userService.createUser(this.signupForm.value);
-  //   // console.log(this.signupForm.value);
-  //   //TODO
-  //   this.router.navigate(['/user/sign-in']);
-  // }
-
   changeUploader() {
     if(this.uploader === false) {
       this.uploader = true;
@@ -71,31 +60,42 @@ export class SignUpComponent {
     }
   }
 
-  // adminRegister() {
-  //   console.log("admin registeration triggered");
-  //   this.signupForm.get('role')?.setValue('admin');
-  //   console.log(this.signupForm.value);
-  //   // TODO
-  // }
-
   register() {
-    console.log(this.signupForm.value);
 
     if(this.uploader) {
+
       this.signupForm.get('role')?.setValue('uploader');
+
+      this.userRegister.registerUploader(this.signupForm.value).subscribe(
+        {
+          next : (data) => console.log(data),
+          error: (err) => this.errorMessage = 'Username already existed',
+          complete:() => this.router.navigateByUrl("/user/sign-in")
+        }
+      );
     }
 
     if(this.admin) {
       this.signupForm.get('role')?.setValue('admin');
+
+      this.userRegister.registerUser(this.signupForm.value).subscribe(
+        {
+          next : (data) => console.log(data),
+          error: (err) => this.errorMessage = 'Username already existed',
+          complete:() => this.router.navigateByUrl("/user/sign-in")
+        }
+      );
     }
 
-    this.userRegister.register(this.signupForm.value).subscribe(
-      {
-        next : (data) => console.log(data),
-        error: (err) => this.errorMessage = 'Username already existed',
-        complete:() => this.router.navigateByUrl("/user/sign-in")
-      }
-    );
+    else {
+      this.userRegister.addAdmin(this.signupForm.value).subscribe(
+        {
+          next : (data) => console.log(data),
+          error: (err) => this.errorMessage = 'Username already existed',
+          complete:() => this.router.navigateByUrl("/user/sign-in")
+        }
+      );
+    }
     this.router.navigate(['/user/sign-in']);
   }
 
