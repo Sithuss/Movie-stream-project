@@ -1,7 +1,9 @@
 package com.streaming.team3.domain.dto.form;
 
-import java.util.*;
+import lombok.Data;
 
+
+@Data
 public class MovieReviewForm {
 
     public MovieReviewForm() {

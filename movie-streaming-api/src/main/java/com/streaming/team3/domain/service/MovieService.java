@@ -10,7 +10,9 @@ import com.streaming.team3.domain.entity.Movie;
 import com.streaming.team3.domain.entity.MovieLink;
 import com.streaming.team3.domain.entity.People;
 import com.streaming.team3.domain.repo.*;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.streaming.team3.domain.dto.BuyPackageDto;
@@ -86,7 +88,8 @@ public class MovieService {
 
     public MovieVo uploadMovie(MovieForm movie) {
 
-        var uploader = uploaderRepo.findUploaderByEmail("");
+        var uploader = uploaderRepo.findUploaderByEmail(
+                SecurityContextHolder.getContext().getAuthentication().getName()).orElseThrow(EntityNotFoundException::new);
         var upMovie = new Movie();
         upMovie.setTitle(movie.getTitle());
         upMovie.setDescription(movie.getDescription());
@@ -95,8 +98,8 @@ public class MovieService {
         upMovie.setUploadedDate(LocalDate.now());
         upMovie.setPremiumVC(0);
         upMovie.setMovieLength(movie.getMovieLength());
-        var geners = movie.getGenres().split(" ,");
-        Arrays.stream(geners).map(Genres::new).forEach(upMovie.getGenres()::add);
+        var genres = movie.getGenres().split(" ,");
+        Arrays.stream(genres).map(Genres::new).forEach(upMovie.getGenres()::add);
         try {
             upMovie.setPoster(movie.getPoster().getBytes());
         }catch (Exception e){

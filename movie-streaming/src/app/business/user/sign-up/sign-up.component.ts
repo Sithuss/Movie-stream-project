@@ -49,16 +49,16 @@ export class SignUpComponent {
     )
   }
 
-  SignUp() {
+  // SignUp() {
 
-    if(this.uploader) {
-      this.signupForm.get('role')?.setValue('uploader');
-    }
-    this.userService.createUser(this.signupForm.value);
-    // console.log(this.signupForm.value);
-    //TODO
-    this.router.navigate(['/user/sign-in']);
-  }
+  //   if(this.uploader) {
+  //     this.signupForm.get('role')?.setValue('uploader');
+  //   }
+  //   this.userService.createUser(this.signupForm.value);
+  //   // console.log(this.signupForm.value);
+  //   //TODO
+  //   this.router.navigate(['/user/sign-in']);
+  // }
 
   changeUploader() {
     if(this.uploader === false) {
@@ -71,12 +71,12 @@ export class SignUpComponent {
     }
   }
 
-  adminRegister() {
-    console.log("admin registeration triggered");
-    this.signupForm.get('role')?.setValue('admin');
-    console.log(this.signupForm.value);
-    // TODO
-  }
+  // adminRegister() {
+  //   console.log("admin registeration triggered");
+  //   this.signupForm.get('role')?.setValue('admin');
+  //   console.log(this.signupForm.value);
+  //   // TODO
+  // }
 
   register() {
     console.log(this.signupForm.value);
