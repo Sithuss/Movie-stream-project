@@ -2,10 +2,12 @@ package com.streaming.team3.domain.dto.form;
 
 import java.time.LocalDate;
 
-import jakarta.validation.constraints.NotBlank;
 import org.springframework.web.multipart.MultipartFile;
 
+import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
 
+@Data
 public class MovieForm {
 
     public MovieForm() {
