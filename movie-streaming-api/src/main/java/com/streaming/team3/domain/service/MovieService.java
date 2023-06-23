@@ -1,21 +1,26 @@
 package com.streaming.team3.domain.service;
 
+import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import com.streaming.team3.domain.entity.Genres;
+import com.streaming.team3.domain.entity.Movie;
+import com.streaming.team3.domain.entity.MovieLink;
+import com.streaming.team3.domain.entity.People;
+import com.streaming.team3.domain.repo.*;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.streaming.team3.domain.dto.BuyPackageDto;
 import com.streaming.team3.domain.dto.GiveReviewDto;
 import com.streaming.team3.domain.dto.MovieReviewDto;
-import com.streaming.team3.domain.dto.VO.MovieDto;
+import com.streaming.team3.domain.dto.VO.MovieVo;
 import com.streaming.team3.domain.dto.VO.ReadReviewVO;
 import com.streaming.team3.domain.dto.form.MovieForm;
-import com.streaming.team3.domain.repo.AccountRepo;
-import com.streaming.team3.domain.repo.GenresRepo;
-import com.streaming.team3.domain.repo.MovieRepo;
-import com.streaming.team3.domain.repo.MovieReviewRepo;
 
 @Service
 public class MovieService {
@@ -36,13 +41,16 @@ public class MovieService {
    @Autowired
     private AccountRepo accRepo;
 
+   @Autowired
+   private UploaderRepo uploaderRepo;
+
    
-    public Optional<List<MovieDto>> findAllMovies() {
+    public Optional<List<MovieVo>> findAllMovies() {
         return null;
     }
 
 
-    public Optional<List<MovieDto>> findMovieByGenre(String genre) {
+    public Optional<List<MovieVo>> findMovieByGenre(String genre) {
         // TODO implement here
         return null;
     }
@@ -73,17 +81,41 @@ public class MovieService {
         return "";
     }
 
-    public Optional<List<MovieDto>> watchedHistory(int uid) {
+    public Optional<List<MovieVo>> watchedHistory(int uid) {
         // TODO implement here
         return null;
     }
 
-    public Optional<MovieDto> uploadMovie(MovieForm movie) {
+    public MovieVo uploadMovie(MovieForm movie) {
 
+        var uploader = uploaderRepo.findUploaderByEmail(
+                SecurityContextHolder.getContext().getAuthentication().getName()).orElseThrow(EntityNotFoundException::new);
+        var upMovie = new Movie();
+        upMovie.setTitle(movie.getTitle());
+        upMovie.setDescription(movie.getDescription());
+        upMovie.setReleaseDate(movie.getReleaseDate());
+        upMovie.setTrailerLink(movie.getTrailerLink());
+        upMovie.setUploadedDate(LocalDate.now());
+        upMovie.setPremiumVC(0);
+        upMovie.setMovieLength(movie.getMovieLength());
+        var genres = movie.getGenres().split(" ,");
+        Arrays.stream(genres).map(Genres::new).forEach(upMovie.getGenres()::add);
+        try {
+            upMovie.setPoster(movie.getPoster().getBytes());
+        }catch (Exception e){
+            System.out.println("nani");
+        }
+        var casts = movie.getCasts().split(" ,");
+        Arrays.stream(casts).map(People::new).forEach(upMovie.getCasts()::add);
+        var director = movie.getDirector().split(" ,");
+        Arrays.stream(director).map(People::new).forEach(upMovie.getDirector()::add);
+        var scriptWriter = movie.getScriptWriter().split(" ,");
+        Arrays.stream(scriptWriter).map(People::new).forEach(upMovie.getScriptWriter()::add);
+        upMovie.setLink(new MovieLink(movie.getMovieLink()));
         return null;
     }
 
-    public Optional<MovieDto> editMovie(MovieForm movie) {
+    public Optional<MovieVo> editMovie(MovieForm movie) {
         // TODO implement here
         return null;
     }

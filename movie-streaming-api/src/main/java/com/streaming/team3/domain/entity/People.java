@@ -10,10 +10,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @Entity
+@AllArgsConstructor
 public class People {
     
 
@@ -44,4 +46,7 @@ public class People {
     public People() {
     }
 
+    public People(String name){
+        this.name = name;
+    }
 }

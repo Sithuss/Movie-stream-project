@@ -19,6 +19,6 @@ public class UserBookMarkVO {
     /**
      * 
      */
-    private MovieDto movie[];
+    private MovieVo movie[];
 
 }
