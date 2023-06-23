@@ -1,6 +1,8 @@
 package com.streaming.team3.domain.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,6 +30,7 @@ public class Account {
 
     private String password;
 
+    @Enumerated(EnumType.STRING)
     private Role role;
 
 	public Account(String name, String email, String password, Role role) {
