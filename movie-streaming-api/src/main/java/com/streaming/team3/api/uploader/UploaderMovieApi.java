@@ -1,6 +1,8 @@
 package com.streaming.team3.api.uploader;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,7 +11,7 @@ import com.streaming.team3.domain.dto.form.MovieForm;
 import com.streaming.team3.domain.service.MovieService;
 
 @RestController
-@RequestMapping("/public")
+@RequestMapping("/uploader")
 public class UploaderMovieApi {
 
 	@Autowired
@@ -19,10 +21,17 @@ public class UploaderMovieApi {
      * @param form 
      * @return
      */
-    public ApiResult uploadMovie(MovieForm form) {
-        // TODO implement here
-        return null;
+	
+	@PostMapping("/upload")
+    public ApiResult uploadMovie(@RequestBody MovieForm form) {
+        return ApiResult.success(movieService.uploadMovie(form));
     }
+	
+	
+	@PostMapping("/test")
+	public String test(@RequestBody String name) {
+		return name;
+	}
 
     /**
      * @param uid 

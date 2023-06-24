@@ -5,20 +5,10 @@ import lombok.Data;
 @Data
 public class GenreVO {
 
-    /**
-     * Default constructor
-     */
     public GenreVO() {
     }
-
-    /**
-     * 
-     */
     private int id;
 
-    /**
-     * 
-     */
     private String name;
 
 }

@@ -13,7 +13,6 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -41,8 +40,8 @@ public class Movie {
 
 	@ManyToMany
 	@JoinTable(name = "movie_genre",
-    joinColumns = @JoinColumn(name = "genre_id", referencedColumnName = "id"),
-    inverseJoinColumns = @JoinColumn(name = "movie_id", referencedColumnName = "id"))
+    joinColumns = @JoinColumn(name = "movie_id", referencedColumnName = "id"),
+    inverseJoinColumns = @JoinColumn(name = "genres_id", referencedColumnName = "id"))
 	private List<Genres> genres = new ArrayList<Genres>();
 
 	private byte[] poster;
