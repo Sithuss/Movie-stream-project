@@ -49,4 +49,17 @@ public class People {
     public People(String name){
         this.name = name;
     }
+    
+    public void addCastsMovie(Movie movie){
+    	this.movieCasts.add(movie);
+    	movie.getCasts().add(this);
+    }
+    public void addDirectorMovie(Movie movie){
+    	this.movieDirector.add(movie);
+    	movie.getDirector().add(this);
+    }
+    public void addScriptWriterMovie(Movie movie){
+    	this.movieScriptWriter.add(movie);
+    	movie.getScriptWriter().add(this);
+    }
 }

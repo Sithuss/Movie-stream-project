@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -38,7 +39,7 @@ public class Movie {
 
 	private String movieLength;
 
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(name = "movie_genre",
     joinColumns = @JoinColumn(name = "movie_id", referencedColumnName = "id"),
     inverseJoinColumns = @JoinColumn(name = "genres_id", referencedColumnName = "id"))
@@ -76,7 +77,9 @@ public class Movie {
 		this.movieLength = movieLength;
 		this.poster = poster;
 	}
-	
-	
+	public void addGenre(Genres g){
+		this.genres.add(g);
+		g.getMovies().add(this);
+	}
 
 }

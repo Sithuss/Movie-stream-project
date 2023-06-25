@@ -6,16 +6,16 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.streaming.team3.domain.dto.BuyPackageDto;
 import com.streaming.team3.domain.dto.GiveReviewDto;
 import com.streaming.team3.domain.dto.MovieReviewDto;
 import com.streaming.team3.domain.dto.VO.MovieListVo;
-import com.streaming.team3.domain.dto.VO.MovieVo;
+import com.streaming.team3.domain.dto.VO.MovieVO;
 import com.streaming.team3.domain.dto.VO.ReadReviewVO;
 import com.streaming.team3.domain.dto.form.MovieForm;
-import com.streaming.team3.domain.entity.Genres;
 import com.streaming.team3.domain.entity.Movie;
 import com.streaming.team3.domain.entity.MovieLink;
 import com.streaming.team3.domain.entity.People;
@@ -27,134 +27,165 @@ import com.streaming.team3.domain.repo.MovieReviewRepo;
 import com.streaming.team3.domain.repo.PeopleRepo;
 import com.streaming.team3.domain.repo.UploaderRepo;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class MovieService {
 
+	public MovieService() {
+	}
 
-    public MovieService() {
-    }
+	@Autowired
+	private MovieRepo movieRepo;
 
-    @Autowired
-    private MovieRepo movieRepo;
+	@Autowired
+	private GenresRepo genreRepo;
 
-    @Autowired
-    private GenresRepo genreRepo;
+	@Autowired
+	private MovieReviewRepo reviewRepo;
 
-    @Autowired
-    private MovieReviewRepo reviewRepo;
+	@Autowired
+	private AccountRepo accRepo;
 
-   @Autowired
-    private AccountRepo accRepo;
+	@Autowired
+	private UploaderRepo uploaderRepo;
 
-   @Autowired
-   private UploaderRepo uploaderRepo;
-   
-   @Autowired
-   private MovieLinkRepo movieLinkRepo;
-   
-   @Autowired
-   private PeopleRepo peopleRepo;
+	@Autowired
+	private MovieLinkRepo movieLinkRepo;
 
-   
-    public Optional<List<MovieVo>> findAllMovies() {
-        return null;
-    }
+	@Autowired
+	private PeopleRepo peopleRepo;
 
+	public Optional<List<MovieVO>> findAllMovies() {
+		return null;
+	}
+	
+	public MovieVO movieDetail(int id){
+		return movieRepo.findById(id).map(MovieVO::form).get();
+	}
+	
+//	private Genres getGenres(String name){
+//		return genreRepo.findGenresByName(name).get();
+//		
+//	}
+	public Specification<List<MovieVO>> findMovieByGenre(Optional<Integer> genre) {
+		if (genre.filter( a -> a>0).isPresent()) {
+			return (root, query, cb) -> cb.equal(root.get("genre").get("id"), genre.get());
+		}
+		return Specification.where(null);
+	}
+	
+	public Optional<MovieListVo> search(Optional<Integer> genres, Optional<String> keyword){
+		
+		return null;
+	}
 
-    public Optional<List<MovieVo>> findMovieByGenre(String genre) {
-        // TODO implement here
-        return null;
-    }
+	public Optional<List<ReadReviewVO>> readReview(int mvId) {
+		// TODO implement here
+		return null;
+	}
 
-    public Optional<List<ReadReviewVO>> readReview(int mvId) {
-        // TODO implement here
-        return null;
-    }
+	public String giveReview(GiveReviewDto review) {
+		// TODO implement here
+		return "";
+	}
 
-    public String giveReview(GiveReviewDto review) {
-        // TODO implement here
-        return "";
-    }
+	public Optional<String> watchMovie(MovieReviewDto review) {
+		// TODO implement here
+		return null;
+	}
 
+	public String buyPackage(BuyPackageDto buy) {
+		// TODO implement here
+		return "";
+	}
 
-    public Optional<String> watchMovie(MovieReviewDto review) {
-        // TODO implement here
-        return null;
-    }
+	public String bookMark(int uId, int mId) {
+		// TODO implement here
+		return "";
+	}
 
-    public String buyPackage(BuyPackageDto buy) {
-        // TODO implement here
-        return "";
-    }
+	public Optional<List<MovieVO>> watchedHistory(int uid) {
+		// TODO implement here
+		return null;
+	}
 
-    public String bookMark(int uId, int mId) {
-        // TODO implement here
-        return "";
-    }
+	@Transactional
+	public MovieListVo uploadMovie(MovieForm movie) {
 
-    public Optional<List<MovieVo>> watchedHistory(int uid) {
-        // TODO implement here
-        return null;
-    }
+		// var uploader = uploaderRepo.findUploaderByEmail(
+		// SecurityContextHolder.getContext().getAuthentication().getName()).orElseThrow(EntityNotFoundException::new);
+		var upMovie = new Movie();
+		upMovie.setTitle(movie.getTitle());
+		upMovie.setDescription(movie.getDescription());
+		upMovie.setReleaseDate(movie.getReleaseDate());
+		upMovie.setTrailerLink(movie.getTrailerLink());
+		upMovie.setUploadedDate(LocalDate.now());
+		upMovie.setPremiumVC(0);
+		upMovie.setMovieLength(movie.getMovieLength());
 
-    public MovieListVo uploadMovie(MovieForm movie) {
-
-//        var uploader = uploaderRepo.findUploaderByEmail(
-//                SecurityContextHolder.getContext().getAuthentication().getName()).orElseThrow(EntityNotFoundException::new);
-        var upMovie = new Movie();
-        upMovie.setTitle(movie.getTitle());
-        upMovie.setDescription(movie.getDescription());
-        upMovie.setReleaseDate(movie.getReleaseDate());
-        upMovie.setTrailerLink(movie.getTrailerLink());
-        upMovie.setUploadedDate(LocalDate.now());
-        upMovie.setPremiumVC(0);
-        upMovie.setMovieLength(movie.getMovieLength());
-        var genres = movie.getGenres().split(",");
-        Arrays.stream(genres).map(Genres::new).forEach(g -> {
-        	genreRepo.save(g);
-        	upMovie.getGenres().add(g);
-        });
 		/*
-		 * try { upMovie.setPoster(movie.getPoster().getBytes()); }catch (Exception e){
-		 * System.out.println("nani"); }
+		 * try { upMovie.setPoster(movie.getPoster().getBytes()); }catch
+		 * (Exception e){ }
 		 */
-        byte[] byteArray = { 72, 101, 108, 108, 111, 44, 32, 87, 111, 114, 108, 100 };
 
-        upMovie.setPoster(byteArray);
-        var casts = movie.getCasts().split(",");
-        Arrays.stream(casts).map(People::new).forEach( c -> {
-        	peopleRepo.save(c);
-        	upMovie.getCasts().add(c);
+		byte[] byteArray = {72, 101, 108, 108, 111, 44, 32, 87, 111, 114, 108,
+				100};
+
+		upMovie.setPoster(byteArray);
+
+//		var genres = movie.getGenres().split(", ");
+//		Arrays.stream(genres).map(Genres::new).forEach(g -> {
+//			genreRepo.save(g);
+//			upMovie.getGenres().add(g);
+//		});
+
+		
+		var genres = movie.getGenres().split(", ");
+		Arrays.stream(genres).map(genreName -> genreRepo.findGenresByName(genreName))
+        .filter(Optional::isPresent)
+        .map(Optional::get)
+        .forEach(g -> {
+        	upMovie.getGenres().add(g);
+        	g.getMovies().add(upMovie);
         });
-        var director = movie.getDirector().split(",");
-        Arrays.stream(director).map(People::new).forEach(c -> {
-        	peopleRepo.save(c);
-        	upMovie.getCasts().add(c);
-        	});
-        var scriptWriter = movie.getScriptWriter().split(",");
-        Arrays.stream(scriptWriter).map(People::new).forEach(c -> {
-        	peopleRepo.save(c);
-        	upMovie.getCasts().add(c);
-        });
-        var ml = new MovieLink(movie.getMovieLink());
-        movieLinkRepo.save(ml);
-        
-        
-        
-        upMovie.setLink(ml);
-        movieRepo.save(upMovie);
-        return MovieListVo.form(upMovie);
-    }
 
-    public Optional<MovieVo> editMovie(MovieForm movie) {
-        // TODO implement here
-        return null;
-    }
+		var casts = movie.getCasts().split(",");
+		Arrays.stream(casts).map(People::new).forEach(c -> {
 
+			c.addCastsMovie(upMovie);
+			peopleRepo.save(c);
+		});
+		var director = movie.getDirector().split(",");
+		Arrays.stream(director).map(People::new).forEach(c -> {
 
-    public Optional<String> deleteMovie(int movieId) {
-        // TODO implement here
-        return null;
-    }
+			c.addDirectorMovie(upMovie);
+			peopleRepo.save(c);
+		});
+		var scriptWriter = movie.getScriptWriter().split(",");
+		Arrays.stream(scriptWriter).map(People::new).forEach(c -> {
+
+			c.addScriptWriterMovie(upMovie);
+			peopleRepo.save(c);
+		});
+
+		var ml = new MovieLink(movie.getMovieLink());
+		movieLinkRepo.save(ml);
+		upMovie.setLink(ml);
+		
+		movieRepo.save(upMovie);
+
+		return MovieListVo.form(upMovie);
+	}
+
+	public Optional<MovieVO> editMovie(MovieForm movie) {
+		// TODO implement here
+		return null;
+	}
+
+	public Optional<String> deleteMovie(int movieId) {
+		// TODO implement here
+		return null;
+	}
 
 }
