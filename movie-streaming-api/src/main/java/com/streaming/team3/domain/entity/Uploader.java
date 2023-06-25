@@ -3,6 +3,7 @@ package com.streaming.team3.domain.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
@@ -22,14 +23,18 @@ public class Uploader extends Account {
 
     private long money;
     
+    @Column(name = "company_name")
+    private String companyName;
+    
     @OneToMany(mappedBy = "uploader")
     private List<Movie> movies = new ArrayList<>();
     
-	public Uploader(String paymentMethod, String transactionNumber, long money) {
+	public Uploader(String paymentMethod, String transactionNumber, long money, String companyName) {
 		super();
 		this.paymentMethod = paymentMethod;
 		this.transactionNumber = transactionNumber;
 		this.money = money;
+		this.companyName = companyName;
 	}
 
 	public Uploader() {

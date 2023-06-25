@@ -5,15 +5,9 @@ import lombok.Data;
 @Data
 public class AddGenreForm {
 
-    /**
-     * Default constructor
-     */
     public AddGenreForm() {
     }
 
-    /**
-     * 
-     */
     public String genre;
 
 }
