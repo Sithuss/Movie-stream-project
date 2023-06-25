@@ -141,14 +141,21 @@ public class MovieService {
 //		});
 
 		
+//		var genres = movie.getGenres().split(", ");
+//		Arrays.stream(genres).map(genreName -> genreRepo.findGenresByName(genreName))
+//        .filter(Optional::isPresent)
+//        .map(Optional::get)
+//        .forEach(g -> {
+//        	upMovie.getGenres().add(g);
+//        	g.getMovies().add(upMovie);
+//        });
+		
 		var genres = movie.getGenres().split(", ");
-		Arrays.stream(genres).map(genreName -> genreRepo.findGenresByName(genreName))
-        .filter(Optional::isPresent)
-        .map(Optional::get)
+		Arrays.stream(genres).map(genreName -> genreRepo.findGenresByName(genreName).get())
         .forEach(g -> {
-        	upMovie.getGenres().add(g);
-        	g.getMovies().add(upMovie);
+        	System.out.println(g.getName());
         });
+
 
 		var casts = movie.getCasts().split(",");
 		Arrays.stream(casts).map(People::new).forEach(c -> {
