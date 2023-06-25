@@ -39,7 +39,7 @@ public class Movie {
 
 	private String movieLength;
 
-	@ManyToMany(cascade = CascadeType.PERSIST)
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(name = "movie_genre",
     joinColumns = @JoinColumn(name = "movie_id", referencedColumnName = "id"),
     inverseJoinColumns = @JoinColumn(name = "genres_id", referencedColumnName = "id"))
@@ -50,16 +50,16 @@ public class Movie {
 	@ManyToOne(optional = true)
 	private Uploader uploader;
 
-	@ManyToMany(mappedBy = "movieCasts")
+	@ManyToMany(mappedBy = "movieCasts",cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private List<People> casts = new ArrayList<People>();
 
-	@ManyToMany(mappedBy = "movieDirector")
+	@ManyToMany(mappedBy = "movieDirector",cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private List<People> director = new ArrayList<People>();
 
-	@ManyToMany(mappedBy = "movieScriptWriter")
+	@ManyToMany(mappedBy = "movieScriptWriter",cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private List<People> scriptWriter = new ArrayList<People>();
 
-	@OneToOne
+	@OneToOne(orphanRemoval = true)
 	private MovieLink link;
 
 	public Movie() {
@@ -80,6 +80,11 @@ public class Movie {
 	public void addGenre(Genres g){
 		this.genres.add(g);
 		g.getMovies().add(this);
+	}
+	
+	public void removeGenre(Genres g) {
+		this.genres.remove(g);
+		g.getMovies().remove(this);
 	}
 
 }

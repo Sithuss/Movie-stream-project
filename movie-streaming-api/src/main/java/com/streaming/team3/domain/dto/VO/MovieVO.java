@@ -34,6 +34,8 @@ public class MovieVO {
 
 	private String publisher;
 	
+	private String length;
+	
 	private List<String> genre= new ArrayList<String>();
 
 	public static MovieVO form(Movie m) {
@@ -46,6 +48,7 @@ public class MovieVO {
 		mvo.setPoster(m.getPoster());
 //		mvo.setPublisher(m.getUploader().getCompanyName());
 		mvo.setPublisher("aung");
+		mvo.setLength(m.getMovieLength());
 		m.getCasts().stream().forEach(c -> {
 			mvo.getCasts().add(c.getName());
 		});

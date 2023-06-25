@@ -1,8 +1,10 @@
 package com.streaming.team3.api.uploader;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,11 +41,13 @@ public class UploaderMovieApi {
         return null;
     }
 
-    public ApiResult editMovie(int id, MovieForm form) {
-        return null;
+    @PutMapping("/edit")
+    public ApiResult editMovie(@RequestParam("id") int id,@RequestBody MovieForm form) {
+        return ApiResult.success(movieService.editMovie(id, form));
     }
-    public ApiResult deleteMovie(int id) {
-        return null;
+    @DeleteMapping("/delete")
+    public ApiResult deleteMovie(@RequestParam("id") int id) {
+        return ApiResult.success(movieService.deleteMovie(id));
     }
 
 }
