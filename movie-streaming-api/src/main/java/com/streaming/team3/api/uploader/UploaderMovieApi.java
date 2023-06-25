@@ -32,7 +32,7 @@ public class UploaderMovieApi {
 	
 	@PostMapping("/test")
 	public String test(@RequestBody String name) {
-		return name;
+		return "hello"+ name ;
 	}
 
     public ApiResult movieUploadHistory(int uid) {
