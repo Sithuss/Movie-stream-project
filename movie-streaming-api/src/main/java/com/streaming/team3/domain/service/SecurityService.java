@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.streaming.team3.domain.dto.SignInDto;
 import com.streaming.team3.domain.dto.VO.AccountVO;
@@ -20,6 +21,7 @@ import com.streaming.team3.domain.entity.User;
 import com.streaming.team3.domain.repo.AccountRepo;
 import com.streaming.team3.domain.repo.UploaderRepo;
 import com.streaming.team3.domain.repo.UserRepo;
+
 
 @Service
 public class SecurityService {
@@ -59,13 +61,19 @@ public class SecurityService {
         return repo.save(entity);
     }
 
-    /**
-     * @param signIn 
-     * @return
-     */
-    public Optional<LoginUserVO> singIn(SignInDto signIn) {
-        // TODO implement here
-        return null;
+    @Transactional(readOnly = true)
+    public Optional<LoginUserVO> signIn(String email) {
+        return repo.findOneByEmail(email).map(LoginUserVO::from);
     }
 
 }
+
+
+
+
+
+
+
+
+
+
