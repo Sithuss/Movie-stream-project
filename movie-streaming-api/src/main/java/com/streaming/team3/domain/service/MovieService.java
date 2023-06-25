@@ -96,8 +96,10 @@ public class MovieService {
 	}
 
 	public String buyPackage(BuyPackageDto buy) {
-		// TODO implement here
-		return "";
+		int packageCount = buy.getPackageCount();
+		int totalCost = packageCount * 10;
+		
+		return "Package bought successfully! Packages: " + packageCount + ", Total Cost: $" + totalCost;
 	}
 
 	public String bookMark(int uId, int mId) {

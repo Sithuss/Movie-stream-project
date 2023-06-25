@@ -3,12 +3,19 @@ package com.streaming.team3.api.user;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.GetMapping;
+=======
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+>>>>>>> 911a16f (buy)
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.streaming.team3.domain.dto.ApiResult;
+import com.streaming.team3.domain.dto.BuyPackageDto;
+import com.streaming.team3.domain.dto.VO.BuyPackageResponseVO;
 import com.streaming.team3.domain.entity.Movie;
 import com.streaming.team3.domain.entity.MovieLink;
 import com.streaming.team3.domain.repo.MovieLinkRepo;
@@ -25,8 +32,6 @@ public class UserMoveiApi {
 
     @Autowired
     private GenreService genreService;
-    
-    
     
     @Autowired
     private MovieRepo movieRepo;
@@ -63,9 +68,20 @@ public class UserMoveiApi {
      * @param transactionNo 
      * @return
      */
-    public ApiResult buyPackage(Integer amount,int userId, String paymentMethod, Integer transactionNo) {
+    
+    @PostMapping("/buy")
+    public ApiResult buyPackage(@RequestBody BuyPackageDto buyPackageDto) {
+        String purchase = movieService.buyPackage(buyPackageDto);
         
-        return null;
+        int packageCount = buyPackageDto.getPackageCount();
+        int totalCost = packageCount * 10;
+        
+        BuyPackageResponseVO response = new BuyPackageResponseVO();
+        response.setPackageCount(packageCount);
+        response.setTotalCost(totalCost);
+        
+        
+        return ApiResult.success(response);
     }
 
     /**
