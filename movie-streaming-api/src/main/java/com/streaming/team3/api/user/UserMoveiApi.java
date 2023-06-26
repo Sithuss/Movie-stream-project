@@ -21,81 +21,55 @@ import com.streaming.team3.domain.service.MovieService;
 @RequestMapping("/user")
 public class UserMoveiApi {
 
-    @Autowired
-    private MovieService movieService;
+	@Autowired
+	private MovieService movieService;
 
-    @Autowired
-    private GenreService genreService;
-    
-    @Autowired
-    private MovieRepo movieRepo;
+	@Autowired
+	private GenreService genreService;
 
-    @GetMapping("/watch")
-    public ApiResult watchMovie(@RequestParam("id") int movieId) {
-        return ApiResult.success(movieService.watchMovie(movieId));
-    }
+	@Autowired
+	private MovieRepo movieRepo;
 
-    /**
-     * @param movieId 
-     * @param userId 
-     * @return
-     */
-    public ApiResult giveReview(Integer movieId, Integer userId) {
-        // TODO implement here
-        return null;
-    }
-    @PostMapping("/buy")
-    public ApiResult buyPackage(@RequestBody BuyPackageDto buyPackageDto) {
-        String purchase = movieService.buyPackage(buyPackageDto);
-        
-        int packageCount = buyPackageDto.getPackageCount();
-        int totalCost = packageCount * 10;
-        
-        BuyPackageResponseVO response = new BuyPackageResponseVO();
-        response.setPackageCount(packageCount);
-        response.setTotalCost(totalCost);
-        
-        
-        return ApiResult.success(response);
-    }
+	@GetMapping("/watch")
+	public ApiResult watchMovie(@RequestParam("id") int movieId) {
+		return ApiResult.success(movieService.watchMovie(movieId));
+	}
 
-    /**
-     * @param userId 
-     * @param movieId 
-     * @return
-     */
-    public ApiResult listBookMark(Integer userId, Integer movieId) {
-        // TODO implement here
-        return null;
-    }
+	public ApiResult giveReview(Integer movieId, Integer userId) {
+		return null;
+	}
+	@PostMapping("/buy")
+	public ApiResult buyPackage(@RequestBody BuyPackageDto buyPackageDto) {
+		String purchase = movieService.buyPackage(buyPackageDto);
 
-    /**
-     * @param userId 
-     * @return
-     */
-    public ApiResult bookMark(int userId) {
-        // TODO implement here
-        return null;
-    }
+		int packageCount = buyPackageDto.getPackageCount();
+		int totalCost = packageCount * 10;
 
-    /**
-     * @param userId 
-     * @return
-     */
-    public ApiResult watchedHistory(int userId) {
-        // TODO implement here
-        return null;
-    }
-@PostMapping("/search")
-    public ApiResult search(
-    		@RequestParam Optional<Integer> genres, 
-    		@RequestParam Optional<String> keyword,
-    		@RequestParam Optional<String> casts,
-    		@RequestParam Optional<String> director, 
-    		@RequestParam Optional<String> scriptWriter){
-    	var res = movieService.search(genres, keyword, casts, director, scriptWriter);
-    	return ApiResult.success(res);
-    }
-}
+		BuyPackageResponseVO response = new BuyPackageResponseVO();
+		response.setPackageCount(packageCount);
+		response.setTotalCost(totalCost);
 
+		return ApiResult.success(response);
+	}
+
+	public ApiResult listBookMark(Integer userId, Integer movieId) {
+		return null;
+	}
+	public ApiResult bookMark(int userId) {
+		return null;
+	}
+
+	public ApiResult watchedHistory(int userId) {
+		return null;
+	}
+	@PostMapping("/search")
+	public ApiResult search(@RequestParam Optional<Integer> genres,
+			@RequestParam Optional<String> keyword,
+			@RequestParam Optional<String> casts,
+			@RequestParam Optional<String> director,
+			@RequestParam Optional<String> scriptWriter) {
+		var res = movieService.search(genres, keyword, casts, director,
+				scriptWriter);
+		return ApiResult.success(res);
+	}
 }
