@@ -97,3 +97,5 @@ public class UserMoveiApi {
     	return ApiResult.success(res);
     }
 }
+
+}
