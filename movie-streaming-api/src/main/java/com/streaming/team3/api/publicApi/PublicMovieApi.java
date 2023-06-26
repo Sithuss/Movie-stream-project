@@ -27,8 +27,8 @@ public class PublicMovieApi {
      * @return
      */
     public ApiResult SearchMovie() {
-        // TODO implement here
-        return null;
+//        return ApiResult.success(movieService.search(null, null));
+    	return null;
     }
 
     /**

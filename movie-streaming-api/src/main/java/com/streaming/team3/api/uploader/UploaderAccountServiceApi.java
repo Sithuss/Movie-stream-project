@@ -17,18 +17,10 @@ public class UploaderAccountServiceApi {
     @Autowired
     private AccountService accountService;
 
-    /**
-     * @param id 
-     * @param form
-     */
     public void uploaderEditAccount(int id, UploaderAccountEditForm form) {
         // TODO implement here
     }
 
-    /**
-     * @param id 
-     * @return
-     */
     public Optional<UploaderAccountVO> uploaderAccountProfile(int id) {
         // TODO implement here
         return null;
