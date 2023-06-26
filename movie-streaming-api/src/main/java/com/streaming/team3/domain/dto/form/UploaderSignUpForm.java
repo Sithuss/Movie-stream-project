@@ -20,6 +20,8 @@ public class UploaderSignUpForm {
     private String paymentMethod;
 
     private String transactionNumber;
+    
+    private String companyName;
 
     private String role;
     
@@ -29,6 +31,7 @@ public class UploaderSignUpForm {
     	entity.setEmail(email);
     	entity.setPaymentMethod(paymentMethod);
     	entity.setTransactionNumber(transactionNumber);
+    	entity.setCompanyName(companyName);
     	entity.setRole(Role.UPLOADER);
     	return entity;
     }
