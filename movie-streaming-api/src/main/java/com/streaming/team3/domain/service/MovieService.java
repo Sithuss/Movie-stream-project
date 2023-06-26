@@ -11,11 +11,12 @@ import org.springframework.stereotype.Service;
 
 import com.streaming.team3.domain.dto.BuyPackageDto;
 import com.streaming.team3.domain.dto.GiveReviewDto;
-import com.streaming.team3.domain.dto.MovieReviewDto;
 import com.streaming.team3.domain.dto.VO.MovieListVo;
 import com.streaming.team3.domain.dto.VO.MovieVO;
 import com.streaming.team3.domain.dto.VO.ReadReviewVO;
+import com.streaming.team3.domain.dto.VO.WatchMovieVO;
 import com.streaming.team3.domain.dto.form.MovieForm;
+import com.streaming.team3.domain.entity.Genres;
 import com.streaming.team3.domain.entity.Movie;
 import com.streaming.team3.domain.entity.MovieLink;
 import com.streaming.team3.domain.entity.People;
@@ -90,14 +91,15 @@ public class MovieService {
 		return "";
 	}
 
-	public Optional<String> watchMovie(MovieReviewDto review) {
-		// TODO implement here
-		return null;
+	public WatchMovieVO watchMovie(int id) {
+		return WatchMovieVO.form(movieRepo.findById(id).get());
 	}
 
 	public String buyPackage(BuyPackageDto buy) {
-		// TODO implement here
-		return "";
+		int packageCount = buy.getPackageCount();
+		int totalCost = packageCount * 10;
+		
+		return "Package bought successfully! Packages: " + packageCount + ", Total Cost: $" + totalCost;
 	}
 
 	public String bookMark(int uId, int mId) {
@@ -133,13 +135,6 @@ public class MovieService {
 				100};
 
 		upMovie.setPoster(byteArray);
-
-//		var genres = movie.getGenres().split(", ");
-//		Arrays.stream(genres).map(Genres::new).forEach(g -> {
-//			genreRepo.save(g);
-//			upMovie.getGenres().add(g);
-//		});
-
 		
 //		var genres = movie.getGenres().split(", ");
 //		Arrays.stream(genres).map(genreName -> genreRepo.findGenresByName(genreName))
@@ -150,12 +145,9 @@ public class MovieService {
 //        	g.getMovies().add(upMovie);
 //        });
 		
-		var genres = movie.getGenres().split(", ");
-		Arrays.stream(genres).map(genreName -> genreRepo.findGenresByName(genreName).get())
-        .forEach(g -> {
-        	System.out.println(g.getName());
-        });
-
+		var genres = movie.getGenres().split(",");
+		Arrays.stream(genres).map(g -> genreRepo.findGenresByName(g))
+		.forEach(upMovie::addGenre);
 
 		var casts = movie.getCasts().split(",");
 		Arrays.stream(casts).map(People::new).forEach(c -> {
@@ -185,14 +177,87 @@ public class MovieService {
 		return MovieListVo.form(upMovie);
 	}
 
-	public Optional<MovieVO> editMovie(MovieForm movie) {
-		// TODO implement here
-		return null;
-	}
+	@Transactional
+	public MovieListVo editMovie(int id,MovieForm movie) {
+		Movie m = movieRepo.findById(id).get();
+		m.setTitle(movie.getTitle());
+		m.setDescription(movie.getDescription());
+		m.setReleaseDate(movie.getReleaseDate());
+		m.setTrailerLink(movie.getTrailerLink());
+		m.setUploadedDate(LocalDate.now());
+		m.setPremiumVC(m.getPremiumVC());
+		m.setMovieLength(movie.getMovieLength());
+		byte[] byteArray = {72, 101, 108, 108, 111, 44, 32, 87, 111, 114, 108,100};
+		m.setPoster(byteArray);
+		
+		Arrays.stream(m.getGenres().toArray()).forEach(ge -> {
+			((Genres) ge).getMovies().remove(m);
+			m.getGenres().remove(ge);
+		});;
+		
+		Arrays.stream(m.getCasts().toArray()).forEach(p -> {
+			((People) p).removeCastsMovie(m);
+		});
+		
+		Arrays.stream(m.getDirector().toArray()).forEach(p -> {
+			((People) p).removeDirectorMovie(m);
+		});
+		
+		Arrays.stream(m.getScriptWriter().toArray()).forEach(p -> {
+			((People) p).removeScriptWriterMovie(m);
+		});
+		
+		var genres = movie.getGenres().split(",");
+		Arrays.stream(genres).map(g -> genreRepo.findGenresByName(g))
+		.forEach(ge -> {
+			m.addGenre(ge);
+		});
+		
+		var casts = movie.getCasts().split(",");
+		Arrays.stream(casts).map(People::new).forEach(c -> {
+			c.addCastsMovie(m);
+			peopleRepo.save(c);
+		});
+		
+		var director = movie.getDirector().split(",");
+		Arrays.stream(director).map(People::new).forEach(d -> {
+			d.addDirectorMovie(m);
+			peopleRepo.save(d);
+		});
+		
+		var scriptWriter = movie.getScriptWriter().split(",");
+		Arrays.stream(scriptWriter).map(People::new).forEach(s -> {
+			s.addScriptWriterMovie(m);
+			peopleRepo.save(s);
+		});
 
-	public Optional<String> deleteMovie(int movieId) {
-		// TODO implement here
-		return null;
+		var ml = movieLinkRepo.findById(m.getLink().getId()).get();
+		ml.setLink(movie.getMovieLink());
+		m.setLink(ml);
+		return MovieListVo.form(m);
+	}
+	
+	@Transactional
+	public String deleteMovie(int movieId) {
+		Movie m = movieRepo.findById(movieId).get();
+		Arrays.stream(m.getGenres().toArray()).forEach(ge -> {
+			((Genres) ge).getMovies().remove(m);
+			m.getGenres().remove(ge);
+		});;
+		
+		Arrays.stream(m.getCasts().toArray()).forEach(p -> {
+			((People) p).removeCastsMovie(m);
+		});
+		
+		Arrays.stream(m.getDirector().toArray()).forEach(p -> {
+			((People) p).removeDirectorMovie(m);
+		});
+		
+		Arrays.stream(m.getScriptWriter().toArray()).forEach(p -> {
+			((People) p).removeScriptWriterMovie(m);
+		});
+		movieRepo.delete(m);
+		return "Succuessfully delete";
 	}
 
 }

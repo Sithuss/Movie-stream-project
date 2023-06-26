@@ -25,7 +25,7 @@ public class People {
 
     private String name;
     
-    @ManyToMany
+    @ManyToMany()
     @JoinTable(name = "cast_movie",
     joinColumns = @JoinColumn(name = "cast_id", referencedColumnName = "id"),
     inverseJoinColumns = @JoinColumn(name = "movie_id", referencedColumnName = "id"))
@@ -62,4 +62,21 @@ public class People {
     	this.movieScriptWriter.add(movie);
     	movie.getScriptWriter().add(this);
     }
+    public void editCasts(Movie movie) {
+		
+	}
+    
+    public void removeCastsMovie(Movie movie){
+    	this.movieCasts.remove(movie);
+    	movie.getCasts().remove(this);
+    }
+    public void removeDirectorMovie(Movie movie){
+    	this.movieDirector.remove(movie);
+    	movie.getDirector().remove(this);
+    }
+    public void removeScriptWriterMovie(Movie movie){
+    	this.movieScriptWriter.remove(movie);
+    	movie.getScriptWriter().remove(this);
+    }
+    
 }
