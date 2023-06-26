@@ -59,18 +59,14 @@ public class MovieService {
 	private PeopleRepo peopleRepo;
 
 	public Optional<List<MovieVO>> findAllMovies() {
-		return null;
-	}
+		return Optional.of(movieRepo.findAll().stream().map(MovieVO::form).toList());
+		}
 
 	public MovieVO movieDetail(int id) {
 		return movieRepo.findById(id).map(MovieVO::form).get();
 	}
 
-	// private Genres getGenres(String name){
-	// return genreRepo.findGenresByName(name).get();
-	//
-	// }
-	private Specification<List<Movie>> findWithGenre(
+	public Specification<List<Movie>> findWithGenre(
 			Optional<Integer> genre) {
 		if (genre.filter(a -> a > 0).isPresent()) {
 			return (root, query, cb) -> cb.equal(root.get("genres").get("id"),
@@ -120,26 +116,26 @@ public class MovieService {
 		return Specification.where(null);
 		}
 
-	public Optional<MovieListVo> search(Optional<Integer> genres,Optional<String> keyword,
+	public Optional<List<MovieListVo>> search(Optional<Integer> genres,Optional<String> keyword,
 			Optional<String> casts,Optional<String> director,Optional<String> scriptWriter) {
 		Specification specification = findWithGenre(genres)
 									.and(findWithKeywod(keyword))
 									.and(findWithCast(casts))
 									.and(findWithDirector(director))
-									.and(findWithScriptWriter(scriptWriter));		
-		List<Movie> m= movieRepo.findAll(specification);
+									.and(findWithScriptWriter(scriptWriter));	
+		System.out.println(genres+ " ");
+		 List<MovieListVo> m= movieRepo.findAll(specification);
 		
-		return null;	}
+		return Optional.of(m);
+		}
 
 //	@PreAuthorize("hasAuthority('User')")
 	public Optional<List<ReadReviewVO>> readReview(int mvId) {
-		// TODO implement here
 		return null;
 	}
 
 //	@PreAuthorize("hasAuthority('User')")
 	public String giveReview(GiveReviewDto review) {
-		// TODO implement here
 		return "";
 	}
 
@@ -158,22 +154,25 @@ public class MovieService {
 
 //	@PreAuthorize("hasAuthority('User')")
 	public String bookMark(int uId, int mId) {
-		// TODO implement here
 		return "";
 	}
 
 //	@PreAuthorize("hasAuthority('User')")
 	public Optional<List<MovieVO>> watchedHistory(int uid) {
-		// TODO implement here
 		return null;
 	}
+	
+//	public List<MovieListVo> findAll(){
+//		return movieRepo.findAll().stream().map(MovieListVo::form).toList();
+//	}
 
 	@Transactional
 //	@PreAuthorize("hasAuthority('Uploader')")
-	public MovieListVo uploadMovie(MovieForm movie) {
+	public MovieListVo uploadMovie(MovieForm movie,int id) {
 
-		// var uploader = uploaderRepo.findUploaderByEmail(
-		// SecurityContextHolder.getContext().getAuthentication().getName()).orElseThrow(EntityNotFoundException::new);
+//		 var uploader = uploaderRepo.findUploaderByEmail(
+//		 SecurityContextHolder.getContext().getAuthentication().getName()).orElseThrow(EntityNotFoundException::new);
+		var uploader = uploaderRepo.findById(id).get();
 		var upMovie = new Movie();
 		upMovie.setTitle(movie.getTitle());
 		upMovie.setDescription(movie.getDescription());
@@ -182,7 +181,7 @@ public class MovieService {
 		upMovie.setUploadedDate(LocalDate.now());
 		upMovie.setPremiumVC(0);
 		upMovie.setMovieLength(movie.getMovieLength());
-
+		upMovie.setUploader(uploader);
 		/*
 		 * try { upMovie.setPoster(movie.getPoster().getBytes()); }catch
 		 * (Exception e){ }
@@ -321,4 +320,8 @@ public class MovieService {
 		return "Succuessfully delete";
 	}
 
+	public Optional<List<MovieListVo>> showHistory(int id){
+		return Optional.of( movieRepo.findAll().stream().filter(m -> m.getUploader().getId() == id)
+				.map(mv -> MovieListVo.form(mv)).toList());
+	}
 }

@@ -44,12 +44,15 @@ public class SecurityConfig {
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		
-		http.authorizeHttpRequests(config -> {
-			config.requestMatchers("/public/**").permitAll();
-			config.requestMatchers("/admin/**").hasAnyAuthority("ADMIN", "USER", "UPLOADER");
-			config.requestMatchers("/uploader/**").hasAnyAuthority("UPLOADER", "USER");
-			config.requestMatchers("/user/**").hasAnyAuthority("ADMIN", "USER");
-			config.anyRequest().denyAll();
+//		http.authorizeHttpRequests(config -> {
+//			config.requestMatchers("/public/**").permitAll();
+//			config.requestMatchers("/admin/**").hasAnyAuthority("ADMIN", "USER", "UPLOADER");
+//			config.requestMatchers("/uploader/**").hasAnyAuthority("UPLOADER", "USER");
+//			config.requestMatchers("/user/**").hasAnyAuthority("ADMIN", "USER");
+//			config.anyRequest().denyAll();
+//		});
+		http.authorizeHttpRequests(c -> {
+			c.anyRequest().permitAll();
 		});
 		
 		http.csrf(config -> config.disable());

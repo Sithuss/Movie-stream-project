@@ -3,12 +3,9 @@ package com.streaming.team3.api.user;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
 import org.springframework.web.bind.annotation.GetMapping;
-=======
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
->>>>>>> 911a16f (buy)
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,9 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.streaming.team3.domain.dto.ApiResult;
 import com.streaming.team3.domain.dto.BuyPackageDto;
 import com.streaming.team3.domain.dto.VO.BuyPackageResponseVO;
-import com.streaming.team3.domain.entity.Movie;
-import com.streaming.team3.domain.entity.MovieLink;
-import com.streaming.team3.domain.repo.MovieLinkRepo;
 import com.streaming.team3.domain.repo.MovieRepo;
 import com.streaming.team3.domain.service.GenreService;
 import com.streaming.team3.domain.service.MovieService;
@@ -36,19 +30,9 @@ public class UserMoveiApi {
     @Autowired
     private MovieRepo movieRepo;
 
-<<<<<<< HEAD
     @GetMapping("/watch")
     public ApiResult watchMovie(@RequestParam("id") int movieId) {
         return ApiResult.success(movieService.watchMovie(movieId));
-=======
-    /**
-     * @param movieId 
-     * @return
-     */
-    public ApiResult watchMovie(Integer movieId) {
-    	
-		return null;
->>>>>>> d9934aa (package)
     }
 
     /**
@@ -60,15 +44,6 @@ public class UserMoveiApi {
         // TODO implement here
         return null;
     }
-
-    /**
-     * @param amount 
-     * @param userId 
-     * @param paymentMethod 
-     * @param transactionNo 
-     * @return
-     */
-    
     @PostMapping("/buy")
     public ApiResult buyPackage(@RequestBody BuyPackageDto buyPackageDto) {
         String purchase = movieService.buyPackage(buyPackageDto);
@@ -111,5 +86,14 @@ public class UserMoveiApi {
         // TODO implement here
         return null;
     }
-
+@PostMapping("/search")
+    public ApiResult search(
+    		@RequestParam Optional<Integer> genres, 
+    		@RequestParam Optional<String> keyword,
+    		@RequestParam Optional<String> casts,
+    		@RequestParam Optional<String> director, 
+    		@RequestParam Optional<String> scriptWriter){
+    	var res = movieService.search(genres, keyword, casts, director, scriptWriter);
+    	return ApiResult.success(res);
+    }
 }
