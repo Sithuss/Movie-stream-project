@@ -23,8 +23,8 @@ public class UploaderMovieApi {
 
 	
 	@PostMapping("/upload")
-    public ApiResult uploadMovie(@RequestBody MovieForm form) {
-        return ApiResult.success(movieService.uploadMovie(form));
+    public ApiResult uploadMovie(@RequestBody MovieForm form, @RequestParam int id) {
+        return ApiResult.success(movieService.uploadMovie(form,id));
     }
 	
 	@GetMapping("/search")
@@ -37,8 +37,9 @@ public class UploaderMovieApi {
 		return "hello"+ name ;
 	}
 
-    public ApiResult movieUploadHistory(int uid) {
-        return null;
+	@GetMapping("/history")
+    public ApiResult movieUploadHistory(@RequestParam("id") int uid) {
+        return ApiResult.success(movieService.showHistory(uid));
     }
 
     @PutMapping("/edit")
