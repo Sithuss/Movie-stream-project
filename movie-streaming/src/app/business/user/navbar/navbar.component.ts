@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SecurityService } from 'src/app/service/apis/security/security.service';
 import { UserMovieService } from 'src/app/service/apis/user.movie.service';
 import { UserService } from 'src/app/service/user.service';
 
@@ -40,6 +41,7 @@ export class NavbarComponent implements OnInit{
   constructor(
     private router:Router,
     public userService:UserService,
+    public security: SecurityService,
     private movieService:UserMovieService,
     private fb:FormBuilder) {
 

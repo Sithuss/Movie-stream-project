@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,6 +19,7 @@ import com.streaming.team3.security.AppUserDetailsService;
 import com.streaming.team3.security.JwtTokenSecurityFilter;
 
 @Configuration
+@EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 	
 	@Autowired
@@ -44,6 +46,14 @@ public class SecurityConfig {
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		
+<<<<<<< HEAD
+		http.authorizeHttpRequests(config -> {
+			config.requestMatchers("/public/**").permitAll();
+			config.requestMatchers("/admin/**").hasAnyAuthority("ADMIN", "USER", "UPLOADER");
+			config.requestMatchers("/uploader/**").hasAnyAuthority("UPLOADER", "USER", "ADMIN");
+			config.requestMatchers("/user/**").hasAnyAuthority("ADMIN", "USER", "UPLOADER");
+			config.anyRequest().denyAll();
+=======
 //		http.authorizeHttpRequests(config -> {
 //			config.requestMatchers("/public/**").permitAll();
 //			config.requestMatchers("/admin/**").hasAnyAuthority("ADMIN", "USER", "UPLOADER");
@@ -53,6 +63,7 @@ public class SecurityConfig {
 //		});
 		http.authorizeHttpRequests(c -> {
 			c.anyRequest().permitAll();
+>>>>>>> 2e4e00cf15e8cb26bfdb49a3b30d6c0c0b0e497b
 		});
 		
 		http.csrf(config -> config.disable());

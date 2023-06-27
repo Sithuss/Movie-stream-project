@@ -63,7 +63,7 @@ public class SecurityService {
 
     @Transactional(readOnly = true)
     public Optional<LoginUserVO> signIn(String email) {
-        return repo.findOneByEmail(email).map(LoginUserVO::from);
+        return repo.findOneByEmail(email).map(LoginUserVO::form);
     }
 
 }

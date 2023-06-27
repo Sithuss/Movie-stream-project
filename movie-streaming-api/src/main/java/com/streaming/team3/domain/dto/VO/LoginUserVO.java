@@ -21,7 +21,7 @@ public class LoginUserVO {
 
     private Role role;
     
-    public static LoginUserVO from(Account entity) {
+    public static LoginUserVO form(Account entity) {
     	return new LoginUserVO(entity.getId(), entity.getName(), entity.getEmail(), entity.getRole());
     }
 
