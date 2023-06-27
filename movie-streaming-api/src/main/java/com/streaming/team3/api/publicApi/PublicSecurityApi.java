@@ -31,7 +31,7 @@ public class PublicSecurityApi {
 	@Autowired
 	private AuthenticationManager authenticationManager;
     
-	@PostMapping("/security/signIn")
+	@PostMapping("/security/logIn")
     public ApiResult<LoginUserVO> signIn(@RequestBody @Validated SignInForm form, BindingResult result) {
         
     	var authentication = authenticationManager.authenticate(form.authentication());
@@ -45,6 +45,7 @@ public class PublicSecurityApi {
     @PostMapping("/security/register/user")
     public ApiResult<String> userSignUp(@RequestBody @Validated UserSignUpForm form, BindingResult result) {
         securityService.create(form);
+        System.out.println(form);
         return ApiResult.success("new user account registred");
     }
     
@@ -59,6 +60,6 @@ public class PublicSecurityApi {
     	securityService.create(form);
         return ApiResult.success("new admin account registred");
     }
-
+    
 
 }

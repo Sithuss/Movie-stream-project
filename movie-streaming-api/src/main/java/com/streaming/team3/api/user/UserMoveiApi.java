@@ -3,12 +3,9 @@ package com.streaming.team3.api.user;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
 import org.springframework.web.bind.annotation.GetMapping;
-=======
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
->>>>>>> 911a16f (buy)
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,11 +33,10 @@ public class UserMoveiApi {
     @Autowired
     private MovieRepo movieRepo;
 
-<<<<<<< HEAD
     @GetMapping("/watch")
     public ApiResult watchMovie(@RequestParam("id") int movieId) {
         return ApiResult.success(movieService.watchMovie(movieId));
-=======
+    }
     /**
      * @param movieId 
      * @return
@@ -48,7 +44,6 @@ public class UserMoveiApi {
     public ApiResult watchMovie(Integer movieId) {
     	
 		return null;
->>>>>>> d9934aa (package)
     }
 
     /**

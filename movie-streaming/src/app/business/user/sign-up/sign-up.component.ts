@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { SecurityService } from 'src/app/service/apis/security.service';
+import { SecurityService } from 'src/app/service/apis/security/security.service';
 import { Payment } from 'src/app/service/dto/payment';
 import { PaymentService } from 'src/app/service/payment.service';
 import { UserService } from 'src/app/service/user.service';
@@ -30,7 +30,7 @@ export class SignUpComponent {
 
 
   constructor(private fb:FormBuilder, private router:Router,
-    private userRegister: SecurityService,
+    private security: SecurityService,
     private userService:UserService, public paymentService:PaymentService) {
 
     this.signupForm = fb.group({
@@ -66,7 +66,7 @@ export class SignUpComponent {
 
       this.signupForm.get('role')?.setValue('uploader');
 
-      this.userRegister.registerUploader(this.signupForm.value).subscribe(
+      this.security.uploaderSignUp(this.signupForm.value).subscribe(
         {
           next : (data) => console.log(data),
           error: (err) => this.errorMessage = 'Username already existed',
@@ -78,7 +78,7 @@ export class SignUpComponent {
     if(this.admin) {
       this.signupForm.get('role')?.setValue('admin');
 
-      this.userRegister.addAdmin(this.signupForm.value).subscribe(
+      this.security.addAdmin(this.signupForm.value).subscribe(
         {
           next : (data) => console.log(data),
           error: (err) => this.errorMessage = 'Username already existed',
@@ -88,7 +88,7 @@ export class SignUpComponent {
     }
 
     else {
-      this.userRegister.registerUser(this.signupForm.value).subscribe(
+      this.security.userSignUp(this.signupForm.value).subscribe(
         {
           next : (data) => console.log(data),
           error: (err) => this.errorMessage = 'Username already existed',

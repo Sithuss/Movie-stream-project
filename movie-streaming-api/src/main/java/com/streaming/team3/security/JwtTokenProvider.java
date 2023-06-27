@@ -1,13 +1,11 @@
 package com.streaming.team3.security;
 
-import java.awt.RenderingHints.Key;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.crypto.SecretKey;
-import javax.swing.JComboBox.KeySelectionManager;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -44,7 +42,7 @@ public class JwtTokenProvider {
 				var authorities = AuthorityUtils.createAuthorityList(
 						jws.getBody().get(authorityKey).toString().split(","));
 				
-				System.out.println("+++++++++++++++++++++++ " + key);
+//				System.out.println("+++++++++++++++++++++++ " + key);
 				return new UsernamePasswordAuthenticationToken(username, null, authorities);
 			} catch (Exception e) {
 				// Do noting

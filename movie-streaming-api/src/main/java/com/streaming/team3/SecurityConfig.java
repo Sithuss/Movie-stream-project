@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,6 +19,7 @@ import com.streaming.team3.security.AppUserDetailsService;
 import com.streaming.team3.security.JwtTokenSecurityFilter;
 
 @Configuration
+@EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 	
 	@Autowired
@@ -47,8 +49,8 @@ public class SecurityConfig {
 		http.authorizeHttpRequests(config -> {
 			config.requestMatchers("/public/**").permitAll();
 			config.requestMatchers("/admin/**").hasAnyAuthority("ADMIN", "USER", "UPLOADER");
-			config.requestMatchers("/uploader/**").hasAnyAuthority("UPLOADER", "USER");
-			config.requestMatchers("/user/**").hasAnyAuthority("ADMIN", "USER");
+			config.requestMatchers("/uploader/**").hasAnyAuthority("UPLOADER", "USER", "ADMIN");
+			config.requestMatchers("/user/**").hasAnyAuthority("ADMIN", "USER", "UPLOADER");
 			config.anyRequest().denyAll();
 		});
 		
