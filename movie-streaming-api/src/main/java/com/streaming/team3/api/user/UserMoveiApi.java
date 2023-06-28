@@ -3,9 +3,18 @@ package com.streaming.team3.api.user;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+=======
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+>>>>>>> 4e55887 (save)
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,6 +36,7 @@ public class UserMoveiApi {
 	@Autowired
 	private GenreService genreService;
 
+<<<<<<< HEAD
 	@Autowired
 	private MovieRepo movieRepo;
 
@@ -41,6 +51,17 @@ public class UserMoveiApi {
 	@PostMapping("/buy")
 	public ApiResult buyPackage(@RequestBody BuyPackageDto buyPackageDto) {
 		String purchase = movieService.buyPackage(buyPackageDto);
+=======
+    /**
+     * @param movieId 
+     * @return
+     */
+    @GetMapping("/watch")
+    public ApiResult watchMovie(@RequestParam("id") int movieId) {
+        return ApiResult.success(movieService.watchMovie(movieId));}
+    
+    
+>>>>>>> 4e55887 (save)
 
 		int packageCount = buyPackageDto.getPackageCount();
 		int totalCost = packageCount * 10;
