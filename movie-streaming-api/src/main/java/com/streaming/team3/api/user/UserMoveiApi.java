@@ -38,10 +38,10 @@ public class UserMoveiApi {
 	public ApiResult giveReview(Integer movieId, Integer userId) {
 		return null;
 	}
+	
 	@PostMapping("/buy")
 	public ApiResult buyPackage(@RequestBody BuyPackageDto buyPackageDto) {
 		String purchase = movieService.buyPackage(buyPackageDto);
-
 		int packageCount = buyPackageDto.getPackageCount();
 		int totalCost = packageCount * 10;
 
@@ -51,6 +51,7 @@ public class UserMoveiApi {
 
 		return ApiResult.success(response);
 	}
+
 
 	public ApiResult listBookMark(Integer userId, Integer movieId) {
 		return null;
