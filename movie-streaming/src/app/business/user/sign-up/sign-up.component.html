@@ -22,8 +22,8 @@
 
           <div *ngIf="uploader">
 
-            <app-form-group [valid]="signupForm.get('compName')!.valid" label="Company Name">
-              <input formControlName="compName" type="text" class="form-control" placeholder="Company Name">
+            <app-form-group [valid]="signupForm.get('companyName')!.valid" label="Company Name">
+              <input formControlName="companyName" type="text" class="form-control" placeholder="Company Name">
             </app-form-group>
 
             <app-form-group [valid]="signupForm.get('paymentMethod')!.valid" label="Payment option">
@@ -32,8 +32,8 @@
               </select>
             </app-form-group>
 
-            <app-form-group [valid]="signupForm.get('transaction')!.valid" label="Transaction Number">
-              <input formControlName="transaction" type="tel" class="form-control" placeholder="Transaction Number">
+            <app-form-group [valid]="signupForm.get('transactionNumber')!.valid" label="Transaction Number">
+              <input formControlName="transactionNumber" type="tel" class="form-control" placeholder="Transaction Number">
             </app-form-group>
 
           </div>

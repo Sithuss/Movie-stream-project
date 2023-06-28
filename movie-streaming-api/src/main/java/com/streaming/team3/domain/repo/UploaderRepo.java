@@ -9,5 +9,5 @@ import java.util.Optional;
 public interface UploaderRepo extends JpaRepositoryImplementation<Uploader, Integer> {
 
 
-    public Optional<Uploader> findUploaderByEmail(String email);
+    public Optional<Uploader> findOneByEmail(String email);
 }

@@ -45,13 +45,14 @@ public class PublicSecurityApi {
     @PostMapping("/security/register/user")
     public ApiResult<String> userSignUp(@RequestBody @Validated UserSignUpForm form, BindingResult result) {
         securityService.create(form);
-        System.out.println(form);
+        
         return ApiResult.success("new user account registred");
     }
     
     @PostMapping("/security/register/uploader")
     public ApiResult<String> uploaderSignUp(@RequestBody @Validated UploaderSignUpForm form, BindingResult result) {
-    	securityService.create(form);
+    	System.out.println(form);
+    	securityService.createUploader(form);
         return ApiResult.success("new uploader account registred");
     }
     

@@ -11,6 +11,8 @@ import com.streaming.team3.domain.dto.VO.UploaderAccountVO;
 import com.streaming.team3.domain.dto.VO.UserAccountVO;
 import com.streaming.team3.domain.dto.form.UploaderAccountEditForm;
 import com.streaming.team3.domain.dto.form.UserEditForm;
+import com.streaming.team3.domain.entity.Account;
+import com.streaming.team3.domain.entity.Role;
 import com.streaming.team3.domain.repo.AccountRepo;
 import com.streaming.team3.domain.repo.UploaderRepo;
 import com.streaming.team3.domain.repo.UserRepo;
@@ -74,6 +76,16 @@ public class AccountService {
     public Optional<String> removeUserAccount(int uid) {
         // TODO implement here
         return null;
+    }
+    
+    public Optional<UserAccountVO> getUserInfo(String email) {
+    	System.out.println(userRepo.findOneByEmail(email));
+    	return userRepo.findOneByEmail(email).map(UserAccountVO::form);
+    }
+    
+    public Optional<UploaderAccountVO> getUploaderInfo(String email) {
+    	
+    	return uploaderRepo.findOneByEmail(email).map(UploaderAccountVO::form);
     }
     
     public UploaderAccountVO findUpAcc(int id){

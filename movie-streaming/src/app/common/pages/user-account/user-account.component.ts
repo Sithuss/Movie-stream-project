@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProfileService } from 'src/app/service/apis/profile.service';
+import { SecurityService } from 'src/app/service/apis/security/security.service';
+import { UserAccountService } from 'src/app/service/apis/user-account.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -16,16 +18,27 @@ export class UserAccountComponent implements OnInit {
 
   @Input()
   email?:string
-   
+
   user:any
 
-  
+
+  constructor(private userService:UserService,
+    private security: SecurityService,
+    private router:Router,private service:ProfileService,
+    private account: UserAccountService) {
+      if(this.security.role === "USER") {
+        console.log(this.security.loginUserMail)
+        this.account.userProfile().subscribe(data => console.log(data));
+      }
+      if (this.security.role === "UPLOADER") {
+        this.account.uploaderProfile().subscribe(data => this.user = data);
+        console.log(this.user)
+      }
+    }
 
 
-  constructor(private userService:UserService, private router:Router,private service:ProfileService) {}
   ngOnInit(): void {
-    console.log(this.userService.validatedUser?.name);
-    console.log(this.userService.validatedUser);
+
   }
 
   public editAccount():void {
@@ -39,7 +52,7 @@ export class UserAccountComponent implements OnInit {
     }
 }
 
-history(){ 
+history(){
   this.router.navigate(['user/history'])
 
 }

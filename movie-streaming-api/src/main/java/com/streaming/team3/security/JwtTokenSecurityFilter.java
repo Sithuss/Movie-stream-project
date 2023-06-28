@@ -14,7 +14,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@Component
+//@Component
 public class JwtTokenSecurityFilter extends OncePerRequestFilter{
 	
 	@Value("com.streaming.team3.jwt.token")

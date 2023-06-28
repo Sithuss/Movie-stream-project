@@ -24,6 +24,7 @@ export class SecurityApiService {
   }
 
   registerUploader(user: any): Observable<any> {
+    console.log(user);
     return this.http.post(`${PUBLIC_DOMAIN}/register/uploader`, JSON.stringify(user), {
       headers: {
         'Content-type':'application/json;charset=UTF-8'

@@ -14,7 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-@RestControllerAdvice
+//@RestControllerAdvice
 public class JwtTokenAdvice implements ResponseBodyAdvice<Object>{
 	
 	@Value("com.streaming.team3.jwt.token")

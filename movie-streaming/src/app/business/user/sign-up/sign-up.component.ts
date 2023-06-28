@@ -38,9 +38,9 @@ export class SignUpComponent {
       email:['', [Validators.required, Validators.email]],
       password:['', [Validators.required]],
       // confirmPassword:['', [passwordMatchValidator()]],
-      compName:['', Validators.required],
+      companyName:['', Validators.required],
       paymentMethod:['', Validators.required],
-      transaction:['', [Validators.required]],
+      transactionNumber:['', [Validators.required]],
       role:['user']
     })
 
@@ -87,7 +87,7 @@ export class SignUpComponent {
       );
     }
 
-    else {
+    if(!this.uploader && !this.admin) {
       this.security.userSignUp(this.signupForm.value).subscribe(
         {
           next : (data) => console.log(data),

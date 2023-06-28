@@ -18,7 +18,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 
-@Component
+//@Component
 public class JwtTokenProvider {
 	
 	@Value("com.streaming.team3")

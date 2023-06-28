@@ -22,8 +22,8 @@ import com.streaming.team3.security.JwtTokenSecurityFilter;
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 	
-	@Autowired
-	private JwtTokenSecurityFilter jwtTokenSecurityFilter;
+//	@Autowired
+//	private JwtTokenSecurityFilter jwtTokenSecurityFilter;
 	
 	@Bean
 	PasswordEncoder passwordEncoder() {
@@ -46,31 +46,20 @@ public class SecurityConfig {
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		
-<<<<<<< HEAD
 		http.authorizeHttpRequests(config -> {
 			config.requestMatchers("/public/**").permitAll();
 			config.requestMatchers("/admin/**").hasAnyAuthority("ADMIN", "USER", "UPLOADER");
 			config.requestMatchers("/uploader/**").hasAnyAuthority("UPLOADER", "USER", "ADMIN");
 			config.requestMatchers("/user/**").hasAnyAuthority("ADMIN", "USER", "UPLOADER");
 			config.anyRequest().denyAll();
-=======
-//		http.authorizeHttpRequests(config -> {
-//			config.requestMatchers("/public/**").permitAll();
-//			config.requestMatchers("/admin/**").hasAnyAuthority("ADMIN", "USER", "UPLOADER");
-//			config.requestMatchers("/uploader/**").hasAnyAuthority("UPLOADER", "USER");
-//			config.requestMatchers("/user/**").hasAnyAuthority("ADMIN", "USER");
-//			config.anyRequest().denyAll();
-//		});
-		http.authorizeHttpRequests(c -> {
-			c.anyRequest().permitAll();
->>>>>>> 2e4e00cf15e8cb26bfdb49a3b30d6c0c0b0e497b
+
 		});
 		
 		http.csrf(config -> config.disable());
 		
 		http.sessionManagement(config -> config.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 		
-		http.addFilterBefore(jwtTokenSecurityFilter, UsernamePasswordAuthenticationFilter.class);
+//		http.addFilterBefore(jwtTokenSecurityFilter, UsernamePasswordAuthenticationFilter.class);
 		return http.build();
     }
 
