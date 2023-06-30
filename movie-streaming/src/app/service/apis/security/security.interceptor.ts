@@ -4,27 +4,27 @@ import { Observable, tap } from "rxjs";
 import { SecurityService } from "./security.service";
 import { environment } from "src/app/environments/environment";
 
-// @Injectable()
-// export class SecurityInterceptor implements HttpInterceptor {
+@Injectable()
+export class SecurityInterceptor implements HttpInterceptor {
 
-//   constructor(private security: SecurityService) {
+  constructor(private security: SecurityService) {
 
-//   }
+  }
 
-//   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-//     let clone = req;
-//     if(this.security.jwtToken) {
-//       clone = req.clone({
-//         headers: req.headers.append(environment.jwtTokenName, this.security.jwtToken)
-//       })
-//     }
+    let clone = req;
+    if(this.security.jwtToken) {
+      clone = req.clone({
+        headers: req.headers.append(environment.jwtTokenName, this.security.jwtToken)
+      })
+    }
 
-//     return next.handle(clone).pipe(tap(event => {
-//       if (event instanceof HttpResponse) {
-//         this.security.jwtToken = event.headers.get(environment.jwtTokenName)
-//       }
-//     }))
-//   }
+    return next.handle(clone).pipe(tap(event => {
+      if (event instanceof HttpResponse) {
+        this.security.jwtToken = event.headers.get(environment.jwtTokenName)
+      }
+    }))
+  }
 
-// }
+}

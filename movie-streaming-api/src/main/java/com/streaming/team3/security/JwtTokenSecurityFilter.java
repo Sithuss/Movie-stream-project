@@ -29,8 +29,6 @@ public class JwtTokenSecurityFilter extends OncePerRequestFilter{
 		
 		var token = Optional.ofNullable(request.getHeader(tokenName));
 		
-//		System.out.println("=========================== " + tokenName);
-		
 		tokenProvider.authenticate(token).ifPresent(Authentication -> {
 			
 			SecurityContextHolder.getContext().setAuthentication(Authentication);

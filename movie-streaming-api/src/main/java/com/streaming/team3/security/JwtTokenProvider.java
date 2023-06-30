@@ -42,7 +42,6 @@ public class JwtTokenProvider {
 				var authorities = AuthorityUtils.createAuthorityList(
 						jws.getBody().get(authorityKey).toString().split(","));
 				
-//				System.out.println("+++++++++++++++++++++++ " + key);
 				return new UsernamePasswordAuthenticationToken(username, null, authorities);
 			} catch (Exception e) {
 				// Do noting

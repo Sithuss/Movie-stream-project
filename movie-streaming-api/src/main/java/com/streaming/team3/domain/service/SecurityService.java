@@ -49,10 +49,10 @@ public class SecurityService {
     }
 
     
-    public Account create(UploaderSignUpForm uploaderSignUpForm) {
+    public Uploader createUploader(UploaderSignUpForm uploaderSignUpForm) {
         var entity = uploaderSignUpForm.entity();
         entity.setPassword(passwordEncoder.encode(uploaderSignUpForm.getPassword()));
-        return repo.save(entity);
+        return uploaderRepo.save(entity);
     }
 
     public Account create(AddAdminForm addAdminForm) {
