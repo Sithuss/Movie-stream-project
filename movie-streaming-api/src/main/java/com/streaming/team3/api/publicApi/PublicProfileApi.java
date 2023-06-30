@@ -25,7 +25,6 @@ public class PublicProfileApi {
 	
 	@GetMapping("/userProfile")
 	public ApiResult<UserAccountVO> getAccountInfo(@RequestParam("email") String email) {
-		System.out.println(email);
 		return accountService.getUserInfo(email).map(ApiResult::success).orElseThrow(EntityNotFoundException::new);
 	}
 	

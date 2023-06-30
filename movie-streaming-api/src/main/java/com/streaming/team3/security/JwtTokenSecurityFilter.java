@@ -14,7 +14,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-//@Component
+@Component
 public class JwtTokenSecurityFilter extends OncePerRequestFilter{
 	
 	@Value("com.streaming.team3.jwt.token")
@@ -28,8 +28,6 @@ public class JwtTokenSecurityFilter extends OncePerRequestFilter{
 			throws ServletException, IOException {
 		
 		var token = Optional.ofNullable(request.getHeader(tokenName));
-		
-//		System.out.println("=========================== " + tokenName);
 		
 		tokenProvider.authenticate(token).ifPresent(Authentication -> {
 			

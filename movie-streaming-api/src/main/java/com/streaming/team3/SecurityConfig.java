@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -22,8 +23,8 @@ import com.streaming.team3.security.JwtTokenSecurityFilter;
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 	
-//	@Autowired
-//	private JwtTokenSecurityFilter jwtTokenSecurityFilter;
+	@Autowired
+	private JwtTokenSecurityFilter jwtTokenSecurityFilter;
 	
 	@Bean
 	PasswordEncoder passwordEncoder() {
@@ -46,6 +47,9 @@ public class SecurityConfig {
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		
+		http.cors(Customizer.withDefaults());
+		http.csrf(config -> config.disable());
+		
 		http.authorizeHttpRequests(config -> {
 			config.requestMatchers("/public/**").permitAll();
 			config.requestMatchers("/admin/**").hasAnyAuthority("ADMIN", "USER", "UPLOADER");
@@ -55,11 +59,10 @@ public class SecurityConfig {
 
 		});
 		
-		http.csrf(config -> config.disable());
 		
 		http.sessionManagement(config -> config.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 		
-//		http.addFilterBefore(jwtTokenSecurityFilter, UsernamePasswordAuthenticationFilter.class);
+		http.addFilterBefore(jwtTokenSecurityFilter, UsernamePasswordAuthenticationFilter.class);
 		return http.build();
     }
 

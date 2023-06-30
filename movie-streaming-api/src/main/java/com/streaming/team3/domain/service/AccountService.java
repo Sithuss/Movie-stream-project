@@ -79,7 +79,6 @@ public class AccountService {
     }
     
     public Optional<UserAccountVO> getUserInfo(String email) {
-    	System.out.println(userRepo.findOneByEmail(email));
     	return userRepo.findOneByEmail(email).map(UserAccountVO::form);
     }
     

@@ -4,14 +4,16 @@ import { Router } from '@angular/router';
 import { ProfileService } from 'src/app/service/apis/profile.service';
 import { SecurityService } from 'src/app/service/apis/security/security.service';
 import { UserAccountService } from 'src/app/service/apis/user-account.service';
+import { UserProfile } from 'src/app/service/dto/user.profile';
 import { UserService } from 'src/app/service/user.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-user-account',
   templateUrl: './user-account.component.html',
   styleUrls: ['./user-account.component.css']
 })
-export class UserAccountComponent implements OnInit {
+export class UserAccountComponent {
 
 
   profile:any
@@ -19,27 +21,25 @@ export class UserAccountComponent implements OnInit {
   @Input()
   email?:string
 
-  user:any
-
+  user?:UserProfile
 
   constructor(private userService:UserService,
     private security: SecurityService,
     private router:Router,private service:ProfileService,
     private account: UserAccountService) {
       if(this.security.role === "USER") {
-        console.log(this.security.loginUserMail)
-        this.account.userProfile().subscribe(data => console.log(data));
+        this.account.userProfile().subscribe(apiResult => {
+          this.user = apiResult.result
+        });
       }
       if (this.security.role === "UPLOADER") {
-        this.account.uploaderProfile().subscribe(data => this.user = data);
-        console.log(this.user)
+        this.account.uploaderProfile().subscribe(apiResult => {
+          this.user = apiResult.result
+        });
       }
     }
 
 
-  ngOnInit(): void {
-
-  }
 
   public editAccount():void {
     this.router.navigate(['user/edit-acc'])

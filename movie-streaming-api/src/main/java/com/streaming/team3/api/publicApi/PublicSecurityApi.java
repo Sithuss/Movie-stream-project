@@ -51,7 +51,7 @@ public class PublicSecurityApi {
     
     @PostMapping("/security/register/uploader")
     public ApiResult<String> uploaderSignUp(@RequestBody @Validated UploaderSignUpForm form, BindingResult result) {
-    	System.out.println(form);
+
     	securityService.createUploader(form);
         return ApiResult.success("new uploader account registred");
     }

@@ -18,7 +18,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 
-//@Component
+@Component
 public class JwtTokenProvider {
 	
 	@Value("com.streaming.team3")
@@ -42,7 +42,6 @@ public class JwtTokenProvider {
 				var authorities = AuthorityUtils.createAuthorityList(
 						jws.getBody().get(authorityKey).toString().split(","));
 				
-//				System.out.println("+++++++++++++++++++++++ " + key);
 				return new UsernamePasswordAuthenticationToken(username, null, authorities);
 			} catch (Exception e) {
 				// Do noting
